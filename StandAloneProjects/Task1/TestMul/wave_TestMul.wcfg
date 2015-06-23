@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/FPGA/Internship Jobs/Codes/Task1/TestIPCoreGenerator/TestMul/tb_AdderSubMul_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="bip_dsp48_macro_pkg_v2_1" />
+            <top_module name="bip_usecase_utils_pkg_v2_0" />
+            <top_module name="bip_utils_pkg_v2_0" />
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_signed" />
+            <top_module name="tb_addersubmul" />
+            <top_module name="textio" />
+            <top_module name="xbip_pipe_v2_0_comp" />
+            <top_module name="xbip_pipe_v2_0_xst_comp" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="13" />
+   <wvobject fp_name="/tb_addersubmul/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_addersubmul/sel" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">sel[2:0]</obj_property>
+      <obj_property name="ObjectShortName">sel[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_addersubmul/a" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">a[17:0]</obj_property>
+      <obj_property name="ObjectShortName">a[17:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_addersubmul/b" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">b[17:0]</obj_property>
+      <obj_property name="ObjectShortName">b[17:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_addersubmul/c" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">c[47:0]</obj_property>
+      <obj_property name="ObjectShortName">c[47:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_addersubmul/a_r" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">a_r</obj_property>
+      <obj_property name="ObjectShortName">a_r</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_addersubmul/b_r" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">b_r</obj_property>
+      <obj_property name="ObjectShortName">b_r</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_addersubmul/c_r" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">c_r</obj_property>
+      <obj_property name="ObjectShortName">c_r</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_addersubmul/debug_out1" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">debug_out1</obj_property>
+      <obj_property name="ObjectShortName">debug_out1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_addersubmul/debug_out2" type="other" db_ref_id="1">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">debug_out2</obj_property>
+      <obj_property name="ObjectShortName">debug_out2</obj_property>
+      <obj_property name="label">debug_out2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_addersubmul/p" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">p[47:0]</obj_property>
+      <obj_property name="ObjectShortName">p[47:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_addersubmul/p_shifted" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">p_shifted[47:0]</obj_property>
+      <obj_property name="ObjectShortName">p_shifted[47:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_addersubmul/clk_period" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_period</obj_property>
+      <obj_property name="ObjectShortName">clk_period</obj_property>
+   </wvobject>
+</wave_config>
