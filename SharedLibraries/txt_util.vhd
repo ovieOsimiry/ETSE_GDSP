@@ -36,6 +36,8 @@ package txt_util is
 
     -- convert std_logic_vector into a string in hex format
     function hstr(slv: std_logic_vector) return string;
+    	
+    function str(real: real; decimal_digits: integer) return string;
 
 
     -- functions to manipulate strings
@@ -314,7 +316,16 @@ package body txt_util is
          end case;
        end loop;
        return hex(1 to hexlen);
-     end hstr;
+   end hstr;
+   
+ function str(real : real; decimal_digits : integer) return string is
+ 	variable v_l     : line;
+ 	variable v_value : string(1 to 10);
+ begin
+ 	write(v_l, real, Digits => decimal_digits);
+ 	read(v_l, v_value);
+ 	return v_value;
+ end function;
 
 
 

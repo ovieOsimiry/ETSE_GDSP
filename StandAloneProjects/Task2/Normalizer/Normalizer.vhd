@@ -33,7 +33,7 @@ entity Normalizer is
 	 generic(IntergerPart: integer:=1; FractionalPart: integer:=1);
     Port ( 
            Input : in  STD_LOGIC_VECTOR (47 downto 0);
-           Output : out  STD_LOGIC_VECTOR (17 downto 0);
+           Normalized_Output : out  STD_LOGIC_VECTOR (17 downto 0);
 		   Real_Out_47 : out real
 			  );
 end Normalizer;
@@ -60,7 +60,7 @@ begin
 
 s_output <= to_stdlogicvector(to_bitvector(input) sra FractionalPart);
 
-Output <= s_output(17 downto 0);
+Normalized_Output <= s_output(17 downto 0);
 
 Real_Out_47 <= real(to_integer(signed(s_output)))/2.0**(FractionalPart);
 

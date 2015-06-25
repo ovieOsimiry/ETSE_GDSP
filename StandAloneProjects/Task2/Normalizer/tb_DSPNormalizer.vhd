@@ -33,6 +33,8 @@ USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 use std.textio.all;
 
+use work.txt_util.all;
+
 ENTITY tb_DSPNormalizer IS
 END tb_DSPNormalizer;
 
@@ -50,21 +52,22 @@ ARCHITECTURE behavior OF tb_DSPNormalizer IS
 
 	--Outputs
 	signal p : std_logic_vector(47 downto 0);
-	type real_array is array (1 to 10) of real;
-
+	type real_array is array (1 to 1000) of real;
+	
 	-- Clock period definitions
 	constant clk_period     : time    := 10 ns;
-	constant FractionalPart : integer := 15;
+	constant FractionalPart : integer := 17;
+	signal Pre_Calculate_done: boolean:=false;
 	
-	signal Output           : STD_LOGIC_VECTOR(17 downto 0);
-	signal Real_Out_47         : real;
+	signal Normalized_Output           : STD_LOGIC_VECTOR(17 downto 0);
+	signal Real_Out_47      : real;
 	signal P_Trunc34        : real;
 	signal P_Normal         : real;
 
-	function Convert_Real_2_Std(r : real; Precision : real) return std_logic_vector is
+	function Convert_Real_2_Std(real_number : real; Precision : real) return std_logic_vector is
 		variable std : std_logic_vector(17 downto 0);
 	begin
-		std := STD_LOGIC_VECTOR(to_SIGNED(INTEGER(r * Precision), 18));
+		std := std_logic_vector(to_signed(integer(real_number * Precision), 18));
 		return std;
 	end;
 	
@@ -74,7 +77,7 @@ BEGIN
 		generic map(IntergerPart => 1, FractionalPart => FractionalPart)
 		Port map(
 			Input    => p,
-			Output   => Output,
+			Normalized_Output   => Normalized_Output,
 			Real_Out_47 => Real_Out_47
 		);
 
@@ -104,45 +107,118 @@ BEGIN
 
 	P_Normal <= real(to_integer(signed(p))) * 2.0 ** (-FractionalPart);
 	
-	Real_Out_18 <= real(to_integer(signed(output)))*2.0**(-FractionalPart);
+	Real_Out_18 <= real(to_integer(signed(Normalized_Output)))*2.0**(-FractionalPart);
 
 	a_r <= real(to_integer(signed(a))) / 2.0 ** FractionalPart;
 	b_r <= real(to_integer(signed(b))) / 2.0 ** FractionalPart;
 	c_r <= real(to_integer(signed(c))) / 2.0 ** FractionalPart;
 -------------------------------------------------------------------------------------------------
 
+
+Compare_Results: process
+variable v_Line: line;
+variable v_Array_of_Precalulated_values : real_array;
+variable v_Read_file : boolean:=true;
+variable v_DSP48_Normalized_value: real;
+variable v_i: integer:=0;
+file text_var : text;
+begin
+	
+	--wait until Pre_Calculate_done = true;
+	
+	wait on Normalized_Output until clk = '1' and Pre_Calculate_done = true;
+	
+	if v_Read_file = true then
+		file_open(text_var, "C:\FPGA\Internship Jobs\Codes\ETSE_GDSP\TestingFiles\Task2_Test_value_AB_result.txt", read_mode);
+		while (NOT ENDFILE(text_var)) loop
+				v_i := v_i + 1;
+				readline(text_var, v_Line); --read the current line.
+				--extract the real value from the read line and store it in the variable.
+				read(v_Line, v_Array_of_Precalulated_values(v_i));
+			end loop;
+			v_i := 0;
+		file_close(text_var);--close the file after reading.
+	end if;
+	
+	v_Read_file := false;
+	v_DSP48_Normalized_value := real(to_integer(signed(Normalized_Output)))*2.0**(-FractionalPart);
+	write(v_Line,v_DSP48_Normalized_value , Justified=> Left,digits=>6); -- truncate the real number to 6 decimal point useing the write function
+	read(v_line,v_DSP48_Normalized_value);-- read the truncated real number back into the variable "v_DSP48_Normalized_value"
+	
+	
+	assert v_DSP48_Normalized_value = v_Array_of_Precalulated_values(v_i + 1) --compare values
+	report "Failed for result: " & str(v_i+1) & ": Normalized_value = " & str(v_DSP48_Normalized_value, 10) & " and " 
+	& "Pre-calulated_value = " & str(v_Array_of_Precalulated_values(v_i + 1),10) 
+	severity note;
+	
+	v_i:=v_i + 1;
+--	write(v_Line,v_DSP48_Normalized_value , Justified=> Left,digits=>6);
+--	writeline(output, v_Line);
+end process;
+
 -- Stimulus process
 
 	stim_proc : process
-		variable l        : line;
-		variable line_var : line;
-		variable cnt, i   : integer := 0;
+		variable v_l        : line;
+		variable v_line_var : line;
+		variable v_cnt, v_i  : integer := 0;
+		variable v_a_temp, v_b_temp  :std_logic_vector(17 downto 0); 
+		variable v_ab_temp, v_ab_acc :std_logic_vector(35 downto 0):=(others => '0');
+		variable v_ab_temp_bv, v_ab_acc_bv: bit_vector(35 downto 0);
 		file text_var : text;
-		variable ArrayOfRealNum : real_array;
+		variable v_ArrayOfRealNum : real_array;
+		variable v_pre_calculate : boolean:=false;
 	begin
 
+---------------Read the values of A and B from File "Task2_Test_value_AB.txt" into an Array of Real numbers "ArrayOfRealNum"-------------------
 		--Open the file in read mode.
-		file_open(text_var, "C:\FPGA\Internship Jobs\Codes\ETSE_GDSP\TestingFiles\Task2_Test_value.txt", read_mode);
+		file_open(text_var, "C:\FPGA\Internship Jobs\Codes\ETSE_GDSP\TestingFiles\Task2_Test_value_AB.txt", read_mode);
 		--run the loop for as long as there are values to read real values from the file.
 		--make sure its not the end of file.
 		while (NOT ENDFILE(text_var)) loop
-			i := i + 1;
-			readline(text_var, line_var); --read the current line.
+			v_i := v_i + 1;
+			readline(text_var, v_line_var); --read the current line.
 			--extract the real value from the read line and store it in the variable.
-			read(line_var, ArrayOfRealNum(i));
-
+			read(v_line_var, v_ArrayOfRealNum(v_i));
+		end loop;	
+		v_cnt := 0;--reset counter back to 0
+		file_close(text_var);--close the file after reading.
+		
+---------------Pre calcualte the Product of A * B and save in file "Task2_Test_value_AB_result.txt"-------------------
+		
+		
+		
+		file_open(text_var, "C:\FPGA\Internship Jobs\Codes\ETSE_GDSP\TestingFiles\Task2_Test_value_AB_result.txt", write_mode);
+		for j in 1 to v_i/2 loop
+			v_pre_calculate := false;
+			v_a_temp := Convert_Real_2_Std(v_ArrayOfRealNum(j + v_cnt), 2.0 ** FractionalPart);			
+			v_cnt := v_cnt + 1;
+			v_b_temp := Convert_Real_2_Std(v_ArrayOfRealNum(j + v_cnt), 2.0 ** FractionalPart);
+			
+			v_ab_temp_bv := to_bitvector(std_logic_vector(to_signed((to_integer(signed(v_a_temp)) * to_integer(signed(v_b_temp))),36)));
+			v_ab_temp := to_stdlogicvector(v_ab_temp_bv);
+			v_ab_acc_bv := to_bitvector(std_logic_vector(to_signed(to_integer(signed(v_ab_temp)) + to_integer(signed(v_ab_acc)),36)));
+			v_ab_acc := to_stdlogicvector(v_ab_acc_bv);
+			write(v_l,real(to_integer(signed(to_stdlogicvector(v_ab_acc_bv sra FractionalPart)(17 downto 0))))/2.0**FractionalPart, Justified => Left, digits=>6);
+			writeline(text_var,v_l);		
 		end loop;
-		file_close(text_var);           --close the file after reading.
-
-		for i in 1 to 5 loop
-			a   <= Convert_Real_2_Std(ArrayOfRealNum(i + cnt), 2.0 ** FractionalPart);
-			cnt := cnt + 1;
-			b   <= Convert_Real_2_Std(ArrayOfRealNum(i + cnt), 2.0 ** FractionalPart);
+		
+		v_cnt := 0;--reset counter back to 0
+		file_close(text_var);--close the file after writing.
+		v_pre_calculate := true;
+		
+		Pre_Calculate_done <= v_pre_calculate;
+		
+-----------Send test inputs to A and B-------------------------------------------------------			
+		for j in 1 to v_i/2 loop
+			a   <= Convert_Real_2_Std(v_ArrayOfRealNum(j + v_cnt), 2.0 ** FractionalPart);
+			v_cnt := v_cnt + 1;
+			b   <= Convert_Real_2_Std(v_ArrayOfRealNum(j + v_cnt), 2.0 ** FractionalPart);
 			sel <= std_logic_vector(to_unsigned(5, 3));
-			if i = 5 then
+			if j = v_i/2 then
 				sel <= std_logic_vector(to_unsigned(2, 3));
-			end if;
-			wait for clk_period;
+			end if;		
+			wait for clk_period;			
 		end loop;
 		wait;
 
