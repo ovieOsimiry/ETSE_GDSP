@@ -1,0 +1,2 @@
+vhdl work "../../../IPCores/MulAdder/AdderSubMul.vhd"
+vhdl work "tb_AdderSubMul.vhd"

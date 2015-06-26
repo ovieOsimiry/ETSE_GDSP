@@ -1,0 +1,3 @@
+vhdl isim_temp "txt_util.vhd"
+vhdl isim_temp "../MulAdder/AdderSub.vhd"
+vhdl isim_temp "tb_dsp48_macro.vhd"

@@ -1,0 +1,28 @@
+Command line:
+   tb_DSPNormalizer_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  1666
+
+Thu Jun 25 15:35:28 2015
+
+
+ Elaboration Time: 0.171601 sec
+
+ Current Memory Usage: 846.266 Meg
+
+ Total Signals          : 950
+ Total Nets             : 4872
+ Total Signal Drivers   : 360
+ Total Blocks           : 219
+ Total Primitive Blocks : 82
+ Total Processes        : 359
+ Total Traceable Variables  : 1023
+ Total Scalar Nets and Variables : 10485
+
+ Total Simulation Time: 0.218402 sec
+
+ Current Memory Usage: 688.98 Meg
+
+Thu Jun 25 16:17:56 2015
+
