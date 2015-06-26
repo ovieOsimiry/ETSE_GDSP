@@ -1,0 +1,2 @@
+vhdl work "VARDELAYLINE.vhd"
+vhdl work "ipcore_dir/BRAM18x1k_synth.vhd"

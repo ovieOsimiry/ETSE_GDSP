@@ -1,0 +1,2 @@
+vhdl work "ipcore_dir/BRAM18x1k_synth.vhd"
+vhdl work "ADDR_GEN_FSM_v2.vhd"

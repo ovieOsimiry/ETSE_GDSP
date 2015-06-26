@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/Users/Taras/Documents/FPGA_current_work/BRAM_build/TB_MATRIXMULT_PCIN_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="bip_dsp48_macro_pkg_v2_1" />
+            <top_module name="bip_usecase_utils_pkg_v2_0" />
+            <top_module name="bip_utils_pkg_v2_0" />
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_signed" />
+            <top_module name="std_logic_textio" />
+            <top_module name="std_logic_unsigned" />
+            <top_module name="tb_matrixmult_pcin" />
+            <top_module name="textio" />
+            <top_module name="xbip_pipe_v2_0_comp" />
+            <top_module name="xbip_pipe_v2_0_xst_comp" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="14" />
+   <wvobject fp_name="group53" type="group">
+      <obj_property name="label">PRAM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_matrixmult_pcin/clk" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/mul_start" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">mul_start</obj_property>
+         <obj_property name="ObjectShortName">mul_start</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/oe" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">oe</obj_property>
+         <obj_property name="ObjectShortName">oe</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/we" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">we</obj_property>
+         <obj_property name="ObjectShortName">we</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/csel" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">csel[2:0]</obj_property>
+         <obj_property name="ObjectShortName">csel[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/addra" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">addra[9:0]</obj_property>
+         <obj_property name="ObjectShortName">addra[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/addrb" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">addrb[9:0]</obj_property>
+         <obj_property name="ObjectShortName">addrb[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/i_spdout" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">i_spdout[0:2]</obj_property>
+         <obj_property name="ObjectShortName">i_spdout[0:2]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group55" type="group">
+      <obj_property name="label">COL1</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/\block_a_mem_gen(0)\/MEMA/shft" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">shft</obj_property>
+         <obj_property name="ObjectShortName">shft</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/\block_a_mem_gen(0)\/MEMA/wea" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">wea</obj_property>
+         <obj_property name="ObjectShortName">wea</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/\block_a_mem_gen(0)\/MEMA/addra" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">addra[9:0]</obj_property>
+         <obj_property name="ObjectShortName">addra[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/\block_a_mem_gen(0)\/MEMA/dina" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">dina[17:0]</obj_property>
+         <obj_property name="ObjectShortName">dina[17:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/\block_a_mem_gen(0)\/MEMA/addrb" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">addrb[9:0]</obj_property>
+         <obj_property name="ObjectShortName">addrb[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/\block_a_mem_gen(0)\/MEMA/doutb" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">doutb[17:0]</obj_property>
+         <obj_property name="ObjectShortName">doutb[17:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group99" type="group">
+      <obj_property name="label">COL2</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/\block_a_mem_gen(1)\/MEMA/wea" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">wea</obj_property>
+         <obj_property name="ObjectShortName">wea</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/\block_a_mem_gen(1)\/MEMA/addra" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">addra[9:0]</obj_property>
+         <obj_property name="ObjectShortName">addra[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/\block_a_mem_gen(1)\/MEMA/dina" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">dina[17:0]</obj_property>
+         <obj_property name="ObjectShortName">dina[17:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/\block_a_mem_gen(1)\/MEMA/addrb" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">addrb[9:0]</obj_property>
+         <obj_property name="ObjectShortName">addrb[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/\block_a_mem_gen(1)\/MEMA/doutb" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">doutb[17:0]</obj_property>
+         <obj_property name="ObjectShortName">doutb[17:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group126" type="group">
+      <obj_property name="label">COL3</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/\block_a_mem_gen(2)\/MEMA/wea" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">wea</obj_property>
+         <obj_property name="ObjectShortName">wea</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/\block_a_mem_gen(2)\/MEMA/addra" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">addra[9:0]</obj_property>
+         <obj_property name="ObjectShortName">addra[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/\block_a_mem_gen(2)\/MEMA/dina" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">dina[17:0]</obj_property>
+         <obj_property name="ObjectShortName">dina[17:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/\block_a_mem_gen(2)\/MEMA/addrb" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">addrb[9:0]</obj_property>
+         <obj_property name="ObjectShortName">addrb[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/\block_a_mem_gen(2)\/MEMA/doutb" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">doutb[17:0]</obj_property>
+         <obj_property name="ObjectShortName">doutb[17:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_matrixmult_pcin/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/rstb" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rstb</obj_property>
+      <obj_property name="ObjectShortName">rstb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_matrixmult_pcin/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/addrb" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">addrb[9:0]</obj_property>
+      <obj_property name="ObjectShortName">addrb[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_matrixmult_pcin/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/doutb" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">doutb[17:0]</obj_property>
+      <obj_property name="ObjectShortName">doutb[17:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_matrixmult_pcin/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="group68" type="group">
+      <obj_property name="label">SR1</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/FIRST_SP/dsrc" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">dsrc</obj_property>
+         <obj_property name="ObjectShortName">dsrc</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/FIRST_SP/wein" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">wein</obj_property>
+         <obj_property name="ObjectShortName">wein</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/FIRST_SP/d_we" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">d_we[3:0]</obj_property>
+         <obj_property name="ObjectShortName">d_we[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/FIRST_SP/weout" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">weout</obj_property>
+         <obj_property name="ObjectShortName">weout</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/FIRST_SP/din" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">din[17:0]</obj_property>
+         <obj_property name="ObjectShortName">din[17:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/FIRST_SP/cin" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">cin[17:0]</obj_property>
+         <obj_property name="ObjectShortName">cin[17:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/FIRST_SP/dout" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">dout[17:0]</obj_property>
+         <obj_property name="ObjectShortName">dout[17:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group98" type="group">
+      <obj_property name="label">SR2</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/\scratchpad_gen(1)\/SP/din" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">din[17:0]</obj_property>
+         <obj_property name="ObjectShortName">din[17:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/\scratchpad_gen(1)\/SP/cin" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">cin[17:0]</obj_property>
+         <obj_property name="ObjectShortName">cin[17:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/\scratchpad_gen(1)\/SP/dout" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">dout[17:0]</obj_property>
+         <obj_property name="ObjectShortName">dout[17:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group66" type="group">
+      <obj_property name="label">ALU1</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/FIRST_DSP/sel" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">sel[2:0]</obj_property>
+         <obj_property name="ObjectShortName">sel[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/FIRST_DSP/a" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">a[17:0]</obj_property>
+         <obj_property name="ObjectShortName">a[17:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/FIRST_DSP/b" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">b[17:0]</obj_property>
+         <obj_property name="ObjectShortName">b[17:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/FIRST_DSP/pcin" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">pcin[47:0]</obj_property>
+         <obj_property name="ObjectShortName">pcin[47:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/FIRST_DSP/p" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">p[47:0]</obj_property>
+         <obj_property name="ObjectShortName">p[47:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group96" type="group">
+      <obj_property name="label">ALU2</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/\block_a_dsp_gen(1)\/DSP/a" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">a[17:0]</obj_property>
+         <obj_property name="ObjectShortName">a[17:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/\block_a_dsp_gen(1)\/DSP/b" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">b[17:0]</obj_property>
+         <obj_property name="ObjectShortName">b[17:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/\block_a_dsp_gen(1)\/DSP/pcin" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">pcin[47:0]</obj_property>
+         <obj_property name="ObjectShortName">pcin[47:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/\block_a_dsp_gen(1)\/DSP/p" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">p[47:0]</obj_property>
+         <obj_property name="ObjectShortName">p[47:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group132" type="group">
+      <obj_property name="label">ALU3</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/\block_a_dsp_gen(2)\/DSP/a" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">a[17:0]</obj_property>
+         <obj_property name="ObjectShortName">a[17:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/\block_a_dsp_gen(2)\/DSP/b" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">b[17:0]</obj_property>
+         <obj_property name="ObjectShortName">b[17:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/\block_a_dsp_gen(2)\/DSP/pcin" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">pcin[47:0]</obj_property>
+         <obj_property name="ObjectShortName">pcin[47:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult_pcin/pram/\block_a_dsp_gen(2)\/DSP/p" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">p[47:0]</obj_property>
+         <obj_property name="ObjectShortName">p[47:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group113" type="group">
+      <obj_property name="label">GRAM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+</wave_config>

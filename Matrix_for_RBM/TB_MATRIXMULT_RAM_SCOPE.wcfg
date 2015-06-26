@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/Users/Taras/Documents/FPGA_current_work/BRAM_build/TB_MATRIXMULT_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="bip_dsp48_macro_pkg_v2_1" />
+            <top_module name="bip_usecase_utils_pkg_v2_0" />
+            <top_module name="bip_utils_pkg_v2_0" />
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_signed" />
+            <top_module name="std_logic_textio" />
+            <top_module name="std_logic_unsigned" />
+            <top_module name="tb_matrixmult" />
+            <top_module name="textio" />
+            <top_module name="xbip_pipe_v2_0_comp" />
+            <top_module name="xbip_pipe_v2_0_xst_comp" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="22" />
+   <wvobject fp_name="/tb_matrixmult/pram/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_matrixmult/pram/addrb" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">addrb[9:0]</obj_property>
+      <obj_property name="ObjectShortName">addrb[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_matrixmult/pram/we" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">we</obj_property>
+      <obj_property name="ObjectShortName">we</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_matrixmult/pram/oe" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">oe</obj_property>
+      <obj_property name="ObjectShortName">oe</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_matrixmult/pram/ashft" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ashft</obj_property>
+      <obj_property name="ObjectShortName">ashft</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_matrixmult/pram/addra" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">addra[9:0]</obj_property>
+      <obj_property name="ObjectShortName">addra[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/dina" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dina[17:0]</obj_property>
+      <obj_property name="ObjectShortName">dina[17:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/i_wea" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">i_wea[0:0]</obj_property>
+      <obj_property name="ObjectShortName">i_wea[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/i_addra" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">i_addra[9:0]</obj_property>
+      <obj_property name="ObjectShortName">i_addra[9:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/i_dina" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">i_dina[17:0]</obj_property>
+      <obj_property name="ObjectShortName">i_dina[17:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="group125" type="group">
+      <obj_property name="label">BRAM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/addra" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">addra[9:0]</obj_property>
+         <obj_property name="ObjectShortName">addra[9:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/dina" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">dina[17:0]</obj_property>
+         <obj_property name="ObjectShortName">dina[17:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/addrb" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">addrb[9:0]</obj_property>
+         <obj_property name="ObjectShortName">addrb[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/doutb" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">doutb[17:0]</obj_property>
+         <obj_property name="ObjectShortName">doutb[17:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/doutb" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">doutb[17:0]</obj_property>
+      <obj_property name="ObjectShortName">doutb[17:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/i_wea" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">i_wea[0:0]</obj_property>
+      <obj_property name="ObjectShortName">i_wea[0:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/i_addrb" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">i_addrb[9:0]</obj_property>
+      <obj_property name="ObjectShortName">i_addrb[9:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_matrixmult/pram/i_spdout" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">i_spdout[0:2]</obj_property>
+      <obj_property name="ObjectShortName">i_spdout[0:2]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <wvobject fp_name="/tb_matrixmult/pram/i_spdout[0]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">i_spdout[0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult/pram/i_spdout[1]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">i_spdout[1]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult/pram/i_spdout[2]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">i_spdout[2]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_matrixmult/pram/i_alu2alu" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">i_alu2alu[0:2]</obj_property>
+      <obj_property name="ObjectShortName">i_alu2alu[0:2]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <wvobject fp_name="/tb_matrixmult/pram/i_alu2alu[0]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">i_alu2alu[0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult/pram/i_alu2alu[1]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">i_alu2alu[1]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrixmult/pram/i_alu2alu[2]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">i_alu2alu[2]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_matrixmult/pram/FIRST_DSP/sel" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">sel[2:0]</obj_property>
+      <obj_property name="ObjectShortName">sel[2:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_matrixmult/pram/FIRST_DSP/a" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">a[17:0]</obj_property>
+      <obj_property name="ObjectShortName">a[17:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_matrixmult/pram/FIRST_DSP/b" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">b[17:0]</obj_property>
+      <obj_property name="ObjectShortName">b[17:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_matrixmult/pram/FIRST_DSP/c" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">c[47:0]</obj_property>
+      <obj_property name="ObjectShortName">c[47:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_matrixmult/pram/FIRST_DSP/p" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">p[47:0]</obj_property>
+      <obj_property name="ObjectShortName">p[47:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/wea" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">wea[0:0]</obj_property>
+      <obj_property name="ObjectShortName">wea[0:0]</obj_property>
+   </wvobject>
+</wave_config>

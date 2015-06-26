@@ -1,0 +1,63 @@
+Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "secureip" -o "C:/FPGA/Internship Jobs/Codes/Matrix_for_RBM/TB_MATRIXMULT_isim_beh.exe" -prj "C:/FPGA/Internship Jobs/Codes/Matrix_for_RBM/TB_MATRIXMULT_beh.prj" "work.TB_MATRIXMULT" 
+ISim P.20131013 (signature 0x7708f090)
+Number of CPUs detected in this system: 8
+Turning on mult-threading, number of parallel sub-compilation jobs: 16 
+Determining compilation order of HDL files
+Parsing VHDL file "C:/FPGA/Internship Jobs/Codes/Matrix_for_RBM/ipcore_dir/DSP_INPUT_C.vhd" into library work
+Parsing VHDL file "C:/FPGA/Internship Jobs/Codes/Matrix_for_RBM/ipcore_dir/BRAM18x1k.vhd" into library work
+Parsing VHDL file "C:/FPGA/Internship Jobs/Codes/Matrix_for_RBM/ipcore_dir/BRAM18x1k_synth.vhd" into library work
+Parsing VHDL file "C:/FPGA/Internship Jobs/Codes/Matrix_for_RBM/SCRATCHPAD_REG.vhd" into library work
+Parsing VHDL file "C:/FPGA/Internship Jobs/Codes/Matrix_for_RBM/BRAM_WRAPPER.vhd" into library work
+Parsing VHDL file "C:/FPGA/Internship Jobs/Codes/Matrix_for_RBM/MEMARRAY.vhd" into library work
+Parsing VHDL file "C:/FPGA/Internship Jobs/Codes/Matrix_for_RBM/TB_MATRIXMULT.vhd" into library work
+Starting static elaboration
+WARNING:HDLCompiler:89 - "C:/FPGA/Internship Jobs/Codes/Matrix_for_RBM/TB_MATRIXMULT.vhd" Line 124: <standard_ram> remains a black-box since it has no binding entity.
+Completed static elaboration
+WARNING:Simulator:648 - "C:/FPGA/Internship Jobs/Codes/Matrix_for_RBM/TB_MATRIXMULT.vhd" Line 124. Instance standard_ram is unbound
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package numeric_std
+Compiling package textio
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
+Compiling package std_logic_textio
+Compiling architecture output_stage_behavioral of entity BLK_MEM_GEN_V7_2_output_stage [\BLK_MEM_GEN_V7_2_output_stage("...]
+Compiling architecture output_stage_behavioral of entity BLK_MEM_GEN_V7_2_output_stage [\BLK_MEM_GEN_V7_2_output_stage("...]
+Compiling architecture softecc_output_reg_stage_behavioral of entity BLK_MEM_GEN_V7_2_softecc_output_reg_stage [\BLK_MEM_GEN_V7_2_softecc_output...]
+Compiling architecture mem_module_behavioral of entity BLK_MEM_GEN_V7_2_mem_module [\BLK_MEM_GEN_V7_2_mem_module("bl...]
+Compiling architecture behavioral of entity BLK_MEM_GEN_V7_2 [\BLK_MEM_GEN_V7_2("blk_mem_gen_v...]
+Compiling architecture virtex7 of entity BRAM18x1k [bram18x1k_default]
+Compiling architecture behavioral of entity BRAM_WRAPPER [\BRAM_WRAPPER(0,3,10,18)\]
+Compiling architecture behavioral of entity BRAM_WRAPPER [\BRAM_WRAPPER(1,3,10,18)\]
+Compiling architecture behavioral of entity BRAM_WRAPPER [\BRAM_WRAPPER(2,3,10,18)\]
+Compiling package std_logic_signed
+Compiling package bip_utils_pkg_v2_0
+Compiling package bip_usecase_utils_pkg_v2_0
+Compiling package xbip_pipe_v2_0_xst_comp
+Compiling package bip_dsp48_macro_pkg_v2_1
+Compiling package xbip_pipe_v2_0_comp
+Compiling architecture behavioral of entity xbip_pipe_v2_0 [\xbip_pipe_v2_0(1,0,0,0,0,0,0,"0...]
+Compiling architecture behavioral of entity xbip_pipe_v2_0_xst [\xbip_pipe_v2_0_xst(1,0,0,0,0,0,...]
+Compiling architecture behavioral of entity xbip_pipe_v2_0 [\xbip_pipe_v2_0(1,0,0,0,0,0,0,"0...]
+Compiling architecture behavioral of entity xbip_pipe_v2_0_xst [\xbip_pipe_v2_0_xst(1,0,0,0,0,0,...]
+Compiling architecture behavioral of entity xbip_pipe_v2_0 [\xbip_pipe_v2_0(1,0,0,0,0,0,0,"0...]
+Compiling architecture behavioral of entity xbip_pipe_v2_0_xst [\xbip_pipe_v2_0_xst(1,0,0,0,0,0,...]
+Compiling architecture behavioral of entity xbip_pipe_v2_0 [\xbip_pipe_v2_0(1,0,0,0,0,0,0,"0...]
+Compiling architecture behavioral of entity xbip_pipe_v2_0_xst [\xbip_pipe_v2_0_xst(1,0,0,0,0,0,...]
+Compiling architecture behavioral of entity xbip_pipe_v2_0 [\xbip_pipe_v2_0(1,0,0,0,0,0,0,"0...]
+Compiling architecture behavioral of entity xbip_pipe_v2_0_xst [\xbip_pipe_v2_0_xst(1,0,0,0,0,0,...]
+Compiling architecture behavioral of entity xbip_pipe_v2_0 [\xbip_pipe_v2_0(1,0,0,0,0,0,0,"0...]
+Compiling architecture behavioral of entity xbip_pipe_v2_0_xst [\xbip_pipe_v2_0_xst(1,0,0,0,0,0,...]
+Compiling architecture behavioral of entity xbip_pipe_v2_0 [\xbip_pipe_v2_0(1,0,0,0,0,0,0,"0...]
+Compiling architecture behavioral of entity xbip_pipe_v2_0_xst [\xbip_pipe_v2_0_xst(1,0,0,0,0,0,...]
+Compiling architecture behavioral of entity xbip_dsp48_macro_v2_1 [\xbip_dsp48_macro_v2_1(0,0,"virt...]
+Compiling architecture dsp_input_c_a of entity DSP_INPUT_C [dsp_input_c_default]
+Compiling architecture behavioral of entity SCRATCHPAD_REG [\SCRATCHPAD_REG(18,3)\]
+Compiling architecture behavioral of entity MEMARRAY [\MEMARRAY(3,3,10,18,48)\]
+Compiling architecture behavior of entity tb_matrixmult
+Time Resolution for simulation is 1ps.
+Waiting for 7 sub-compilation(s) to finish...
+Compiled 68 VHDL Units
+Built simulation executable C:/FPGA/Internship Jobs/Codes/Matrix_for_RBM/TB_MATRIXMULT_isim_beh.exe
+Fuse Memory Usage: 46760 KB
+Fuse CPU Usage: 2573 ms

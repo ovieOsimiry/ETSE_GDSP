@@ -1,0 +1,15 @@
+# Output products list for <DSP_INPUT_PCIN>
+DSP_INPUT_PCIN.asy
+DSP_INPUT_PCIN.gise
+DSP_INPUT_PCIN.ngc
+DSP_INPUT_PCIN.sym
+DSP_INPUT_PCIN.vhd
+DSP_INPUT_PCIN.vho
+DSP_INPUT_PCIN.xco
+DSP_INPUT_PCIN.xise
+DSP_INPUT_PCIN\doc\dsp48_macro_ds754.pdf
+DSP_INPUT_PCIN\doc\xbip_dsp48_macro_v2_1_readme.txt
+DSP_INPUT_PCIN\doc\xbip_dsp48_macro_v2_1_vinfo.html
+DSP_INPUT_PCIN_flist.txt
+DSP_INPUT_PCIN_xmdf.tcl
+_xmsgs\pn_parser.xmsgs

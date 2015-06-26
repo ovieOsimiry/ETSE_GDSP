@@ -1,0 +1,4 @@
+vhdl isim_temp "ipcore_dir/BRAM18x1k.vhd"
+vhdl isim_temp "ipcore_dir/BRAM18x1k_synth.vhd"
+vhdl isim_temp "BRAM_WRAPPER.vhd"
+vhdl isim_temp "TB_BRAM_WRAPPER.vhd"

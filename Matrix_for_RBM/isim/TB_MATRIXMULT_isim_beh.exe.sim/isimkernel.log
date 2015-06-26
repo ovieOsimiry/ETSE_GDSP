@@ -1,0 +1,34 @@
+Command line:
+   TB_MATRIXMULT_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  26526
+
+Mon Jun 22 17:25:31 2015
+
+
+ Elaboration Time: 0.358802 sec
+
+ Current Memory Usage: 897.118 Meg
+
+ Total Signals          : 3549
+ Total Nets             : 71636
+ Total Signal Drivers   : 1281
+ Total Blocks           : 681
+ Total Primitive Blocks : 240
+ Total Processes        : 1174
+ Total Traceable Variables  : 3482
+ Total Scalar Nets and Variables : 88794
+
+** Failure:Simulation completed
+User(VHDL) Code Called Simulation Stop
+In process TB_MATRIXMULT.vhd:stim_proc 
+ 
+
+
+ Total Simulation Time: 0.452402 sec
+
+ Current Memory Usage: 897.118 Meg
+
+Tue Jun 23 00:29:50 2015
+

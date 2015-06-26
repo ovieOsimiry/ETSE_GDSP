@@ -1,0 +1,441 @@
+ISim log file
+Running: C:\FPGA\Internship Jobs\Codes\Matrix_for_RBM\TB_MATRIXMULT_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb C:/FPGA/Internship Jobs/Codes/Matrix_for_RBM/TB_MATRIXMULT_isim_beh.wdb 
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+at 0 ps, Instance /tb_matrixmult/pram/FIRST_DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /tb_matrixmult/pram/\block_a_dsp_gen(1)\/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /tb_matrixmult/pram/\block_a_dsp_gen(2)\/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+Finished circuit initialization process.
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 1500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 1500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 1500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 2500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 2500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 2500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 2500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 2500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 2500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 2500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 2500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 2500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 3500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 3500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 3500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 3500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 3500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 3500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 3500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 3500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 3500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 4500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 4500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 4500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 4500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 4500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 4500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 4500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 4500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 4500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 6500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 6500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 6500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 6500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 6500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 6500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 6500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 6500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 6500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 7500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 7500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 7500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 7500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 7500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 7500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 7500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 7500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 7500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 8500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 8500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 8500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 8500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 8500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 8500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 8500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 8500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 8500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 9500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 9500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 9500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 9500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 9500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 9500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 9500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 9500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 9500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 10 ns(1): Note: COLS number: 0 (/tb_matrixmult/).
+at 10 ns(1): Note: ROWS number:0 (/tb_matrixmult/).
+at 10 ns(1): Note: The value of G11 = 11 (/tb_matrixmult/).
+at 10500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 10500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 10500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 10500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 10500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 10500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 11 ns: Note: The value of G12 = 12 (/tb_matrixmult/).
+at 12 ns: Note: The value of G13 = 13 (/tb_matrixmult/).
+at 13 ns: Note: The value of G21 = 21 (/tb_matrixmult/).
+at 14 ns: Note: The value of G22 = 22 (/tb_matrixmult/).
+at 15 ns: Note: The value of G23 = 23 (/tb_matrixmult/).
+at 16 ns: Note: The value of G31 = 31 (/tb_matrixmult/).
+at 17 ns: Note: The value of G32 = 32 (/tb_matrixmult/).
+at 18 ns: Note: The value of G33 = 33 (/tb_matrixmult/).
+at 19 ns(2): Note: The value of P11 = 11 (/tb_matrixmult/).
+at 20 ns: Note: The value of P12 = 12 (/tb_matrixmult/).
+at 21 ns: Note: The value of P13 = 13 (/tb_matrixmult/).
+at 22 ns: Note: The value of P21 = 23 (/tb_matrixmult/).
+at 23 ns: Note: The value of P22 = 21 (/tb_matrixmult/).
+at 24 ns: Note: The value of P23 = 22 (/tb_matrixmult/).
+at 25 ns: Note: The value of P31 = 32 (/tb_matrixmult/).
+at 26 ns: Note: The value of P32 = 33 (/tb_matrixmult/).
+at 27 ns: Note: The value of P33 = 31 (/tb_matrixmult/).
+
+** Failure:Simulation completed
+User(VHDL) Code Called Simulation Stop
+In process TB_MATRIXMULT.vhd:stim_proc 
+ 
+INFO: Simulator is stopped.
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+at 0 ps, Instance /tb_matrixmult/pram/FIRST_DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /tb_matrixmult/pram/\block_a_dsp_gen(1)\/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /tb_matrixmult/pram/\block_a_dsp_gen(2)\/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+Finished circuit initialization process.
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 1500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 1500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 1500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 2500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 2500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 2500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 2500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 2500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 2500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 2500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 2500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 2500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 3500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 3500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 3500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 3500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 3500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 3500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 3500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 3500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 3500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 4500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 4500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 4500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 4500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 4500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 4500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 4500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 4500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 4500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 6500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 6500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 6500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 6500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 6500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 6500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 6500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 6500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 6500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 7500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 7500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 7500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 7500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 7500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 7500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 7500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 7500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 7500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 8500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 8500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 8500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 8500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 8500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 8500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 8500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 8500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 8500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 9500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 9500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 9500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 9500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 9500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 9500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 9500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 9500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 9500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 10 ns(1): Note: COLS number: 0 (/tb_matrixmult/).
+at 10 ns(1): Note: ROWS number:0 (/tb_matrixmult/).
+at 10 ns(1): Note: The value of G11 = 11 (/tb_matrixmult/).
+at 10500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 10500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 10500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 10500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 10500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 10500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 11 ns: Note: The value of G12 = 12 (/tb_matrixmult/).
+at 12 ns: Note: The value of G13 = 13 (/tb_matrixmult/).
+at 13 ns: Note: The value of G21 = 21 (/tb_matrixmult/).
+at 14 ns: Note: The value of G22 = 22 (/tb_matrixmult/).
+at 15 ns: Note: The value of G23 = 23 (/tb_matrixmult/).
+at 16 ns: Note: The value of G31 = 31 (/tb_matrixmult/).
+at 17 ns: Note: The value of G32 = 32 (/tb_matrixmult/).
+at 18 ns: Note: The value of G33 = 33 (/tb_matrixmult/).
+at 19 ns(2): Note: The value of P11 = 11 (/tb_matrixmult/).
+at 20 ns: Note: The value of P12 = 12 (/tb_matrixmult/).
+at 21 ns: Note: The value of P13 = 13 (/tb_matrixmult/).
+at 22 ns: Note: The value of P21 = 23 (/tb_matrixmult/).
+at 23 ns: Note: The value of P22 = 21 (/tb_matrixmult/).
+at 24 ns: Note: The value of P23 = 22 (/tb_matrixmult/).
+at 25 ns: Note: The value of P31 = 32 (/tb_matrixmult/).
+at 26 ns: Note: The value of P32 = 33 (/tb_matrixmult/).
+at 27 ns: Note: The value of P33 = 31 (/tb_matrixmult/).
+
+** Failure:Simulation completed
+User(VHDL) Code Called Simulation Stop
+In process TB_MATRIXMULT.vhd:stim_proc 
+ 
+INFO: Simulator is stopped.
+# restart
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+at 0 ps, Instance /tb_matrixmult/pram/FIRST_DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /tb_matrixmult/pram/\block_a_dsp_gen(1)\/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /tb_matrixmult/pram/\block_a_dsp_gen(2)\/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+Finished circuit initialization process.
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 1500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 1500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 1500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 2500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 2500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 2500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 2500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 2500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 2500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 2500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 2500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 2500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 3500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 3500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 3500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 3500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 3500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 3500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 3500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 3500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 3500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 4500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 4500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 4500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 4500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 4500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 4500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 4500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 4500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 4500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 6500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 6500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 6500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 6500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 6500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 6500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 6500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 6500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 6500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 7500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 7500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 7500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 7500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 7500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 7500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 7500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 7500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 7500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 8500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 8500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 8500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 8500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 8500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 8500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 8500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 8500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 8500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 9500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 9500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 9500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 9500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 9500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 9500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 9500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 9500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 9500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 10 ns(1): Note: COLS number: 0 (/tb_matrixmult/).
+at 10 ns(1): Note: ROWS number:0 (/tb_matrixmult/).
+at 10 ns(1): Note: The value of G11 = 11 (/tb_matrixmult/).
+at 10500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 10500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 10500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 10500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 10500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 10500 ps(1), Instance /tb_matrixmult/pram/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 11 ns: Note: The value of G12 = 12 (/tb_matrixmult/).
+at 12 ns: Note: The value of G13 = 13 (/tb_matrixmult/).
+at 13 ns: Note: The value of G21 = 21 (/tb_matrixmult/).
+at 14 ns: Note: The value of G22 = 22 (/tb_matrixmult/).
+at 15 ns: Note: The value of G23 = 23 (/tb_matrixmult/).
+at 16 ns: Note: The value of G31 = 31 (/tb_matrixmult/).
+at 17 ns: Note: The value of G32 = 32 (/tb_matrixmult/).
+at 18 ns: Note: The value of G33 = 33 (/tb_matrixmult/).
+at 19 ns(2): Note: The value of P11 = 11 (/tb_matrixmult/).
+at 20 ns: Note: The value of P12 = 12 (/tb_matrixmult/).
+at 21 ns: Note: The value of P13 = 13 (/tb_matrixmult/).
+at 22 ns: Note: The value of P21 = 23 (/tb_matrixmult/).
+at 23 ns: Note: The value of P22 = 21 (/tb_matrixmult/).
+at 24 ns: Note: The value of P23 = 22 (/tb_matrixmult/).
+at 25 ns: Note: The value of P31 = 32 (/tb_matrixmult/).
+at 26 ns: Note: The value of P32 = 33 (/tb_matrixmult/).
+at 27 ns: Note: The value of P33 = 31 (/tb_matrixmult/).
+
+** Failure:Simulation completed
+User(VHDL) Code Called Simulation Stop
+In process TB_MATRIXMULT.vhd:stim_proc 
+ 
+INFO: Simulator is stopped.

@@ -1,0 +1,8 @@
+vhdl work "ipcore_dir/BRAM18x1k_synth.vhd"
+vhdl work "ipcore_dir/BRAM18x1k.vhd"
+vhdl work "ipcore_dir/DSP_INPUT_PCIN.vhd"
+vhdl work "SCRATCHPAD_REG.vhd"
+vhdl work "BRAM_WRAPPER.vhd"
+vhdl work "../feb9/STANDARD_RAM.vhd"
+vhdl work "MEMARRAY_PCIN.vhd"
+vhdl work "TB_MATRIXMULT_PCIN.vhd"

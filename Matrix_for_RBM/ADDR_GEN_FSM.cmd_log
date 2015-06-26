@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "C:/Users/Taras/Documents/FPGA_current_work/BRAM_build/ADDR_GEN_FSM.xst" -ofn "C:/Users/Taras/Documents/FPGA_current_work/BRAM_build/ADDR_GEN_FSM.syr" 
