@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/FPGA/Internship Jobs/Codes/ETSE_GDSP/Matrix_for_RBM/TB_BRAM_WRAPPER_isim_beh1.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_textio" />
+            <top_module name="std_logic_unsigned" />
+            <top_module name="tb_bram_wrapper" />
+            <top_module name="textio" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="11" />
+   <wvobject fp_name="/tb_bram_wrapper/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_wrapper/addra" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">addra[9:0]</obj_property>
+      <obj_property name="ObjectShortName">addra[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_wrapper/dina" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dina[17:0]</obj_property>
+      <obj_property name="ObjectShortName">dina[17:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_wrapper/addrb" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">addrb[9:0]</obj_property>
+      <obj_property name="ObjectShortName">addrb[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_wrapper/shft" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">shft</obj_property>
+      <obj_property name="ObjectShortName">shft</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_wrapper/wea" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">wea</obj_property>
+      <obj_property name="ObjectShortName">wea</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_wrapper/oeb" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">oeb</obj_property>
+      <obj_property name="ObjectShortName">oeb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_wrapper/doutb" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">doutb[17:0]</obj_property>
+      <obj_property name="ObjectShortName">doutb[17:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_wrapper/clk_period" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_period</obj_property>
+      <obj_property name="ObjectShortName">clk_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_wrapper/uut/i_addra" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">i_addra[9:0]</obj_property>
+      <obj_property name="ObjectShortName">i_addra[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_bram_wrapper/uut/i_addrb" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">i_addrb[9:0]</obj_property>
+      <obj_property name="ObjectShortName">i_addrb[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+</wave_config>

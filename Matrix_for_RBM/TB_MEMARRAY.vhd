@@ -89,7 +89,7 @@ BEGIN
    -- Stimulus process
    stim_proc: process
    begin	
-		DIN<=std_logic_vector(to_signed(88,DATA_WIDTH));	
+		DIN<=std_logic_vector(to_signed(88, DATA_WIDTH));	
       wait for CLK_period*10;
 		OE<='1';
 		WE<='1';

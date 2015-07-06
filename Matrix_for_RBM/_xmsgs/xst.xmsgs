@@ -8,16 +8,55 @@
 <msg type="warning" file="HDLCompiler" num="685" delta="old" >"C:\FPGA\Internship Jobs\Codes\ETSE_GDSP\Matrix_for_RBM\ipcore_dir\BRAM18x1k_synth.vhd" Line 65: Overwriting existing primary unit <arg fmt="%s" index="1">bram18x1k</arg>
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\FPGA\Internship Jobs\Codes\ETSE_GDSP\Matrix_for_RBM\BRAM_WRAPPER.vhd" Line 51: Assignment to <arg fmt="%s" index="1">i_oe</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\FPGA\Internship Jobs\Codes\ETSE_GDSP\Matrix_for_RBM\BRAM_WRAPPER_V2.vhd" Line 51: Assignment to <arg fmt="%s" index="1">i_oe</arg> ignored, since the identifier is never used
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">OE</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">BLOCK_A_MEM_GEN[0].MEMA/i_addrb_9</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MEMARRAY</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;BLOCK_A_MEM_GEN[1].MEMA/i_addrb_9&gt; &lt;BLOCK_A_MEM_GEN[2].MEMA/i_addrb_9&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">s_P_ADDR_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">CONTROL_UNIT</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;s_P_ADDR_3&gt; &lt;s_P_ADDR_4&gt; &lt;s_P_ADDR_5&gt; &lt;s_P_ADDR_6&gt; &lt;s_P_ADDR_7&gt; &lt;s_P_ADDR_8&gt; &lt;s_P_ADDR_9&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">BLOCK_A_MEM_GEN[0].MEMA/i_addra_9</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MEMARRAY</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;BLOCK_A_MEM_GEN[1].MEMA/i_addra_9&gt; &lt;BLOCK_A_MEM_GEN[2].MEMA/i_addra_9&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">BLOCK_A_MEM_GEN[0].MEMA/i_addrb_9</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MEMARRAY_V3</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;BLOCK_A_MEM_GEN[1].MEMA/i_addrb_9&gt; &lt;BLOCK_A_MEM_GEN[2].MEMA/i_addrb_9&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">p_ADDR_2_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MEMARRAY_V3</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;p_ADDR_2_3&gt; &lt;p_ADDR_2_4&gt; &lt;p_ADDR_2_5&gt; &lt;p_ADDR_2_6&gt; &lt;p_ADDR_2_7&gt; &lt;p_ADDR_2_8&gt; &lt;p_ADDR_2_9&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">p_ADDR_3_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MEMARRAY_V3</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;p_ADDR_3_3&gt; &lt;p_ADDR_3_4&gt; &lt;p_ADDR_3_5&gt; &lt;p_ADDR_3_6&gt; &lt;p_ADDR_3_7&gt; &lt;p_ADDR_3_8&gt; &lt;p_ADDR_3_9&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">p_ADDR_4_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MEMARRAY_V3</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;p_ADDR_4_3&gt; &lt;p_ADDR_4_4&gt; &lt;p_ADDR_4_5&gt; &lt;p_ADDR_4_6&gt; &lt;p_ADDR_4_7&gt; &lt;p_ADDR_4_8&gt; &lt;p_ADDR_4_9&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">p_ADDR_5_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MEMARRAY_V3</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;p_ADDR_5_3&gt; &lt;p_ADDR_5_4&gt; &lt;p_ADDR_5_5&gt; &lt;p_ADDR_5_6&gt; &lt;p_ADDR_5_7&gt; &lt;p_ADDR_5_8&gt; &lt;p_ADDR_5_9&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">p_ADDR_6_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MEMARRAY_V3</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;p_ADDR_6_3&gt; &lt;p_ADDR_6_4&gt; &lt;p_ADDR_6_5&gt; &lt;p_ADDR_6_6&gt; &lt;p_ADDR_6_7&gt; &lt;p_ADDR_6_8&gt; &lt;p_ADDR_6_9&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">BLOCK_A_MEM_GEN[2].MEMA/i_addra_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MEMARRAY_V3</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">5 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;BLOCK_A_MEM_GEN[2].MEMA/i_addra_7&gt; &lt;BLOCK_A_MEM_GEN[2].MEMA/i_addra_6&gt; &lt;BLOCK_A_MEM_GEN[2].MEMA/i_addra_5&gt; &lt;BLOCK_A_MEM_GEN[2].MEMA/i_addra_4&gt; &lt;BLOCK_A_MEM_GEN[2].MEMA/i_addra_3&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">p_ADDR_7_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MEMARRAY_V3</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;p_ADDR_7_3&gt; &lt;p_ADDR_7_4&gt; &lt;p_ADDR_7_5&gt; &lt;p_ADDR_7_6&gt; &lt;p_ADDR_7_7&gt; &lt;p_ADDR_7_8&gt; &lt;p_ADDR_7_9&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">p_ADDR_0_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MEMARRAY_V3</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;p_ADDR_0_3&gt; &lt;p_ADDR_0_4&gt; &lt;p_ADDR_0_5&gt; &lt;p_ADDR_0_6&gt; &lt;p_ADDR_0_7&gt; &lt;p_ADDR_0_8&gt; &lt;p_ADDR_0_9&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">p_ADDR_8_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MEMARRAY_V3</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;p_ADDR_8_3&gt; &lt;p_ADDR_8_4&gt; &lt;p_ADDR_8_5&gt; &lt;p_ADDR_8_6&gt; &lt;p_ADDR_8_7&gt; &lt;p_ADDR_8_8&gt; &lt;p_ADDR_8_9&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">BLOCK_A_MEM_GEN[0].MEMA/i_addra_9</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MEMARRAY_V3</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">8 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;BLOCK_A_MEM_GEN[0].MEMA/i_addra_8&gt; &lt;BLOCK_A_MEM_GEN[0].MEMA/i_addra_7&gt; &lt;BLOCK_A_MEM_GEN[0].MEMA/i_addra_6&gt; &lt;BLOCK_A_MEM_GEN[0].MEMA/i_addra_5&gt; &lt;BLOCK_A_MEM_GEN[0].MEMA/i_addra_4&gt; &lt;BLOCK_A_MEM_GEN[0].MEMA/i_addra_3&gt; &lt;BLOCK_A_MEM_GEN[1].MEMA/i_addra_9&gt; &lt;BLOCK_A_MEM_GEN[2].MEMA/i_addra_9&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">p_ADDR_1_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MEMARRAY_V3</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;p_ADDR_1_3&gt; &lt;p_ADDR_1_4&gt; &lt;p_ADDR_1_5&gt; &lt;p_ADDR_1_6&gt; &lt;p_ADDR_1_7&gt; &lt;p_ADDR_1_8&gt; &lt;p_ADDR_1_9&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">i_ADDR_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MEMARRAY_V3</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;i_ADDR_3&gt; &lt;i_ADDR_4&gt; &lt;i_ADDR_5&gt; &lt;i_ADDR_6&gt; &lt;i_ADDR_7&gt; &lt;i_ADDR_8&gt; &lt;i_ADDR_9&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">BLOCK_A_MEM_GEN[1].MEMA/i_addra_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">MEMARRAY_V3</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">5 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;BLOCK_A_MEM_GEN[1].MEMA/i_addra_7&gt; &lt;BLOCK_A_MEM_GEN[1].MEMA/i_addra_6&gt; &lt;BLOCK_A_MEM_GEN[1].MEMA/i_addra_5&gt; &lt;BLOCK_A_MEM_GEN[1].MEMA/i_addra_4&gt; &lt;BLOCK_A_MEM_GEN[1].MEMA/i_addra_3&gt; </arg>
 </msg>
 
 </messages>

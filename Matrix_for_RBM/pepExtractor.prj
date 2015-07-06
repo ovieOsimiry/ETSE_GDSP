@@ -1,1 +1,7 @@
-work	"M_OPERATOR.vhd"
+work	"BRAM_WRAPPER_V2.vhd"
+work	"CONTROL_UNIT.vhd"
+work	"MEMARRAY_V3.vhd"
+work	"SCRATCHPAD_REG.vhd"
+work	"ipcore_dir/BRAM18x1k.vhd"
+work	"ipcore_dir/BRAM18x1k_synth.vhd"
+work	"ipcore_dir/DSP_INPUT_C.vhd"

@@ -96,13 +96,13 @@ signal p_DIN: pipelined_DIN_t;
 signal i_DIN: std_logic_vector(DATA_WIDTH-1 downto 0);
 
 type pipelined_B_t is array (0 to DELAY_DEPTH-1) of  std_logic_vector(0 to COLUMN_TOTAL-1);
-signal p_WEB,p_OEB:pipelined_B_t;
+signal p_WEB,p_OEB: pipelined_B_t;
 
 signal i_WEB: std_logic_vector(0 to COLUMN_TOTAL-1); 
 
 type pipelined_ADDR_t is array (0 to DELAY_DEPTH-1) of std_logic_vector(ADDR_WIDTH-1 downto 0);
-signal p_ADDR:pipelined_ADDR_t;
-signal i_ADDR:std_logic_vector(ADDR_WIDTH-1 downto 0);
+signal p_ADDR: pipelined_ADDR_t;
+signal i_ADDR: std_logic_vector(ADDR_WIDTH-1 downto 0);
 
 begin
 
@@ -115,8 +115,8 @@ if rising_edge(CLK) then
 		p_WEB(0)(i)<=CSEL(i) and WE;
 	end loop;
 	for i in 1 to DELAY_DEPTH-1 loop
-		p_WEB(i)<=p_WEB(i-1);
-		p_ADDR(i)<=p_ADDR(i-1);
+		p_WEB(i)<=p_WEB(i-1);--The Write enable signal is pipelined for 2 + 7 cycles because the output of the DSP computation will have a total latency of 9 clk cycles. 2 for delayed deta input to DSP (A and B) 1 from scratchpad register and about 6 from DSP block.
+		p_ADDR(i)<=p_ADDR(i-1);--The Address for A port of the RAM is delayed for 2 + 7 clk cycles because the DSP takes about 6 clk cyles to finish its computation plus 1 clk delay from scratch pad and plus the data inputs which are delayed for 2 clk cyles.
 	end loop;
 	i_ADDR<=p_ADDR(DELAY_DEPTH-1);
 	i_WEB<=p_WEB(DELAY_DEPTH-1);
@@ -124,8 +124,8 @@ if rising_edge(CLK) then
 	p_OPCODE(0)<=OPCODE;
 	p_DIN(0)<=DIN;
 	for i in 1 to DIN_DELAY-1 loop
-		p_DIN(i)<=p_DIN(i-1);
-		p_OPCODE(i)<=p_OPCODE(i-1);
+		p_DIN(i)<=p_DIN(i-1);-- The DIN signal is delayed for 2 clk cycles in order for it to arrive at the same time with the B signal coming from the BRAM which has a latency of 2 clk cycles
+		p_OPCODE(i)<=p_OPCODE(i-1);--The opcode is also delayed for 2 clk cycles because it must be sent at the same time with the A and B input of the DSP.
 	end loop;
 	i_DIN<=p_DIN(DIN_DELAY-1);
 	i_OPCODE<=p_OPCODE(DIN_DELAY-1);

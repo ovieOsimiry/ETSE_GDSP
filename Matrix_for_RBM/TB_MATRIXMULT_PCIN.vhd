@@ -32,7 +32,7 @@ COMPONENT MEMARRAY_PCIN
          ADDRB : IN  std_logic_vector(9 downto 0);
          WE : IN  std_logic;
          OE : IN  std_logic;
-         SSEN : IN  std_logic;
+      --   SSEN : IN  std_logic;
          ASHFT : IN  std_logic;
          OPCODE : IN  std_logic_vector(2 downto 0);
          DOUT : OUT  std_logic_vector(17 downto 0);
@@ -114,7 +114,7 @@ end process;
           ADDRB => ADDRB,
           WE => WE,
           OE => OE,
-          SSEN => SSEN,
+       --   SSEN => SSEN,
           ASHFT => ASHFT,
           OPCODE => OPCODE,
           DOUT => R,

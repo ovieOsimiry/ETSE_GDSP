@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "secureip" -o "C:/FPGA/Internship Jobs/Codes/Matrix_for_RBM/TB_MATRIXMULT_isim_beh.exe" -prj "C:/FPGA/Internship Jobs/Codes/Matrix_for_RBM/TB_MATRIXMULT_beh.prj" "work.TB_MATRIXMULT" 
+-intstyle "ise" -incremental -lib "secureip" -o "C:/FPGA/Internship Jobs/Codes/ETSE_GDSP/Matrix_for_RBM/TB_MEMARRAY_V3_isim_beh.exe" -prj "C:/FPGA/Internship Jobs/Codes/ETSE_GDSP/Matrix_for_RBM/TB_MEMARRAY_V3_beh.prj" "work.TB_MEMARRAY_V3" 

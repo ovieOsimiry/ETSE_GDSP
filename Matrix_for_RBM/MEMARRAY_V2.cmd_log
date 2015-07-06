@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "C:/FPGA/Internship Jobs/Codes/ETSE_GDSP/Matrix_for_RBM/MEMARRAY_V2.xst" -ofn "C:/FPGA/Internship Jobs/Codes/ETSE_GDSP/Matrix_for_RBM/MEMARRAY_V2.syr" 

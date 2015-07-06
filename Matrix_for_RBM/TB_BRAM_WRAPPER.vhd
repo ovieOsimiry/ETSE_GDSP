@@ -21,8 +21,8 @@ ARCHITECTURE behavior OF TB_BRAM_WRAPPER IS
  
     COMPONENT BRAM_WRAPPER
 	 generic(
-		COLUMN_NUMBER: integer:=3;	-- The number of given column, ordinal
-		NUM_COLUMNS: integer:=9;   -- total number of columns
+		COLUMN_NUMBER: integer:=0;	-- The number of given column, ordinal
+		NUM_COLUMNS: integer:=3;   -- total number of columns
       ADDR_WIDTH: integer:=10;   -- bitwidth of addr input, MUST match addr_width is syntesized bram
       DATA_WIDTH:integer:=18		-- bitwidth of data input, MUST match data_width is syntesized bram
 		);
