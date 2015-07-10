@@ -34,7 +34,7 @@ USE ieee.numeric_std.ALL;
  
 ENTITY TB_MEMARRAY_V3 IS
 generic(
-		COLUMN_TOTAL: integer:=5;
+		COLUMN_TOTAL: integer:=3;
       ADDR_WIDTH: integer:=10;
       DATA_WIDTH:integer:=18;
 		DATA_WIDE_WIDTH: integer:=48;
@@ -68,6 +68,8 @@ ARCHITECTURE behavior OF TB_MEMARRAY_V3 IS
 
    -- Clock period definitions
    constant CLK_period : time := 10 ns;
+   signal Ctrl_BRAM : STD_LOGIC:='0';
+   signal P_SHFT_IN : STD_LOGIC:='0';
 	
 
  
@@ -90,6 +92,8 @@ BEGIN
           P => P,
           G => G,
           ADDRB => ADDRB,
+          P_SHFT_IN	=> P_SHFT_IN,
+          Ctrl_BRAM => Ctrl_BRAM,
           OE => OE,
           SSEN => SSEN,
           DIN => DIN,
@@ -135,31 +139,52 @@ BEGIN
 			end loop;
 		end loop;
 		
---		wait until LOADING_DONE = '1'; -- strange behavior
+		DIN <= (others => '0');
+		wait until LOADING_DONE = '1'; -- strange behavior
 --		LOAD <= '0'; -- never get assigned.
 		
-		wait for clk_period;
+		wait for clk_period*9;
       
-		wait for CLK_period*10;
+		--wait for CLK_period*10;
 		
+		--Display the values loaded in the BRAM.
+		Ctrl_BRAM <= '1';
 		for i in 1 to COLUMN_TOTAL loop
 			ADDRB<=std_logic_vector(to_unsigned(i-1,ADDR_WIDTH));
 			wait for CLK_period;
 		end loop;
-		wait for CLK_period*5;
+		ADDRB<=std_logic_vector(to_unsigned(1020,ADDR_WIDTH));
+		wait for CLK_period*7;
 		
-		LOAD <= '0'; -- never get assigned.
-      -- insert stimulus here 
-		
+		-- Perform PtG multiplication. with A set to 1.
+		P <= '1';
+		G <= '1';
+		LOAD <= '0'; 
+      Ctrl_BRAM <= '0';
+		DIN <= std_logic_vector(to_signed(1,DATA_WIDTH));
+		Ctrl_BRAM <= '0';	-- allow FSM control BRAM port B.	
 		wait for clk_period;
       
-		wait for CLK_period*10;
+--		for i in 1 to COLUMN_TOTAL loop
+--			ADDRB<=std_logic_vector(to_unsigned(i-1,ADDR_WIDTH));
+--			wait for CLK_period;
+--		end loop;
+		
+		wait until OP_DONE = '1';
+		
+--		Ctrl_BRAM <= '1';
+--		P_SHFT_IN <= '0';
+		wait for CLK_period*11;
+		Ctrl_BRAM <= '1';
+		P_SHFT_IN <= '0';
+		wait for CLK_period;
 		
 		for i in 1 to COLUMN_TOTAL loop
-			ADDRB<=std_logic_vector(to_unsigned(i-1,ADDR_WIDTH));
+			ADDRB<= "1" & std_logic_vector(to_unsigned(i-1,ADDR_WIDTH-1));-- read lower bank of RAM.			
 			wait for CLK_period;
 		end loop;
-		wait for CLK_period*5;
+		
+		--wait for CLK_period*5;
 		
 		
       wait;

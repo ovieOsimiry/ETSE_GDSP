@@ -124,6 +124,7 @@ ARCHITECTURE behavior OF TB_MATRIXMULT_V2 IS
 
    -- Clock period definitions
    constant CLK_period : time := 1 ns;
+   signal iGDIN : std_logic_vector(17 downto 0);
  
 BEGIN
 	fsm: ADDR_GEN_FSM
@@ -136,7 +137,7 @@ BEGIN
            P_SHFT => fP_SHFT,
            G_ROW => fG_ROW,
            G_COLUMN => fG_COLUMN,
-			  OP_DONE => fOP_DONE);
+		OP_DONE => fOP_DONE);
  
  
 	-- Instantiate the Unit Under Test (UUT)

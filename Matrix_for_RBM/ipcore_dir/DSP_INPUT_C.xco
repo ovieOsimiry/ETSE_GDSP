@@ -1,7 +1,7 @@
 ##############################################################
 #
-# Xilinx Core Generator version 14.2
-# Date: Wed Feb 25 16:40:35 2015
+# Xilinx Core Generator version 14.7
+# Date: Tue Jul 07 15:26:24 2015
 #
 ##############################################################
 #
@@ -64,11 +64,11 @@ CSET concat_width=48
 CSET concatreg_3=false
 CSET concatreg_4=false
 CSET concatreg_5=false
-CSET creg_1=true
-CSET creg_2=true
-CSET creg_3=true
-CSET creg_4=true
-CSET creg_5=true
+CSET creg_1=false
+CSET creg_2=false
+CSET creg_3=false
+CSET creg_4=false
+CSET creg_5=false
 CSET d_binarywidth=0
 CSET d_width=18
 CSET dreg_1=false
@@ -118,7 +118,7 @@ CSET p_binarywidth=0
 CSET p_full_width=48
 CSET p_width=48
 CSET pcin_binarywidth=0
-CSET pipeline_options=Automatic
+CSET pipeline_options=Expert
 CSET preg_6=true
 CSET show_filtered=false
 CSET tier_1=false
@@ -130,7 +130,7 @@ CSET tier_6=false
 CSET use_dsp48=true
 # END Parameters
 # BEGIN Extra information
-MISC pkg_timestamp=2012-06-22T14:02:05Z
+MISC pkg_timestamp=2013-07-22T10:40:10Z
 # END Extra information
 GENERATE
-# CRC: 314fdbb2
+# CRC: 175b6f3c

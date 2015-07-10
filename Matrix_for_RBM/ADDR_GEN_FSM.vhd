@@ -32,8 +32,8 @@ generic (
            G : in  STD_LOGIC;
 			  WE: out std_logic;
            P_ADDR : out  STD_LOGIC_VECTOR (ADDR_WIDTH-1 downto 0);
-           P_SHFT : out  STD_LOGIC_VECTOR(OPCODE_WIDTH-1 downto 0);
-			  OPCODE: out STD_LOGIC_VECTOR (ADDR_WIDTH-1 downto 0);
+           P_SHFT : out  STD_LOGIC;--STD_LOGIC_VECTOR(OPCODE_WIDTH-2 downto 0);
+			  OPCODE: out STD_LOGIC_VECTOR (OPCODE_WIDTH-1 downto 0);
            G_ROW : out  STD_LOGIC_VECTOR (ADDR_WIDTH-1 downto 0);
            G_COLUMN : out  STD_LOGIC_VECTOR (COLUMN_TOTAL-1 downto 0);
 			  OP_DONE: out std_logic);
@@ -75,11 +75,11 @@ if (rising_edge(CLK)) then
 								i_addr_cnt<=COLUMN_TOTAL-1;
 								i_row_cnt<=1;
 								i_col_cnt<=0;
-								P_SHFT<="1";
+								P_SHFT<='1';--"1";
 								OPCODE<="001";
 							else
 								next_state<=PGt;
-								P_SHFT<="1";
+								P_SHFT<='1';--"1";
 								i_addr_cnt<=COLUMN_TOTAL-1;
 								i_row_cnt<=0;
 								i_col_cnt<=1;
@@ -88,14 +88,14 @@ if (rising_edge(CLK)) then
 						else
 							if G='0' then
 								next_state<=PtG;
-								P_SHFT<="0";
+								P_SHFT<='0';--"0";
 								i_addr_cnt<=1;
 								i_row_cnt<=1;
 								i_col_cnt<=0;
 								OPCODE<="001";
 							else
 								next_state<=PtGt;
-								P_SHFT<="0";
+								P_SHFT<='0';--"0";
 								i_addr_cnt<=1;
 								i_row_cnt<=0;
 								i_col_cnt<=1;

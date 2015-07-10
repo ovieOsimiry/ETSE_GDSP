@@ -22,119 +22,23 @@
   <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="BRAM_build.xise"/>
 
   <files xmlns="http://www.xilinx.com/XMLSchema">
-    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="ADDR_GEN_FSM.cmd_log"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="ADDR_GEN_FSM.lso"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="ADDR_GEN_FSM.ngc"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="ADDR_GEN_FSM.ngr"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="ADDR_GEN_FSM.prj"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="ADDR_GEN_FSM.stx"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="ADDR_GEN_FSM.syr"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="ADDR_GEN_FSM.xst"/>
-    <file xil_pn:fileType="FILE_HTML" xil_pn:name="ADDR_GEN_FSM_summary.html"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="ADDR_GEN_FSM_v2.prj"/>
-    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="ADDR_GEN_FSM_v2.stx"/>
-    <file xil_pn:fileType="FILE_XST" xil_pn:name="ADDR_GEN_FSM_v2.xst"/>
-    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="ADDR_GEN_FSM_xst.xrpt"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="BRAM_WRAPPER.prj"/>
-    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="BRAM_WRAPPER.stx"/>
-    <file xil_pn:fileType="FILE_XST" xil_pn:name="BRAM_WRAPPER.xst"/>
-    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="BRAM_WRAPPER_V2_isim_beh.wdb"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="BRAM_WRAPPER_stx_beh.prj"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="CONTROL_UNIT.prj"/>
-    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="CONTROL_UNIT.stx"/>
-    <file xil_pn:fileType="FILE_XST" xil_pn:name="CONTROL_UNIT.xst"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="CONTROL_UNIT_stx_beh.prj"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="MATRIXMULT_V2.prj"/>
-    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="MATRIXMULT_V2.stx"/>
-    <file xil_pn:fileType="FILE_XST" xil_pn:name="MATRIXMULT_V2.xst"/>
-    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="MEMARRAY.cmd_log"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="MEMARRAY.lso"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="MEMARRAY.ngc"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="MEMARRAY.ngr"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="MEMARRAY.prj"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="MEMARRAY.stx"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="MEMARRAY.syr"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="MEMARRAY.xst"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="MEMARRAY_PCIN.prj"/>
-    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="MEMARRAY_PCIN.stx"/>
-    <file xil_pn:fileType="FILE_XST" xil_pn:name="MEMARRAY_PCIN.xst"/>
-    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="MEMARRAY_V2.cmd_log"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="MEMARRAY_V2.lso"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="MEMARRAY_V2.ngc"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="MEMARRAY_V2.ngr"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="MEMARRAY_V2.prj"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="MEMARRAY_V2.stx"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="MEMARRAY_V2.syr"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="MEMARRAY_V2.xst"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="MEMARRAY_V2_isim_beh.exe"/>
-    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="MEMARRAY_V2_xst.xrpt"/>
-    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="MEMARRAY_V3.cmd_log"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="MEMARRAY_V3.lso"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="MEMARRAY_V3.ngc"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="MEMARRAY_V3.ngr"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="MEMARRAY_V3.prj"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="MEMARRAY_V3.stx"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="MEMARRAY_V3.syr"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="MEMARRAY_V3.xst"/>
-    <file xil_pn:fileType="FILE_HTML" xil_pn:name="MEMARRAY_V3_envsettings.html"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="MEMARRAY_V3_stx_beh.prj"/>
-    <file xil_pn:fileType="FILE_HTML" xil_pn:name="MEMARRAY_V3_summary.html"/>
-    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="MEMARRAY_V3_xst.xrpt"/>
-    <file xil_pn:fileType="FILE_HTML" xil_pn:name="MEMARRAY_envsettings.html"/>
     <file xil_pn:fileType="FILE_NCD" xil_pn:name="MEMARRAY_guide.ncd" xil_pn:origination="imported"/>
-    <file xil_pn:fileType="FILE_HTML" xil_pn:name="MEMARRAY_summary.html"/>
-    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="MEMARRAY_xst.xrpt"/>
-    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="M_OPERATOR.cmd_log"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="M_OPERATOR.lso"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="M_OPERATOR.ngc"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="M_OPERATOR.ngr"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="M_OPERATOR.prj"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="M_OPERATOR.stx"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="M_OPERATOR.syr"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="M_OPERATOR.xst"/>
-    <file xil_pn:fileType="FILE_HTML" xil_pn:name="M_OPERATOR_envsettings.html"/>
-    <file xil_pn:fileType="FILE_HTML" xil_pn:name="M_OPERATOR_summary.html"/>
-    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="M_OPERATOR_xst.xrpt"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="SCRATCHPAD_REG_isim_beh.exe"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="TB_ADDR_FSM_V2_isim_beh.exe"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="TB_ADDR_GEN_FSM_V3_isim_beh.exe"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="TB_BRAM_WRAPPER_isim_beh.exe"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="TB_BRAM_WRAPPER_stx_beh.prj"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="TB_DSP_isim_beh.exe"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="TB_FSM_isim_beh.exe"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="TB_MATRIXMULT_PCIN_isim_beh.exe"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="TB_MATRIXMULT_V2_isim_beh.exe"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="TB_MATRIXMULT_V2_stx_beh.prj"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="TB_MATRIXMULT_isim_beh.exe"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="TB_MATRIXMULT_stx_beh.prj"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="TB_MEMARRAY_V2_isim_beh.exe"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="TB_MEMARRAY_V3_beh.prj"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="TB_MEMARRAY_V3_isim_beh.exe"/>
-    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="TB_MEMARRAY_V3_isim_beh.wdb"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="TB_MEMARRAY_V3_stx_beh.prj"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="TB_MEMARRAY_isim_beh.exe"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="TB_M_OPERATOR_isim_beh.exe"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="TB_delayline_isim_beh.exe"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="VARDELAYLINE.prj"/>
-    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="VARDELAYLINE.stx"/>
-    <file xil_pn:fileType="FILE_XST" xil_pn:name="VARDELAYLINE.xst"/>
-    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="TB_MEMARRAY_V4_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="TB_MEMARRAY_V4_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="TB_MEMARRAY_V4_isim_beh.wdb"/>
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
-    <file xil_pn:fileType="FILE_LOG" xil_pn:name="ipcore_dir/coregen.log"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_LOG" xil_pn:name="isim.log"/>
-    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
-    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
   </files>
 
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
-    <transform xil_pn:end_ts="1424953726" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1424953726">
+    <transform xil_pn:end_ts="1436519219" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1436519219">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1436194540" xil_pn:in_ck="-771053171125185471" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1436194540">
+    <transform xil_pn:end_ts="1436542704" xil_pn:in_ck="4334442338093697581" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1436542703">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ADDR_GEN_FSM.vhd"/>
@@ -150,6 +54,7 @@
       <outfile xil_pn:name="MEMARRAY_V3.vhd"/>
       <outfile xil_pn:name="M_OPERATOR.vhd"/>
       <outfile xil_pn:name="SCRATCHPAD_REG.vhd"/>
+      <outfile xil_pn:name="STANDARD_RAM.vhd"/>
       <outfile xil_pn:name="TB_ADDR_FSM_V2.vhd"/>
       <outfile xil_pn:name="TB_ADDR_GEN_FSM_v3.vhd"/>
       <outfile xil_pn:name="TB_BRAM_WRAPPER.vhd"/>
@@ -161,20 +66,21 @@
       <outfile xil_pn:name="TB_MEMARRAY.vhd"/>
       <outfile xil_pn:name="TB_MEMARRAY_V2.vhd"/>
       <outfile xil_pn:name="TB_MEMARRAY_V3.vhd"/>
+      <outfile xil_pn:name="TB_MEMARRAY_V4.vhd"/>
       <outfile xil_pn:name="TB_M_OPERATOR.vhd"/>
       <outfile xil_pn:name="TB_SP_ring.vhd"/>
       <outfile xil_pn:name="TB_delayline.vhd"/>
       <outfile xil_pn:name="VARDELAYLINE.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1436194540" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="6076022659851268689" xil_pn:start_ts="1436194540">
+    <transform xil_pn:end_ts="1436450836" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="1448440912670718610" xil_pn:start_ts="1436450836">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1436194540" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-5210632505477466557" xil_pn:start_ts="1436194540">
+    <transform xil_pn:end_ts="1436450836" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-4433635301960508348" xil_pn:start_ts="1436450836">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1435857213" xil_pn:in_ck="4933075307002178443" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="-3136504841111865936" xil_pn:start_ts="1435857212">
+    <transform xil_pn:end_ts="1436450837" xil_pn:in_ck="4933075307002178443" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="-3136504841111865936" xil_pn:start_ts="1436450836">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ipcore_dir/BRAM18x1k.ngc"/>
@@ -185,7 +91,7 @@
       <outfile xil_pn:name="ipcore_dir/DSP_INPUT_PCIN.ngc"/>
       <outfile xil_pn:name="ipcore_dir/DSP_INPUT_PCIN.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1436194541" xil_pn:in_ck="-771053171125185471" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1436194540">
+    <transform xil_pn:end_ts="1436542704" xil_pn:in_ck="4334442338093697581" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1436542704">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ADDR_GEN_FSM.vhd"/>
@@ -201,6 +107,7 @@
       <outfile xil_pn:name="MEMARRAY_V3.vhd"/>
       <outfile xil_pn:name="M_OPERATOR.vhd"/>
       <outfile xil_pn:name="SCRATCHPAD_REG.vhd"/>
+      <outfile xil_pn:name="STANDARD_RAM.vhd"/>
       <outfile xil_pn:name="TB_ADDR_FSM_V2.vhd"/>
       <outfile xil_pn:name="TB_ADDR_GEN_FSM_v3.vhd"/>
       <outfile xil_pn:name="TB_BRAM_WRAPPER.vhd"/>
@@ -212,83 +119,32 @@
       <outfile xil_pn:name="TB_MEMARRAY.vhd"/>
       <outfile xil_pn:name="TB_MEMARRAY_V2.vhd"/>
       <outfile xil_pn:name="TB_MEMARRAY_V3.vhd"/>
+      <outfile xil_pn:name="TB_MEMARRAY_V4.vhd"/>
       <outfile xil_pn:name="TB_M_OPERATOR.vhd"/>
       <outfile xil_pn:name="TB_SP_ring.vhd"/>
       <outfile xil_pn:name="TB_delayline.vhd"/>
       <outfile xil_pn:name="VARDELAYLINE.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1436194559" xil_pn:in_ck="790637813255471207" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="2199779876319843532" xil_pn:start_ts="1436194541">
+    <transform xil_pn:end_ts="1436542719" xil_pn:in_ck="8264365312669435347" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="291374020338724078" xil_pn:start_ts="1436542704">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="TB_MEMARRAY_V3_beh.prj"/>
-      <outfile xil_pn:name="TB_MEMARRAY_V3_isim_beh.exe"/>
+      <outfile xil_pn:name="TB_MEMARRAY_V4_beh.prj"/>
+      <outfile xil_pn:name="TB_MEMARRAY_V4_isim_beh.exe"/>
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
       <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1436194560" xil_pn:in_ck="-8660162612617666367" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-637422489522046343" xil_pn:start_ts="1436194559">
+    <transform xil_pn:end_ts="1436542719" xil_pn:in_ck="-8579852953316833077" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="2493770851734732028" xil_pn:start_ts="1436542719">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="TB_MEMARRAY_V3_isim_beh.wdb"/>
+      <outfile xil_pn:name="TB_MEMARRAY_V4_isim_beh.wdb"/>
       <outfile xil_pn:name="isim.cmd"/>
       <outfile xil_pn:name="isim.log"/>
     </transform>
-    <transform xil_pn:end_ts="1425637933" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1425637932">
+    <transform xil_pn:name="TRAN_SubProjectAbstractToPreProxy">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1435853737" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="2308257163881588795" xil_pn:start_ts="1435853737">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1435960138" xil_pn:in_ck="4933075307002178443" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="-3136504841111865936" xil_pn:start_ts="1435960136">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <outfile xil_pn:name="ipcore_dir/BRAM18x1k.ngc"/>
-      <outfile xil_pn:name="ipcore_dir/BRAM18x1k.vhd"/>
-      <outfile xil_pn:name="ipcore_dir/BRAM18x1k_synth.vhd"/>
-      <outfile xil_pn:name="ipcore_dir/DSP_INPUT_C.ngc"/>
-      <outfile xil_pn:name="ipcore_dir/DSP_INPUT_C.vhd"/>
-    </transform>
-    <transform xil_pn:end_ts="1435853738" xil_pn:in_ck="-8119521056230393672" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1435853738">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1435853738" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="-6881169754696383479" xil_pn:start_ts="1435853738">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1435853738" xil_pn:in_ck="-8119521056230393672" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="-7782322491054787537" xil_pn:start_ts="1435853738">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-    </transform>
-    <transform xil_pn:end_ts="1435853738" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="1670009337782423866" xil_pn:start_ts="1435853738">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-    </transform>
-    <transform xil_pn:end_ts="1435961020" xil_pn:in_ck="-6975067141486966458" xil_pn:name="TRANEXT_xstsynthesize_virtex6" xil_pn:prop_ck="-3706738594031888623" xil_pn:start_ts="1435960963">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="WarningsGenerated"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="InputChanged"/>
-      <outfile xil_pn:name="MEMARRAY_V3.lso"/>
-      <outfile xil_pn:name="MEMARRAY_V3.ngc"/>
-      <outfile xil_pn:name="MEMARRAY_V3.ngr"/>
-      <outfile xil_pn:name="MEMARRAY_V3.prj"/>
-      <outfile xil_pn:name="MEMARRAY_V3.stx"/>
-      <outfile xil_pn:name="MEMARRAY_V3.syr"/>
-      <outfile xil_pn:name="MEMARRAY_V3.xst"/>
-      <outfile xil_pn:name="MEMARRAY_V3_stx_beh.prj"/>
-      <outfile xil_pn:name="MEMARRAY_V3_xst.xrpt"/>
-      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
-      <outfile xil_pn:name="webtalk_pn.xml"/>
-      <outfile xil_pn:name="xst"/>
     </transform>
   </transforms>
 

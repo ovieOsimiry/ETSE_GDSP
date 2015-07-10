@@ -95,6 +95,7 @@ ARCHITECTURE behavior OF TB_MEMARRAY_V4 IS
 	signal MUL_GCOL : std_logic_vector(COLUMN_TOTAL-1 downto 0);
 	signal MUL_GROW : std_logic_vector(ADDR_WIDTH-1 downto 0);
 	signal MUL_GDIN : std_logic_vector(DATA_WIDTH-1 downto 0);
+	signal Bank_sel_in : STD_LOGIC:='0';
    
 --@@@@@@@@@@@@ End of GRAM Signals @@@@@@@@@@@@@@@@@@--
  
@@ -132,6 +133,7 @@ generic map(
           ADDRB => ADDRB,
           P_SHFT_IN	=> P_SHFT_IN,
           Ctrl_BRAM => Ctrl_BRAM,
+          Bank_sel_in => Bank_sel_in,
           OE => OE,
           SSEN => SSEN,
           DIN => Mul_DIN,
@@ -202,9 +204,9 @@ end process;
 					readline (file_pointer,line_num);  --Read the whole line from the file
 					READ (line_num,x);
 					report "The value of G" & integer'image(i) & integer'image(j) &" = " & integer'image(x);
-							GCOL<=std_logic_vector(to_unsigned(i-1,3));
-							GROW<=std_logic_vector(to_signed(j-1,10));
-							GDIN<=std_logic_vector(to_signed(x,18));
+							GCOL<=std_logic_vector(to_unsigned(i-1,COLUMN_TOTAL));
+							GROW<=std_logic_vector(to_signed(j-1,ADDR_WIDTH));
+							GDIN<=std_logic_vector(to_signed(x,DATA_WIDTH));
 							wait for CLK_period;
 				end loop;
         end loop;  
@@ -227,41 +229,38 @@ file file_pointer : text;
  variable line_num : line;
  variable i,j,x: integer := 0;
  variable vector: std_logic_vector(DATA_WIDTH-1 downto 0);
- variable WE_vec: std_logic_vector(COLUMN_TOTAL-1 downto 0):="000";
+ variable WE_vec: std_logic_vector(COLUMN_TOTAL-1 downto 0):=(others => '0');
 
 begin		
-      -- hold reset state for 100 ns.
-		rst <= '1';
---        wait for 10 ns;
---		rst <= '0';
-		
-		--DIN<=std_logic_vector(to_signed(88, DATA_WIDTH));
-      --wait for CLK_period*10;
-		
-		OE<='1';
+
+	rst <= '1';	-- hold FSM in reset state	
+	OE<='1';
 		
 	  wait until PREAD_START='1';
-	  rst <= '0';
+	  rst <= '0'; -- release FSM from Reset state
 	  DATA_INPUT <= '0';-- Switch Input data of MEMARRAY_V3 to DIN
      -------------------------------------------------- READING THE P MATRIX from file to device
 	  file_open(file_pointer,"Pdata.txt",READ_MODE); 
-
-		--ADDRB<="11" & x"00";
+	
 		LOAD <= '1';--PUT the FSM in MEMARRAY_V3 in Loading State.
-		--wait for clk_period*1.5;	--uncomment if using 2 stage pipeline for DSP input a.	
-		wait for clk_period*4.5;    -- comment if using 2 stage pipeline for DSP input a
+		--Uncomment if using internal MEMARRAY_V3 3 stage pipeline for DSP input A. Comment otherwise
+		--wait for clk_period*1.5;		
+		
+		--Uncomment if using Standard RAM internal 3 stage pipeline for DSP input A. Comment otherwise.		
+		wait for clk_period*4.5;  -- wait for FSM to settle down before you begin sending data to it  
+		
+		Bank_sel_in <= '0';
 		
 		for i in 1 to COLUMN_TOTAL loop
 			for j in 1 to COLUMN_TOTAL loop
 				readline (file_pointer,line_num);  --Read the whole line from the file
 				READ (line_num,x);
 				report "The value of P" & integer'image(i) & integer'image(j) &" = " & integer'image(x);
-				DIN <= std_logic_vector(to_signed(i*10+j,DATA_WIDTH));
+				DIN <= std_logic_vector(to_signed(x,DATA_WIDTH));
 				wait for CLK_period;
 			end loop;
 		end loop;
 		file_close(file_pointer);  --after reading all the lines close the file. 
---		PREAD_DONE<='1';
 		
 		DIN <= (others => '0');
 	--	wait until LOADING_DONE = '1'; -- uncomment using 2 stage pipeline for DSP input a. 
@@ -273,47 +272,76 @@ begin
 			wait for CLK_period;
 		end loop;
 		ADDRB<=std_logic_vector(to_unsigned(1020,ADDR_WIDTH));
-		wait for CLK_period*7;
+		wait for CLK_period*7;		
+
 		
---		PREAD_DONE<='1';
-		
-		-- Perform PtG multiplication. with A set to 1.
-		P <= '0';
+		-- Perform PG multiplication. with A set to 1.
+		P <= '1';
 		G <= '0';
+		Bank_sel_in <= '1'; -- Tell BRAM to save result of Multiplication in Lower bank of memory.
 		LOAD <= '0'; 
       	Ctrl_BRAM <= '0';-- Give Back control of BRAM in MEMARRY_V3 to FSM
       	DATA_INPUT <= '1';-- Switch Input data of MEMARRAY_V3 to GRAM.
---		DIN <= std_logic_vector(to_signed(1,DATA_WIDTH));
 
 		PREAD_DONE<='1';
-		wait for clk_period;
-      
---		for i in 1 to COLUMN_TOTAL loop
---			ADDRB<=std_logic_vector(to_unsigned(i-1,ADDR_WIDTH));
---			wait for CLK_period;
---		end loop;
-		
+		wait for clk_period;  
+	
 		wait until OP_DONE = '1';
-
-		wait for CLK_period*11;
-		Ctrl_BRAM <= '1';  --Take control of BRAM in MEMARRAY_V3
-		P_SHFT_IN <= '1';  --Tell BRAM to provide result corresponding exactly to the address supplied. Not Circulant format.
+		wait for CLK_period*11; -- wait for multiplication data to propagate from DSP and Scratchpad Register to BRAM for proper saving.
+		Ctrl_BRAM <= '1'; -- Take control of BRAM from FSM.
+		P_SHFT_IN <= '0'; -- Put BRAM in normal reading mode.
 		wait for CLK_period;
+		
+		for i in 1 to COLUMN_TOTAL loop
+			ADDRB<= "1" & std_logic_vector(to_unsigned(i-1,ADDR_WIDTH-1));-- read lower bank of RAM.			
+			wait for CLK_period;
+		end loop;		
+		
+		ADDRB<= "0" & std_logic_vector(to_unsigned(10,ADDR_WIDTH-1)); -- Read an empty space so that we can seperate the normal and circulant values read from BRAM.
+		--wait for clk_period*3.5;
+		
+		P_SHFT_IN <= '1'; -- Put BRAM in circulant reading mode.
+		wait for CLK_period;
+		
 		
 		for i in 1 to COLUMN_TOTAL loop
 			ADDRB<= "1" & std_logic_vector(to_unsigned(i-1,ADDR_WIDTH-1));-- read lower bank of RAM.			
 			wait for CLK_period;
 		end loop;
 		
-		ADDRB<= "1" & std_logic_vector(to_unsigned(5,ADDR_WIDTH-1));-- read lower bank of RAM.
-		Ctrl_BRAM <= '1';  --Take control of BRAM in MEMARRAY_V3
-		P_SHFT_IN <= '0';  --Tell BRAM to provide result corresponding exactly to the address supplied. Not Circulant format.
+		
+		ADDRB<= "0" & std_logic_vector(to_unsigned(10,ADDR_WIDTH-1)); -- Read an empty space so that we can seperate the normal and circulant values read from BRAM.
+		
 		wait for CLK_period;
 		
 		for i in 1 to COLUMN_TOTAL loop
-			ADDRB<= "1" & std_logic_vector(to_unsigned(i-1,ADDR_WIDTH-1));-- read lower bank of RAM.			
+			ADDRB<= "0" & std_logic_vector(to_unsigned(i-1,ADDR_WIDTH-1));-- read upper bank of RAM.			
 			wait for CLK_period;
 		end loop;
+		
+		rst <= '1'; -- Reset FSM.
+		LOAD <= '0';-- Prevent FSM from going to Loading state.
+		P <= '1';-- Tell FSM to go to PG State. We will multiply the 
+		G <= '0';-- previous result PG in lower bank with G so this gives PG * G.
+		Ctrl_BRAM <= '0'; -- Give control of BRAM back to FSM.
+		Bank_sel_in <= '0'; -- Tell BRAM to save result of Multiplication in upper bank of memory.
+		wait for clk_period;
+		rst <= '0';
+		
+	
+		wait until OP_DONE = '1';
+		
+		wait for CLK_period*11; -- wait for multiplication data to propagate from DSP and Scratchpad Register to BRAM for proper saving.
+		Ctrl_BRAM <= '1'; -- Take control of BRAM from FSM.
+		P_SHFT_IN <= '0'; -- Put BRAM in normal reading mode.
+		ADDRB<= "0" & std_logic_vector(to_unsigned(10,ADDR_WIDTH-1)); -- Read an empty space so we can notice actual value from.
+		wait for CLK_period;
+		
+		for i in 1 to COLUMN_TOTAL loop
+			ADDRB<= "0" & std_logic_vector(to_unsigned(i-1,ADDR_WIDTH-1));-- read lower bank of RAM.			
+			wait for CLK_period;
+		end loop;	
+		
 	
       wait;
    end process;

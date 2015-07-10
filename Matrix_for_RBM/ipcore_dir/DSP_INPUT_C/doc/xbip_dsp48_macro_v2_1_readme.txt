@@ -1,13 +1,16 @@
 CHANGE LOG for Xilinx LogiCORE DSP48 Macro 2.1
 
+Release Date:  October 2, 2013 
+--------------------------------------------------------------------------------
+
 Table of Contents
 
 1.   INTRODUCTION 
 2.   DEVICE SUPPORT    
-3.   NEW FEATURES HISTORY   
+3.   NEW FEATURE HISTORY   
 4.   RESOLVED ISSUES 
-5.   KNOWN ISSUES / LIMITATIONS 
-6.   TECHNICAL SUPPORT AND FEEDBACK 
+5.   KNOWN ISSUES & LIMITATIONS 
+6.   TECHNICAL SUPPORT & FEEDBACK 
 7.   CORE RELEASE HISTORY 
 8.   LEGAL DISCLAIMER 
 
@@ -16,18 +19,20 @@ Table of Contents
 
 1. INTRODUCTION
 
-For installation instructions for this release, please go to:
+  This file contains the change log for all released versions of the Xilinx 
+  LogiCORE IP DSP48 Macro.
 
-   http://www.xilinx.com/ipcenter/coregen/ip_update_install_instructions.htm
+  For the latest core updates, see the product page at:
 
-For system requirements:
+    http://www.xilinx.com/products/ipcenter/DSP48_Macro.htm
 
-   http://www.xilinx.com/ipcenter/coregen/ip_update_system_requirements.htm
+  For installation instructions for this release, please go to:
 
-This file contains release notes for the Xilinx LogiCORE IP DSP48 Macro 2.1
-solution. For the latest core updates, see the product page at:
+    http://www.xilinx.com/ipcenter/coregen/ip_update_install_instructions.htm
 
-   http://www.xilinx.com/products/ipcenter/DSP48_Macro.htm
+  For system requirements:
+
+    http://www.xilinx.com/ipcenter/coregen/ip_update_system_requirements.htm
 
 
 2. DEVICE SUPPORT 
@@ -44,12 +49,6 @@ solution. For the latest core updates, see the product page at:
     Spartan-3A DSP
     Automotive Spartan-3A DSP
 
-  2.2. VIVADO
-
-    The following device families are supported by the core for this release:
-
-    All Series 7 devices
-
 
 3. NEW FEATURE HISTORY
 
@@ -59,12 +58,6 @@ solution. For the latest core updates, see the product page at:
     - Ongoing new device support.
     - Optional separate clock enables and resets for each data and control path
 
-  3.1 VIVADO
-
-  v2.1
-    - Introduction to Vivado. 
-    - Same features as for ISE.
-
 
 4. RESOLVED ISSUES 
 
@@ -72,23 +65,21 @@ solution. For the latest core updates, see the product page at:
 
     - N/A
 
-  4.2 Vivado
 
-    - N/A
-
-
-5. KNOWN ISSUES / LIMITATIONS 
+5. KNOWN ISSUES & LIMITATIONS 
 
   The following are known issues for this core at time of release:
 
   5.1 ISE
     - None
 
-  5.2 Vivado
-    - None
+  - For a comprehensive listing of Known Issues for this core, please see the IP 
+    Release Notes Guide,  
+    
+    www.xilinx.com/support/documentation/user_guides/xtp025.pdf
 
 
-6. TECHNICAL SUPPORT AND FEEDBACK
+6. TECHNICAL SUPPORT & FEEDBACK
 
   To obtain technical support, create a WebCase at www.xilinx.com/support.
   Questions are routed to a team with expertise using this product.
@@ -100,17 +91,16 @@ solution. For the latest core updates, see the product page at:
   cannot guarantee timing, functionality, or support of this product for
   designs that do not follow specified guidelines.
 
-  The most recent information, including known issues, workarounds, and
-  resolutions for this version is provided in the IP Release Notes Guide
-  located at
-
-  www.xilinx.com/support/documentation/user_guides/xtp025.pdf
-
 
 7. CORE RELEASE HISTORY
 
 Date        By            Version      Description
 ================================================================================
+10/02/2013  Xilinx, Inc.  2.1          ISE 14.7 support and Production support for Series 7
+06/19/2012  Xilinx, Inc.  2.1          ISE 14.6 support
+03/20/2012  Xilinx, Inc.  2.1          ISE 14.5 support. 
+12/18/2012  Xilinx, Inc.  2.1          ISE 14.4 and Vivado 2012.4 support
+10/16/2012  Xilinx, Inc.  2.1          ISE 14.3 and Vivado 2012.3 support
 07/25/2012  Xilinx, Inc.  2.1          ISE 14.2 and Vivado 2012.2 support
 04/24/2012  Xilinx, Inc.  2.1          ISE 14.1 and Vivado 2012.1 support
 01/11/2012  Xilinx, Inc.  2.1          ISE 13.4 support
@@ -126,7 +116,7 @@ Date        By            Version      Description
 
 8. LEGAL DISCLAIMER
 
-  (c) Copyright 2002 - 2012 Xilinx, Inc. All rights reserved.
+  (c) Copyright 2002 - 2013 Xilinx, Inc. All rights reserved.
   
   This file contains confidential and proprietary information
   of Xilinx, Inc. and is protected under U.S. and
@@ -134,7 +124,6 @@ Date        By            Version      Description
   laws.
   
   DISCLAIMER
-  
   This disclaimer is not a license and does not grant any
   rights to the materials distributed herewith. Except as
   otherwise provided in a valid license issued to you by
@@ -157,7 +146,6 @@ Date        By            Version      Description
   possibility of the same.
   
   CRITICAL APPLICATIONS
-  
   Xilinx products are not designed or intended to be fail-
   safe, or for use in any application requiring fail-safe
   performance, such as life-support or safety devices or
