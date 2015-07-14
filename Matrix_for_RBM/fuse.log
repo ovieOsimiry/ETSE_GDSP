@@ -6,7 +6,6 @@ Determining compilation order of HDL files
 Parsing VHDL file "C:/FPGA/Internship Jobs/Codes/ETSE_GDSP/Matrix_for_RBM/ipcore_dir/DSP_INPUT_C.vhd" into library work
 Parsing VHDL file "C:/FPGA/Internship Jobs/Codes/ETSE_GDSP/Matrix_for_RBM/ipcore_dir/BRAM18x1k_synth.vhd" into library work
 Parsing VHDL file "C:/FPGA/Internship Jobs/Codes/ETSE_GDSP/Matrix_for_RBM/ipcore_dir/BRAM18x1k.vhd" into library work
-Parsing VHDL file "C:/FPGA/Internship Jobs/Codes/ETSE_GDSP/Matrix_for_RBM/SCRATCHPAD_REG.vhd" into library work
 Parsing VHDL file "C:/FPGA/Internship Jobs/Codes/ETSE_GDSP/Matrix_for_RBM/CONTROL_UNIT.vhd" into library work
 Parsing VHDL file "C:/FPGA/Internship Jobs/Codes/ETSE_GDSP/Matrix_for_RBM/BRAM_WRAPPER_V2.vhd" into library work
 Parsing VHDL file "C:/FPGA/Internship Jobs/Codes/ETSE_GDSP/Matrix_for_RBM/STANDARD_RAM.vhd" into library work
@@ -57,13 +56,12 @@ Compiling architecture behavioral of entity xbip_pipe_v2_0 [\xbip_pipe_v2_0(1,0,
 Compiling architecture behavioral of entity xbip_pipe_v2_0_xst [\xbip_pipe_v2_0_xst(1,0,0,0,0,0,...]
 Compiling architecture behavioral of entity xbip_dsp48_macro_v2_1 [\xbip_dsp48_macro_v2_1(0,0,"virt...]
 Compiling architecture dsp_input_c_a of entity DSP_INPUT_C [dsp_input_c_default]
-Compiling architecture behavioral of entity SCRATCHPAD_REG [\SCRATCHPAD_REG(18,3)\]
 Compiling architecture behavioral of entity MEMARRAY_V3 [\MEMARRAY_V3(3,3,10,18,48)\]
 Compiling architecture behavioral of entity STANDARD_RAM [\STANDARD_RAM(3,10,18)\]
 Compiling architecture behavior of entity tb_memarray_v4
 Time Resolution for simulation is 1ps.
-Waiting for 8 sub-compilation(s) to finish...
-Compiled 80 VHDL Units
+Waiting for 24 sub-compilation(s) to finish...
+Compiled 78 VHDL Units
 Built simulation executable C:/FPGA/Internship Jobs/Codes/ETSE_GDSP/Matrix_for_RBM/TB_MEMARRAY_V4_isim_beh.exe
-Fuse Memory Usage: 47144 KB
-Fuse CPU Usage: 4789 ms
+Fuse Memory Usage: 47076 KB
+Fuse CPU Usage: 4882 ms

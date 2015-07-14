@@ -32,16 +32,18 @@ entity CONTROL_UNIT is
 		 LOAD         : in  STD_LOGIC;		
 		 P            : in  STD_LOGIC;
 		 G            : in  STD_LOGIC;
-		 D_IN		 	:in std_logic_vector(DATA_WIDTH-1 downto 0);
+		 --D_IN		 	:in std_logic_vector(DATA_WIDTH-1 downto 0);
 		 WE           : out std_logic;
-		 D_OUT			:out std_logic_vector(DATA_WIDTH-1 downto 0);
+		 --D_OUT			:out std_logic_vector(DATA_WIDTH-1 downto 0);
 		 CSEL			  :out std_logic_vector(COLUMN_TOTAL-1 downto 0);
 		 ADDR       : out STD_LOGIC_VECTOR(ADDR_WIDTH - 1 downto 0);
 		 P_SHFT       : out STD_LOGIC;
 		 OPCODE       : out STD_LOGIC_VECTOR(OPCODE_WIDTH - 1 downto 0);
 		 G_ROW        : out STD_LOGIC_VECTOR(ADDR_WIDTH - 1 downto 0);
 		 G_COLUMN     : out STD_LOGIC_VECTOR(COLUMN_TOTAL - 1 downto 0);
-		 Bank_Sel		: out std_logic;	
+		 G_EN		: out STD_LOGIC;
+		 --Bank_Sel		: out std_logic;
+		 READY			: out std_logic;	
 		 OP_DONE      : out std_logic;
 		 LOADING_DONE : out std_logic);
 end CONTROL_UNIT;
@@ -49,13 +51,14 @@ end CONTROL_UNIT;
 architecture Behavioral of CONTROL_UNIT is
 	
 signal i_addr_cnt,i_row_cnt,i_col_cnt: integer range 0 to COLUMN_TOTAL;
-signal i_OP_START: STD_LOGIC;
+--signal i_OP_START: STD_LOGIC;
  signal s_CSEL: std_logic_vector(COLUMN_TOTAL-1 downto 0);
 
 type state_type is (START,LOADING,LOAD_DONE,PG,PtG,PGt,PtGt,DONE);
 signal current_state,next_state: state_type;
 signal s_P_ADDR : STD_LOGIC_VECTOR(ADDR_WIDTH - 1 downto 0);
-signal s_LOADING_DONE, s_Bank_Sel : std_logic;
+signal s_LOADING_DONE: std_logic;
+-- s_Bank_Sel : std_logic;
 
 --dubug sigals
 signal s_a, s_b: integer:=0;
@@ -65,13 +68,30 @@ begin
 
 
 
-process (CLK,RST)
+process (CLK, RST)
+-- This Counter variable is used to create a delay for the appropriate time to set the READY signal.
+-- The READY signal is used to alert the user to know when the FSM has setteled in the START state and is ready to start receiving input data
+-- for storage in BRAM. The current value is set to 4 but it can be changed accordingly to allow enough time for the READY signal to trigger,
+-- and user to Respond. Typically this value could be set to 3 instead of 4 to give the user 1 clock cycle to react. But for simulation
+-- Purpose the value 4 is ok. 
+	variable cnt_delay_ready: integer range 0 to 10;
 begin
 if rising_edge(CLK) then
 		if(RST='1') then
 			current_state<=START;
+			cnt_delay_ready := 0;
+			READY <= '0';
 		else
 			current_state <= next_state;   --state change.
+			if current_state = Loading then
+				cnt_delay_ready := cnt_delay_ready + 1;
+-- Note if DIN input to DSP block is delayed from GRAM (3 stage Pipeline) instead of using the 2 stage Pipeline in MEMARRY then this value should be 1 otherwise set it to 4.				
+				if cnt_delay_ready >= 4 then
+					READY <= '1';
+				end if;
+			else
+				READY <= '0';
+			end if;
 		end if;
 end if;
 end process;
@@ -87,10 +107,12 @@ begin
 if (rising_edge(CLK)) then
 	case current_state is
 	
-		when START =>
+	when START =>
+			--READY <= '0';
 			i_row_cnt<=0;
 			i_col_cnt<=0;
 			i_addr_cnt <= 0;
+			G_EN <= '0';
 			OP_DONE<='0';--reset the done signal
 			v_OP_DONE := '0';--reset the done signal
 			next_state<=current_state;
@@ -98,7 +120,7 @@ if (rising_edge(CLK)) then
 			j:=0;
 			P_SHFT <='0';
 			WE <= '0';
-			s_Bank_Sel <= '0';
+			--s_Bank_Sel <= '0';
 			OPCODE <= (others => '0');
 			s_P_ADDR <= (others => '1');
 
@@ -143,17 +165,15 @@ if (rising_edge(CLK)) then
 						end if;
 					end if;
 				else
-					--v_LOADING_DONE := '0';
 					if v_LOADING_DONE = '1' then
 						next_state <= LOAD_DONE;
-						--v_LOADING_DONE := '1';
 					else
 						next_state <= LOADING;
 					end if;
 				end if;				
 				
-				s_P_ADDR <= std_logic_vector(to_unsigned(j, ADDR_WIDTH));				
-				--D_OUT <= D_IN;
+				--s_P_ADDR <= std_logic_vector(to_unsigned(j, ADDR_WIDTH));
+				s_P_ADDR <= std_logic_vector(to_unsigned(j, ADDR_WIDTH));
 				s_CSEL <= v_CSEL;
 				WE <= v_WE;
 				s_a <= i;
@@ -164,11 +184,12 @@ if (rising_edge(CLK)) then
 				--s_Bank_Sel <= '1';
 				i:=0;
 				j:=0;
-				WE <= '0';
+				WE <= '0';				
 				s_CSEL <= (others => '1');--Enble BRAM for Saving multiplication result.		
 				IF LOAD = '1' then					
 					next_state <= LOAD_DONE;	
 				else
+				G_EN <= '1'; -- Enable GRAM
 				if (P='0') then
 						if G='0' then
 							next_state<=PG;
@@ -203,8 +224,8 @@ if (rising_edge(CLK)) then
 						end if;
 					end if;
 				end if;
-		when PG =>
-					s_Bank_Sel <= '1';
+		when PG =>					
+					--s_Bank_Sel <= '1';
 					v_OPCODE :="011";
 					WE <='0';
 					if v_OP_DONE = '0' then
@@ -221,20 +242,17 @@ if (rising_edge(CLK)) then
 						if i= COLUMN_TOTAL-1 then 		-- full round
 							j:=j+1;
 							i_col_cnt<=i_col_cnt+1;			-- next G column
-									if ((i_row_cnt+1)=COLUMN_TOTAL-1) then		-- G row
-										i_row_cnt<=0;
-									else
-										--i_row_cnt<=j+1;
-										if j = COLUMN_TOTAL then
-											i_col_cnt<=j-1;
-										end if;
-									end if;
+							i_row_cnt <= 1 + j;	-- nwzr G Row
+							
+							if j = COLUMN_TOTAL then -- Check G Col
+								i_col_cnt<=j-1;
+							end if;
+							if ((i_row_cnt+1)>=COLUMN_TOTAL-1) then		-- G row
+								i_row_cnt<=0;
+							end if;
 							i_addr_cnt<=COLUMN_TOTAL-1-j;
 							i:=0;
 							v_OPCODE := "001";
-							if i = 0 and j = 1 then
-								i_row_cnt <= COLUMN_TOTAL-1;-- 2;
-							end if;
 						else
 							i:=i+1;
 							if i = COLUMN_TOTAL-1 then
@@ -261,7 +279,7 @@ if (rising_edge(CLK)) then
 					s_a <= i;
 					s_b <= j;
 			when PGt=>
-					s_Bank_Sel <= '1';
+					--s_Bank_Sel <= '1';
 					v_OPCODE :="011";
 					WE <='0';
 					if v_OP_DONE = '0' then
@@ -276,22 +294,18 @@ if (rising_edge(CLK)) then
 							i_addr_cnt<=i_addr_cnt-1;
 						end if;
 						if i= COLUMN_TOTAL-1 then 		-- full round 
-							j:=j+1;
+							j:=j+1;							
+							i_col_cnt <= 1 + j;	--  G Col
 							i_row_cnt<=i_row_cnt+1;			-- next G row
-									if ((i_col_cnt+1)=COLUMN_TOTAL-1) then		-- G col
-										i_col_cnt<=0;
-									else
-										--i_col_cnt<=j+1;
-										if j = COLUMN_TOTAL then
-											i_row_cnt<=j-1;
-										end if;
-									end if;
+							if j = COLUMN_TOTAL then -- Check G Row
+								i_row_cnt<=j-1;
+							end if;
+							if ((i_col_cnt+1)>=COLUMN_TOTAL-1) then		-- G Column
+								i_col_cnt<=0;
+							end if;
 							i_addr_cnt<=COLUMN_TOTAL-1-j;
 							i:=0;
 							v_OPCODE := "001";
-							if i = 0 and j = 1 then
-								i_col_cnt <= COLUMN_TOTAL-1;-- 2;
-							end if;
 						else
 							i:=i+1;
 							if i = COLUMN_TOTAL-1 then
@@ -316,7 +330,7 @@ if (rising_edge(CLK)) then
 					OPCODE<= v_OPCODE; --"111";
 					OP_DONE <= v_OP_DONE;
 			when PtG=>
-					s_Bank_Sel <= '1';
+					--s_Bank_Sel <= '1';
 					v_OPCODE :="011";
 					WE <='0';
 					if v_OP_DONE = '0' then
@@ -333,14 +347,13 @@ if (rising_edge(CLK)) then
 						if i= COLUMN_TOTAL-1 then 		-- full round 
 							j:=j+1;
 							i_col_cnt<=i_col_cnt+1;			-- next G column
-									if ((i_row_cnt+1)=COLUMN_TOTAL-1) then		-- G row
-										i_row_cnt<=0;
-									else
-										--i_row_cnt<=j+1;
-										if j = COLUMN_TOTAL then
-											i_col_cnt<=j-1;
-										end if;
-									end if;
+							i_row_cnt <= 1 + j;	-- G Row
+							if j = COLUMN_TOTAL then -- Check G Col
+								i_col_cnt<=j-1;
+							end if;
+							if ((i_row_cnt+1)>=COLUMN_TOTAL-1) then		-- G row
+								i_row_cnt<=0;
+							end if;
 							if j=COLUMN_TOTAL-1 then									--- P addr
 								i_addr_cnt<=0;
 							else
@@ -348,9 +361,6 @@ if (rising_edge(CLK)) then
 							end if;
 							i:=0;
 							v_OPCODE := "001";
-							if i = 0 and j = 1 then -- G row
-								i_row_cnt <= COLUMN_TOTAL-1;-- 2;
-							end if;
 						else
 							i:=i+1;
 							if i = COLUMN_TOTAL-1 then
@@ -375,9 +385,9 @@ if (rising_edge(CLK)) then
 					end if;
 					OPCODE<= v_OPCODE; --"111";
 					OP_DONE <= v_OP_DONE;
-					
+			
 			when PtGt =>
-					s_Bank_Sel <= '1';
+					--s_Bank_Sel <= '1';
 					v_OPCODE :="011";
 					WE <='0';
 					if v_OP_DONE = '0' then
@@ -392,16 +402,15 @@ if (rising_edge(CLK)) then
 							i_addr_cnt<=i_addr_cnt+1;
 						end if;
 						if i= COLUMN_TOTAL-1 then 		-- full round 
-							j:=j+1;
+							j:=j+1;							
+							i_col_cnt <= 1 + j;	--  G Col
 							i_row_cnt<=i_row_cnt+1;			-- next G row
-									if ((i_col_cnt+1)=COLUMN_TOTAL-1) then		-- G col
-										i_col_cnt<=0;
-									else
-										--i_col_cnt<=j+1;
-										if j = COLUMN_TOTAL then
-											i_row_cnt<=j-1;
-										end if;
-									end if;
+							if j = COLUMN_TOTAL then -- Check G Row
+								i_row_cnt<=j-1;
+							end if;
+							if ((i_col_cnt+1)>=COLUMN_TOTAL-1) then		-- G Column
+								i_col_cnt<=0;
+							end if;
 							if j=COLUMN_TOTAL-1 then									--- P addr
 								i_addr_cnt<=0;
 							else
@@ -409,15 +418,12 @@ if (rising_edge(CLK)) then
 							end if;
 							i:=0;
 							v_OPCODE := "001";
-							if i = 0 and j = 1 then -- G row
-								i_col_cnt <= COLUMN_TOTAL-1;-- 2;
-							end if;
 						else
 							i:=i+1;
 							if i = COLUMN_TOTAL-1 then
 								WE<='1';
 							end if;
-								v_OPCODE := "011";-- make parameterizable latter.					
+							v_OPCODE := "011";-- make parameterizable latter.					
 						end if;
 						if j= COLUMN_TOTAL then 
 							--next_state<=DONE;
@@ -436,8 +442,12 @@ if (rising_edge(CLK)) then
 					end if;
 					OPCODE<= v_OPCODE; --"111";
 					OP_DONE <= v_OP_DONE;
+						
+					s_a <= i;
+					s_b <= j;
 			
 			when others =>
+							G_EN <= '0';
 							WE<='0';
 							--P_SHFT <= '0';
 							OP_DONE<='0';	
@@ -448,12 +458,14 @@ end if;
 end process;
 						ADDR <= s_P_ADDR when current_state = LOADING else std_logic_vector(to_unsigned(i_addr_cnt,ADDR_WIDTH));
 						
+						--ADDR <= s_P_ADDR when current_state = LOADING else std_logic_vector(to_unsigned(i_addr_cnt,ADDR_WIDTH-1));
+						
 						G_ROW<=std_logic_vector(to_unsigned(i_row_cnt,ADDR_WIDTH));
 						G_COLUMN<=std_logic_vector(to_unsigned(i_col_cnt,COLUMN_TOTAL));
 						CSEL <= s_CSEL;
 						LOADING_DONE <= s_LOADING_DONE;
-						D_OUT <= D_IN;
-						Bank_Sel <= s_Bank_Sel;
+						--D_OUT <= D_IN;
+						--Bank_Sel <= s_Bank_Sel;
 							
 -----------------------------------------------------------
 end Behavioral;

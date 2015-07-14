@@ -33,12 +33,12 @@ COMPONENT BRAM18x1k
   PORT (
     clka : IN STD_LOGIC;
     wea : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    addra : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-    dina : IN STD_LOGIC_VECTOR(17 DOWNTO 0);
+    addra : IN STD_LOGIC_VECTOR(ADDR_WIDTH-1 DOWNTO 0);
+    dina : IN STD_LOGIC_VECTOR(DATA_WIDTH-1 DOWNTO 0);
     clkb : IN STD_LOGIC;
     rstb : IN STD_LOGIC;
-    addrb : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-    doutb : OUT STD_LOGIC_VECTOR(17 DOWNTO 0)
+    addrb : IN STD_LOGIC_VECTOR(ADDR_WIDTH-1 DOWNTO 0);
+    doutb : OUT STD_LOGIC_VECTOR(DATA_WIDTH-1 DOWNTO 0)
   );
 END COMPONENT;
 
@@ -46,7 +46,7 @@ END COMPONENT;
 signal i_rst,i_OE: std_logic;
 signal i_wea: std_logic_vector(0 downto 0);
 signal ii_addra, ii_addrb,i_addra, i_addrb:STD_LOGIC_VECTOR(9 DOWNTO 0);
-signal i_dina: STD_LOGIC_VECTOR(17 DOWNTO 0);
+signal i_dina: STD_LOGIC_VECTOR(DATA_WIDTH-1 DOWNTO 0);
 begin
 process (CLK)
 variable addr_a_reg,addr_b_reg: integer range 0 to 2**ADDR_WIDTH;

@@ -90,12 +90,15 @@ ARCHITECTURE behavior OF TB_MEMARRAY_V4 IS
    signal gDIN : STD_LOGIC_VECTOR (DATA_WIDTH-1 downto 0);
    signal gDOUT : STD_LOGIC_VECTOR (DATA_WIDTH-1 downto 0);
    signal gWE : STD_LOGIC;
-   signal gOE : STD_LOGIC;
+   signal f_gOE : STD_LOGIC;
    
 	signal MUL_GCOL : std_logic_vector(COLUMN_TOTAL-1 downto 0);
 	signal MUL_GROW : std_logic_vector(ADDR_WIDTH-1 downto 0);
 	signal MUL_GDIN : std_logic_vector(DATA_WIDTH-1 downto 0);
 	signal Bank_sel_in : STD_LOGIC:='0';
+	signal GOE : std_logic;
+	signal READY : std_logic;
+	--signal G_EN : STD_LOGIC;
    
 --@@@@@@@@@@@@ End of GRAM Signals @@@@@@@@@@@@@@@@@@--
  
@@ -119,10 +122,10 @@ end process;
    uut: entity work.MEMARRAY_V3 
 generic map(
 	COLUMN_TOTAL => COLUMN_TOTAL,
-	OPCODE_WIDTH => 3,
-    ADDR_WIDTH => 10,
-    DATA_WIDTH => 18,
-	DATA_WIDE_WIDTH => 48
+	OPCODE_WIDTH => OPCODE_WIDTH,
+    ADDR_WIDTH => ADDR_WIDTH,
+    DATA_WIDTH => DATA_WIDTH,
+	DATA_WIDE_WIDTH => DATA_WIDE_WIDTH
    )
 	PORT MAP (
           CLK => CLK,
@@ -140,6 +143,8 @@ generic map(
           DOUT => DOUT,
           G_ROW => f_gROW,
           G_COLUMN => f_gCOL,
+          G_EN => f_gOE,
+          READY		=> READY,
           OP_DONE => OP_DONE,
           LOADING_DONE => LOADING_DONE
         );
@@ -156,7 +161,7 @@ generic map(
            DIN 		=> gDIN,
            DOUT 	=> gDOUT,
            WE 		=> gWE,
-           OE 		=> gOE
+           OE 		=> f_gOE
            );
 
  
@@ -215,7 +220,7 @@ end process;
       	GREAD_DONE<='1';
 		GOE<='0';
 		---------------------------------------------------------------------------here we multiply matrices
-		wait until PREAD_DONE='1';
+		--wait until PREAD_DONE='1';
 		GOE<='1';
 		wait;
 end process; 
@@ -235,7 +240,7 @@ begin
 
 	rst <= '1';	-- hold FSM in reset state	
 	OE<='1';
-		
+	
 	  wait until PREAD_START='1';
 	  rst <= '0'; -- release FSM from Reset state
 	  DATA_INPUT <= '0';-- Switch Input data of MEMARRAY_V3 to DIN
@@ -247,16 +252,18 @@ begin
 		--wait for clk_period*1.5;		
 		
 		--Uncomment if using Standard RAM internal 3 stage pipeline for DSP input A. Comment otherwise.		
-		wait for clk_period*4.5;  -- wait for FSM to settle down before you begin sending data to it  
 		
-		Bank_sel_in <= '0';
+		--wait for clk_period*4.5;  -- wait for FSM to settle down before you begin sending data to it  
+		wait until READY = '1';
+		
+		Bank_sel_in <= '0'; -- Tell BRAM to save data in upper bank
 		
 		for i in 1 to COLUMN_TOTAL loop
 			for j in 1 to COLUMN_TOTAL loop
 				readline (file_pointer,line_num);  --Read the whole line from the file
 				READ (line_num,x);
 				report "The value of P" & integer'image(i) & integer'image(j) &" = " & integer'image(x);
-				DIN <= std_logic_vector(to_signed(x,DATA_WIDTH));
+				DIN <= std_logic_vector(to_signed(x,DATA_WIDTH));				
 				wait for CLK_period;
 			end loop;
 		end loop;
@@ -277,7 +284,7 @@ begin
 		
 		-- Perform PG multiplication. with A set to 1.
 		P <= '1';
-		G <= '0';
+		G <= '1';
 		Bank_sel_in <= '1'; -- Tell BRAM to save result of Multiplication in Lower bank of memory.
 		LOAD <= '0'; 
       	Ctrl_BRAM <= '0';-- Give Back control of BRAM in MEMARRY_V3 to FSM
@@ -322,7 +329,7 @@ begin
 		rst <= '1'; -- Reset FSM.
 		LOAD <= '0';-- Prevent FSM from going to Loading state.
 		P <= '1';-- Tell FSM to go to PG State. We will multiply the 
-		G <= '0';-- previous result PG in lower bank with G so this gives PG * G.
+		G <= '1';-- previous result PG in lower bank with G so this gives PG * G.
 		Ctrl_BRAM <= '0'; -- Give control of BRAM back to FSM.
 		Bank_sel_in <= '0'; -- Tell BRAM to save result of Multiplication in upper bank of memory.
 		wait for clk_period;

@@ -21,7 +21,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="39" />
+   <WVObjectSize size="42" />
    <wvobject fp_name="/tb_memarray_v4/clk" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -93,10 +93,13 @@
    <wvobject fp_name="/tb_memarray_v4/dout" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">dout[17:0]</obj_property>
       <obj_property name="ObjectShortName">dout[17:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_memarray_v4/op_done" type="logic" db_ref_id="1">
+      <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">op_done</obj_property>
       <obj_property name="ObjectShortName">op_done</obj_property>
+      <obj_property name="label">op_done</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_memarray_v4/loading_done" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">loading_done</obj_property>
@@ -133,6 +136,10 @@
       <obj_property name="ElementShortName">goe</obj_property>
       <obj_property name="ObjectShortName">goe</obj_property>
    </wvobject>
+   <wvobject fp_name="/tb_memarray_v4/f_goe" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">f_goe</obj_property>
+      <obj_property name="ObjectShortName">f_goe</obj_property>
+   </wvobject>
    <wvobject fp_name="/tb_memarray_v4/uut/FSM_UNIT/current_state" type="other" db_ref_id="1">
       <obj_property name="ElementShortName">current_state</obj_property>
       <obj_property name="ObjectShortName">current_state</obj_property>
@@ -147,6 +154,11 @@
       <obj_property name="ElementShortName">next_state</obj_property>
       <obj_property name="ObjectShortName">next_state</obj_property>
       <obj_property name="label">next_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_memarray_v4/uut/i_alu2alu" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">i_alu2alu[0:2]</obj_property>
+      <obj_property name="ObjectShortName">i_alu2alu[0:2]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="group236" type="group">
       <obj_property name="label">FSM</obj_property>
@@ -171,17 +183,9 @@
          <obj_property name="ElementShortName">g</obj_property>
          <obj_property name="ObjectShortName">g</obj_property>
       </wvobject>
-      <wvobject fp_name="/tb_memarray_v4/uut/FSM_UNIT/d_in" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">d_in[17:0]</obj_property>
-         <obj_property name="ObjectShortName">d_in[17:0]</obj_property>
-      </wvobject>
       <wvobject fp_name="/tb_memarray_v4/uut/FSM_UNIT/we" type="logic" db_ref_id="1">
          <obj_property name="ElementShortName">we</obj_property>
          <obj_property name="ObjectShortName">we</obj_property>
-      </wvobject>
-      <wvobject fp_name="/tb_memarray_v4/uut/FSM_UNIT/d_out" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">d_out[17:0]</obj_property>
-         <obj_property name="ObjectShortName">d_out[17:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/tb_memarray_v4/uut/FSM_UNIT/csel" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">csel[2:0]</obj_property>
@@ -190,6 +194,15 @@
       <wvobject fp_name="/tb_memarray_v4/uut/FSM_UNIT/addr" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">addr[9:0]</obj_property>
          <obj_property name="ObjectShortName">addr[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_memarray_v4/uut/FSM_UNIT/s_a" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">s_a</obj_property>
+         <obj_property name="ObjectShortName">s_a</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_memarray_v4/uut/FSM_UNIT/s_b" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">s_b</obj_property>
+         <obj_property name="ObjectShortName">s_b</obj_property>
       </wvobject>
       <wvobject fp_name="/tb_memarray_v4/uut/FSM_UNIT/p_shft" type="logic" db_ref_id="1">
          <obj_property name="ElementShortName">p_shft</obj_property>
@@ -206,10 +219,6 @@
       <wvobject fp_name="/tb_memarray_v4/uut/FSM_UNIT/g_column" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">g_column[2:0]</obj_property>
          <obj_property name="ObjectShortName">g_column[2:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/tb_memarray_v4/uut/FSM_UNIT/bank_sel" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">bank_sel</obj_property>
-         <obj_property name="ObjectShortName">bank_sel</obj_property>
       </wvobject>
       <wvobject fp_name="/tb_memarray_v4/uut/FSM_UNIT/op_done" type="logic" db_ref_id="1">
          <obj_property name="ElementShortName">op_done</obj_property>
@@ -231,10 +240,6 @@
          <obj_property name="ElementShortName">i_col_cnt</obj_property>
          <obj_property name="ObjectShortName">i_col_cnt</obj_property>
       </wvobject>
-      <wvobject fp_name="/tb_memarray_v4/uut/FSM_UNIT/i_op_start" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">i_op_start</obj_property>
-         <obj_property name="ObjectShortName">i_op_start</obj_property>
-      </wvobject>
       <wvobject fp_name="/tb_memarray_v4/uut/FSM_UNIT/s_csel" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">s_csel[2:0]</obj_property>
          <obj_property name="ObjectShortName">s_csel[2:0]</obj_property>
@@ -255,10 +260,6 @@
          <obj_property name="ElementShortName">s_loading_done</obj_property>
          <obj_property name="ObjectShortName">s_loading_done</obj_property>
       </wvobject>
-      <wvobject fp_name="/tb_memarray_v4/uut/FSM_UNIT/s_bank_sel" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">s_bank_sel</obj_property>
-         <obj_property name="ObjectShortName">s_bank_sel</obj_property>
-      </wvobject>
       <wvobject fp_name="/tb_memarray_v4/uut/FSM_UNIT/s_a" type="other" db_ref_id="1">
          <obj_property name="ElementShortName">s_a</obj_property>
          <obj_property name="ObjectShortName">s_a</obj_property>
@@ -266,129 +267,6 @@
       <wvobject fp_name="/tb_memarray_v4/uut/FSM_UNIT/s_b" type="other" db_ref_id="1">
          <obj_property name="ElementShortName">s_b</obj_property>
          <obj_property name="ObjectShortName">s_b</obj_property>
-      </wvobject>
-   </wvobject>
-   <wvobject fp_name="group198" type="group">
-      <obj_property name="label">GRAM</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-      <wvobject fp_name="/tb_memarray_v4/GRAM/clk" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">clk</obj_property>
-         <obj_property name="ObjectShortName">clk</obj_property>
-      </wvobject>
-      <wvobject fp_name="/tb_memarray_v4/uut/FSM_UNIT/s_a" type="other" db_ref_id="1">
-         <obj_property name="ElementShortName">s_a</obj_property>
-         <obj_property name="ObjectShortName">s_a</obj_property>
-      </wvobject>
-      <wvobject fp_name="/tb_memarray_v4/uut/FSM_UNIT/s_b" type="other" db_ref_id="1">
-         <obj_property name="ElementShortName">s_b</obj_property>
-         <obj_property name="ObjectShortName">s_b</obj_property>
-      </wvobject>
-      <wvobject fp_name="/tb_memarray_v4/GRAM/row" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">row[9:0]</obj_property>
-         <obj_property name="ObjectShortName">row[9:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/tb_memarray_v4/uut/FSM_UNIT/i_row_cnt" type="other" db_ref_id="1">
-         <obj_property name="ElementShortName">i_row_cnt</obj_property>
-         <obj_property name="ObjectShortName">i_row_cnt</obj_property>
-      </wvobject>
-      <wvobject fp_name="/tb_memarray_v4/GRAM/col" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">col[2:0]</obj_property>
-         <obj_property name="ObjectShortName">col[2:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/tb_memarray_v4/GRAM/i_dout" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">i_dout[17:0]</obj_property>
-         <obj_property name="ObjectShortName">i_dout[17:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/tb_memarray_v4/GRAM/ii_dout" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">ii_dout[17:0]</obj_property>
-         <obj_property name="ObjectShortName">ii_dout[17:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/tb_memarray_v4/GRAM/din" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">din[17:0]</obj_property>
-         <obj_property name="ObjectShortName">din[17:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/tb_memarray_v4/GRAM/dout" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">dout[17:0]</obj_property>
-         <obj_property name="ObjectShortName">dout[17:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/tb_memarray_v4/GRAM/we" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">we</obj_property>
-         <obj_property name="ObjectShortName">we</obj_property>
-      </wvobject>
-      <wvobject fp_name="/tb_memarray_v4/GRAM/oe" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">oe</obj_property>
-         <obj_property name="ObjectShortName">oe</obj_property>
-      </wvobject>
-      <wvobject fp_name="/tb_memarray_v4/GRAM/datamem" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">datamem[0:2]</obj_property>
-         <obj_property name="ObjectShortName">datamem[0:2]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-         <wvobject fp_name="/tb_memarray_v4/GRAM/datamem[0]" type="array" db_ref_id="1">
-            <obj_property name="ElementShortName">[0]</obj_property>
-            <obj_property name="ObjectShortName">datamem[0]</obj_property>
-            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-            <wvobject fp_name="/tb_memarray_v4/GRAM/datamem[0][0]" type="array" db_ref_id="1">
-               <obj_property name="ElementShortName">[0]</obj_property>
-               <obj_property name="ObjectShortName">datamem[0][0]</obj_property>
-               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-            </wvobject>
-            <wvobject fp_name="/tb_memarray_v4/GRAM/datamem[0][1]" type="array" db_ref_id="1">
-               <obj_property name="ElementShortName">[1]</obj_property>
-               <obj_property name="ObjectShortName">datamem[0][1]</obj_property>
-               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-            </wvobject>
-            <wvobject fp_name="/tb_memarray_v4/GRAM/datamem[0][2]" type="array" db_ref_id="1">
-               <obj_property name="ElementShortName">[2]</obj_property>
-               <obj_property name="ObjectShortName">datamem[0][2]</obj_property>
-               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-            </wvobject>
-         </wvobject>
-         <wvobject fp_name="/tb_memarray_v4/GRAM/datamem[1]" type="array" db_ref_id="1">
-            <obj_property name="ElementShortName">[1]</obj_property>
-            <obj_property name="ObjectShortName">datamem[1]</obj_property>
-            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-            <wvobject fp_name="/tb_memarray_v4/GRAM/datamem[1][0]" type="array" db_ref_id="1">
-               <obj_property name="ElementShortName">[0]</obj_property>
-               <obj_property name="ObjectShortName">datamem[1][0]</obj_property>
-               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-            </wvobject>
-            <wvobject fp_name="/tb_memarray_v4/GRAM/datamem[1][1]" type="array" db_ref_id="1">
-               <obj_property name="ElementShortName">[1]</obj_property>
-               <obj_property name="ObjectShortName">datamem[1][1]</obj_property>
-               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-            </wvobject>
-            <wvobject fp_name="/tb_memarray_v4/GRAM/datamem[1][2]" type="array" db_ref_id="1">
-               <obj_property name="ElementShortName">[2]</obj_property>
-               <obj_property name="ObjectShortName">datamem[1][2]</obj_property>
-               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-            </wvobject>
-         </wvobject>
-         <wvobject fp_name="/tb_memarray_v4/GRAM/datamem[2]" type="array" db_ref_id="1">
-            <obj_property name="ElementShortName">[2]</obj_property>
-            <obj_property name="ObjectShortName">datamem[2]</obj_property>
-            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-            <wvobject fp_name="/tb_memarray_v4/GRAM/datamem[2][0]" type="array" db_ref_id="1">
-               <obj_property name="ElementShortName">[0]</obj_property>
-               <obj_property name="ObjectShortName">datamem[2][0]</obj_property>
-               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-            </wvobject>
-            <wvobject fp_name="/tb_memarray_v4/GRAM/datamem[2][1]" type="array" db_ref_id="1">
-               <obj_property name="ElementShortName">[1]</obj_property>
-               <obj_property name="ObjectShortName">datamem[2][1]</obj_property>
-               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-            </wvobject>
-            <wvobject fp_name="/tb_memarray_v4/GRAM/datamem[2][2]" type="array" db_ref_id="1">
-               <obj_property name="ElementShortName">[2]</obj_property>
-               <obj_property name="ObjectShortName">datamem[2][2]</obj_property>
-               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-            </wvobject>
-         </wvobject>
       </wvobject>
    </wvobject>
    <wvobject fp_name="group191" type="group">
@@ -411,8 +289,10 @@
          <obj_property name="ObjectShortName">s_mul_p_shft</obj_property>
       </wvobject>
       <wvobject fp_name="/tb_memarray_v4/p_shft_in" type="logic" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
          <obj_property name="ElementShortName">p_shft_in</obj_property>
          <obj_property name="ObjectShortName">p_shft_in</obj_property>
+         <obj_property name="label">p_shft_in</obj_property>
       </wvobject>
       <wvobject fp_name="/tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/dina" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">dina[17:0]</obj_property>
@@ -452,14 +332,41 @@
          <obj_property name="ObjectShortName">addra[9:0]</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
+      <wvobject fp_name="/tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/i_dina" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">i_dina[17:0]</obj_property>
+         <obj_property name="ObjectShortName">i_dina[17:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
       <wvobject fp_name="/tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/dina" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">dina[17:0]</obj_property>
          <obj_property name="ObjectShortName">dina[17:0]</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
+      <wvobject fp_name="/tb_memarray_v4/uut/FIRST_DSP/p" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">p[47:0]</obj_property>
+         <obj_property name="ObjectShortName">p[47:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_memarray_v4/uut/i_alu2alu[0]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">i_alu2alu[0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
       <wvobject fp_name="/tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/wea" type="logic" db_ref_id="1">
          <obj_property name="ElementShortName">wea</obj_property>
          <obj_property name="ObjectShortName">wea</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_memarray_v4/uut/FSM_UNIT/we" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">we</obj_property>
+         <obj_property name="ObjectShortName">we</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_memarray_v4/uut/FSM_UNIT/s_a" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">s_a</obj_property>
+         <obj_property name="ObjectShortName">s_a</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_memarray_v4/uut/FSM_UNIT/s_b" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">s_b</obj_property>
+         <obj_property name="ObjectShortName">s_b</obj_property>
       </wvobject>
       <wvobject fp_name="/tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/addrb" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">addrb[9:0]</obj_property>
@@ -507,6 +414,11 @@
       <wvobject fp_name="/tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/dina" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">dina[17:0]</obj_property>
          <obj_property name="ObjectShortName">dina[17:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_memarray_v4/uut/\block_a_dsp_gen(1)\/DSP/p" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">p[47:0]</obj_property>
+         <obj_property name="ObjectShortName">p[47:0]</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/wea" type="logic" db_ref_id="1">
@@ -596,21 +508,48 @@
          <obj_property name="ObjectShortName">column_number</obj_property>
       </wvobject>
    </wvobject>
-   <wvobject fp_name="group119" type="group">
-      <obj_property name="label">DSP0</obj_property>
+   <wvobject fp_name="group198" type="group">
+      <obj_property name="label">GRAM</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <wvobject fp_name="/tb_memarray_v4/uut/FIRST_DSP/clk" type="logic" db_ref_id="1">
+      <wvobject fp_name="/tb_memarray_v4/GRAM/clk" type="logic" db_ref_id="1">
          <obj_property name="ElementShortName">clk</obj_property>
          <obj_property name="ObjectShortName">clk</obj_property>
       </wvobject>
-      <wvobject fp_name="/tb_memarray_v4/mul_gcol" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">mul_gcol[2:0]</obj_property>
-         <obj_property name="ObjectShortName">mul_gcol[2:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <wvobject fp_name="/tb_memarray_v4/uut/FSM_UNIT/s_a" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">s_a</obj_property>
+         <obj_property name="ObjectShortName">s_a</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_memarray_v4/uut/FSM_UNIT/s_b" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">s_b</obj_property>
+         <obj_property name="ObjectShortName">s_b</obj_property>
       </wvobject>
       <wvobject fp_name="/tb_memarray_v4/GRAM/row" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">row[9:0]</obj_property>
          <obj_property name="ObjectShortName">row[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_memarray_v4/uut/FSM_UNIT/i_row_cnt" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">i_row_cnt</obj_property>
+         <obj_property name="ObjectShortName">i_row_cnt</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_memarray_v4/GRAM/col" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">col[2:0]</obj_property>
+         <obj_property name="ObjectShortName">col[2:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_memarray_v4/GRAM/i_dout" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">i_dout[17:0]</obj_property>
+         <obj_property name="ObjectShortName">i_dout[17:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_memarray_v4/GRAM/ii_dout" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">ii_dout[17:0]</obj_property>
+         <obj_property name="ObjectShortName">ii_dout[17:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_memarray_v4/GRAM/din" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">din[17:0]</obj_property>
+         <obj_property name="ObjectShortName">din[17:0]</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/tb_memarray_v4/GRAM/dout" type="array" db_ref_id="1">
@@ -618,22 +557,68 @@
          <obj_property name="ObjectShortName">dout[17:0]</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
+      <wvobject fp_name="/tb_memarray_v4/GRAM/we" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">we</obj_property>
+         <obj_property name="ObjectShortName">we</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_memarray_v4/GRAM/oe" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">oe</obj_property>
+         <obj_property name="ObjectShortName">oe</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_memarray_v4/GRAM/datamem" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">datamem[0:2]</obj_property>
+         <obj_property name="ObjectShortName">datamem[0:2]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group119" type="group">
+      <obj_property name="label">DSP0</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_memarray_v4/uut/FIRST_DSP/clk" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_memarray_v4/din" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">din[17:0]</obj_property>
+         <obj_property name="ObjectShortName">din[17:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_memarray_v4/mul_gcol" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">mul_gcol[2:0]</obj_property>
+         <obj_property name="ObjectShortName">mul_gcol[2:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
       <wvobject fp_name="/tb_memarray_v4/mul_grow" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">mul_grow[9:0]</obj_property>
          <obj_property name="ObjectShortName">mul_grow[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_memarray_v4/uut/FSM_UNIT/s_a" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">s_a</obj_property>
+         <obj_property name="ObjectShortName">s_a</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_memarray_v4/uut/FSM_UNIT/s_b" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">s_b</obj_property>
+         <obj_property name="ObjectShortName">s_b</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_memarray_v4/GRAM/dout" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">dout[17:0]</obj_property>
+         <obj_property name="ObjectShortName">dout[17:0]</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/tb_memarray_v4/uut/FIRST_DSP/sel" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">sel[2:0]</obj_property>
          <obj_property name="ObjectShortName">sel[2:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/tb_memarray_v4/uut/FSM_UNIT/current_state" type="other" db_ref_id="1">
-         <obj_property name="ElementShortName">current_state</obj_property>
-         <obj_property name="ObjectShortName">current_state</obj_property>
+      <wvobject fp_name="/tb_memarray_v4/GRAM/col" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">col[2:0]</obj_property>
+         <obj_property name="ObjectShortName">col[2:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
-      <wvobject fp_name="/tb_memarray_v4/load" type="logic" db_ref_id="1">
-         <obj_property name="ElementShortName">load</obj_property>
-         <obj_property name="ObjectShortName">load</obj_property>
+      <wvobject fp_name="/tb_memarray_v4/GRAM/row" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">row[9:0]</obj_property>
+         <obj_property name="ObjectShortName">row[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/tb_memarray_v4/uut/FIRST_DSP/a" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">a[17:0]</obj_property>
@@ -715,6 +700,38 @@
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/tb_memarray_v4/uut/\block_a_dsp_gen(2)\/DSP/p" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">p[47:0]</obj_property>
+         <obj_property name="ObjectShortName">p[47:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group213" type="group">
+      <obj_property name="label">DSP3</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_memarray_v4/uut/\block_a_dsp_gen(3)\/DSP/clk" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_memarray_v4/uut/\block_a_dsp_gen(3)\/DSP/sel" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">sel[2:0]</obj_property>
+         <obj_property name="ObjectShortName">sel[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_memarray_v4/uut/\block_a_dsp_gen(3)\/DSP/a" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">a[17:0]</obj_property>
+         <obj_property name="ObjectShortName">a[17:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_memarray_v4/uut/\block_a_dsp_gen(3)\/DSP/b" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">b[17:0]</obj_property>
+         <obj_property name="ObjectShortName">b[17:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_memarray_v4/uut/\block_a_dsp_gen(3)\/DSP/c" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">c[47:0]</obj_property>
+         <obj_property name="ObjectShortName">c[47:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_memarray_v4/uut/\block_a_dsp_gen(3)\/DSP/p" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">p[47:0]</obj_property>
          <obj_property name="ObjectShortName">p[47:0]</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>

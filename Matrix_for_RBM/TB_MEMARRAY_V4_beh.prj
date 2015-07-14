@@ -1,7 +1,6 @@
 vhdl work "ipcore_dir/DSP_INPUT_C.vhd"
 vhdl work "ipcore_dir/BRAM18x1k_synth.vhd"
 vhdl work "ipcore_dir/BRAM18x1k.vhd"
-vhdl work "SCRATCHPAD_REG.vhd"
 vhdl work "CONTROL_UNIT.vhd"
 vhdl work "BRAM_WRAPPER_V2.vhd"
 vhdl work "STANDARD_RAM.vhd"

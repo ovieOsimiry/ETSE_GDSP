@@ -2,7 +2,6 @@
 BRAM18x1k.asy
 BRAM18x1k.gise
 BRAM18x1k.ngc
-BRAM18x1k.sym
 BRAM18x1k.vhd
 BRAM18x1k.vho
 BRAM18x1k.xco

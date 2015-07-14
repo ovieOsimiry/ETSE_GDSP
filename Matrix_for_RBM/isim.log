@@ -10,7 +10,293 @@ This is a Full version of ISim.
 Time resolution is 1 ps
 # onerror resume
 # wave add /
-# run 1100 ns
+# run 2000 ns
+Simulator is doing circuit initialization process.
+at 0 ps, Instance /tb_memarray_v4/uut/FIRST_DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /tb_memarray_v4/uut/\block_a_dsp_gen(1)\/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /tb_memarray_v4/uut/\block_a_dsp_gen(2)\/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /tb_memarray_v4/uut/\block_a_dsp_gen(3)\/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /tb_memarray_v4/uut/\block_a_dsp_gen(4)\/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+Finished circuit initialization process.
+at 0 ps: Note: COLS number: 5 (/tb_memarray_v4/).
+at 0 ps: Note: ROWS number:5 (/tb_memarray_v4/).
+at 0 ps: Note: The value of G11 = 11 (/tb_memarray_v4/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(3)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_memarray_v4/uut/\block_a_mem_gen(3)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(3)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(3)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(3)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(4)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(4)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(4)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_memarray_v4/uut/\block_a_mem_gen(4)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(4)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(4)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(4)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 10 ns: Note: The value of G12 = 12 (/tb_memarray_v4/).
+at 15 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 15 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 15 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 15 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 15 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(4)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 20 ns: Note: The value of G13 = 13 (/tb_memarray_v4/).
+at 25 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 25 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 25 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 25 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 25 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(4)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 30 ns: Note: The value of G14 = 14 (/tb_memarray_v4/).
+at 35 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 35 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 35 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 35 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 35 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(4)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 40 ns: Note: The value of G15 = 15 (/tb_memarray_v4/).
+at 45 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 45 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 45 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 45 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 45 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(4)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 50 ns: Note: The value of G21 = 21 (/tb_memarray_v4/).
+at 55 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 55 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 55 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 55 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 55 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(4)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 60 ns: Note: The value of G22 = 22 (/tb_memarray_v4/).
+at 65 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 65 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 65 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 65 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 65 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(4)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 70 ns: Note: The value of G23 = 23 (/tb_memarray_v4/).
+at 75 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 75 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 75 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 75 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 75 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(4)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 80 ns: Note: The value of G24 = 24 (/tb_memarray_v4/).
+at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(4)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 90 ns: Note: The value of G25 = 25 (/tb_memarray_v4/).
+at 100 ns: Note: The value of G31 = 31 (/tb_memarray_v4/).
+at 110 ns: Note: The value of G32 = 32 (/tb_memarray_v4/).
+at 120 ns: Note: The value of G33 = 33 (/tb_memarray_v4/).
+at 130 ns: Note: The value of G34 = 34 (/tb_memarray_v4/).
+at 140 ns: Note: The value of G35 = 35 (/tb_memarray_v4/).
+at 150 ns: Note: The value of G41 = 41 (/tb_memarray_v4/).
+at 160 ns: Note: The value of G42 = 42 (/tb_memarray_v4/).
+at 170 ns: Note: The value of G43 = 43 (/tb_memarray_v4/).
+at 180 ns: Note: The value of G44 = 44 (/tb_memarray_v4/).
+at 190 ns: Note: The value of G45 = 45 (/tb_memarray_v4/).
+at 200 ns: Note: The value of G51 = 51 (/tb_memarray_v4/).
+at 210 ns: Note: The value of G52 = 52 (/tb_memarray_v4/).
+at 220 ns: Note: The value of G53 = 53 (/tb_memarray_v4/).
+at 230 ns: Note: The value of G54 = 54 (/tb_memarray_v4/).
+at 240 ns: Note: The value of G55 = 55 (/tb_memarray_v4/).
+at 295 ns(2): Note: The value of P11 = 11 (/tb_memarray_v4/).
+at 305 ns: Note: The value of P12 = 12 (/tb_memarray_v4/).
+at 315 ns: Note: The value of P13 = 13 (/tb_memarray_v4/).
+at 325 ns: Note: The value of P14 = 14 (/tb_memarray_v4/).
+at 335 ns: Note: The value of P15 = 15 (/tb_memarray_v4/).
+at 345 ns: Note: The value of P21 = 21 (/tb_memarray_v4/).
+at 355 ns: Note: The value of P22 = 22 (/tb_memarray_v4/).
+at 365 ns: Note: The value of P23 = 23 (/tb_memarray_v4/).
+at 375 ns: Note: The value of P24 = 24 (/tb_memarray_v4/).
+at 385 ns: Note: The value of P25 = 25 (/tb_memarray_v4/).
+at 395 ns: Note: The value of P31 = 31 (/tb_memarray_v4/).
+at 405 ns: Note: The value of P32 = 32 (/tb_memarray_v4/).
+at 415 ns: Note: The value of P33 = 33 (/tb_memarray_v4/).
+at 425 ns: Note: The value of P34 = 34 (/tb_memarray_v4/).
+at 435 ns: Note: The value of P35 = 35 (/tb_memarray_v4/).
+at 445 ns: Note: The value of P41 = 41 (/tb_memarray_v4/).
+at 455 ns: Note: The value of P42 = 42 (/tb_memarray_v4/).
+at 465 ns: Note: The value of P43 = 43 (/tb_memarray_v4/).
+at 475 ns: Note: The value of P44 = 44 (/tb_memarray_v4/).
+at 485 ns: Note: The value of P45 = 45 (/tb_memarray_v4/).
+at 495 ns: Note: The value of P51 = 51 (/tb_memarray_v4/).
+at 505 ns: Note: The value of P52 = 52 (/tb_memarray_v4/).
+at 515 ns: Note: The value of P53 = 53 (/tb_memarray_v4/).
+at 525 ns: Note: The value of P54 = 54 (/tb_memarray_v4/).
+at 535 ns: Note: The value of P55 = 55 (/tb_memarray_v4/).
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+# run 2000 ns
+Simulator is doing circuit initialization process.
+at 0 ps, Instance /tb_memarray_v4/uut/FIRST_DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /tb_memarray_v4/uut/\block_a_dsp_gen(1)\/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /tb_memarray_v4/uut/\block_a_dsp_gen(2)\/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /tb_memarray_v4/uut/\block_a_dsp_gen(3)\/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /tb_memarray_v4/uut/\block_a_dsp_gen(4)\/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+Finished circuit initialization process.
+at 0 ps: Note: COLS number: 5 (/tb_memarray_v4/).
+at 0 ps: Note: ROWS number:5 (/tb_memarray_v4/).
+at 0 ps: Note: The value of G11 = 11 (/tb_memarray_v4/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(3)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_memarray_v4/uut/\block_a_mem_gen(3)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(3)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(3)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(3)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(4)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(4)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(4)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_memarray_v4/uut/\block_a_mem_gen(4)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(4)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(4)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(4)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 10 ns: Note: The value of G12 = 12 (/tb_memarray_v4/).
+at 15 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 15 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 15 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 15 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 15 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(4)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 20 ns: Note: The value of G13 = 13 (/tb_memarray_v4/).
+at 25 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 25 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 25 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 25 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 25 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(4)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 30 ns: Note: The value of G14 = 14 (/tb_memarray_v4/).
+at 35 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 35 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 35 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 35 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 35 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(4)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 40 ns: Note: The value of G15 = 15 (/tb_memarray_v4/).
+at 45 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 45 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 45 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 45 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 45 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(4)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 50 ns: Note: The value of G21 = 21 (/tb_memarray_v4/).
+at 55 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 55 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 55 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 55 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 55 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(4)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 60 ns: Note: The value of G22 = 22 (/tb_memarray_v4/).
+at 65 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 65 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 65 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 65 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 65 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(4)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 70 ns: Note: The value of G23 = 23 (/tb_memarray_v4/).
+at 75 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 75 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 75 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 75 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 75 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(4)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 80 ns: Note: The value of G24 = 24 (/tb_memarray_v4/).
+at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(4)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 90 ns: Note: The value of G25 = 25 (/tb_memarray_v4/).
+at 100 ns: Note: The value of G31 = 31 (/tb_memarray_v4/).
+at 110 ns: Note: The value of G32 = 32 (/tb_memarray_v4/).
+at 120 ns: Note: The value of G33 = 33 (/tb_memarray_v4/).
+at 130 ns: Note: The value of G34 = 34 (/tb_memarray_v4/).
+at 140 ns: Note: The value of G35 = 35 (/tb_memarray_v4/).
+at 150 ns: Note: The value of G41 = 41 (/tb_memarray_v4/).
+at 160 ns: Note: The value of G42 = 42 (/tb_memarray_v4/).
+at 170 ns: Note: The value of G43 = 43 (/tb_memarray_v4/).
+at 180 ns: Note: The value of G44 = 44 (/tb_memarray_v4/).
+at 190 ns: Note: The value of G45 = 45 (/tb_memarray_v4/).
+at 200 ns: Note: The value of G51 = 51 (/tb_memarray_v4/).
+at 210 ns: Note: The value of G52 = 52 (/tb_memarray_v4/).
+at 220 ns: Note: The value of G53 = 53 (/tb_memarray_v4/).
+at 230 ns: Note: The value of G54 = 54 (/tb_memarray_v4/).
+at 240 ns: Note: The value of G55 = 55 (/tb_memarray_v4/).
+at 295 ns(2): Note: The value of P11 = 11 (/tb_memarray_v4/).
+at 305 ns: Note: The value of P12 = 12 (/tb_memarray_v4/).
+at 315 ns: Note: The value of P13 = 13 (/tb_memarray_v4/).
+at 325 ns: Note: The value of P14 = 14 (/tb_memarray_v4/).
+at 335 ns: Note: The value of P15 = 15 (/tb_memarray_v4/).
+at 345 ns: Note: The value of P21 = 21 (/tb_memarray_v4/).
+at 355 ns: Note: The value of P22 = 22 (/tb_memarray_v4/).
+at 365 ns: Note: The value of P23 = 23 (/tb_memarray_v4/).
+at 375 ns: Note: The value of P24 = 24 (/tb_memarray_v4/).
+at 385 ns: Note: The value of P25 = 25 (/tb_memarray_v4/).
+at 395 ns: Note: The value of P31 = 31 (/tb_memarray_v4/).
+at 405 ns: Note: The value of P32 = 32 (/tb_memarray_v4/).
+at 415 ns: Note: The value of P33 = 33 (/tb_memarray_v4/).
+at 425 ns: Note: The value of P34 = 34 (/tb_memarray_v4/).
+at 435 ns: Note: The value of P35 = 35 (/tb_memarray_v4/).
+at 445 ns: Note: The value of P41 = 41 (/tb_memarray_v4/).
+at 455 ns: Note: The value of P42 = 42 (/tb_memarray_v4/).
+at 465 ns: Note: The value of P43 = 43 (/tb_memarray_v4/).
+at 475 ns: Note: The value of P44 = 44 (/tb_memarray_v4/).
+at 485 ns: Note: The value of P45 = 45 (/tb_memarray_v4/).
+at 495 ns: Note: The value of P51 = 51 (/tb_memarray_v4/).
+at 505 ns: Note: The value of P52 = 52 (/tb_memarray_v4/).
+at 515 ns: Note: The value of P53 = 53 (/tb_memarray_v4/).
+at 525 ns: Note: The value of P54 = 54 (/tb_memarray_v4/).
+at 535 ns: Note: The value of P55 = 55 (/tb_memarray_v4/).
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+# run 2000 ns
 Simulator is doing circuit initialization process.
 at 0 ps, Instance /tb_memarray_v4/uut/FIRST_DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 at 0 ps, Instance /tb_memarray_v4/uut/\block_a_dsp_gen(1)\/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
@@ -73,10 +359,7 @@ at 80 ns: Note: The value of G33 = 33 (/tb_memarray_v4/).
 at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 95 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 95 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 95 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 135 ns: Note: The value of P11 = 11 (/tb_memarray_v4/).
+at 135 ns(2): Note: The value of P11 = 11 (/tb_memarray_v4/).
 at 145 ns: Note: The value of P12 = 12 (/tb_memarray_v4/).
 at 155 ns: Note: The value of P13 = 13 (/tb_memarray_v4/).
 at 165 ns: Note: The value of P21 = 21 (/tb_memarray_v4/).
@@ -92,7 +375,7 @@ WARNING:Security:42 - Your software subscription period has lapsed. Your current
 
 ----------------------------------------------------------------------
 This is a Full version of ISim.
-# run 1100 ns
+# run 2000 ns
 Simulator is doing circuit initialization process.
 at 0 ps, Instance /tb_memarray_v4/uut/FIRST_DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 at 0 ps, Instance /tb_memarray_v4/uut/\block_a_dsp_gen(1)\/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
@@ -155,10 +438,7 @@ at 80 ns: Note: The value of G33 = 33 (/tb_memarray_v4/).
 at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 95 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 95 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 95 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 135 ns: Note: The value of P11 = 11 (/tb_memarray_v4/).
+at 135 ns(2): Note: The value of P11 = 11 (/tb_memarray_v4/).
 at 145 ns: Note: The value of P12 = 12 (/tb_memarray_v4/).
 at 155 ns: Note: The value of P13 = 13 (/tb_memarray_v4/).
 at 165 ns: Note: The value of P21 = 21 (/tb_memarray_v4/).
@@ -174,7 +454,7 @@ WARNING:Security:42 - Your software subscription period has lapsed. Your current
 
 ----------------------------------------------------------------------
 This is a Full version of ISim.
-# run 1100 ns
+# run 2000 ns
 Simulator is doing circuit initialization process.
 at 0 ps, Instance /tb_memarray_v4/uut/FIRST_DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 at 0 ps, Instance /tb_memarray_v4/uut/\block_a_dsp_gen(1)\/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
@@ -237,10 +517,7 @@ at 80 ns: Note: The value of G33 = 33 (/tb_memarray_v4/).
 at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 95 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 95 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 95 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 135 ns: Note: The value of P11 = 11 (/tb_memarray_v4/).
+at 135 ns(2): Note: The value of P11 = 11 (/tb_memarray_v4/).
 at 145 ns: Note: The value of P12 = 12 (/tb_memarray_v4/).
 at 155 ns: Note: The value of P13 = 13 (/tb_memarray_v4/).
 at 165 ns: Note: The value of P21 = 21 (/tb_memarray_v4/).
@@ -256,7 +533,7 @@ WARNING:Security:42 - Your software subscription period has lapsed. Your current
 
 ----------------------------------------------------------------------
 This is a Full version of ISim.
-# run 1100 ns
+# run 2000 ns
 Simulator is doing circuit initialization process.
 at 0 ps, Instance /tb_memarray_v4/uut/FIRST_DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 at 0 ps, Instance /tb_memarray_v4/uut/\block_a_dsp_gen(1)\/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
@@ -319,10 +596,481 @@ at 80 ns: Note: The value of G33 = 33 (/tb_memarray_v4/).
 at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 95 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 95 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 95 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 135 ns: Note: The value of P11 = 11 (/tb_memarray_v4/).
+at 135 ns(2): Note: The value of P11 = 11 (/tb_memarray_v4/).
+at 145 ns: Note: The value of P12 = 12 (/tb_memarray_v4/).
+at 155 ns: Note: The value of P13 = 13 (/tb_memarray_v4/).
+at 165 ns: Note: The value of P21 = 21 (/tb_memarray_v4/).
+at 175 ns: Note: The value of P22 = 22 (/tb_memarray_v4/).
+at 185 ns: Note: The value of P23 = 23 (/tb_memarray_v4/).
+at 195 ns: Note: The value of P31 = 31 (/tb_memarray_v4/).
+at 205 ns: Note: The value of P32 = 32 (/tb_memarray_v4/).
+at 215 ns: Note: The value of P33 = 33 (/tb_memarray_v4/).
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+# run 2000 ns
+Simulator is doing circuit initialization process.
+at 0 ps, Instance /tb_memarray_v4/uut/FIRST_DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /tb_memarray_v4/uut/\block_a_dsp_gen(1)\/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /tb_memarray_v4/uut/\block_a_dsp_gen(2)\/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+Finished circuit initialization process.
+at 0 ps: Note: COLS number: 3 (/tb_memarray_v4/).
+at 0 ps: Note: ROWS number:3 (/tb_memarray_v4/).
+at 0 ps: Note: The value of G11 = 11 (/tb_memarray_v4/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 10 ns: Note: The value of G12 = 12 (/tb_memarray_v4/).
+at 15 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 15 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 15 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 20 ns: Note: The value of G13 = 13 (/tb_memarray_v4/).
+at 25 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 25 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 25 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 30 ns: Note: The value of G21 = 21 (/tb_memarray_v4/).
+at 35 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 35 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 35 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 40 ns: Note: The value of G22 = 22 (/tb_memarray_v4/).
+at 45 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 45 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 45 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 50 ns: Note: The value of G23 = 23 (/tb_memarray_v4/).
+at 55 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 55 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 55 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 60 ns: Note: The value of G31 = 31 (/tb_memarray_v4/).
+at 65 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 65 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 65 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 70 ns: Note: The value of G32 = 32 (/tb_memarray_v4/).
+at 75 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 75 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 75 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 80 ns: Note: The value of G33 = 33 (/tb_memarray_v4/).
+at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 135 ns(2): Note: The value of P11 = 11 (/tb_memarray_v4/).
+at 145 ns: Note: The value of P12 = 12 (/tb_memarray_v4/).
+at 155 ns: Note: The value of P13 = 13 (/tb_memarray_v4/).
+at 165 ns: Note: The value of P21 = 21 (/tb_memarray_v4/).
+at 175 ns: Note: The value of P22 = 22 (/tb_memarray_v4/).
+at 185 ns: Note: The value of P23 = 23 (/tb_memarray_v4/).
+at 195 ns: Note: The value of P31 = 31 (/tb_memarray_v4/).
+at 205 ns: Note: The value of P32 = 32 (/tb_memarray_v4/).
+at 215 ns: Note: The value of P33 = 33 (/tb_memarray_v4/).
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+# run 2000 ns
+Simulator is doing circuit initialization process.
+at 0 ps, Instance /tb_memarray_v4/uut/FIRST_DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /tb_memarray_v4/uut/\block_a_dsp_gen(1)\/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /tb_memarray_v4/uut/\block_a_dsp_gen(2)\/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+Finished circuit initialization process.
+at 0 ps: Note: COLS number: 3 (/tb_memarray_v4/).
+at 0 ps: Note: ROWS number:3 (/tb_memarray_v4/).
+at 0 ps: Note: The value of G11 = 11 (/tb_memarray_v4/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 10 ns: Note: The value of G12 = 12 (/tb_memarray_v4/).
+at 15 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 15 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 15 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 20 ns: Note: The value of G13 = 13 (/tb_memarray_v4/).
+at 25 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 25 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 25 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 30 ns: Note: The value of G21 = 21 (/tb_memarray_v4/).
+at 35 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 35 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 35 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 40 ns: Note: The value of G22 = 22 (/tb_memarray_v4/).
+at 45 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 45 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 45 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 50 ns: Note: The value of G23 = 23 (/tb_memarray_v4/).
+at 55 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 55 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 55 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 60 ns: Note: The value of G31 = 31 (/tb_memarray_v4/).
+at 65 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 65 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 65 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 70 ns: Note: The value of G32 = 32 (/tb_memarray_v4/).
+at 75 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 75 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 75 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 80 ns: Note: The value of G33 = 33 (/tb_memarray_v4/).
+at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 135 ns(2): Note: The value of P11 = 11 (/tb_memarray_v4/).
+at 145 ns: Note: The value of P12 = 12 (/tb_memarray_v4/).
+at 155 ns: Note: The value of P13 = 13 (/tb_memarray_v4/).
+at 165 ns: Note: The value of P21 = 21 (/tb_memarray_v4/).
+at 175 ns: Note: The value of P22 = 22 (/tb_memarray_v4/).
+at 185 ns: Note: The value of P23 = 23 (/tb_memarray_v4/).
+at 195 ns: Note: The value of P31 = 31 (/tb_memarray_v4/).
+at 205 ns: Note: The value of P32 = 32 (/tb_memarray_v4/).
+at 215 ns: Note: The value of P33 = 33 (/tb_memarray_v4/).
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+# run 2000 ns
+Simulator is doing circuit initialization process.
+at 0 ps, Instance /tb_memarray_v4/uut/FIRST_DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /tb_memarray_v4/uut/\block_a_dsp_gen(1)\/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /tb_memarray_v4/uut/\block_a_dsp_gen(2)\/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+Finished circuit initialization process.
+at 0 ps: Note: COLS number: 3 (/tb_memarray_v4/).
+at 0 ps: Note: ROWS number:3 (/tb_memarray_v4/).
+at 0 ps: Note: The value of G11 = 11 (/tb_memarray_v4/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 10 ns: Note: The value of G12 = 12 (/tb_memarray_v4/).
+at 15 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 15 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 15 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 20 ns: Note: The value of G13 = 13 (/tb_memarray_v4/).
+at 25 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 25 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 25 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 30 ns: Note: The value of G21 = 21 (/tb_memarray_v4/).
+at 35 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 35 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 35 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 40 ns: Note: The value of G22 = 22 (/tb_memarray_v4/).
+at 45 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 45 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 45 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 50 ns: Note: The value of G23 = 23 (/tb_memarray_v4/).
+at 55 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 55 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 55 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 60 ns: Note: The value of G31 = 31 (/tb_memarray_v4/).
+at 65 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 65 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 65 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 70 ns: Note: The value of G32 = 32 (/tb_memarray_v4/).
+at 75 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 75 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 75 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 80 ns: Note: The value of G33 = 33 (/tb_memarray_v4/).
+at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 135 ns(2): Note: The value of P11 = 11 (/tb_memarray_v4/).
+at 145 ns: Note: The value of P12 = 12 (/tb_memarray_v4/).
+at 155 ns: Note: The value of P13 = 13 (/tb_memarray_v4/).
+at 165 ns: Note: The value of P21 = 21 (/tb_memarray_v4/).
+at 175 ns: Note: The value of P22 = 22 (/tb_memarray_v4/).
+at 185 ns: Note: The value of P23 = 23 (/tb_memarray_v4/).
+at 195 ns: Note: The value of P31 = 31 (/tb_memarray_v4/).
+at 205 ns: Note: The value of P32 = 32 (/tb_memarray_v4/).
+at 215 ns: Note: The value of P33 = 33 (/tb_memarray_v4/).
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+# run 2000 ns
+Simulator is doing circuit initialization process.
+at 0 ps, Instance /tb_memarray_v4/uut/FIRST_DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /tb_memarray_v4/uut/\block_a_dsp_gen(1)\/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /tb_memarray_v4/uut/\block_a_dsp_gen(2)\/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+Finished circuit initialization process.
+at 0 ps: Note: COLS number: 3 (/tb_memarray_v4/).
+at 0 ps: Note: ROWS number:3 (/tb_memarray_v4/).
+at 0 ps: Note: The value of G11 = 11 (/tb_memarray_v4/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 10 ns: Note: The value of G12 = 12 (/tb_memarray_v4/).
+at 15 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 15 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 15 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 20 ns: Note: The value of G13 = 13 (/tb_memarray_v4/).
+at 25 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 25 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 25 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 30 ns: Note: The value of G21 = 21 (/tb_memarray_v4/).
+at 35 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 35 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 35 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 40 ns: Note: The value of G22 = 22 (/tb_memarray_v4/).
+at 45 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 45 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 45 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 50 ns: Note: The value of G23 = 23 (/tb_memarray_v4/).
+at 55 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 55 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 55 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 60 ns: Note: The value of G31 = 31 (/tb_memarray_v4/).
+at 65 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 65 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 65 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 70 ns: Note: The value of G32 = 32 (/tb_memarray_v4/).
+at 75 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 75 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 75 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 80 ns: Note: The value of G33 = 33 (/tb_memarray_v4/).
+at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 135 ns(2): Note: The value of P11 = 11 (/tb_memarray_v4/).
+at 145 ns: Note: The value of P12 = 12 (/tb_memarray_v4/).
+at 155 ns: Note: The value of P13 = 13 (/tb_memarray_v4/).
+at 165 ns: Note: The value of P21 = 21 (/tb_memarray_v4/).
+at 175 ns: Note: The value of P22 = 22 (/tb_memarray_v4/).
+at 185 ns: Note: The value of P23 = 23 (/tb_memarray_v4/).
+at 195 ns: Note: The value of P31 = 31 (/tb_memarray_v4/).
+at 205 ns: Note: The value of P32 = 32 (/tb_memarray_v4/).
+at 215 ns: Note: The value of P33 = 33 (/tb_memarray_v4/).
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+# run 2000 ns
+Simulator is doing circuit initialization process.
+at 0 ps, Instance /tb_memarray_v4/uut/FIRST_DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /tb_memarray_v4/uut/\block_a_dsp_gen(1)\/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /tb_memarray_v4/uut/\block_a_dsp_gen(2)\/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+Finished circuit initialization process.
+at 0 ps: Note: COLS number: 3 (/tb_memarray_v4/).
+at 0 ps: Note: ROWS number:3 (/tb_memarray_v4/).
+at 0 ps: Note: The value of G11 = 11 (/tb_memarray_v4/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 10 ns: Note: The value of G12 = 12 (/tb_memarray_v4/).
+at 15 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 15 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 15 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 20 ns: Note: The value of G13 = 13 (/tb_memarray_v4/).
+at 25 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 25 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 25 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 30 ns: Note: The value of G21 = 21 (/tb_memarray_v4/).
+at 35 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 35 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 35 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 40 ns: Note: The value of G22 = 22 (/tb_memarray_v4/).
+at 45 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 45 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 45 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 50 ns: Note: The value of G23 = 23 (/tb_memarray_v4/).
+at 55 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 55 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 55 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 60 ns: Note: The value of G31 = 31 (/tb_memarray_v4/).
+at 65 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 65 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 65 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 70 ns: Note: The value of G32 = 32 (/tb_memarray_v4/).
+at 75 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 75 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 75 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 80 ns: Note: The value of G33 = 33 (/tb_memarray_v4/).
+at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 135 ns(2): Note: The value of P11 = 11 (/tb_memarray_v4/).
+at 145 ns: Note: The value of P12 = 12 (/tb_memarray_v4/).
+at 155 ns: Note: The value of P13 = 13 (/tb_memarray_v4/).
+at 165 ns: Note: The value of P21 = 21 (/tb_memarray_v4/).
+at 175 ns: Note: The value of P22 = 22 (/tb_memarray_v4/).
+at 185 ns: Note: The value of P23 = 23 (/tb_memarray_v4/).
+at 195 ns: Note: The value of P31 = 31 (/tb_memarray_v4/).
+at 205 ns: Note: The value of P32 = 32 (/tb_memarray_v4/).
+at 215 ns: Note: The value of P33 = 33 (/tb_memarray_v4/).
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+# run 2000 ns
+Simulator is doing circuit initialization process.
+at 0 ps, Instance /tb_memarray_v4/uut/FIRST_DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /tb_memarray_v4/uut/\block_a_dsp_gen(1)\/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /tb_memarray_v4/uut/\block_a_dsp_gen(2)\/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+Finished circuit initialization process.
+at 0 ps: Note: COLS number: 3 (/tb_memarray_v4/).
+at 0 ps: Note: ROWS number:3 (/tb_memarray_v4/).
+at 0 ps: Note: The value of G11 = 11 (/tb_memarray_v4/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 10 ns: Note: The value of G12 = 12 (/tb_memarray_v4/).
+at 15 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 15 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 15 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 20 ns: Note: The value of G13 = 13 (/tb_memarray_v4/).
+at 25 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 25 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 25 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 30 ns: Note: The value of G21 = 21 (/tb_memarray_v4/).
+at 35 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 35 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 35 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 40 ns: Note: The value of G22 = 22 (/tb_memarray_v4/).
+at 45 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 45 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 45 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 50 ns: Note: The value of G23 = 23 (/tb_memarray_v4/).
+at 55 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 55 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 55 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 60 ns: Note: The value of G31 = 31 (/tb_memarray_v4/).
+at 65 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 65 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 65 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 70 ns: Note: The value of G32 = 32 (/tb_memarray_v4/).
+at 75 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 75 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 75 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 80 ns: Note: The value of G33 = 33 (/tb_memarray_v4/).
+at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 85 ns(1), Instance /tb_memarray_v4/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 135 ns(2): Note: The value of P11 = 11 (/tb_memarray_v4/).
 at 145 ns: Note: The value of P12 = 12 (/tb_memarray_v4/).
 at 155 ns: Note: The value of P13 = 13 (/tb_memarray_v4/).
 at 165 ns: Note: The value of P21 = 21 (/tb_memarray_v4/).
