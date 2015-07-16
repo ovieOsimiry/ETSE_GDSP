@@ -272,13 +272,23 @@ begin
 		DIN <= (others => '0');
 	--	wait until LOADING_DONE = '1'; -- uncomment using 2 stage pipeline for DSP input a. 
 		Ctrl_BRAM <= '1'; --Take control of BRAM in MEMARRAY_V3
-		wait for clk_period*9; -- wait for at least 9 clk cycles so that the Control signals and data from FSM can pass through the pipeline and Sratchpad Register to the BRAM 
+		wait for clk_period*9; -- wait for at least 9 clk cycles so that the Control signals and data from FSM can pass through the pipeline Register to the BRAM 
 			
-		for i in 1 to COLUMN_TOTAL loop
+		for i in 1 to COLUMN_TOTAL loop	-- Read out the values stored in BRAM and display on simulator waveform viewer. The values are read out in exactly the way they were saved.
 			ADDRB<=std_logic_vector(to_unsigned(i-1,ADDR_WIDTH));
 			wait for CLK_period;
 		end loop;
 		ADDRB<=std_logic_vector(to_unsigned(1020,ADDR_WIDTH));
+		
+		P_SHFT_IN <= '1'; -- Put BRAM in circulant reading mode.
+		wait for CLK_period;
+		
+		for i in 1 to COLUMN_TOTAL loop	-- Read out the values stored in BRAM and display on simulator waveform viewer. The values are read out in circulant format.
+			ADDRB<=std_logic_vector(to_unsigned(i-1,ADDR_WIDTH));
+			wait for CLK_period;
+		end loop;
+		ADDRB<=std_logic_vector(to_unsigned(1020,ADDR_WIDTH));
+		
 		wait for CLK_period*7;		
 
 		
@@ -286,7 +296,7 @@ begin
 		P <= '1';
 		G <= '1';
 		Bank_sel_in <= '1'; -- Tell BRAM to save result of Multiplication in Lower bank of memory.
-		LOAD <= '0'; 
+		LOAD <= '0'; 		-- Tell FSM in MEMARRAY_V3 to go to the multiplication state based on PG values.
       	Ctrl_BRAM <= '0';-- Give Back control of BRAM in MEMARRY_V3 to FSM
       	DATA_INPUT <= '1';-- Switch Input data of MEMARRAY_V3 to GRAM.
 
@@ -296,7 +306,7 @@ begin
 		wait until OP_DONE = '1';
 		wait for CLK_period*11; -- wait for multiplication data to propagate from DSP and Scratchpad Register to BRAM for proper saving.
 		Ctrl_BRAM <= '1'; -- Take control of BRAM from FSM.
-		P_SHFT_IN <= '0'; -- Put BRAM in normal reading mode.
+		P_SHFT_IN <= '1'; -- Put BRAM in normal reading mode.
 		wait for CLK_period;
 		
 		for i in 1 to COLUMN_TOTAL loop

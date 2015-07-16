@@ -60,8 +60,8 @@ Compiling architecture behavioral of entity MEMARRAY_V3 [\MEMARRAY_V3(3,3,10,18,
 Compiling architecture behavioral of entity STANDARD_RAM [\STANDARD_RAM(3,10,18)\]
 Compiling architecture behavior of entity tb_memarray_v4
 Time Resolution for simulation is 1ps.
-Waiting for 24 sub-compilation(s) to finish...
+Waiting for 2 sub-compilation(s) to finish...
 Compiled 78 VHDL Units
 Built simulation executable C:/FPGA/Internship Jobs/Codes/ETSE_GDSP/Matrix_for_RBM/TB_MEMARRAY_V4_isim_beh.exe
-Fuse Memory Usage: 47076 KB
-Fuse CPU Usage: 4882 ms
+Fuse Memory Usage: 47276 KB
+Fuse CPU Usage: 2418 ms

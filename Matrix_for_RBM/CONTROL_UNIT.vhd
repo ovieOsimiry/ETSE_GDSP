@@ -36,7 +36,8 @@ entity CONTROL_UNIT is
 		 WE           : out std_logic;
 		 --D_OUT			:out std_logic_vector(DATA_WIDTH-1 downto 0);
 		 CSEL			  :out std_logic_vector(COLUMN_TOTAL-1 downto 0);
-		 ADDR       : out STD_LOGIC_VECTOR(ADDR_WIDTH - 1 downto 0);
+		 ADDRA       : out STD_LOGIC_VECTOR(ADDR_WIDTH - 1 downto 0);
+		 fsm_ADDRB       : out STD_LOGIC_VECTOR(ADDR_WIDTH - 1 downto 0);
 		 P_SHFT       : out STD_LOGIC;
 		 OPCODE       : out STD_LOGIC_VECTOR(OPCODE_WIDTH - 1 downto 0);
 		 G_ROW        : out STD_LOGIC_VECTOR(ADDR_WIDTH - 1 downto 0);
@@ -62,6 +63,7 @@ signal s_LOADING_DONE: std_logic;
 
 --dubug sigals
 signal s_a, s_b: integer:=0;
+signal s_PtGt_ADDRA : STD_LOGIC_VECTOR(ADDR_WIDTH - 1 downto 0);
 
 begin
 
@@ -102,6 +104,7 @@ variable v_CSEL : std_logic_vector(COLUMN_TOTAL-1 downto 0);
 variable v_OPCODE: std_logic_vector(OPCODE_WIDTH-1 downto 0);
 variable v_WE: std_logic;
 variable v_LOADING_DONE, v_OP_DONE: std_logic:='0';
+variable v_i_addr_cnt: integer range 0 to COLUMN_TOTAL;
 
 begin
 if (rising_edge(CLK)) then
@@ -176,8 +179,8 @@ if (rising_edge(CLK)) then
 				s_P_ADDR <= std_logic_vector(to_unsigned(j, ADDR_WIDTH));
 				s_CSEL <= v_CSEL;
 				WE <= v_WE;
-				s_a <= i;
-				s_b <= j;
+--				s_a <= i;
+--				s_b <= j;
 				s_LOADING_DONE <= v_LOADING_DONE;
 				
 		when LOAD_DONE =>
@@ -224,6 +227,8 @@ if (rising_edge(CLK)) then
 						end if;
 					end if;
 				end if;
+				s_a <= i;
+				s_b <= j;
 		when PG =>					
 					--s_Bank_Sel <= '1';
 					v_OPCODE :="011";
@@ -391,31 +396,36 @@ if (rising_edge(CLK)) then
 					v_OPCODE :="011";
 					WE <='0';
 					if v_OP_DONE = '0' then
-							if (i_col_cnt=COLUMN_TOTAL-1) then				---G col
+						if (i_col_cnt=COLUMN_TOTAL-1) then---G col
+							if i /= COLUMN_TOTAL-1 then
 								i_col_cnt<=0;
-							else
+							end if;
+						else
+							if i /= COLUMN_TOTAL-1 then
 								i_col_cnt<=i_col_cnt+1;
 							end if;
-						if i_addr_cnt=COLUMN_TOTAL-1 then									--- P addr
-							i_addr_cnt<=0;
-						else
-							i_addr_cnt<=i_addr_cnt+1;
 						end if;
-						if i= COLUMN_TOTAL-1 then 		-- full round 
+						if i_addr_cnt=COLUMN_TOTAL-1 then -- P addr
+							if i /= COLUMN_TOTAL-1 then -- Do not reset count if a sub-round is finished. A sub round is finished when the variable 'i' is the last address (i = COLUMN_TOTAL-1). For example if COLUMN_TOTAL = 3 then if the round address ended with 
+								i_addr_cnt<=0;			-- the last address (COLUMN_TOTAl-1 => 2), like this 0,1,[2] the next round will continue from [2],0,1 instead of [0],1,2. So the address pattern is like this 1,2,0:0,1,2:2,0,1
+							end if;						-- We begin a new round with the last address of the previous sub-round.
+						else							
+							if i /= COLUMN_TOTAL-1 then -- Increase count as long as the sub-round is not finished.				
+								i_addr_cnt <= i_addr_cnt+1;
+							end if;
+						end if;
+						if i= COLUMN_TOTAL-1 then-- full round 
 							j:=j+1;							
-							i_col_cnt <= 1 + j;	--  G Col
-							i_row_cnt<=i_row_cnt+1;			-- next G row
-							if j = COLUMN_TOTAL then -- Check G Row
-								i_row_cnt<=j-1;
-							end if;
-							if ((i_col_cnt+1)>=COLUMN_TOTAL-1) then		-- G Column
-								i_col_cnt<=0;
-							end if;
-							if j=COLUMN_TOTAL-1 then									--- P addr
-								i_addr_cnt<=0;
+							--i_col_cnt <= 1 + j;	--  G Col
+							i_row_cnt<=i_row_cnt+1;-- next G row
+							if i_row_cnt = 0 then -- Check G Row
+								i_row_cnt<=COLUMN_TOTAL-1;
 							else
-								i_addr_cnt<=j+1;
+								i_row_cnt <= i_row_cnt-1;
 							end if;
+--							if ((i_col_cnt+1)>=COLUMN_TOTAL-1) then-- G Column
+--								i_col_cnt<=0;
+--							end if;
 							i:=0;
 							v_OPCODE := "001";
 						else
@@ -426,7 +436,6 @@ if (rising_edge(CLK)) then
 							v_OPCODE := "011";-- make parameterizable latter.					
 						end if;
 						if j= COLUMN_TOTAL then 
-							--next_state<=DONE;
 							v_OP_DONE :='1';
 							v_OPCODE :="111";
 						else
@@ -442,6 +451,7 @@ if (rising_edge(CLK)) then
 					end if;
 					OPCODE<= v_OPCODE; --"111";
 					OP_DONE <= v_OP_DONE;
+					--i_addr_cnt <= v_i_addr_cnt;
 						
 					s_a <= i;
 					s_b <= j;
@@ -451,21 +461,59 @@ if (rising_edge(CLK)) then
 							WE<='0';
 							--P_SHFT <= '0';
 							OP_DONE<='0';	
-							i:=0;
-							
+							i:=0;							
 	end case;
 end if;
 end process;
-						ADDR <= s_P_ADDR when current_state = LOADING else std_logic_vector(to_unsigned(i_addr_cnt,ADDR_WIDTH));
+
+ADDRESS_GENERATION: Process(current_state, i_addr_cnt, s_P_ADDR, G, P)
+begin
+	if current_state = LOADING then
+		fsm_ADDRB <= s_P_ADDR;
+		ADDRA <= s_P_ADDR;
+	else
+		fsm_ADDRB <= std_logic_vector(to_unsigned(i_addr_cnt,ADDR_WIDTH));
+		if P='1' and G='1' then
+			if i_addr_cnt = 0 then		 -- When the Read address is 0 the Write address is also 0 (see table below).
+				ADDRA <= (others => '0');-- This line of Code Resets the Write address to 0. 
+			else
+				-- When Performing PtGt the last Read Address and the last Write address of each sub-round do not allign so the result in each sub-round does
+				-- not save in the desired location of Memory. But we want the result to save in circulant format. To solve this problem
+				-- we need to regenerate the Write address (ADDRA) from the Read Address (ADDRB) so that the proper Write Address will
+				-- be generated and the Result will be saved in circulant format. Note that the actual Write Address (ADDRA) used to save data in Memory is the Last address of a sub-round so
+				-- in other words the Write Address will be the last Address Read in a sub-round.
+				-- Refer to the Table below for an example. 
+				-- In the table below N represents the total number of columns. The Column contains the last address read from Memory.
+				-- The Write Column represent the generated address that will be used to Write the Result to Memory.
+				
+				-- |    N=3   | |    N=4   | |    N=5   |  
+				-- |__________| |__________| |__________|
+				-- |Write|Read| |Write|Read| |Write|Read|
+				-- |  0  |  0 | |  0  |  0 | |  0  |  0 |
+				-- |  2  |  1 | |  3  |  1 | |  4  |  1 |
+				-- |  1  |  2 | |  2  |  2 | |  3  |  2 |
+				--            | |  1  |  3 | |  2  |  3 |
+				--                           |  1  |  4 |
+							    
+			    ADDRA <= std_logic_vector(to_unsigned(COLUMN_TOTAL - i_addr_cnt, ADDR_WIDTH));--This line of code generates the Write address from the Read Address.
+			end if;
+		else
+			ADDRA <= std_logic_vector(to_unsigned(i_addr_cnt,ADDR_WIDTH));
+		end if;
+	end if;
+end process;
 						
-						--ADDR <= s_P_ADDR when current_state = LOADING else std_logic_vector(to_unsigned(i_addr_cnt,ADDR_WIDTH-1));
-						
-						G_ROW<=std_logic_vector(to_unsigned(i_row_cnt,ADDR_WIDTH));
-						G_COLUMN<=std_logic_vector(to_unsigned(i_col_cnt,COLUMN_TOTAL));
-						CSEL <= s_CSEL;
-						LOADING_DONE <= s_LOADING_DONE;
-						--D_OUT <= D_IN;
-						--Bank_Sel <= s_Bank_Sel;
+				--ADDRA <= s_P_ADDR when current_state = LOADING else std_logic_vector(to_unsigned(i_addr_cnt,ADDR_WIDTH));
+				
+				
+				G_ROW<=std_logic_vector(to_unsigned(i_row_cnt,ADDR_WIDTH));
+				G_COLUMN<=std_logic_vector(to_unsigned(i_col_cnt,COLUMN_TOTAL));
+				CSEL <= s_CSEL;
+				LOADING_DONE <= s_LOADING_DONE;
+				--D_OUT <= D_IN;
+				--Bank_Sel <= s_Bank_Sel;
+
+
 							
 -----------------------------------------------------------
 end Behavioral;
