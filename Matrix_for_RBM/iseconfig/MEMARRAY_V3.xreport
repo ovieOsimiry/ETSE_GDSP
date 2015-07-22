@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-07-16T10:16:52</DateModified>
+  <DateModified>2015-07-22T17:11:39</DateModified>
   <ModuleName>MEMARRAY_V3</ModuleName>
-  <SummaryTimeStamp>Unknown</SummaryTimeStamp>
+  <SummaryTimeStamp>2015-07-22T17:10:36</SummaryTimeStamp>
   <SavedFilePath>C:/FPGA/Internship Jobs/Codes/ETSE_GDSP/Matrix_for_RBM/iseconfig/MEMARRAY_V3.xreport</SavedFilePath>
   <ImplementationReportsDirectory>C:/FPGA/Internship Jobs/Codes/ETSE_GDSP/Matrix_for_RBM\</ImplementationReportsDirectory>
   <DateInitialized>2015-07-03T10:05:55</DateInitialized>

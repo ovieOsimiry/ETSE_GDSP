@@ -1,0 +1,10 @@
+Command line:
+   TB_MEMARRAY_V5_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  17764
+
+Wed Jul 22 17:27:01 2015
+
+
+ Elaboration Time: 0.280801 sec

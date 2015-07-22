@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.35 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.35 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Reading design: MEMARRAY_V3.prj
 
@@ -118,6 +118,12 @@ Parsing VHDL file "C:\FPGA\Internship Jobs\Codes\ETSE_GDSP\Matrix_for_RBM\ipcore
 Parsing entity <BRAM18x1k>.
 WARNING:HDLCompiler:685 - "C:\FPGA\Internship Jobs\Codes\ETSE_GDSP\Matrix_for_RBM\ipcore_dir\BRAM18x1k.vhd" Line 43: Overwriting existing primary unit bram18x1k
 Parsing architecture <BRAM18x1k_a> of entity <bram18x1k>.
+Parsing VHDL file "C:\FPGA\Internship Jobs\Codes\ETSE_GDSP\SharedLibraries\txt_util.vhd" into library work
+Parsing package <txt_util>.
+Parsing package body <txt_util>.
+Parsing VHDL file "C:\FPGA\Internship Jobs\Codes\ETSE_GDSP\SharedLibraries\MATRIX_MUL_IP_CORE_LIBRARY.vhd" into library work
+Parsing package <MATRIX_MUL_IP_CORE_LIBRARY>.
+Parsing package body <MATRIX_MUL_IP_CORE_LIBRARY>.
 Parsing VHDL file "C:\FPGA\Internship Jobs\Codes\ETSE_GDSP\Matrix_for_RBM\CONTROL_UNIT.vhd" into library work
 Parsing entity <CONTROL_UNIT>.
 Parsing architecture <Behavioral> of entity <control_unit>.
@@ -133,12 +139,14 @@ Parsing architecture <Behavioral> of entity <memarray_v3>.
 =========================================================================
 
 Elaborating entity <MEMARRAY_V3> (architecture <Behavioral>) with generics from library <work>.
+WARNING:HDLCompiler:1127 - "C:\FPGA\Internship Jobs\Codes\ETSE_GDSP\Matrix_for_RBM\MEMARRAY_V3.vhd" Line 144: Assignment to i_addrb ignored, since the identifier is never used
 
 Elaborating entity <CONTROL_UNIT> (architecture <Behavioral>) with generics from library <work>.
-WARNING:HDLCompiler:1127 - "C:\FPGA\Internship Jobs\Codes\ETSE_GDSP\Matrix_for_RBM\CONTROL_UNIT.vhd" Line 99: Assignment to s_a ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\FPGA\Internship Jobs\Codes\ETSE_GDSP\Matrix_for_RBM\CONTROL_UNIT.vhd" Line 80: Assignment to g_cnt_delay_ready ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\FPGA\Internship Jobs\Codes\ETSE_GDSP\Matrix_for_RBM\CONTROL_UNIT.vhd" Line 136: Assignment to s_a ignored, since the identifier is never used
 
 Elaborating entity <BRAM_WRAPPER_V2> (architecture <Behavioral>) with generics from library <work>.
-WARNING:HDLCompiler:1127 - "C:\FPGA\Internship Jobs\Codes\ETSE_GDSP\Matrix_for_RBM\BRAM_WRAPPER_V2.vhd" Line 51: Assignment to i_oe ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\FPGA\Internship Jobs\Codes\ETSE_GDSP\Matrix_for_RBM\BRAM_WRAPPER_V2.vhd" Line 53: Assignment to i_oe ignored, since the identifier is never used
 
 Elaborating entity <BRAM18x1k> (architecture <BRAM18x1k_a>) from library <work>.
 
@@ -161,13 +169,13 @@ Synthesizing Unit <MEMARRAY_V3>.
         DATA_WIDE_WIDTH = 48
 WARNING:Xst:647 - Input <OE> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <SSEN> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-    Found 10-bit register for signal <p_ADDR<1>>.
-    Found 10-bit register for signal <p_ADDR<2>>.
-    Found 10-bit register for signal <p_ADDR<3>>.
-    Found 10-bit register for signal <p_ADDR<4>>.
-    Found 10-bit register for signal <p_ADDR<5>>.
-    Found 10-bit register for signal <p_ADDR<6>>.
-    Found 10-bit register for signal <p_ADDR<7>>.
+    Found 10-bit register for signal <p_ADDRA<1>>.
+    Found 10-bit register for signal <p_ADDRA<2>>.
+    Found 10-bit register for signal <p_ADDRA<3>>.
+    Found 10-bit register for signal <p_ADDRA<4>>.
+    Found 10-bit register for signal <p_ADDRA<5>>.
+    Found 10-bit register for signal <p_ADDRA<6>>.
+    Found 10-bit register for signal <p_ADDRA<7>>.
     Found 3-bit register for signal <p_WEB<0>>.
     Found 3-bit register for signal <p_WEB<1>>.
     Found 3-bit register for signal <p_WEB<2>>.
@@ -176,15 +184,15 @@ WARNING:Xst:647 - Input <SSEN> is never used. This port will be preserved and le
     Found 3-bit register for signal <p_WEB<5>>.
     Found 3-bit register for signal <p_WEB<6>>.
     Found 3-bit register for signal <p_WEB<7>>.
-    Found 9-bit register for signal <i_ADDR<8:0>>.
+    Found 9-bit register for signal <i_ADDRA<8:0>>.
     Found 3-bit register for signal <i_WEB>.
     Found 3-bit register for signal <p_OPCODE<0>>.
     Found 3-bit register for signal <p_OPCODE<1>>.
     Found 3-bit register for signal <i_OPCODE>.
-    Found 10-bit register for signal <p_ADDR<0>>.
+    Found 10-bit register for signal <p_ADDRA<0>>.
     Summary:
 	inferred 125 D-type flip-flop(s).
-	inferred   2 Multiplexer(s).
+	inferred   3 Multiplexer(s).
 Unit <MEMARRAY_V3> synthesized.
 
 Synthesizing Unit <CONTROL_UNIT>.
@@ -193,15 +201,18 @@ Synthesizing Unit <CONTROL_UNIT>.
         DATA_WIDTH = 18
         OPCODE_WIDTH = 3
         COLUMN_TOTAL = 3
-    Found 4-bit register for signal <cnt_delay_ready>.
+    Found 5-bit register for signal <v_cnt_delay_ready>.
     Found 1-bit register for signal <READY>.
+    Found 1-bit register for signal <LOADING_DONE>.
+    Found 1-bit register for signal <UN_LOADING_DONE>.
+    Found 1-bit register for signal <OP_DONE>.
     Found 2-bit register for signal <i_row_cnt>.
     Found 2-bit register for signal <i_col_cnt>.
     Found 2-bit register for signal <i_addr_cnt>.
     Found 1-bit register for signal <G_EN>.
-    Found 1-bit register for signal <OP_DONE>.
     Found 1-bit register for signal <v_OP_DONE>.
-    Found 3-bit register for signal <next_state>.
+    Found 4-bit register for signal <next_state>.
+    Found 1-bit register for signal <CONTROL_A_INPUT_OF_DSP>.
     Found 2-bit register for signal <i>.
     Found 2-bit register for signal <j>.
     Found 1-bit register for signal <P_SHFT>.
@@ -209,35 +220,41 @@ Synthesizing Unit <CONTROL_UNIT>.
     Found 3-bit register for signal <OPCODE>.
     Found 10-bit register for signal <s_P_ADDR>.
     Found 3-bit register for signal <s_CSEL>.
-    Found 1-bit register for signal <s_LOADING_DONE>.
     Found 1-bit register for signal <v_LOADING_DONE>.
     Found 1-bit register for signal <v_WE>.
     Found 3-bit register for signal <v_CSEL>.
-    Found 3-bit register for signal <current_state>.
-    Found 3-bit subtractor for signal <GND_5_o_GND_5_o_sub_15_OUT> created at line 154.
-    Found 4-bit subtractor for signal <GND_5_o_GND_5_o_sub_16_OUT> created at line 154.
-    Found 4-bit subtractor for signal <n0278> created at line 154.
-    Found 4-bit adder for signal <cnt_delay_ready[3]_GND_5_o_add_1_OUT> created at line 87.
-    Found 2-bit adder for signal <GND_5_o_j[1]_add_123_OUT> created at line 350.
-    Found 3-bit adder for signal <n0273> created at line 397.
-    Found 2-bit adder for signal <i_addr_cnt[1]_GND_5_o_add_157_OUT> created at line 402.
-    Found 2-bit adder for signal <n0284> created at line 405.
-    Found 3-bit adder for signal <n0271> created at line 407.
-    Found 2-bit adder for signal <i[1]_GND_5_o_add_172_OUT> created at line 422.
-    Found 2-bit subtractor for signal <GND_5_o_GND_5_o_sub_83_OUT<1:0>> created at line 294.
-    Found 2-bit subtractor for signal <GND_5_o_GND_5_o_sub_95_OUT<1:0>> created at line 306.
-    Found 2-bit subtractor for signal <GND_5_o_GND_5_o_sub_165_OUT<1:0>> created at line 409.
-    Found 3-bit shifter logical right for signal <n0280> created at line 154
-    Found 3-bit shifter logical left for signal <n0279> created at line 154
-    Found 4-bit comparator lessequal for signal <n0001> created at line 89
-    Found 2-bit comparator greater for signal <j[1]_PWR_5_o_LessThan_14_o> created at line 153
-    Found 3-bit comparator lessequal for signal <n0068> created at line 354
-    Found 3-bit comparator lessequal for signal <n0091> created at line 411
+    Found 3-bit register for signal <v_OPCODE>.
+    Found 1-bit register for signal <v_UNLOAD_DONE>.
+    Found 4-bit register for signal <current_state>.
+    Found 3-bit subtractor for signal <GND_8_o_GND_8_o_sub_30_OUT> created at line 193.
+    Found 4-bit subtractor for signal <GND_8_o_GND_8_o_sub_31_OUT> created at line 193.
+    Found 3-bit subtractor for signal <GND_8_o_GND_8_o_sub_231_OUT> created at line 540.
+    Found 3-bit subtractor for signal <GND_8_o_GND_8_o_sub_269_OUT> created at line 591.
+    Found 4-bit subtractor for signal <n0402> created at line 193.
+    Found 5-bit adder for signal <v_cnt_delay_ready[4]_GND_8_o_add_5_OUT> created at line 110.
+    Found 3-bit adder for signal <n0384> created at line 341.
+    Found 2-bit adder for signal <GND_8_o_j[1]_add_146_OUT> created at line 392.
+    Found 3-bit adder for signal <n0382> created at line 442.
+    Found 2-bit adder for signal <i_addr_cnt[1]_GND_8_o_add_188_OUT> created at line 451.
+    Found 2-bit adder for signal <n0410> created at line 455.
+    Found 2-bit adder for signal <i[1]_GND_8_o_add_197_OUT> created at line 469.
+    Found 2-bit subtractor for signal <GND_8_o_GND_8_o_sub_105_OUT<1:0>> created at line 336.
+    Found 2-bit subtractor for signal <GND_8_o_GND_8_o_sub_112_OUT<1:0>> created at line 343.
+    Found 2-bit subtractor for signal <GND_8_o_GND_8_o_sub_117_OUT<1:0>> created at line 348.
+    Found 2-bit subtractor for signal <GND_8_o_GND_8_o_sub_196_OUT<1:0>> created at line 461.
+    Found 3-bit shifter logical right for signal <n0404> created at line 193
+    Found 3-bit shifter logical left for signal <n0403> created at line 193
+    Found 5-bit comparator lessequal for signal <n0000> created at line 101
+    Found 5-bit comparator lessequal for signal <n0006> created at line 111
+    Found 5-bit comparator lessequal for signal <n0016> created at line 120
+    Found 2-bit comparator greater for signal <j[1]_PWR_8_o_LessThan_29_o> created at line 192
+    Found 3-bit comparator lessequal for signal <n0105> created at line 345
+    Found 3-bit comparator lessequal for signal <n0120> created at line 396
     Summary:
-	inferred  13 Adder/Subtractor(s).
-	inferred  48 D-type flip-flop(s).
-	inferred   4 Comparator(s).
-	inferred  95 Multiplexer(s).
+	inferred  16 Adder/Subtractor(s).
+	inferred  57 D-type flip-flop(s).
+	inferred   6 Comparator(s).
+	inferred 114 Multiplexer(s).
 	inferred   2 Combinational logic shifter(s).
 Unit <CONTROL_UNIT> synthesized.
 
@@ -252,15 +269,15 @@ Synthesizing Unit <BRAM_WRAPPER_V2_1>.
     Found 10-bit register for signal <i_addra>.
     Found 10-bit register for signal <i_addrb>.
     Found 1-bit register for signal <i_wea>.
-    Found 9-bit subtractor for signal <GND_6_o_GND_6_o_sub_4_OUT<8:0>> created at line 1308.
-    Found 9-bit subtractor for signal <GND_6_o_GND_6_o_sub_10_OUT<8:0>> created at line 1308.
-    Found 9-bit comparator greater for signal <GND_6_o_ADDRA[8]_LessThan_2_o> created at line 59
-    Found 9-bit comparator greater for signal <GND_6_o_ADDRB[8]_LessThan_8_o> created at line 65
+    Found 9-bit subtractor for signal <GND_9_o_GND_9_o_sub_10_OUT<8:0>> created at line 1308.
+    Found 9-bit subtractor for signal <GND_9_o_GND_9_o_sub_18_OUT<8:0>> created at line 1308.
+    Found 9-bit comparator greater for signal <GND_9_o_ADDRA[8]_LessThan_8_o> created at line 67
+    Found 9-bit comparator greater for signal <GND_9_o_ADDRB[8]_LessThan_16_o> created at line 78
     Summary:
 	inferred   2 Adder/Subtractor(s).
 	inferred  40 D-type flip-flop(s).
 	inferred   2 Comparator(s).
-	inferred   4 Multiplexer(s).
+	inferred   5 Multiplexer(s).
 Unit <BRAM_WRAPPER_V2_1> synthesized.
 
 Synthesizing Unit <BRAM_WRAPPER_V2_2>.
@@ -274,17 +291,17 @@ Synthesizing Unit <BRAM_WRAPPER_V2_2>.
     Found 10-bit register for signal <i_addra>.
     Found 10-bit register for signal <i_addrb>.
     Found 1-bit register for signal <i_wea>.
-    Found 9-bit adder for signal <ADDRA[8]_GND_8_o_add_4_OUT> created at line 1241.
-    Found 9-bit adder for signal <ADDRB[8]_GND_8_o_add_10_OUT> created at line 1241.
-    Found 9-bit subtractor for signal <GND_8_o_GND_8_o_sub_4_OUT<8:0>> created at line 1308.
-    Found 9-bit subtractor for signal <GND_8_o_GND_8_o_sub_10_OUT<8:0>> created at line 1308.
-    Found 9-bit comparator greater for signal <GND_8_o_ADDRA[8]_LessThan_2_o> created at line 59
-    Found 9-bit comparator greater for signal <GND_8_o_ADDRB[8]_LessThan_8_o> created at line 65
+    Found 9-bit adder for signal <ADDRA[8]_GND_11_o_add_10_OUT> created at line 1241.
+    Found 9-bit adder for signal <ADDRB[8]_GND_11_o_add_18_OUT> created at line 1241.
+    Found 9-bit subtractor for signal <GND_11_o_GND_11_o_sub_10_OUT<8:0>> created at line 1308.
+    Found 9-bit subtractor for signal <GND_11_o_GND_11_o_sub_18_OUT<8:0>> created at line 1308.
+    Found 9-bit comparator greater for signal <GND_11_o_ADDRA[8]_LessThan_8_o> created at line 67
+    Found 9-bit comparator greater for signal <GND_11_o_ADDRB[8]_LessThan_16_o> created at line 78
     Summary:
 	inferred   4 Adder/Subtractor(s).
 	inferred  40 D-type flip-flop(s).
 	inferred   2 Comparator(s).
-	inferred   4 Multiplexer(s).
+	inferred   5 Multiplexer(s).
 Unit <BRAM_WRAPPER_V2_2> synthesized.
 
 Synthesizing Unit <BRAM_WRAPPER_V2_3>.
@@ -298,51 +315,55 @@ Synthesizing Unit <BRAM_WRAPPER_V2_3>.
     Found 10-bit register for signal <i_addra>.
     Found 10-bit register for signal <i_addrb>.
     Found 1-bit register for signal <i_wea>.
-    Found 9-bit adder for signal <ADDRA[8]_GND_9_o_add_4_OUT> created at line 1241.
-    Found 9-bit adder for signal <ADDRB[8]_GND_9_o_add_10_OUT> created at line 1241.
-    Found 9-bit subtractor for signal <GND_9_o_GND_9_o_sub_4_OUT<8:0>> created at line 1308.
-    Found 9-bit subtractor for signal <GND_9_o_GND_9_o_sub_10_OUT<8:0>> created at line 1308.
-    Found 9-bit comparator greater for signal <GND_9_o_ADDRA[8]_LessThan_2_o> created at line 59
-    Found 9-bit comparator greater for signal <GND_9_o_ADDRB[8]_LessThan_8_o> created at line 65
+    Found 9-bit adder for signal <ADDRA[8]_GND_12_o_add_10_OUT> created at line 1241.
+    Found 9-bit adder for signal <ADDRB[8]_GND_12_o_add_18_OUT> created at line 1241.
+    Found 9-bit subtractor for signal <GND_12_o_GND_12_o_sub_10_OUT<8:0>> created at line 1308.
+    Found 9-bit subtractor for signal <GND_12_o_GND_12_o_sub_18_OUT<8:0>> created at line 1308.
+    Found 9-bit comparator greater for signal <GND_12_o_ADDRA[8]_LessThan_8_o> created at line 67
+    Found 9-bit comparator greater for signal <GND_12_o_ADDRB[8]_LessThan_16_o> created at line 78
     Summary:
 	inferred   4 Adder/Subtractor(s).
 	inferred  40 D-type flip-flop(s).
 	inferred   2 Comparator(s).
-	inferred   4 Multiplexer(s).
+	inferred   5 Multiplexer(s).
 Unit <BRAM_WRAPPER_V2_3> synthesized.
 
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 23
+# Adders/Subtractors                                   : 26
  2-bit adder                                           : 4
- 2-bit subtractor                                      : 3
+ 2-bit subtractor                                      : 4
  3-bit adder                                           : 2
- 3-bit subtractor                                      : 1
- 4-bit adder                                           : 1
+ 3-bit subtractor                                      : 3
  4-bit subtractor                                      : 2
+ 5-bit adder                                           : 1
  9-bit adder                                           : 4
  9-bit subtractor                                      : 6
-# Registers                                            : 57
- 1-bit register                                        : 15
+# Registers                                            : 61
+ 1-bit register                                        : 18
  10-bit register                                       : 15
  18-bit register                                       : 3
  2-bit register                                        : 5
- 3-bit register                                        : 17
- 4-bit register                                        : 1
+ 3-bit register                                        : 16
+ 4-bit register                                        : 2
+ 5-bit register                                        : 1
  9-bit register                                        : 1
-# Comparators                                          : 10
+# Comparators                                          : 12
  2-bit comparator greater                              : 1
  3-bit comparator lessequal                            : 2
- 4-bit comparator lessequal                            : 1
+ 5-bit comparator lessequal                            : 3
  9-bit comparator greater                              : 6
-# Multiplexers                                         : 109
- 1-bit 2-to-1 multiplexer                              : 23
- 10-bit 2-to-1 multiplexer                             : 4
- 2-bit 2-to-1 multiplexer                              : 46
- 3-bit 2-to-1 multiplexer                              : 24
- 9-bit 2-to-1 multiplexer                              : 12
+# Multiplexers                                         : 132
+ 1-bit 2-to-1 multiplexer                              : 19
+ 10-bit 2-to-1 multiplexer                             : 9
+ 18-bit 2-to-1 multiplexer                             : 1
+ 2-bit 2-to-1 multiplexer                              : 58
+ 3-bit 2-to-1 multiplexer                              : 19
+ 4-bit 2-to-1 multiplexer                              : 8
+ 5-bit 2-to-1 multiplexer                              : 3
+ 9-bit 2-to-1 multiplexer                              : 15
 # Logic shifters                                       : 2
  3-bit shifter logical left                            : 1
  3-bit shifter logical right                           : 1
@@ -362,55 +383,53 @@ Loading core <DSP_INPUT_C> for timing and area information for instance <BLOCK_A
 Loading core <BRAM18x1k> for timing and area information for instance <BMG_PORT>.
 Loading core <BRAM18x1k> for timing and area information for instance <BMG_PORT>.
 Loading core <BRAM18x1k> for timing and area information for instance <BMG_PORT>.
-WARNING:Xst:2677 - Node <p_ADDR_0_9> of sequential type is unconnected in block <MEMARRAY_V3>.
-WARNING:Xst:2677 - Node <p_ADDR_1_9> of sequential type is unconnected in block <MEMARRAY_V3>.
-WARNING:Xst:2677 - Node <p_ADDR_2_9> of sequential type is unconnected in block <MEMARRAY_V3>.
-WARNING:Xst:2677 - Node <p_ADDR_3_9> of sequential type is unconnected in block <MEMARRAY_V3>.
-WARNING:Xst:2677 - Node <p_ADDR_4_9> of sequential type is unconnected in block <MEMARRAY_V3>.
-WARNING:Xst:2677 - Node <p_ADDR_5_9> of sequential type is unconnected in block <MEMARRAY_V3>.
-WARNING:Xst:2677 - Node <p_ADDR_6_9> of sequential type is unconnected in block <MEMARRAY_V3>.
-WARNING:Xst:2677 - Node <p_ADDR_7_9> of sequential type is unconnected in block <MEMARRAY_V3>.
-
-Synthesizing (advanced) Unit <CONTROL_UNIT>.
-The following registers are absorbed into counter <cnt_delay_ready>: 1 register on signal <cnt_delay_ready>.
-Unit <CONTROL_UNIT> synthesized (advanced).
-WARNING:Xst:2677 - Node <p_ADDR_0_9> of sequential type is unconnected in block <MEMARRAY_V3>.
-WARNING:Xst:2677 - Node <p_ADDR_1_9> of sequential type is unconnected in block <MEMARRAY_V3>.
-WARNING:Xst:2677 - Node <p_ADDR_2_9> of sequential type is unconnected in block <MEMARRAY_V3>.
-WARNING:Xst:2677 - Node <p_ADDR_3_9> of sequential type is unconnected in block <MEMARRAY_V3>.
-WARNING:Xst:2677 - Node <p_ADDR_4_9> of sequential type is unconnected in block <MEMARRAY_V3>.
-WARNING:Xst:2677 - Node <p_ADDR_5_9> of sequential type is unconnected in block <MEMARRAY_V3>.
-WARNING:Xst:2677 - Node <p_ADDR_6_9> of sequential type is unconnected in block <MEMARRAY_V3>.
-WARNING:Xst:2677 - Node <p_ADDR_7_9> of sequential type is unconnected in block <MEMARRAY_V3>.
+WARNING:Xst:1293 - FF/Latch <v_UNLOAD_DONE> has a constant value of 0 in block <FSM_UNIT>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <p_ADDRA_0_9> of sequential type is unconnected in block <MEMARRAY_V3>.
+WARNING:Xst:2677 - Node <p_ADDRA_1_9> of sequential type is unconnected in block <MEMARRAY_V3>.
+WARNING:Xst:2677 - Node <p_ADDRA_2_9> of sequential type is unconnected in block <MEMARRAY_V3>.
+WARNING:Xst:2677 - Node <p_ADDRA_3_9> of sequential type is unconnected in block <MEMARRAY_V3>.
+WARNING:Xst:2677 - Node <p_ADDRA_4_9> of sequential type is unconnected in block <MEMARRAY_V3>.
+WARNING:Xst:2677 - Node <p_ADDRA_5_9> of sequential type is unconnected in block <MEMARRAY_V3>.
+WARNING:Xst:2677 - Node <p_ADDRA_6_9> of sequential type is unconnected in block <MEMARRAY_V3>.
+WARNING:Xst:2677 - Node <p_ADDRA_7_9> of sequential type is unconnected in block <MEMARRAY_V3>.
+WARNING:Xst:2677 - Node <p_ADDRA_0_9> of sequential type is unconnected in block <MEMARRAY_V3>.
+WARNING:Xst:2677 - Node <p_ADDRA_1_9> of sequential type is unconnected in block <MEMARRAY_V3>.
+WARNING:Xst:2677 - Node <p_ADDRA_2_9> of sequential type is unconnected in block <MEMARRAY_V3>.
+WARNING:Xst:2677 - Node <p_ADDRA_3_9> of sequential type is unconnected in block <MEMARRAY_V3>.
+WARNING:Xst:2677 - Node <p_ADDRA_4_9> of sequential type is unconnected in block <MEMARRAY_V3>.
+WARNING:Xst:2677 - Node <p_ADDRA_5_9> of sequential type is unconnected in block <MEMARRAY_V3>.
+WARNING:Xst:2677 - Node <p_ADDRA_6_9> of sequential type is unconnected in block <MEMARRAY_V3>.
+WARNING:Xst:2677 - Node <p_ADDRA_7_9> of sequential type is unconnected in block <MEMARRAY_V3>.
 
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 23
+# Adders/Subtractors                                   : 26
  2-bit adder                                           : 4
- 2-bit subtractor                                      : 3
+ 2-bit subtractor                                      : 4
  3-bit adder                                           : 2
- 3-bit subtractor                                      : 1
- 4-bit adder                                           : 1
+ 3-bit subtractor                                      : 3
  4-bit subtractor                                      : 2
+ 5-bit adder                                           : 1
  9-bit adder                                           : 4
  9-bit subtractor                                      : 6
-# Counters                                             : 1
- 4-bit up counter                                      : 1
-# Registers                                            : 281
- Flip-Flops                                            : 281
-# Comparators                                          : 10
+# Registers                                            : 294
+ Flip-Flops                                            : 294
+# Comparators                                          : 12
  2-bit comparator greater                              : 1
  3-bit comparator lessequal                            : 2
- 4-bit comparator lessequal                            : 1
+ 5-bit comparator lessequal                            : 3
  9-bit comparator greater                              : 6
-# Multiplexers                                         : 111
- 1-bit 2-to-1 multiplexer                              : 26
- 10-bit 2-to-1 multiplexer                             : 4
- 2-bit 2-to-1 multiplexer                              : 46
- 3-bit 2-to-1 multiplexer                              : 23
- 9-bit 2-to-1 multiplexer                              : 12
+# Multiplexers                                         : 143
+ 1-bit 2-to-1 multiplexer                              : 32
+ 10-bit 2-to-1 multiplexer                             : 8
+ 18-bit 2-to-1 multiplexer                             : 1
+ 2-bit 2-to-1 multiplexer                              : 58
+ 3-bit 2-to-1 multiplexer                              : 18
+ 4-bit 2-to-1 multiplexer                              : 8
+ 5-bit 2-to-1 multiplexer                              : 3
+ 9-bit 2-to-1 multiplexer                              : 15
 # Logic shifters                                       : 2
  3-bit shifter logical left                            : 1
  3-bit shifter logical right                           : 1
@@ -420,6 +439,10 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
+WARNING:Xst:1293 - FF/Latch <v_UNLOAD_DONE> has a constant value of 0 in block <CONTROL_UNIT>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <v_OPCODE_0> of sequential type is unconnected in block <CONTROL_UNIT>.
+WARNING:Xst:2677 - Node <v_OPCODE_1> of sequential type is unconnected in block <CONTROL_UNIT>.
+WARNING:Xst:2677 - Node <v_OPCODE_2> of sequential type is unconnected in block <CONTROL_UNIT>.
 INFO:Xst:2261 - The FF/Latch <s_P_ADDR_2> in Unit <CONTROL_UNIT> is equivalent to the following 7 FFs/Latches, which will be removed : <s_P_ADDR_3> <s_P_ADDR_4> <s_P_ADDR_5> <s_P_ADDR_6> <s_P_ADDR_7> <s_P_ADDR_8> <s_P_ADDR_9> 
 
 Optimizing unit <MEMARRAY_V3> ...
@@ -432,26 +455,32 @@ Optimizing unit <BRAM_WRAPPER_V2_2> ...
 
 Optimizing unit <BRAM_WRAPPER_V2_3> ...
 INFO:Xst:2261 - The FF/Latch <BLOCK_A_MEM_GEN[0].MEMA/i_addrb_9> in Unit <MEMARRAY_V3> is equivalent to the following 2 FFs/Latches, which will be removed : <BLOCK_A_MEM_GEN[1].MEMA/i_addrb_9> <BLOCK_A_MEM_GEN[2].MEMA/i_addrb_9> 
-INFO:Xst:2261 - The FF/Latch <p_ADDR_2_2> in Unit <MEMARRAY_V3> is equivalent to the following 6 FFs/Latches, which will be removed : <p_ADDR_2_3> <p_ADDR_2_4> <p_ADDR_2_5> <p_ADDR_2_6> <p_ADDR_2_7> <p_ADDR_2_8> 
-INFO:Xst:2261 - The FF/Latch <p_ADDR_3_2> in Unit <MEMARRAY_V3> is equivalent to the following 6 FFs/Latches, which will be removed : <p_ADDR_3_3> <p_ADDR_3_4> <p_ADDR_3_5> <p_ADDR_3_6> <p_ADDR_3_7> <p_ADDR_3_8> 
-INFO:Xst:2261 - The FF/Latch <p_ADDR_4_2> in Unit <MEMARRAY_V3> is equivalent to the following 6 FFs/Latches, which will be removed : <p_ADDR_4_3> <p_ADDR_4_4> <p_ADDR_4_5> <p_ADDR_4_6> <p_ADDR_4_7> <p_ADDR_4_8> 
-INFO:Xst:2261 - The FF/Latch <p_ADDR_5_2> in Unit <MEMARRAY_V3> is equivalent to the following 6 FFs/Latches, which will be removed : <p_ADDR_5_3> <p_ADDR_5_4> <p_ADDR_5_5> <p_ADDR_5_6> <p_ADDR_5_7> <p_ADDR_5_8> 
-INFO:Xst:2261 - The FF/Latch <p_ADDR_6_2> in Unit <MEMARRAY_V3> is equivalent to the following 6 FFs/Latches, which will be removed : <p_ADDR_6_3> <p_ADDR_6_4> <p_ADDR_6_5> <p_ADDR_6_6> <p_ADDR_6_7> <p_ADDR_6_8> 
-INFO:Xst:2261 - The FF/Latch <BLOCK_A_MEM_GEN[2].MEMA/i_addra_8> in Unit <MEMARRAY_V3> is equivalent to the following 5 FFs/Latches, which will be removed : <BLOCK_A_MEM_GEN[2].MEMA/i_addra_7> <BLOCK_A_MEM_GEN[2].MEMA/i_addra_6> <BLOCK_A_MEM_GEN[2].MEMA/i_addra_5> <BLOCK_A_MEM_GEN[2].MEMA/i_addra_4> <BLOCK_A_MEM_GEN[2].MEMA/i_addra_3> 
-INFO:Xst:2261 - The FF/Latch <p_ADDR_7_2> in Unit <MEMARRAY_V3> is equivalent to the following 6 FFs/Latches, which will be removed : <p_ADDR_7_3> <p_ADDR_7_4> <p_ADDR_7_5> <p_ADDR_7_6> <p_ADDR_7_7> <p_ADDR_7_8> 
-INFO:Xst:2261 - The FF/Latch <p_ADDR_0_2> in Unit <MEMARRAY_V3> is equivalent to the following 6 FFs/Latches, which will be removed : <p_ADDR_0_3> <p_ADDR_0_4> <p_ADDR_0_5> <p_ADDR_0_6> <p_ADDR_0_7> <p_ADDR_0_8> 
-INFO:Xst:2261 - The FF/Latch <BLOCK_A_MEM_GEN[0].MEMA/i_addra_8> in Unit <MEMARRAY_V3> is equivalent to the following 5 FFs/Latches, which will be removed : <BLOCK_A_MEM_GEN[0].MEMA/i_addra_7> <BLOCK_A_MEM_GEN[0].MEMA/i_addra_6> <BLOCK_A_MEM_GEN[0].MEMA/i_addra_5> <BLOCK_A_MEM_GEN[0].MEMA/i_addra_4> <BLOCK_A_MEM_GEN[0].MEMA/i_addra_3> 
+INFO:Xst:2261 - The FF/Latch <p_ADDRA_3_2> in Unit <MEMARRAY_V3> is equivalent to the following 6 FFs/Latches, which will be removed : <p_ADDRA_3_3> <p_ADDRA_3_4> <p_ADDRA_3_5> <p_ADDRA_3_6> <p_ADDRA_3_7> <p_ADDRA_3_8> 
+INFO:Xst:2261 - The FF/Latch <p_ADDRA_4_2> in Unit <MEMARRAY_V3> is equivalent to the following 6 FFs/Latches, which will be removed : <p_ADDRA_4_3> <p_ADDRA_4_4> <p_ADDRA_4_5> <p_ADDRA_4_6> <p_ADDRA_4_7> <p_ADDRA_4_8> 
+INFO:Xst:2261 - The FF/Latch <p_ADDRA_5_2> in Unit <MEMARRAY_V3> is equivalent to the following 6 FFs/Latches, which will be removed : <p_ADDRA_5_3> <p_ADDRA_5_4> <p_ADDRA_5_5> <p_ADDRA_5_6> <p_ADDRA_5_7> <p_ADDRA_5_8> 
+INFO:Xst:2261 - The FF/Latch <p_ADDRA_6_2> in Unit <MEMARRAY_V3> is equivalent to the following 6 FFs/Latches, which will be removed : <p_ADDRA_6_3> <p_ADDRA_6_4> <p_ADDRA_6_5> <p_ADDRA_6_6> <p_ADDRA_6_7> <p_ADDRA_6_8> 
+INFO:Xst:2261 - The FF/Latch <i_ADDRA_2> in Unit <MEMARRAY_V3> is equivalent to the following 6 FFs/Latches, which will be removed : <i_ADDRA_3> <i_ADDRA_4> <i_ADDRA_5> <i_ADDRA_6> <i_ADDRA_7> <i_ADDRA_8> 
+INFO:Xst:2261 - The FF/Latch <p_ADDRA_7_2> in Unit <MEMARRAY_V3> is equivalent to the following 6 FFs/Latches, which will be removed : <p_ADDRA_7_3> <p_ADDRA_7_4> <p_ADDRA_7_5> <p_ADDRA_7_6> <p_ADDRA_7_7> <p_ADDRA_7_8> 
+INFO:Xst:2261 - The FF/Latch <p_ADDRA_0_2> in Unit <MEMARRAY_V3> is equivalent to the following 6 FFs/Latches, which will be removed : <p_ADDRA_0_3> <p_ADDRA_0_4> <p_ADDRA_0_5> <p_ADDRA_0_6> <p_ADDRA_0_7> <p_ADDRA_0_8> 
+INFO:Xst:2261 - The FF/Latch <BLOCK_A_MEM_GEN[2].MEMA/i_addra_8> in Unit <MEMARRAY_V3> is equivalent to the following 4 FFs/Latches, which will be removed : <BLOCK_A_MEM_GEN[2].MEMA/i_addra_7> <BLOCK_A_MEM_GEN[2].MEMA/i_addra_6> <BLOCK_A_MEM_GEN[2].MEMA/i_addra_5> <BLOCK_A_MEM_GEN[2].MEMA/i_addra_3> 
+INFO:Xst:2261 - The FF/Latch <p_ADDRA_1_2> in Unit <MEMARRAY_V3> is equivalent to the following 6 FFs/Latches, which will be removed : <p_ADDRA_1_3> <p_ADDRA_1_4> <p_ADDRA_1_5> <p_ADDRA_1_6> <p_ADDRA_1_7> <p_ADDRA_1_8> 
+INFO:Xst:2261 - The FF/Latch <BLOCK_A_MEM_GEN[0].MEMA/i_addra_8> in Unit <MEMARRAY_V3> is equivalent to the following 4 FFs/Latches, which will be removed : <BLOCK_A_MEM_GEN[0].MEMA/i_addra_7> <BLOCK_A_MEM_GEN[0].MEMA/i_addra_6> <BLOCK_A_MEM_GEN[0].MEMA/i_addra_5> <BLOCK_A_MEM_GEN[0].MEMA/i_addra_3> 
 INFO:Xst:2261 - The FF/Latch <BLOCK_A_MEM_GEN[0].MEMA/i_addra_9> in Unit <MEMARRAY_V3> is equivalent to the following 2 FFs/Latches, which will be removed : <BLOCK_A_MEM_GEN[1].MEMA/i_addra_9> <BLOCK_A_MEM_GEN[2].MEMA/i_addra_9> 
-INFO:Xst:2261 - The FF/Latch <p_ADDR_1_2> in Unit <MEMARRAY_V3> is equivalent to the following 6 FFs/Latches, which will be removed : <p_ADDR_1_3> <p_ADDR_1_4> <p_ADDR_1_5> <p_ADDR_1_6> <p_ADDR_1_7> <p_ADDR_1_8> 
-INFO:Xst:2261 - The FF/Latch <i_ADDR_2> in Unit <MEMARRAY_V3> is equivalent to the following 6 FFs/Latches, which will be removed : <i_ADDR_3> <i_ADDR_4> <i_ADDR_5> <i_ADDR_6> <i_ADDR_7> <i_ADDR_8> 
+INFO:Xst:2261 - The FF/Latch <p_ADDRA_2_2> in Unit <MEMARRAY_V3> is equivalent to the following 6 FFs/Latches, which will be removed : <p_ADDRA_2_3> <p_ADDRA_2_4> <p_ADDRA_2_5> <p_ADDRA_2_6> <p_ADDRA_2_7> <p_ADDRA_2_8> 
 INFO:Xst:2261 - The FF/Latch <BLOCK_A_MEM_GEN[1].MEMA/i_addra_8> in Unit <MEMARRAY_V3> is equivalent to the following 5 FFs/Latches, which will be removed : <BLOCK_A_MEM_GEN[1].MEMA/i_addra_7> <BLOCK_A_MEM_GEN[1].MEMA/i_addra_6> <BLOCK_A_MEM_GEN[1].MEMA/i_addra_5> <BLOCK_A_MEM_GEN[1].MEMA/i_addra_4> <BLOCK_A_MEM_GEN[1].MEMA/i_addra_3> 
 
 Mapping all equations...
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 5) on block MEMARRAY_V3, actual ratio is 0.
+INFO:Xst:2260 - The FF/Latch <BLOCK_A_MEM_GEN[0].MEMA/i_addra_8> in Unit <MEMARRAY_V3> is equivalent to the following FF/Latch : <BLOCK_A_MEM_GEN[0].MEMA/i_addra_4> 
+INFO:Xst:2260 - The FF/Latch <BLOCK_A_MEM_GEN[2].MEMA/i_addra_8> in Unit <MEMARRAY_V3> is equivalent to the following FF/Latch : <BLOCK_A_MEM_GEN[2].MEMA/i_addra_4> 
+INFO:Xst:2261 - The FF/Latch <BLOCK_A_MEM_GEN[0].MEMA/i_addra_8> in Unit <MEMARRAY_V3> is equivalent to the following FF/Latch, which will be removed : <BLOCK_A_MEM_GEN[0].MEMA/i_addra_4> 
+INFO:Xst:2261 - The FF/Latch <BLOCK_A_MEM_GEN[2].MEMA/i_addra_8> in Unit <MEMARRAY_V3> is equivalent to the following FF/Latch, which will be removed : <BLOCK_A_MEM_GEN[2].MEMA/i_addra_4> 
 FlipFlop FSM_UNIT/current_state_0 has been replicated 1 time(s)
-FlipFlop FSM_UNIT/current_state_1 has been replicated 1 time(s)
-FlipFlop FSM_UNIT/current_state_2 has been replicated 2 time(s)
+FlipFlop FSM_UNIT/current_state_1 has been replicated 2 time(s)
+FlipFlop FSM_UNIT/current_state_2 has been replicated 1 time(s)
+FlipFlop FSM_UNIT/current_state_3 has been replicated 1 time(s)
+FlipFlop FSM_UNIT/s_P_ADDR_2 has been replicated 2 time(s)
 
 Final Macro Processing ...
 
@@ -459,9 +488,9 @@ Processing Unit <MEMARRAY_V3> :
 	Found 3-bit shift register for signal <i_OPCODE_0>.
 	Found 3-bit shift register for signal <i_OPCODE_1>.
 	Found 3-bit shift register for signal <i_OPCODE_2>.
-	Found 8-bit shift register for signal <i_ADDR_0>.
-	Found 8-bit shift register for signal <i_ADDR_1>.
-	Found 9-bit shift register for signal <i_ADDR_2>.
+	Found 8-bit shift register for signal <i_ADDRA_0>.
+	Found 8-bit shift register for signal <i_ADDRA_1>.
+	Found 9-bit shift register for signal <i_ADDRA_2>.
 	Found 9-bit shift register for signal <BLOCK_A_MEM_GEN[0].MEMA/i_wea_0>.
 	Found 9-bit shift register for signal <BLOCK_A_MEM_GEN[1].MEMA/i_wea_0>.
 	Found 9-bit shift register for signal <BLOCK_A_MEM_GEN[2].MEMA/i_wea_0>.
@@ -471,8 +500,8 @@ Unit <MEMARRAY_V3> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 148
- Flip-Flops                                            : 148
+# Registers                                            : 156
+ Flip-Flops                                            : 156
 # Shift Registers                                      : 9
  3-bit shift register                                  : 3
  8-bit shift register                                  : 2
@@ -499,30 +528,29 @@ Top Level Output File Name         : MEMARRAY_V3.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 440
+# BELS                             : 492
 #      GND                         : 7
-#      INV                         : 6
-#      LUT2                        : 208
-#      LUT3                        : 35
-#      LUT4                        : 23
-#      LUT5                        : 40
-#      LUT6                        : 113
-#      MUXF7                       : 1
+#      INV                         : 4
+#      LUT2                        : 228
+#      LUT3                        : 38
+#      LUT4                        : 38
+#      LUT5                        : 49
+#      LUT6                        : 115
+#      MUXF7                       : 6
 #      VCC                         : 7
-# FlipFlops/Latches                : 562
-#      FD                          : 512
-#      FDE                         : 35
-#      FDR                         : 11
-#      FDRE                        : 4
+# FlipFlops/Latches                : 573
+#      FD                          : 518
+#      FDE                         : 34
+#      FDR                         : 21
 # RAMS                             : 3
 #      RAMB18E1                    : 3
 # Shift Registers                  : 9
 #      SRLC16E                     : 9
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 52
-#      IBUF                        : 35
-#      OBUF                        : 17
+# IO Buffers                       : 72
+#      IBUF                        : 36
+#      OBUF                        : 36
 # DSPs                             : 3
 #      DSP48E1                     : 3
 
@@ -533,22 +561,22 @@ Selected Device : 7vx485tffg1157-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             562  out of  607200     0%  
- Number of Slice LUTs:                  434  out of  303600     0%  
-    Number used as Logic:               425  out of  303600     0%  
+ Number of Slice Registers:             573  out of  607200     0%  
+ Number of Slice LUTs:                  481  out of  303600     0%  
+    Number used as Logic:               472  out of  303600     0%  
     Number used as Memory:                9  out of  130800     0%  
        Number used as SRL:                9
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    903
-   Number with an unused Flip Flop:     341  out of    903    37%  
-   Number with an unused LUT:           469  out of    903    51%  
-   Number of fully used LUT-FF pairs:    93  out of    903    10%  
-   Number of unique control sets:        14
+ Number of LUT Flip Flop pairs used:    955
+   Number with an unused Flip Flop:     382  out of    955    40%  
+   Number with an unused LUT:           474  out of    955    49%  
+   Number of fully used LUT-FF pairs:    99  out of    955    10%  
+   Number of unique control sets:        12
 
 IO Utilization: 
- Number of IOs:                          73
- Number of bonded IOBs:                  53  out of    600     8%  
+ Number of IOs:                          75
+ Number of bonded IOBs:                  73  out of    600    12%  
 
 Specific Feature Utilization:
  Number of Block RAM/FIFO:                2  out of   1030     0%  
@@ -577,7 +605,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-CLK                                | BUFGP                  | 577   |
+CLK                                | BUFGP                  | 588   |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -588,9 +616,9 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 2.593ns (Maximum Frequency: 385.602MHz)
-   Minimum input arrival time before clock: 2.644ns
-   Maximum output required time after clock: 0.603ns
+   Minimum period: 2.669ns (Maximum Frequency: 374.644MHz)
+   Minimum input arrival time before clock: 3.613ns
+   Maximum output required time after clock: 0.699ns
    Maximum combinational path delay: No path found
 
 Timing Details:
@@ -599,72 +627,76 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'CLK'
-  Clock period: 2.593ns (frequency: 385.602MHz)
-  Total number of paths / destination ports: 3428 / 965
+  Clock period: 2.669ns (frequency: 374.644MHz)
+  Total number of paths / destination ports: 3871 / 1028
 -------------------------------------------------------------------------
-Delay:               2.593ns (Levels of Logic = 5)
-  Source:            FSM_UNIT/current_state_1_1 (FF)
-  Destination:       BLOCK_A_MEM_GEN[1].MEMA/i_addrb_8 (FF)
+Delay:               2.669ns (Levels of Logic = 5)
+  Source:            FSM_UNIT/current_state_3_1 (FF)
+  Destination:       BLOCK_A_MEM_GEN[2].MEMA/i_addrb_8 (FF)
   Source Clock:      CLK rising
   Destination Clock: CLK rising
 
-  Data Path: FSM_UNIT/current_state_1_1 to BLOCK_A_MEM_GEN[1].MEMA/i_addrb_8
+  Data Path: FSM_UNIT/current_state_3_1 to BLOCK_A_MEM_GEN[2].MEMA/i_addrb_8
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              1   0.236   0.495  FSM_UNIT/current_state_1_1 (FSM_UNIT/current_state_1_1)
-     LUT3:I0->O           12   0.043   0.411  FSM_UNIT/GND_5_o_current_state[2]_equal_224_o_inv1 (FSM_UNIT/GND_5_o_current_state[2]_equal_224_o_inv)
-     LUT5:I4->O           36   0.043   0.481  Mmux_s_MUL_ADDRB21 (s_MUL_ADDRB<1>)
-     LUT6:I5->O            1   0.043   0.405  BLOCK_A_MEM_GEN[1].MEMA/Mmux_ADDRB[8]_ADDRB[8]_mux_13_OUT92_SW0 (N46)
-     LUT6:I4->O            1   0.043   0.350  BLOCK_A_MEM_GEN[1].MEMA/Mmux_ADDRB[8]_ADDRB[8]_mux_13_OUT92 (BLOCK_A_MEM_GEN[1].MEMA/Mmux_ADDRB[8]_ADDRB[8]_mux_13_OUT91)
-     LUT6:I5->O            1   0.043   0.000  BLOCK_A_MEM_GEN[1].MEMA/Mmux_ADDRB[8]_ADDRB[8]_mux_13_OUT93 (BLOCK_A_MEM_GEN[1].MEMA/ADDRB[8]_ADDRB[8]_mux_13_OUT<8>)
-     FD:D                     -0.000          BLOCK_A_MEM_GEN[1].MEMA/i_addrb_8
+     FDR:C->Q              2   0.236   0.527  FSM_UNIT/current_state_3_1 (FSM_UNIT/current_state_3_1)
+     LUT4:I0->O            5   0.043   0.373  FSM_UNIT/GND_8_o_PWR_8_o_OR_13_o1_1 (FSM_UNIT/GND_8_o_PWR_8_o_OR_13_o1)
+     LUT4:I3->O           21   0.043   0.606  Mmux_s_MUL_ADDRB41 (s_MUL_ADDRB<3>)
+     LUT6:I3->O            3   0.043   0.362  BLOCK_A_MEM_GEN[2].MEMA/Mmux_ADDRB[8]_ADDRB[8]_mux_20_OUT911 (BLOCK_A_MEM_GEN[2].MEMA/Mmux_ADDRB[8]_ADDRB[8]_mux_20_OUT911)
+     LUT6:I5->O            1   0.043   0.350  BLOCK_A_MEM_GEN[2].MEMA/Mmux_ADDRB[8]_ADDRB[8]_mux_20_OUT92_SW0 (N35)
+     LUT6:I5->O            1   0.043   0.000  BLOCK_A_MEM_GEN[2].MEMA/Mmux_ADDRB[8]_ADDRB[8]_mux_20_OUT93 (BLOCK_A_MEM_GEN[2].MEMA/ADDRB[8]_ADDRB[8]_mux_20_OUT<8>)
+     FD:D                     -0.000          BLOCK_A_MEM_GEN[2].MEMA/i_addrb_8
     ----------------------------------------
-    Total                      2.593ns (0.451ns logic, 2.142ns route)
-                                       (17.4% logic, 82.6% route)
+    Total                      2.669ns (0.451ns logic, 2.218ns route)
+                                       (16.9% logic, 83.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK'
-  Total number of paths / destination ports: 1392 / 124
+  Total number of paths / destination ports: 1523 / 137
 -------------------------------------------------------------------------
-Offset:              2.644ns (Levels of Logic = 6)
-  Source:            ADDRB<4> (PAD)
-  Destination:       BLOCK_A_MEM_GEN[1].MEMA/i_addrb_8 (FF)
+Offset:              3.613ns (Levels of Logic = 8)
+  Source:            ADDRB<8> (PAD)
+  Destination:       BLOCK_A_MEM_GEN[2].MEMA/i_addrb_8 (FF)
   Destination Clock: CLK rising
 
-  Data Path: ADDRB<4> to BLOCK_A_MEM_GEN[1].MEMA/i_addrb_8
+  Data Path: ADDRB<8> to BLOCK_A_MEM_GEN[2].MEMA/i_addrb_8
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            11   0.000   0.659  ADDRB_4_IBUF (ADDRB_4_IBUF)
-     LUT6:I1->O            1   0.043   0.613  BLOCK_A_MEM_GEN[1].MEMA/GND_8_o_ADDRB[8]_LessThan_8_o11_SW0 (N67)
-     LUT6:I0->O            3   0.043   0.417  BLOCK_A_MEM_GEN[1].MEMA/GND_8_o_ADDRB[8]_LessThan_8_o11 (BLOCK_A_MEM_GEN[1].MEMA/GND_8_o_ADDRB[8]_LessThan_8_o1)
-     LUT6:I4->O            8   0.043   0.389  BLOCK_A_MEM_GEN[1].MEMA/GND_8_o_ADDRB[8]_LessThan_8_o13 (BLOCK_A_MEM_GEN[1].MEMA/GND_8_o_ADDRB[8]_LessThan_8_o)
-     LUT6:I5->O            1   0.043   0.350  BLOCK_A_MEM_GEN[1].MEMA/Mmux_ADDRB[8]_ADDRB[8]_mux_13_OUT72 (BLOCK_A_MEM_GEN[1].MEMA/Mmux_ADDRB[8]_ADDRB[8]_mux_13_OUT71)
-     LUT6:I5->O            1   0.043   0.000  BLOCK_A_MEM_GEN[1].MEMA/Mmux_ADDRB[8]_ADDRB[8]_mux_13_OUT73 (BLOCK_A_MEM_GEN[1].MEMA/ADDRB[8]_ADDRB[8]_mux_13_OUT<6>)
-     FD:D                     -0.000          BLOCK_A_MEM_GEN[1].MEMA/i_addrb_6
+     IBUF:I->O             9   0.000   0.658  ADDRB_8_IBUF (ADDRB_8_IBUF)
+     LUT6:I0->O            3   0.043   0.417  BLOCK_A_MEM_GEN[2].MEMA/GND_12_o_ADDRB[8]_LessThan_16_o11_SW0 (N33)
+     LUT2:I0->O            1   0.043   0.350  BLOCK_A_MEM_GEN[2].MEMA/GND_12_o_ADDRB[8]_LessThan_16_o11 (BLOCK_A_MEM_GEN[2].MEMA/GND_12_o_ADDRB[8]_LessThan_16_o1)
+     LUT6:I5->O            1   0.043   0.613  BLOCK_A_MEM_GEN[2].MEMA/GND_12_o_ADDRB[8]_LessThan_16_o12_SW1 (N65)
+     LUT6:I0->O            8   0.043   0.561  BLOCK_A_MEM_GEN[2].MEMA/GND_12_o_ADDRB[8]_LessThan_16_o12 (BLOCK_A_MEM_GEN[2].MEMA/GND_12_o_ADDRB[8]_LessThan_16_o)
+     LUT6:I2->O            3   0.043   0.362  BLOCK_A_MEM_GEN[2].MEMA/Mmux_ADDRB[8]_ADDRB[8]_mux_20_OUT911 (BLOCK_A_MEM_GEN[2].MEMA/Mmux_ADDRB[8]_ADDRB[8]_mux_20_OUT911)
+     LUT6:I5->O            1   0.043   0.350  BLOCK_A_MEM_GEN[2].MEMA/Mmux_ADDRB[8]_ADDRB[8]_mux_20_OUT92_SW0 (N35)
+     LUT6:I5->O            1   0.043   0.000  BLOCK_A_MEM_GEN[2].MEMA/Mmux_ADDRB[8]_ADDRB[8]_mux_20_OUT93 (BLOCK_A_MEM_GEN[2].MEMA/ADDRB[8]_ADDRB[8]_mux_20_OUT<8>)
+     FD:D                     -0.000          BLOCK_A_MEM_GEN[2].MEMA/i_addrb_8
     ----------------------------------------
-    Total                      2.644ns (0.215ns logic, 2.429ns route)
-                                       (8.1% logic, 91.9% route)
+    Total                      3.613ns (0.301ns logic, 3.312ns route)
+                                       (8.3% logic, 91.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK'
-  Total number of paths / destination ports: 8 / 8
+  Total number of paths / destination ports: 27 / 27
 -------------------------------------------------------------------------
-Offset:              0.603ns (Levels of Logic = 1)
-  Source:            FSM_UNIT/i_row_cnt_0 (FF)
-  Destination:       G_ROW<0> (PAD)
+Offset:              0.699ns (Levels of Logic = 2)
+  Source:            sec_inst (DSP)
+  Destination:       DOUT<17> (PAD)
   Source Clock:      CLK rising
 
-  Data Path: FSM_UNIT/i_row_cnt_0 to G_ROW<0>
+  Data Path: sec_inst to DOUT<17>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              6   0.236   0.367  FSM_UNIT/i_row_cnt_0 (FSM_UNIT/i_row_cnt_0)
-     OBUF:I->O                 0.000          G_ROW_0_OBUF (G_ROW<0>)
+     SEC:CLK->out          3   0.348   0.351  sec_inst (sec_net)
+     end scope: 'BLOCK_A_DSP_GEN[2].DSP/blk00000001:P<17>'
+     end scope: 'BLOCK_A_DSP_GEN[2].DSP:p<17>'
+     OBUF:I->O                 0.000          DOUT_17_OBUF (DOUT<17>)
     ----------------------------------------
-    Total                      0.603ns (0.236ns logic, 0.367ns route)
-                                       (39.1% logic, 60.9% route)
+    Total                      0.699ns (0.348ns logic, 0.351ns route)
+                                       (49.8% logic, 50.2% route)
 
 =========================================================================
 
@@ -676,20 +708,20 @@ Clock to Setup on destination clock CLK
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-CLK            |    2.593|         |         |         |
+CLK            |    2.669|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 23.00 secs
-Total CPU time to Xst completion: 23.19 secs
+Total REAL time to Xst completion: 16.00 secs
+Total CPU time to Xst completion: 15.07 secs
  
 --> 
 
-Total memory usage is 443172 kilobytes
+Total memory usage is 458832 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   21 (   0 filtered)
-Number of infos    :   15 (   0 filtered)
+Number of warnings :   28 (   0 filtered)
+Number of infos    :   19 (   0 filtered)
 

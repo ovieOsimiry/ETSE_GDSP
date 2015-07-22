@@ -25,6 +25,7 @@ entity MEMARRAY_V3 is
 	Port(CLK         : in  STD_LOGIC;
 		 RST          : in  STD_LOGIC;
 		 LOAD         : in  STD_LOGIC;
+		 UN_LOAD	  : in 	STD_LOGIC;
 		 P            : in  STD_LOGIC;
 		 G            : in  STD_LOGIC;		 
 		 ADDRB        : in  STD_LOGIC_VECTOR(ADDR_WIDTH - 1 downto 0);
@@ -34,13 +35,14 @@ entity MEMARRAY_V3 is
 		 OE           : in  STD_LOGIC;
 		 SSEN         : in  STD_LOGIC;  -- scratchpad shift enable
 		 DIN          : in  STD_LOGIC_VECTOR(DATA_WIDTH - 1 downto 0);
-		 DOUT         : out STD_LOGIC_VECTOR(DATA_WIDTH - 1 downto 0);
+		 DOUT         : out STD_LOGIC_VECTOR(DATA_WIDTH - 1 downto 0);		 
 		 G_ROW        : out std_logic_vector(ADDR_WIDTH - 1 downto 0);
 		 G_COLUMN     : out std_logic_vector(COLUMN_TOTAL - 1 downto 0);
 		 G_EN			: out STD_LOGIC;
 		 READY			: out std_logic;		 
 		 OP_DONE      : out std_logic;
-		 LOADING_DONE : out std_logic
+		 LOADING_DONE : out std_logic;
+		 UN_LOADING_DONE : out std_logic
 	);
 end MEMARRAY_V3;
 
@@ -128,6 +130,10 @@ signal s_MUL_ADDRB : std_logic_vector(9 downto 0);
 signal s_ADDRA : std_logic_vector(ADDR_WIDTH-1 downto 0);
 signal s_MUL_P_SHFT : std_logic;
 signal s_fsm_ADDRB : STD_LOGIC_VECTOR(ADDR_WIDTH - 1 downto 0);
+signal s_fsm_UN_LOAD : STD_LOGIC;
+signal s_fsm_CONTROL_A_INPUT_OF_DSP : std_logic;
+signal s_MUl_Din: std_logic_vector(DATA_WIDTH-1 downto 0);
+
 --signal G_EN : STD_LOGIC;
 
 begin
@@ -178,6 +184,7 @@ FSM_UNIT: entity work.CONTROL_UNIT
 		CLK => CLK,
 		 RST          => RST,
 		 LOAD         => LOAD,
+		 UN_LOAD		=> UN_LOAD,
 		 P            => P,
 		 G            => G,
 		 --D_IN		  => DIN,
@@ -194,7 +201,9 @@ FSM_UNIT: entity work.CONTROL_UNIT
 		 --Bank_Sel		=> Bank_Sel,
 		 OP_DONE      => OP_DONE,
 		 READY		=> READY,
-		 LOADING_DONE => LOADING_DONE
+		 LOADING_DONE => LOADING_DONE,
+		 UN_LOADING_DONE => UN_LOADING_DONE,
+		 CONTROL_A_INPUT_OF_DSP => s_fsm_CONTROL_A_INPUT_OF_DSP
 		);
 
 --------------------------------------------------------------
@@ -206,6 +215,8 @@ s_MUL_ADDRB <= ADDRB when Ctrl_BRAM = '1' else (not(Bank_sel_in) & s_fsm_ADDRB(s
 --s_MUL_ADDRB <= ADDRB when Ctrl_BRAM = '1' else (not(Bank_sel_in) & s_fsm_ADDRA);--when '1' BRAM port B address is controlled externally when '0' it is controlled by FSM.
 
 s_MUL_P_SHFT <= P_SHFT_IN when Ctrl_BRAM = '1' else fsm_P_SHFT;
+
+s_MUl_Din <= DIN(DATA_WIDTH-1 downto 0) when s_fsm_CONTROL_A_INPUT_OF_DSP = '0' else (0 => '1', others => '0');--set to 1 when FSM is in control. (B*A=B) when A = 1.
 
 BLOCK_A_MEM_GEN:
 for i in 0 to COLUMN_TOTAL-1 generate
@@ -233,7 +244,7 @@ FIRST_DSP:
  DSP_INPUT_C PORT MAP (
           clk => CLK,
           sel => i_OPCODE,
-          a => DIN(17 downto 0),--i_DIN,
+          a => s_MUl_Din,--DIN(17 downto 0),--i_DIN,
           b => i_MEM2ALU(0),--(17 downto 0),
           c => i_ALU2ALU(COLUMN_TOTAL-1),
           p => i_ALU2ALU(0)
@@ -244,7 +255,7 @@ for i in 1 to COLUMN_TOTAL-1 generate
 DSP: DSP_INPUT_C PORT MAP (
           clk => CLK,
           sel => i_OPCODE,
-          a => DIN(17 downto 0),--i_DIN,
+          a => s_MUl_Din,--DIN(17 downto 0),--i_DIN,
           b => i_MEM2ALU(i),--(17 downto 0),
           c => i_ALU2ALU(i-1),
           p => i_ALU2ALU(i)
@@ -252,6 +263,7 @@ DSP: DSP_INPUT_C PORT MAP (
 end generate;
 
 DOUT <= i_ALU2ALU(COLUMN_TOTAL-1)(DATA_WIDTH-1 downto 0);
+
 --------------------------------------------------------------
 --FIRST_SP: SCRATCHPAD_REG 
 --	 Port map(  CLK=>CLK,

@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version 14.7
-# Date: Tue Jul 07 15:26:24 2015
+# Date: Sat Jul 18 10:28:11 2015
 #
 ##############################################################
 #
@@ -103,8 +103,8 @@ CSET instruction2=A*B
 CSET instruction3=A*B+P
 CSET instruction4=A*B+C
 CSET instruction5=A*B+P>>17
-CSET instruction6=#
-CSET instruction7=#
+CSET instruction6=B*A
+CSET instruction7=C
 CSET instruction8=#
 CSET instruction_list=#
 CSET mreg_5=true
@@ -120,7 +120,7 @@ CSET p_width=48
 CSET pcin_binarywidth=0
 CSET pipeline_options=Expert
 CSET preg_6=true
-CSET show_filtered=false
+CSET show_filtered=true
 CSET tier_1=false
 CSET tier_2=false
 CSET tier_3=false
@@ -133,4 +133,4 @@ CSET use_dsp48=true
 MISC pkg_timestamp=2013-07-22T10:40:10Z
 # END Extra information
 GENERATE
-# CRC: 175b6f3c
+# CRC: 12c81994

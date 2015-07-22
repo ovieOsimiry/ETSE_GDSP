@@ -20,6 +20,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
+use work.MATRIX_MUL_IP_CORE_LIBRARY.all;
 
 entity CONTROL_UNIT is
 	generic(
@@ -29,7 +30,8 @@ entity CONTROL_UNIT is
 		COLUMN_TOTAL : integer := 3);
 	Port(CLK          : in  STD_LOGIC;
 		 RST          : in  STD_LOGIC;
-		 LOAD         : in  STD_LOGIC;		
+		 LOAD         : in  STD_LOGIC;
+		 UN_LOAD	  : in STD_LOGIC;			
 		 P            : in  STD_LOGIC;
 		 G            : in  STD_LOGIC;
 		 --D_IN		 	:in std_logic_vector(DATA_WIDTH-1 downto 0);
@@ -44,21 +46,26 @@ entity CONTROL_UNIT is
 		 G_COLUMN     : out STD_LOGIC_VECTOR(COLUMN_TOTAL - 1 downto 0);
 		 G_EN		: out STD_LOGIC;
 		 --Bank_Sel		: out std_logic;
-		 READY			: out std_logic;	
+		 READY		  : out std_logic;	
 		 OP_DONE      : out std_logic;
-		 LOADING_DONE : out std_logic);
+		 LOADING_DONE : out std_logic;
+		 UN_LOADING_DONE : out std_logic;
+		 CONTROL_A_INPUT_OF_DSP: out std_logic);
 end CONTROL_UNIT;
 
 architecture Behavioral of CONTROL_UNIT is
+
+constant PIPELINE_DELAY: integer:= 10;
 	
 signal i_addr_cnt,i_row_cnt,i_col_cnt: integer range 0 to COLUMN_TOTAL;
 --signal i_OP_START: STD_LOGIC;
  signal s_CSEL: std_logic_vector(COLUMN_TOTAL-1 downto 0);
 
-type state_type is (START,LOADING,LOAD_DONE,PG,PtG,PGt,PtGt,DONE);
+type state_type is (START,LOADING,LOAD_DONE,PG,PtG,PGt,PtGt,DONE,UNLOAD);--,UNLOAD_DONE);
 signal current_state,next_state: state_type;
 signal s_P_ADDR : STD_LOGIC_VECTOR(ADDR_WIDTH - 1 downto 0);
-signal s_LOADING_DONE: std_logic;
+signal cnt_delay_ready: integer range 0 to (PIPELINE_DELAY + 1 + COLUMN_TOTAL*COLUMN_TOTAL);-- The counter should be able to count up to square of TOTAL_NUM_OF_COLUMNS + 1 +Pipeline delay
+--signal s_LOADING_DONE: std_logic;
 -- s_Bank_Sel : std_logic;
 
 --dubug sigals
@@ -76,26 +83,54 @@ process (CLK, RST)
 -- for storage in BRAM. The current value is set to 4 but it can be changed accordingly to allow enough time for the READY signal to trigger,
 -- and user to Respond. Typically this value could be set to 3 instead of 4 to give the user 1 clock cycle to react. But for simulation
 -- Purpose the value 4 is ok. 
-	variable cnt_delay_ready: integer range 0 to 10;
+	variable v_cnt_delay_ready: integer range 0 to ((PIPELINE_DELAY + 1)  + COLUMN_TOTAL*COLUMN_TOTAL);
 begin
 if rising_edge(CLK) then
 		if(RST='1') then
 			current_state<=START;
-			cnt_delay_ready := 0;
+			v_cnt_delay_ready := 0;
 			READY <= '0';
+			LOADING_DONE <= '0';
+			UN_LOADING_DONE <= '0';
+			OP_DONE <= '0';
 		else
 			current_state <= next_state;   --state change.
 			if current_state = Loading then
-				cnt_delay_ready := cnt_delay_ready + 1;
+				v_cnt_delay_ready := v_cnt_delay_ready + 1;
 -- Note if DIN input to DSP block is delayed from GRAM (3 stage Pipeline) instead of using the 2 stage Pipeline in MEMARRY then this value should be 1 otherwise set it to 4.				
-				if cnt_delay_ready >= 4 then
+				if v_cnt_delay_ready >= 4 then
 					READY <= '1';
 				end if;
+				
+				if v_cnt_delay_ready = (PIPELINE_DELAY + 1 + COLUMN_TOTAL*COLUMN_TOTAL) then
+					LOADING_DONE <= '1';
+				end if;
+				
+			elsif current_state = UNLOAD then
+				v_cnt_delay_ready := v_cnt_delay_ready + 1;
+				if v_cnt_delay_ready >= PIPELINE_DELAY then
+					READY <= '1';
+				end if;
+				
+				if v_cnt_delay_ready >= (PIPELINE_DELAY + COLUMN_TOTAL*COLUMN_TOTAL) then
+					UN_LOADING_DONE <= '1';
+				end if;
+			elsif current_state = PG or current_state = PGt or current_state = PtGt or current_state = PtGt then
+				v_cnt_delay_ready := v_cnt_delay_ready + 1;
+				if v_cnt_delay_ready >= (PIPELINE_DELAY + COLUMN_TOTAL*COLUMN_TOTAL) then
+					OP_DONE <= '1';
+				end if;			
 			else
 				READY <= '0';
+				LOADING_DONE <= '0';
+				UN_LOADING_DONE <= '0';
+				OP_DONE <= '0';
+				v_cnt_delay_ready := 0;
 			end if;
 		end if;
 end if;
+cnt_delay_ready <= v_cnt_delay_ready;
+g_cnt_delay_ready <= v_cnt_delay_ready;--write to global variable
 end process;
 -----------------------------------------------------------
 process(CLK)
@@ -103,7 +138,7 @@ variable i,j,v_load_count: integer range 0 to COLUMN_TOTAL;
 variable v_CSEL : std_logic_vector(COLUMN_TOTAL-1 downto 0);
 variable v_OPCODE: std_logic_vector(OPCODE_WIDTH-1 downto 0);
 variable v_WE: std_logic;
-variable v_LOADING_DONE, v_OP_DONE: std_logic:='0';
+variable v_LOADING_DONE, v_OP_DONE, v_UNLOAD_DONE: std_logic:='0';
 variable v_i_addr_cnt: integer range 0 to COLUMN_TOTAL;
 
 begin
@@ -116,9 +151,10 @@ if (rising_edge(CLK)) then
 			i_col_cnt<=0;
 			i_addr_cnt <= 0;
 			G_EN <= '0';
-			OP_DONE<='0';--reset the done signal
+			--OP_DONE<='0';--reset the done signal
 			v_OP_DONE := '0';--reset the done signal
 			next_state<=current_state;
+			CONTROL_A_INPUT_OF_DSP <= '0';
 			i:=0;
 			j:=0;
 			P_SHFT <='0';
@@ -129,7 +165,7 @@ if (rising_edge(CLK)) then
 
 			s_CSEL <= (others => '0'); --"001";
 
-			s_LOADING_DONE <= '0';
+			--s_LOADING_DONE <= '0';
 			
 				IF LOAD = '1' then
 					next_state<=LOADING;					
@@ -168,20 +204,19 @@ if (rising_edge(CLK)) then
 						end if;
 					end if;
 				else
-					if v_LOADING_DONE = '1' then
+					if v_LOADING_DONE = '1' and cnt_delay_ready = (10 + COLUMN_TOTAL*COLUMN_TOTAL) then -- wait until gets to BRAM. 
 						next_state <= LOAD_DONE;
-					else
-						next_state <= LOADING;
+--					else
+--						next_state <= LOADING;
 					end if;
 				end if;				
 				
-				--s_P_ADDR <= std_logic_vector(to_unsigned(j, ADDR_WIDTH));
 				s_P_ADDR <= std_logic_vector(to_unsigned(j, ADDR_WIDTH));
 				s_CSEL <= v_CSEL;
 				WE <= v_WE;
 --				s_a <= i;
 --				s_b <= j;
-				s_LOADING_DONE <= v_LOADING_DONE;
+				--s_LOADING_DONE <= v_LOADING_DONE;
 				
 		when LOAD_DONE =>
 				--s_Bank_Sel <= '1';
@@ -191,6 +226,8 @@ if (rising_edge(CLK)) then
 				s_CSEL <= (others => '1');--Enble BRAM for Saving multiplication result.		
 				IF LOAD = '1' then					
 					next_state <= LOAD_DONE;	
+				elsif UN_LOAD = '1' then
+					next_state <= UNLOAD;	
 				else
 				G_EN <= '1'; -- Enable GRAM
 				if (P='0') then
@@ -272,15 +309,15 @@ if (rising_edge(CLK)) then
 							v_OP_DONE :='0';						
 						end if;
 					else
-						if v_OP_DONE = '1' then
+						if v_OP_DONE = '1' and cnt_delay_ready = (10 + COLUMN_TOTAL*COLUMN_TOTAL) then -- wait until gets to BRAM.--then
 							next_state<=DONE;
 							v_OPCODE := "111";
-						else
-							next_state<=current_state;
+--						else
+--							next_state<=current_state;
 						end if;
 					end if;
 					OPCODE<= v_OPCODE; --"111";
-					OP_DONE <= v_OP_DONE;
+					--OP_DONE <= v_OP_DONE;
 					s_a <= i;
 					s_b <= j;
 			when PGt=>
@@ -325,15 +362,15 @@ if (rising_edge(CLK)) then
 							v_OP_DONE :='0';
 						end if;
 					else
-						if v_OP_DONE = '1' then
+						if v_OP_DONE = '1' and cnt_delay_ready = (10 + COLUMN_TOTAL*COLUMN_TOTAL) then -- wait until gets to BRAM.--then
 							next_state<=DONE;
 							v_OPCODE := "111";
-						else
-							next_state<=current_state;
+--						else
+--							next_state<=current_state;
 						end if;
 					end if;
 					OPCODE<= v_OPCODE; --"111";
-					OP_DONE <= v_OP_DONE;
+					--OP_DONE <= v_OP_DONE;
 			when PtG=>
 					--s_Bank_Sel <= '1';
 					v_OPCODE :="011";
@@ -381,15 +418,15 @@ if (rising_edge(CLK)) then
 							v_OP_DONE :='0';
 						end if;
 					else
-						if v_OP_DONE = '1' then
+						if v_OP_DONE = '1' and cnt_delay_ready = (10 + COLUMN_TOTAL*COLUMN_TOTAL) then -- wait until gets to BRAM.--then
 							next_state<=DONE;
 							v_OPCODE := "111";
-						else
-							next_state<=current_state;
+--						else
+--							next_state<=current_state;
 						end if;
 					end if;
 					OPCODE<= v_OPCODE; --"111";
-					OP_DONE <= v_OP_DONE;
+					--OP_DONE <= v_OP_DONE;
 			
 			when PtGt =>
 					--s_Bank_Sel <= '1';
@@ -442,33 +479,89 @@ if (rising_edge(CLK)) then
 							v_OP_DONE :='0';
 						end if;
 					else
-						if v_OP_DONE = '1' then
+						if v_OP_DONE = '1' and cnt_delay_ready = (10 + COLUMN_TOTAL*COLUMN_TOTAL) then -- wait until gets to BRAM.--then
 							next_state<=DONE;
 							v_OPCODE := "111";
-						else
-							next_state<=current_state;
+--						else
+--							next_state<=current_state;
 						end if;
 					end if;
 					OPCODE<= v_OPCODE; --"111";
-					OP_DONE <= v_OP_DONE;
+					--OP_DONE <= v_OP_DONE;
 					--i_addr_cnt <= v_i_addr_cnt;
 						
 					s_a <= i;
 					s_b <= j;
 			
+			when DONE =>
+					G_EN <= '0';
+					WE<='0';
+					--P_SHFT <= '0';
+					--OP_DONE<='0';
+					v_OP_DONE := '0';
+					v_UNLOAD_DONE := '0';	
+					i:=0;
+					j:=0;
+					s_P_ADDR <= std_logic_vector(to_unsigned(j, ADDR_WIDTH));
+					s_a <= i;
+					s_b <= j;
+					if UN_LOAD = '1' then
+					 next_state <= UNLOAD;
+					end if;
 			when others =>
-							G_EN <= '0';
-							WE<='0';
-							--P_SHFT <= '0';
-							OP_DONE<='0';	
-							i:=0;							
+				if v_UNLOAD_DONE = '0' then
+					CONTROL_A_INPUT_OF_DSP <= '1';
+					if j > COLUMN_TOTAL then -- J = 0 initially.
+						v_UNLOAD_DONE := '1';
+						v_OP_DONE := '1';
+						v_OPCODE := "111"; --Do nothing.
+					else
+						if i = 0 then
+							v_OPCODE := "101";-- P = B*A. Note A = 1 so P = B.
+							if j = COLUMN_TOTAL then
+								v_OPCODE := "111";-- End of main loop. send null command.
+							end if;							
+							i:=i+1;
+							j:= j+1;
+						else
+							v_OPCODE := "110";-- P = C.							
+							i:=i+1;
+							if i = COLUMN_TOTAL  then
+								i:=0;								
+							end if;						
+						end if;						
+					end if;					
+				else
+					CONTROL_A_INPUT_OF_DSP <= '0';
+					v_OP_DONE := '0';
+				end if;
+				OPCODE<= v_OPCODE; --"111";
+				--OP_DONE <= v_OP_DONE;
+				s_P_ADDR <= std_logic_vector(to_unsigned(j-1, ADDR_WIDTH));
+				s_a <= i;
+				s_b <= j;
+--			when others =>
+--				G_EN <= '0';
+--				WE<='0';
+--				--P_SHFT <= '0';
+--				OP_DONE<='0';
+--				v_OP_DONE := '0';	
+--				i:=0;
+--				j:=0;
+--				s_P_ADDR <= std_logic_vector(to_unsigned(j, ADDR_WIDTH));
+--				s_a <= i;
+--				s_b <= j;
+--				if UN_LOAD = '1' then
+--				 next_state <= UNLOAD;
+--				end if;
+											
 	end case;
 end if;
 end process;
 
 ADDRESS_GENERATION: Process(current_state, i_addr_cnt, s_P_ADDR, G, P)
 begin
-	if current_state = LOADING then
+	if current_state = LOADING or current_state = UNLOAD then
 		fsm_ADDRB <= s_P_ADDR;
 		ADDRA <= s_P_ADDR;
 	else
@@ -509,7 +602,7 @@ end process;
 				G_ROW<=std_logic_vector(to_unsigned(i_row_cnt,ADDR_WIDTH));
 				G_COLUMN<=std_logic_vector(to_unsigned(i_col_cnt,COLUMN_TOTAL));
 				CSEL <= s_CSEL;
-				LOADING_DONE <= s_LOADING_DONE;
+				--LOADING_DONE <= s_LOADING_DONE;
 				--D_OUT <= D_IN;
 				--Bank_Sel <= s_Bank_Sel;
 

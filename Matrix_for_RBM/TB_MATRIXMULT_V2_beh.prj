@@ -1,7 +1,0 @@
-vhdl work "ipcore_dir/BRAM18x1k_synth.vhd"
-vhdl work "ipcore_dir/BRAM18x1k.vhd"
-vhdl work "ipcore_dir/DSP_INPUT_PCIN.vhd"
-vhdl work "BRAM_WRAPPER.vhd"
-vhdl work "MATRIXMULT_V2.vhd"
-vhdl work "ADDR_GEN_FSM.vhd"
-vhdl work "TB_MATRIXMULT_V2.vhd"

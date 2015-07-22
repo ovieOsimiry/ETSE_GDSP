@@ -1,6 +1,0 @@
-vhdl work "ipcore_dir/BRAM18x1k.vhd"
-vhdl work "ipcore_dir/BRAM18x1k_synth.vhd"
-vhdl work "ipcore_dir/DSP_INPUT_PCIN.vhd"
-vhdl work "BRAM_WRAPPER.vhd"
-vhdl work "MEMARRAY_PCIN.vhd"
-vhdl work "M_OPERATOR.vhd"

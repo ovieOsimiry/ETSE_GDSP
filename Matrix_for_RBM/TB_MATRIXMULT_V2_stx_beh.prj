@@ -1,7 +1,0 @@
-vhdl isim_temp "ipcore_dir/BRAM18x1k.vhd"
-vhdl isim_temp "ipcore_dir/BRAM18x1k_synth.vhd"
-vhdl isim_temp "ipcore_dir/DSP_INPUT_PCIN.vhd"
-vhdl isim_temp "BRAM_WRAPPER.vhd"
-vhdl isim_temp "MATRIXMULT_V2.vhd"
-vhdl isim_temp "ADDR_GEN_FSM.vhd"
-vhdl isim_temp "TB_MATRIXMULT_V2.vhd"
