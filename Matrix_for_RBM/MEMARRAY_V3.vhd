@@ -16,7 +16,7 @@ use IEEE.NUMERIC_STD.ALL;
 entity MEMARRAY_V3 is
 	generic(
 		--First_Col_right : boolean := false;
-		COLUMN_TOTAL    : integer := 3;
+		COLUMN_TOTAL    : integer := 50;
 		OPCODE_WIDTH    : integer := 3;
 		ADDR_WIDTH      : integer := 10;
 		DATA_WIDTH      : integer := 18;
@@ -210,9 +210,9 @@ FSM_UNIT: entity work.CONTROL_UNIT
 
 s_ADDRA <= Bank_sel_in & i_ADDRA(i_ADDRA'length-2 downto 0); --Bank_sel & i_ADDR(i_ADDR'length-2 downto 0);
 
-s_MUL_ADDRB <= ADDRB when Ctrl_BRAM = '1' else (not(Bank_sel_in) & s_fsm_ADDRB(s_fsm_ADDRB'length-2 downto 0));--when '1' BRAM port B address is controlled externally when '0' it is controlled by FSM.
+--s_MUL_ADDRB <= ADDRB when Ctrl_BRAM = '1' else (not(Bank_sel_in) & s_fsm_ADDRB(s_fsm_ADDRB'length-2 downto 0));--when '1' BRAM port B address is controlled externally when '0' it is controlled by FSM.
 
---s_MUL_ADDRB <= ADDRB when Ctrl_BRAM = '1' else (not(Bank_sel_in) & s_fsm_ADDRA);--when '1' BRAM port B address is controlled externally when '0' it is controlled by FSM.
+s_MUL_ADDRB <= (not(Bank_sel_in) & s_fsm_ADDRB(s_fsm_ADDRB'length-2 downto 0));
 
 s_MUL_P_SHFT <= P_SHFT_IN when Ctrl_BRAM = '1' else fsm_P_SHFT;
 

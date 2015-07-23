@@ -1,6 +1,6 @@
 vhdl work "ipcore_dir/DSP_INPUT_C.vhd"
-vhdl work "ipcore_dir/BRAM18x1k.vhd"
 vhdl work "ipcore_dir/BRAM18x1k_synth.vhd"
+vhdl work "ipcore_dir/BRAM18x1k.vhd"
 vhdl work "../SharedLibraries/txt_util.vhd"
 vhdl work "../SharedLibraries/MATRIX_MUL_IP_CORE_LIBRARY.vhd"
 vhdl work "CONTROL_UNIT.vhd"

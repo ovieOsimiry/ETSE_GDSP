@@ -37,7 +37,7 @@ use work.MATRIX_MUL_IP_CORE_LIBRARY.all;
  
 ENTITY TB_MEMARRAY_V5 IS
 generic(
-		COLUMN_TOTAL: integer:=3;
+		COLUMN_TOTAL: integer:=4;
       ADDR_WIDTH: integer:=10;
       DATA_WIDTH:integer:=18;
 		DATA_WIDE_WIDTH: integer:=48;
@@ -61,7 +61,7 @@ ARCHITECTURE behavior OF TB_MEMARRAY_V5 IS
    -- Control Signals----
    signal DATA_INPUT: std_logic:='0';
    signal GREAD_DONE: std_logic :='0';   
-   type COMMAND is (cmd_G_READ_START, cmd_P_READ_START,cmd_Unload_BRAM_Content,cmd_PG,cmd_PGt,cmd_PtG,cmd_PtGt);
+   type COMMAND is (cmd_G_READ_START,cmd_P_READ_START,cmd_Unload_BRAM_Content,cmd_PG,cmd_PGt,cmd_PtG,cmd_PtGt, cmd_dummy);
    signal CMD: COMMAND;
    
    signal MSG: string(1 to 40);
@@ -213,11 +213,13 @@ begin
 	write(sv_line,"---------------" & " Data loaded into BRAM. " & str(v_delay_latency) & " clock cycles to load,");
 	wait until UN_LOADING_DONE = '1';
 	
-	CMD <= cmd_PG;
+	wait until clk = '0';
+	CMD <= cmd_dummy; -- fake command. This was necessary because the simulator will not respond unless this fake command is used to create an event. I guess it is a bug.
 	wait for clk_period;
-	CMD <= cmd_PGt; --Real Command
+	CMD <= cmd_PtGt; --Real Command
+	
 	Bank_sel_in <= '1'; -- Tell BRAM to save result in lower bank.
-	wait until OP_DONE = '1';
+	wait until OP_DONE= '1';
 	v_delay_latency := g_cnt_delay_ready;--get the time at which the operation completed
 
 	
@@ -228,9 +230,9 @@ begin
 	write(sv_line,"---------------" & " result of PGt from upper bank of BRAM. " & str(v_delay_latency) & " clock cycles to finish multiplication, ");
 	wait until UN_LOADING_DONE = '1';
 	
-	CMD <= cmd_PG;
+	CMD <= cmd_dummy;-- fake command. used to force the simulator to see a change in the process.
 	wait for clk_period;
-	CMD <= cmd_PGt; --Real Command
+	CMD <= cmd_PtGt; --Real Command
 	Bank_sel_in <= '0'; -- Tell BRAM to save result in lower bank.
 	wait until OP_DONE = '1';	
 	v_delay_latency := g_cnt_delay_ready;--get the time at which the operation completed
@@ -241,28 +243,27 @@ begin
 	write(sv_line,"---------------" & " result of PGt * Gt from upper bank of BRAM. " & str(v_delay_latency) & " clock cycles to finish multiplication, ");
 	wait until UN_LOADING_DONE = '1';
 	
-	CMD <= cmd_PG;
-	wait for clk_period;
-	Bank_sel_in <= '0'; -- Tell BRAM to save data in upper bank
-	CMD <= cmd_P_READ_START;	
-	wait until LOADING_DONE ='1';	
-	v_delay_latency := g_cnt_delay_ready; --get the time at which the operation completed
+--	CMD <= cmd_PG;
+--	wait for clk_period;
+--	Bank_sel_in <= '0'; -- Tell BRAM to save data in upper bank
+--	CMD <= cmd_P_READ_START;	
+--	wait until LOADING_DONE ='1';	
+--	v_delay_latency := g_cnt_delay_ready; --get the time at which the operation completed
+--	
+--	--file_open(Result_file_pointer,"../TestingFiles/PG_Result.txt",WRITE_MODE);
+--	sv_Result_File_Open := false;
+--	Bank_sel_in <= '1'; -- Tell BRAM to Read from upper Bank. Note MSB of ADDR Port B is Banksel and it is inverted.
+--	CMD <= cmd_Unload_BRAM_Content;
+--	write(sv_line,"---------------" & " Data loaded into BRAM. " & str(v_delay_latency) & " clock cycles to load,");
+--	wait until UN_LOADING_DONE = '1';	
 	
-	--file_open(Result_file_pointer,"../TestingFiles/PG_Result.txt",WRITE_MODE);
-	sv_Result_File_Open := false;
-	Bank_sel_in <= '1'; -- Tell BRAM to Read from upper Bank. Note MSB of ADDR Port B is Banksel and it is inverted.
-	CMD <= cmd_Unload_BRAM_Content;
-	write(sv_line,"---------------" & " Data loaded into BRAM. " & str(v_delay_latency) & " clock cycles to load,");
-	wait until UN_LOADING_DONE = '1';
-	
-	--file_close(Result_file_pointer);
 
 wait;
 
 end process;
  
 
-process
+Execution_Process:process
 file file_pointer : text;
 file Result_file_pointer: text;
 variable line_num: line;
@@ -271,7 +272,7 @@ variable v_line_array: t_line_array;
 variable x: integer:=0;
 variable I_MAX,J_MAX :integer:=0;
 variable i:integer:=0;
-begin
+begin	
 	
 	case cmd is
 		when cmd_G_READ_START =>
@@ -290,7 +291,7 @@ begin
 									for j in 1 to J_MAX loop
 										readline (file_pointer,line_num);  --Read the whole line from the file
 										READ (line_num,x);
-										report "The value of G" & integer'image(i) & integer'image(j) &" = " & integer'image(x);
+										--report "The value of G" & integer'image(i) & integer'image(j) &" = " & integer'image(x);
 												GCOL<=std_logic_vector(to_unsigned(i-1,COLUMN_TOTAL));
 												GROW<=std_logic_vector(to_signed(j-1,ADDR_WIDTH));
 												GDIN<=std_logic_vector(to_signed(x,DATA_WIDTH));
@@ -299,7 +300,8 @@ begin
 					        end loop;  
 			       	file_close(file_pointer);  --after reading all the lines close the file. 
 					GWE<='0';
-			      	GREAD_DONE<='1';
+			      	GREAD_DONE<='1';		      	
+			      	
 		----------------------------------------End of GRAM LOAD---------------------------------------------------------	
 		when cmd_P_READ_START =>
 		---------------------------------------Begining of BRAM LOAD-----------------------------------------------------		
@@ -317,13 +319,14 @@ begin
 						for j in 1 to COLUMN_TOTAL loop
 							readline (file_pointer,line_num);  --Read the whole line from the file
 							READ (line_num,x);
-							report "The value of P" & integer'image(i) & integer'image(j) &" = " & integer'image(x);
+							--report "The value of P" & integer'image(i) & integer'image(j) &" = " & integer'image(x);
 							DIN <= std_logic_vector(to_signed(x,DATA_WIDTH));				
 							wait for CLK_period;
 						end loop;
 					end loop;
 					file_close(file_pointer);  --after reading all the lines close the file.		
-					DIN <= (others => '0');				
+					DIN <= (others => '0');						
+							
 		----------------------------------------End of BRAM LOAD---------------------------------------------------------	
 		
 		when cmd_Unload_BRAM_Content =>
@@ -352,7 +355,7 @@ begin
 				wait for CLK_period;
 				i := i + 1;
 				if i = COLUMN_TOTAL then
-					for k in 0 to 2 loop
+					for k in 0 to COLUMN_TOTAL-1 loop
 						if k = 0 then
 							write(line_num,str(to_integer(unsigned(BRAM_DATA(COLUMN_TOTAL-1-k)))),RIGHT,10);
 							--write(v_line_array(k),str(to_integer(unsigned(BRAM_DATA(COLUMN_TOTAL-1-k)))),RIGHT,10);
@@ -365,7 +368,8 @@ begin
 					--writeline(Result_file_pointer,line_num);					
 					i:=0;
 				end if;
-			end loop;
+			end loop;			
+			
 			write(sv_line, str(g_cnt_delay_ready) & " clock cycles to unload" & "---------------");
 			writeline(output, sv_line);
 			--writeline(Result_file_pointer,sv_line);
@@ -390,6 +394,7 @@ begin
 --				Writeline(output,line_num);
 --			end loop;
 --			file_close(Result_file_pointer);
+			
 		----------------------------------------End of UNLOAD BRAM--------------------------------------------------------
 		when cmd_PG =>		
 			LOAD <= '0';	-- Tell FSM not to LOAD data.
@@ -424,7 +429,8 @@ begin
 			rst <= '0';
 			wait until OP_DONE = '1';
 			
-		when others =>		
+			
+		when cmd_PtGt =>		
 			LOAD <= '0';	-- Tell FSM not to LOAD data.
 			UN_LOAD <= '0'; -- Tell FSM not to go to unloading state.
 			DATA_INPUT <= '1'; -- Switch Input data of MEMARRAY_V3 to GRAM. 
@@ -434,6 +440,8 @@ begin
 			wait for clk_period*3;
 			rst <= '0';
 			wait until OP_DONE = '1';
+		when others =>
+			--do nothing dummy command.
 	end case;
 	
 	wait on cmd;

@@ -2,9 +2,9 @@ Command line:
    TB_MEMARRAY_V5_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  17764
+     -socket  5575
 
-Wed Jul 22 17:27:01 2015
+Thu Jul 23 13:37:51 2015
 
 
- Elaboration Time: 0.280801 sec
+ Elaboration Time: 0.483604 sec

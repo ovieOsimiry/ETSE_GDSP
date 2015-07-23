@@ -4,8 +4,8 @@ Number of CPUs detected in this system: 8
 Turning on mult-threading, number of parallel sub-compilation jobs: 16 
 Determining compilation order of HDL files
 Parsing VHDL file "C:/FPGA/Internship Jobs/Codes/ETSE_GDSP/Matrix_for_RBM/ipcore_dir/DSP_INPUT_C.vhd" into library work
-Parsing VHDL file "C:/FPGA/Internship Jobs/Codes/ETSE_GDSP/Matrix_for_RBM/ipcore_dir/BRAM18x1k.vhd" into library work
 Parsing VHDL file "C:/FPGA/Internship Jobs/Codes/ETSE_GDSP/Matrix_for_RBM/ipcore_dir/BRAM18x1k_synth.vhd" into library work
+Parsing VHDL file "C:/FPGA/Internship Jobs/Codes/ETSE_GDSP/Matrix_for_RBM/ipcore_dir/BRAM18x1k.vhd" into library work
 Parsing VHDL file "C:/FPGA/Internship Jobs/Codes/ETSE_GDSP/Matrix_for_RBM/../SharedLibraries/txt_util.vhd" into library work
 Parsing VHDL file "C:/FPGA/Internship Jobs/Codes/ETSE_GDSP/Matrix_for_RBM/../SharedLibraries/MATRIX_MUL_IP_CORE_LIBRARY.vhd" into library work
 Parsing VHDL file "C:/FPGA/Internship Jobs/Codes/ETSE_GDSP/Matrix_for_RBM/CONTROL_UNIT.vhd" into library work
@@ -21,7 +21,7 @@ Compiling package numeric_std
 Compiling package textio
 Compiling package txt_util
 Compiling package matrix_mul_ip_core_library
-Compiling architecture behavioral of entity CONTROL_UNIT [\CONTROL_UNIT(10,18,3,3)\]
+Compiling architecture behavioral of entity CONTROL_UNIT [\CONTROL_UNIT(10,18,3,4)\]
 Compiling package std_logic_arith
 Compiling package std_logic_unsigned
 Compiling package std_logic_textio
@@ -30,10 +30,11 @@ Compiling architecture output_stage_behavioral of entity BLK_MEM_GEN_V7_2_output
 Compiling architecture softecc_output_reg_stage_behavioral of entity BLK_MEM_GEN_V7_2_softecc_output_reg_stage [\BLK_MEM_GEN_V7_2_softecc_output...]
 Compiling architecture mem_module_behavioral of entity BLK_MEM_GEN_V7_2_mem_module [\BLK_MEM_GEN_V7_2_mem_module("bl...]
 Compiling architecture behavioral of entity BLK_MEM_GEN_V7_2 [\BLK_MEM_GEN_V7_2("blk_mem_gen_v...]
-Compiling architecture virtex7 of entity BRAM18x1k [bram18x1k_default]
-Compiling architecture behavioral of entity BRAM_WRAPPER_V2 [\BRAM_WRAPPER_V2(0,3,10,18)\]
-Compiling architecture behavioral of entity BRAM_WRAPPER_V2 [\BRAM_WRAPPER_V2(1,3,10,18)\]
-Compiling architecture behavioral of entity BRAM_WRAPPER_V2 [\BRAM_WRAPPER_V2(2,3,10,18)\]
+Compiling architecture bram18x1k_a of entity BRAM18x1k [bram18x1k_default]
+Compiling architecture behavioral of entity BRAM_WRAPPER_V2 [\BRAM_WRAPPER_V2(0,4,10,18)\]
+Compiling architecture behavioral of entity BRAM_WRAPPER_V2 [\BRAM_WRAPPER_V2(1,4,10,18)\]
+Compiling architecture behavioral of entity BRAM_WRAPPER_V2 [\BRAM_WRAPPER_V2(2,4,10,18)\]
+Compiling architecture behavioral of entity BRAM_WRAPPER_V2 [\BRAM_WRAPPER_V2(3,4,10,18)\]
 Compiling package std_logic_signed
 Compiling package bip_utils_pkg_v2_0
 Compiling package bip_usecase_utils_pkg_v2_0
@@ -60,12 +61,12 @@ Compiling architecture behavioral of entity xbip_pipe_v2_0 [\xbip_pipe_v2_0(1,0,
 Compiling architecture behavioral of entity xbip_pipe_v2_0_xst [\xbip_pipe_v2_0_xst(1,0,0,0,0,0,...]
 Compiling architecture behavioral of entity xbip_dsp48_macro_v2_1 [\xbip_dsp48_macro_v2_1(0,0,"virt...]
 Compiling architecture dsp_input_c_a of entity DSP_INPUT_C [dsp_input_c_default]
-Compiling architecture behavioral of entity MEMARRAY_V3 [\MEMARRAY_V3(3,3,10,18,48)\]
-Compiling architecture behavioral of entity STANDARD_RAM [\STANDARD_RAM(3,10,18)\]
+Compiling architecture behavioral of entity MEMARRAY_V3 [\MEMARRAY_V3(4,3,10,18,48)\]
+Compiling architecture behavioral of entity STANDARD_RAM [\STANDARD_RAM(4,10,18)\]
 Compiling architecture behavior of entity tb_memarray_v5
 Time Resolution for simulation is 1ps.
-Waiting for 7 sub-compilation(s) to finish...
-Compiled 80 VHDL Units
+Waiting for 6 sub-compilation(s) to finish...
+Compiled 82 VHDL Units
 Built simulation executable C:/FPGA/Internship Jobs/Codes/ETSE_GDSP/Matrix_for_RBM/TB_MEMARRAY_V5_isim_beh.exe
-Fuse Memory Usage: 47344 KB
-Fuse CPU Usage: 1965 ms
+Fuse Memory Usage: 47500 KB
+Fuse CPU Usage: 2464 ms
