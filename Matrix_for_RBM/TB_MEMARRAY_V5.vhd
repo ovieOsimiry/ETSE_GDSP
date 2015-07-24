@@ -299,7 +299,7 @@ begin
 									end loop;
 					        end loop;  
 			       	file_close(file_pointer);  --after reading all the lines close the file. 
-					GWE<='0';
+					GWE<='0';--disable writing.
 			      	GREAD_DONE<='1';		      	
 			      	
 		----------------------------------------End of GRAM LOAD---------------------------------------------------------	
