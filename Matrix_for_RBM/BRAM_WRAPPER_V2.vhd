@@ -19,13 +19,12 @@ entity BRAM_WRAPPER_V2 is
       DATA_WIDTH:integer:=18		-- bitwidth of data input, MUST match data_width is syntesized bram
 		);
     Port ( CLK : in  STD_LOGIC;
-    		P : in STD_LOGIC;
-    		G : in STD_LOGIC;
-           ADDRA : in  STD_LOGIC_VECTOR (ADDR_WIDTH-1 downto 0);	-- in both addresses, highest bit defines the memory bank
+           Write_ADDR : in  STD_LOGIC_VECTOR (ADDR_WIDTH-1 downto 0);	-- in both addresses, highest bit defines the memory bank
            DINA : in  STD_LOGIC_VECTOR (DATA_WIDTH-1 downto 0);	-- mem is divided into upper and lower halfs
-			  ADDRB : in  STD_LOGIC_VECTOR (ADDR_WIDTH-1 downto 0);	-- thus normal addressing is in 0..2^ADDR_WIDTH-2
+			Read_ADDR : in  STD_LOGIC_VECTOR (ADDR_WIDTH-1 downto 0);	-- thus normal addressing is in 0..2^ADDR_WIDTH-2
            DOUTB : out  STD_LOGIC_VECTOR (DATA_WIDTH-1 downto 0); -- circulant access is only for half-mem
-			  SHFT: in STD_logic;
+			  Read_SHFT: in STD_logic;
+		   Write_SHFT: in std_logic;
            WEA : in  STD_LOGIC;
            OEB : in  STD_LOGIC);
 end BRAM_WRAPPER_V2;
@@ -47,38 +46,49 @@ END COMPONENT;
 ----------------------------------------------------------------
 signal i_rst,i_OE: std_logic;
 signal i_wea: std_logic_vector(0 downto 0);
-signal i_addra, i_addrb:STD_LOGIC_VECTOR(9 DOWNTO 0);
+signal i_write_addr, i_Read_addr:STD_LOGIC_VECTOR(9 DOWNTO 0);
 signal i_dina: STD_LOGIC_VECTOR(DATA_WIDTH-1 DOWNTO 0);
 begin
-process (CLK,P,G)
+process (CLK)-- (CLK,P,G)
 variable addr_a_reg,addr_b_reg: integer range 0 to 2**ADDR_WIDTH;
 begin
 	if rising_edge(CLK) then --NOTE: when P = '1', SHFT = '0' else it is '1'.	
-		if P = '1' AND G = '1' then			
-			if (unsigned(unsigned(ADDRA(ADDR_WIDTH-2 downto 0))+COLUMN_NUMBER)>NUM_COLUMNS-1) then
-					addr_a_reg:=to_integer(unsigned(unsigned(ADDRA(ADDR_WIDTH-2 downto 0))+COLUMN_NUMBER-NUM_COLUMNS)); 
-			else
-					addr_a_reg:=to_integer(unsigned(unsigned(ADDRA(ADDR_WIDTH-2 downto 0))+COLUMN_NUMBER)); 
-			end if;
-		else
-			if SHFT='0'  then 											--- ADDRESS SHIFT FOR CIRCULANT
-				addr_a_reg:=to_integer(unsigned(ADDRA(ADDR_WIDTH-2 downto 0))); 	-- upper bit - bank sel
+--		if P = '1' then	--if P = '1' AND G = '1' then			
+--			if (unsigned(unsigned(ADDRA(ADDR_WIDTH-2 downto 0))+COLUMN_NUMBER)>NUM_COLUMNS-1) then
+--					addr_a_reg:=to_integer(unsigned(unsigned(ADDRA(ADDR_WIDTH-2 downto 0))+COLUMN_NUMBER-NUM_COLUMNS)); 
+--			else
+--					addr_a_reg:=to_integer(unsigned(unsigned(ADDRA(ADDR_WIDTH-2 downto 0))+COLUMN_NUMBER)); 
+--			end if;
+--		else
+--			if SHFT='0'  then 											--- ADDRESS SHIFT FOR CIRCULANT
+--				addr_a_reg:=to_integer(unsigned(ADDRA(ADDR_WIDTH-2 downto 0))); 	-- upper bit - bank sel
+--			else 
+--				if (unsigned(unsigned(ADDRA(ADDR_WIDTH-2 downto 0))+COLUMN_NUMBER)>NUM_COLUMNS-1) then
+--					addr_a_reg:=to_integer(unsigned(unsigned(ADDRA(ADDR_WIDTH-2 downto 0))+COLUMN_NUMBER-NUM_COLUMNS)); 
+--				else
+--					addr_a_reg:=to_integer(unsigned(unsigned(ADDRA(ADDR_WIDTH-2 downto 0))+COLUMN_NUMBER)); 
+--				end if;
+--			end if;
+--		end if;
+		
+			if Write_SHFT ='0'  then 											--- ADDRESS SHIFT FOR CIRCULANT
+				addr_a_reg:=to_integer(unsigned(Write_ADDR(ADDR_WIDTH-2 downto 0))); 	-- upper bit - bank sel
 			else 
-				if (unsigned(unsigned(ADDRA(ADDR_WIDTH-2 downto 0))+COLUMN_NUMBER)>NUM_COLUMNS-1) then
-					addr_a_reg:=to_integer(unsigned(unsigned(ADDRA(ADDR_WIDTH-2 downto 0))+COLUMN_NUMBER-NUM_COLUMNS)); 
+				if (unsigned(unsigned(Write_ADDR(ADDR_WIDTH-2 downto 0))+COLUMN_NUMBER)>NUM_COLUMNS-1) then
+					addr_a_reg:=to_integer(unsigned(unsigned(Write_ADDR(ADDR_WIDTH-2 downto 0))+COLUMN_NUMBER-NUM_COLUMNS)); 
 				else
-					addr_a_reg:=to_integer(unsigned(unsigned(ADDRA(ADDR_WIDTH-2 downto 0))+COLUMN_NUMBER)); 
+					addr_a_reg:=to_integer(unsigned(unsigned(Write_ADDR(ADDR_WIDTH-2 downto 0))+COLUMN_NUMBER)); 
 				end if;
 			end if;
-		end if;
 		
-		if SHFT = '0' then		
-			addr_b_reg:=to_integer(unsigned(ADDRB(ADDR_WIDTH-2 downto 0)));   -- upper bit - bank sel
+		
+		if Read_SHFT = '0' then		
+			addr_b_reg:=to_integer(unsigned(Read_ADDR(ADDR_WIDTH-2 downto 0)));   -- upper bit - bank sel
 		else
-			if (unsigned(unsigned(ADDRB(ADDR_WIDTH-2 downto 0))+COLUMN_NUMBER)>NUM_COLUMNS-1) then				
-				addr_b_reg:=to_integer(unsigned(unsigned(ADDRB(ADDR_WIDTH-2 downto 0))+COLUMN_NUMBER-NUM_COLUMNS)); 
+			if (unsigned(unsigned(Read_ADDR(ADDR_WIDTH-2 downto 0))+COLUMN_NUMBER)>NUM_COLUMNS-1) then				
+				addr_b_reg:=to_integer(unsigned(unsigned(Read_ADDR(ADDR_WIDTH-2 downto 0))+COLUMN_NUMBER-NUM_COLUMNS)); 
 			else
-				addr_b_reg:=to_integer(unsigned(unsigned(ADDRB(ADDR_WIDTH-2 downto 0))+COLUMN_NUMBER)); 
+				addr_b_reg:=to_integer(unsigned(unsigned(Read_ADDR(ADDR_WIDTH-2 downto 0))+COLUMN_NUMBER)); 
 			end if;
 		end if;
 		
@@ -86,20 +96,20 @@ begin
 	  i_RST<= not OEB;
 	  i_OE<=OEB;
 	  i_dina<=DINA;
-	  i_addra<=ADDRA(ADDR_WIDTH-1) & std_logic_vector(to_unsigned(addr_a_reg,ADDR_WIDTH-1));	-- add top bit
-	  i_addrb<=ADDRB(ADDR_WIDTH-1) & std_logic_vector(to_unsigned(addr_b_reg,ADDR_WIDTH-1));  -- add top bit
+	  i_write_addr<=Write_ADDR(ADDR_WIDTH-1) & std_logic_vector(to_unsigned(addr_a_reg,ADDR_WIDTH-1));	-- add top bit
+	  i_Read_addr<=Read_ADDR(ADDR_WIDTH-1) & std_logic_vector(to_unsigned(addr_b_reg,ADDR_WIDTH-1));  -- add top bit
 	end if;
 end process;
 
 BMG_PORT: BRAM18x1k PORT MAP ( 
       --Port A
       WEA        => i_wea,
-      ADDRA      => i_addra,
+      ADDRA      => i_write_addr,
       DINA       => i_dina,
       CLKA       => CLK,
       --Port B
       RSTB       => i_RST,
-      ADDRB      => i_addrb,
+      ADDRB      => i_Read_addr,
       DOUTB      => DOUTB,
       CLKB       => CLK
 

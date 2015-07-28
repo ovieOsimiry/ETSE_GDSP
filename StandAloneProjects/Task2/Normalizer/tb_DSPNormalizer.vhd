@@ -129,7 +129,7 @@ begin
 	wait on Normalized_Output until clk = '1' and Pre_Calculate_done = true;
 	
 	if v_Read_file = true then
-		file_open(text_var, "C:\FPGA\Internship Jobs\Codes\ETSE_GDSP\TestingFiles\Task2_Test_value_AB_result.txt", read_mode);
+		file_open(text_var, "../../../TestingFiles/Task2_Test_value_AB_result.txt", read_mode);
 		while (NOT ENDFILE(text_var)) loop
 				v_i := v_i + 1;
 				readline(text_var, v_Line); --read the current line.
@@ -142,7 +142,7 @@ begin
 	
 	v_Read_file := false;
 	v_DSP48_Normalized_value := real(to_integer(signed(Normalized_Output)))*2.0**(-FractionalPart);
-	write(v_Line,v_DSP48_Normalized_value , Justified=> Left,digits=>6); -- truncate the real number to 6 decimal point useing the write function
+	write(v_Line,v_DSP48_Normalized_value , Justified=> Left,digits=>6); -- truncate the real number to 6 decimal point using the write function
 	read(v_line,v_DSP48_Normalized_value);-- read the truncated real number back into the variable "v_DSP48_Normalized_value"
 	
 	
@@ -162,7 +162,8 @@ end process;
 		variable v_l        : line;
 		variable v_line_var : line;
 		variable v_cnt, v_i  : integer := 0;
-		variable v_a_temp, v_b_temp  :std_logic_vector(17 downto 0); 
+		variable v_a_temp, v_b_temp  :std_logic_vector(17 downto 0);
+		variable	debug_v_a_temp_r, debug_v_b_temp_r, debug_v_ab_result, debug_v_ab_result2: real:=0.0;
 		variable v_ab_temp, v_ab_acc :std_logic_vector(35 downto 0):=(others => '0');
 		variable v_ab_temp_bv, v_ab_acc_bv: bit_vector(35 downto 0);
 		file text_var : text;
@@ -172,7 +173,7 @@ end process;
 
 ---------------Read the values of A and B from File "Task2_Test_value_AB.txt" into an Array of Real numbers "ArrayOfRealNum"-------------------
 		--Open the file in read mode.
-		file_open(text_var, "C:\FPGA\Internship Jobs\Codes\ETSE_GDSP\TestingFiles\Task2_Test_value_AB.txt", read_mode);
+		file_open(text_var, "../../../TestingFiles/Task2_Test_value_AB.txt", read_mode);
 		--run the loop for as long as there are values to read real values from the file.
 		--make sure its not the end of file.
 		while (NOT ENDFILE(text_var)) loop
@@ -188,18 +189,30 @@ end process;
 		
 		
 		
-		file_open(text_var, "C:\FPGA\Internship Jobs\Codes\ETSE_GDSP\TestingFiles\Task2_Test_value_AB_result.txt", write_mode);
+		file_open(text_var, "../../../TestingFiles/Task2_Test_value_AB_result.txt", write_mode);
 		for j in 1 to v_i/2 loop
 			v_pre_calculate := false;
-			v_a_temp := Convert_Real_2_Std(v_ArrayOfRealNum(j + v_cnt), 2.0 ** FractionalPart);			
+			v_a_temp := Convert_Real_2_Std(v_ArrayOfRealNum(j + v_cnt), 2.0 ** FractionalPart);
+			
+			debug_v_a_temp_r := v_ArrayOfRealNum(j + v_cnt);			
+			
 			v_cnt := v_cnt + 1;
 			v_b_temp := Convert_Real_2_Std(v_ArrayOfRealNum(j + v_cnt), 2.0 ** FractionalPart);
 			
-			v_ab_temp_bv := to_bitvector(std_logic_vector(to_signed((to_integer(signed(v_a_temp)) * to_integer(signed(v_b_temp))),36)));
+			debug_v_b_temp_r := v_ArrayOfRealNum(j + v_cnt);
+			
+			debug_v_ab_result := debug_v_ab_result + (debug_v_a_temp_r * debug_v_b_temp_r);
+			
+			debug_v_ab_result := real(to_integer(signed(Convert_Real_2_Std(debug_v_ab_result, 2.0 ** FractionalPart))))/2.0 ** FractionalPart;
+			
+			v_ab_temp_bv := to_bitvector(std_logic_vector(to_signed((to_integer(signed(v_a_temp)) * to_integer(signed(v_b_temp))),35)));
 			v_ab_temp := to_stdlogicvector(v_ab_temp_bv);
-			v_ab_acc_bv := to_bitvector(std_logic_vector(to_signed(to_integer(signed(v_ab_temp)) + to_integer(signed(v_ab_acc)),36)));
-			v_ab_acc := to_stdlogicvector(v_ab_acc_bv);
-			write(v_l,real(to_integer(signed(to_stdlogicvector(v_ab_acc_bv sra FractionalPart)(17 downto 0))))/2.0**FractionalPart, Justified => Left, digits=>6);
+			debug_v_ab_result2 := real(to_integer(shift_right(signed(v_ab_temp),15)))/2.0**FractionalPart;
+--			v_ab_acc_bv := to_bitvector(std_logic_vector(to_signed(to_integer(signed(v_ab_temp)) + to_integer(signed(v_ab_acc)),36)));
+--			v_ab_acc := to_stdlogicvector(v_ab_acc_bv);
+--			write(v_l,real(to_integer(signed(to_stdlogicvector(v_ab_acc_bv sra FractionalPart)(17 downto 0))))/2.0**FractionalPart, Justified => Left, digits=>6);
+--			read(v_l,debug_v_ab_result);
+			write(v_l,debug_v_ab_result , Justified=> Left,digits=>6);
 			writeline(text_var,v_l);		
 		end loop;
 		

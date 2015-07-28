@@ -28,9 +28,6 @@ entity MEMARRAY_V3 is
 		 UN_LOAD	  : in 	STD_LOGIC;
 		 P            : in  STD_LOGIC;
 		 G            : in  STD_LOGIC;		 
-		 ADDRB        : in  STD_LOGIC_VECTOR(ADDR_WIDTH - 1 downto 0);
-		 P_SHFT_IN	  : in	STD_LOGIC;
-		 Ctrl_BRAM : in STD_LOGIC;
 		 Bank_sel_in : in STD_LOGIC;		
 		 OE           : in  STD_LOGIC;
 		 SSEN         : in  STD_LOGIC;  -- scratchpad shift enable
@@ -79,11 +76,12 @@ generic(
          CLK : IN  std_logic;
          P : in STD_LOGIC;
     	 G : in STD_LOGIC;
-         ADDRA : IN  std_logic_vector(ADDR_WIDTH-1 downto 0);
+         Write_ADDR : IN  std_logic_vector(ADDR_WIDTH-1 downto 0);
          DINA : IN  std_logic_vector(DATA_WIDTH-1 downto 0);
-         ADDRB : IN  std_logic_vector(ADDR_WIDTH-1 downto 0);
+         Read_ADDR : IN  std_logic_vector(ADDR_WIDTH-1 downto 0);
          DOUTB : OUT  std_logic_vector(DATA_WIDTH-1 downto 0);
-         SHFT : IN  std_logic;
+         Read_SHFT : IN  std_logic;
+         Write_SHFT : in std_logic;
          WEA : IN  std_logic;
          OEB : IN  std_logic
         );
@@ -103,6 +101,9 @@ type pipelined_OPCODE_t is array (0 to DIN_DELAY-1) of  std_logic_vector(OPCODE_
 signal p_OPCODE: pipelined_OPCODE_t;
 signal i_OPCODE: std_logic_vector(OPCODE_WIDTH-1 downto 0);
 
+type pipelined_normalizer_t is array(0 to DIN_DELAY-1) of std_logic;
+
+
 
 --type pipelined_DIN_t is array (0 to DIN_DELAY-1) of  std_logic_vector(DATA_WIDTH-1 downto 0);
 --signal p_DIN: pipelined_DIN_t;
@@ -120,19 +121,21 @@ signal p_ADDRA, p_ADDRB: pipelined_ADDR_t;
 signal i_ADDRA, i_ADDRB: std_logic_vector(ADDR_WIDTH-1 downto 0);
 signal s_fsm_CSEL : std_logic_vector(COLUMN_TOTAL-1 downto 0);
 --signal s_i_D_OUT : std_logic_vector(DATA_WIDTH-1 downto 0);
-signal s_fsm_ADDRA : std_logic_vector(ADDR_WIDTH-1 downto 0);
+signal s_fsm_Read_ADDR : std_logic_vector(ADDR_WIDTH-1 downto 0);
 --signal s_fsm_ADDRA : std_logic_vector(ADDR_WIDTH-2 downto 0);
-signal fsm_P_SHFT : std_logic;
+signal s_fsm_Read_SHFT : std_logic;
 signal s_fsm_OPCODE : std_logic_vector(OPCODE_WIDTH-1 downto 0);
 signal s_fsm_WE : std_logic;
-signal s_MUL_ADDRB : std_logic_vector(9 downto 0);
+signal s_modified_fsm_Read_ADDR : std_logic_vector(9 downto 0);
 --signal Bank_Sel : std_logic;
-signal s_ADDRA : std_logic_vector(ADDR_WIDTH-1 downto 0);
+signal s_modified_fsm_Write_ADDR : std_logic_vector(ADDR_WIDTH-1 downto 0);
 signal s_MUL_P_SHFT : std_logic;
-signal s_fsm_ADDRB : STD_LOGIC_VECTOR(ADDR_WIDTH - 1 downto 0);
+signal s_fsm_Write_ADDR : STD_LOGIC_VECTOR(ADDR_WIDTH - 1 downto 0);
 signal s_fsm_UN_LOAD : STD_LOGIC;
 signal s_fsm_CONTROL_A_INPUT_OF_DSP : std_logic;
 signal s_MUl_Din: std_logic_vector(DATA_WIDTH-1 downto 0);
+signal s_fsm_Write_SHFT : std_logic;
+
 
 --signal G_EN : STD_LOGIC;
 
@@ -144,8 +147,8 @@ begin
 DELAY_GEN: process(CLK)
 begin
 if rising_edge(CLK) then
-	p_ADDRA(0)<=s_fsm_ADDRA;
-	p_ADDRB(0)<=s_fsm_ADDRB;
+	p_ADDRA(0)<=s_fsm_Read_ADDR;
+	p_ADDRB(0)<=s_fsm_Write_ADDR;
 	for i in 0 to COLUMN_TOTAL-1 loop
 		p_WEB(0)(i)<=s_fsm_CSEL(i) and s_fsm_WE;
 	end loop;
@@ -158,17 +161,19 @@ if rising_edge(CLK) then
 	i_ADDRB<=p_ADDRA(DELAY_DEPTH-1);
 	i_WEB<=p_WEB(DELAY_DEPTH-1);
 	
-	p_OPCODE(0)<= s_fsm_OPCODE;
+	p_OPCODE(0)<= s_fsm_OPCODE;	
+	
 	--p_DIN(0)<=DIN; --s_i_D_OUT;--
 	for i in 1 to DIN_DELAY-1 loop
 		-- The DIN signal is delayed for 2 clk cycles in order for it to arrive at the same time with the B signal coming from the BRAM which has a latency of 2 clk cycles
 		-- uncomment if not using 3 stage pipeline in GRAM
 		--p_DIN(i)<=p_DIN(i-1);
 		p_OPCODE(i)<=p_OPCODE(i-1);--The opcode is also delayed for 2 clk cycles because it must be sent at the same time with the A and B input of the DSP.
+		
 	end loop;
 	--uncomment if using
 	--i_DIN<=p_DIN(DIN_DELAY-1);
-	i_OPCODE<=p_OPCODE(DIN_DELAY-1);
+	i_OPCODE<=p_OPCODE(DIN_DELAY-1);	
 end if;
 end process;
 ----------------------------------------------------------------
@@ -187,18 +192,16 @@ FSM_UNIT: entity work.CONTROL_UNIT
 		 UN_LOAD		=> UN_LOAD,
 		 P            => P,
 		 G            => G,
-		 --D_IN		  => DIN,
 		 WE           => s_fsm_WE,
-		 --D_OUT		  => s_i_D_OUT,
 		 CSEL		  => s_fsm_CSEL,
-		 ADDRA       => s_fsm_ADDRA,
-		 fsm_ADDRB   => s_fsm_ADDRB,
-		 P_SHFT       => fsm_P_SHFT,
+		 Read_ADDR       => s_fsm_Read_ADDR,
+		 Write_ADDR   => s_fsm_Write_ADDR,
+		 Read_SHFT      => s_fsm_Read_SHFT,
+		 Write_SHFT		=> s_fsm_Write_SHFT,		
 		 OPCODE       => s_fsm_OPCODE,
 		 G_ROW        => G_ROW,
 		 G_COLUMN     => G_COLUMN,
 		 G_EN		=> G_EN,
-		 --Bank_Sel		=> Bank_Sel,
 		 OP_DONE      => OP_DONE,
 		 READY		=> READY,
 		 LOADING_DONE => LOADING_DONE,
@@ -208,13 +211,9 @@ FSM_UNIT: entity work.CONTROL_UNIT
 
 --------------------------------------------------------------
 
-s_ADDRA <= Bank_sel_in & i_ADDRA(i_ADDRA'length-2 downto 0); --Bank_sel & i_ADDR(i_ADDR'length-2 downto 0);
+s_modified_fsm_Write_ADDR <= Bank_sel_in & i_ADDRA(i_ADDRA'length-2 downto 0); --Bank_sel & i_ADDR(i_ADDR'length-2 downto 0);
 
---s_MUL_ADDRB <= ADDRB when Ctrl_BRAM = '1' else (not(Bank_sel_in) & s_fsm_ADDRB(s_fsm_ADDRB'length-2 downto 0));--when '1' BRAM port B address is controlled externally when '0' it is controlled by FSM.
-
-s_MUL_ADDRB <= (not(Bank_sel_in) & s_fsm_ADDRB(s_fsm_ADDRB'length-2 downto 0));
-
-s_MUL_P_SHFT <= P_SHFT_IN when Ctrl_BRAM = '1' else fsm_P_SHFT;
+s_modified_fsm_Read_ADDR <= (not(Bank_sel_in) & s_fsm_Write_ADDR(s_fsm_Write_ADDR'length-2 downto 0));
 
 s_MUl_Din <= DIN(DATA_WIDTH-1 downto 0) when s_fsm_CONTROL_A_INPUT_OF_DSP = '0' else (0 => '1', others => '0');--set to 1 when FSM is in control. (B*A=B) when A = 1.
 
@@ -228,13 +227,12 @@ for i in 0 to COLUMN_TOTAL-1 generate
 					DATA_WIDTH=>DATA_WIDTH)
 	 PORT MAP (
           CLK => CLK,
-        P => P,
-    	G => G,
-          ADDRA =>s_ADDRA,-- i_ADDR, -- Pipelined --
+          Write_ADDR =>s_modified_fsm_Write_ADDR,-- i_ADDR, -- Pipelined --
           DINA => i_ALU2ALU(i)(DATA_WIDTH-1 downto 0),--i_SPDOUT(i),
-          ADDRB => s_MUL_ADDRB,-- ADDRB,-- multiplexed between FSM input and User input.  
+          Read_ADDR => s_modified_fsm_Read_ADDR,-- ADDRB,-- multiplexed between FSM input and User input.  
           DOUTB => i_MEM2ALU(i),
-          SHFT => s_MUL_P_SHFT,--,s_i_ASHFT,
+          Read_SHFT => s_fsm_Read_SHFT,--s_MUL_P_SHFT,--,s_i_ASHFT,
+          Write_SHFT => s_fsm_Write_SHFT,
           WEA => i_WEB(i),
           OEB => s_fsm_CSEL(i)
         );
@@ -249,7 +247,8 @@ FIRST_DSP:
           c => i_ALU2ALU(COLUMN_TOTAL-1),
           p => i_ALU2ALU(0)
         );
---------------------------------------------------------------		  
+
+---------------------------------------------------		  
 BLOCK_A_DSP_GEN:
 for i in 1 to COLUMN_TOTAL-1 generate
 DSP: DSP_INPUT_C PORT MAP (

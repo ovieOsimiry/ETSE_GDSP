@@ -40,8 +40,8 @@ Compiling architecture behavioral of entity xbip_dsp48_macro_v2_1 [\xbip_dsp48_m
 Compiling architecture addersubmul_a of entity AdderSubMul [addersubmul_default]
 Compiling architecture behavior of entity tb_dspnormalizer
 Time Resolution for simulation is 1ps.
-Waiting for 1 sub-compilation(s) to finish...
+Waiting for 12 sub-compilation(s) to finish...
 Compiled 47 VHDL Units
 Built simulation executable C:/FPGA/Internship Jobs/Codes/ETSE_GDSP/StandAloneProjects/Task2/Normalizer/tb_DSPNormalizer_isim_beh.exe
-Fuse Memory Usage: 43852 KB
-Fuse CPU Usage: 1872 ms
+Fuse Memory Usage: 43792 KB
+Fuse CPU Usage: 1544 ms

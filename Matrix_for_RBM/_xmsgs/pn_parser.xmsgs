@@ -14,6 +14,9 @@
 <msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/FPGA/Internship Jobs/Codes/ETSE_GDSP/Matrix_for_RBM/CONTROL_UNIT.vhd&quot; into library work</arg>
 </msg>
 
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/FPGA/Internship Jobs/Codes/ETSE_GDSP/Matrix_for_RBM/DSP_INPUT_C_WRAPPER.vhd&quot; into library work</arg>
+</msg>
+
 <msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/FPGA/Internship Jobs/Codes/ETSE_GDSP/Matrix_for_RBM/MEMARRAY_V3.vhd&quot; into library work</arg>
 </msg>
 

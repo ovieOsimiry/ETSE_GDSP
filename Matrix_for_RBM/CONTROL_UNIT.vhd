@@ -34,18 +34,16 @@ entity CONTROL_UNIT is
 		 UN_LOAD	  : in STD_LOGIC;			
 		 P            : in  STD_LOGIC;
 		 G            : in  STD_LOGIC;
-		 --D_IN		 	:in std_logic_vector(DATA_WIDTH-1 downto 0);
 		 WE           : out std_logic;
-		 --D_OUT			:out std_logic_vector(DATA_WIDTH-1 downto 0);
-		 CSEL			  :out std_logic_vector(COLUMN_TOTAL-1 downto 0);
-		 ADDRA       : out STD_LOGIC_VECTOR(ADDR_WIDTH - 1 downto 0);
-		 fsm_ADDRB       : out STD_LOGIC_VECTOR(ADDR_WIDTH - 1 downto 0);
-		 P_SHFT       : out STD_LOGIC;
+		 CSEL			:out std_logic_vector(COLUMN_TOTAL-1 downto 0);
+		 Read_ADDR		: out STD_LOGIC_VECTOR(ADDR_WIDTH - 1 downto 0);
+		 Write_ADDR		: out STD_LOGIC_VECTOR(ADDR_WIDTH - 1 downto 0);
+		 Read_SHFT       : out STD_LOGIC;
+		 Write_SHFT		: out std_logic;		 
 		 OPCODE       : out STD_LOGIC_VECTOR(OPCODE_WIDTH - 1 downto 0);
 		 G_ROW        : out STD_LOGIC_VECTOR(ADDR_WIDTH - 1 downto 0);
 		 G_COLUMN     : out STD_LOGIC_VECTOR(COLUMN_TOTAL - 1 downto 0);
 		 G_EN		: out STD_LOGIC;
-		 --Bank_Sel		: out std_logic;
 		 READY		  : out std_logic;	
 		 OP_DONE      : out std_logic;
 		 LOADING_DONE : out std_logic;
@@ -93,8 +91,7 @@ if rising_edge(CLK) then
 			READY <= '0';
 			LOADING_DONE <= '0';
 			UN_LOADING_DONE <= '0';
-			OP_DONE <= '0';
-			
+			OP_DONE <= '0';			
 		else
 			current_state <= next_state;   --state change.
 			if current_state = Loading then
@@ -153,7 +150,7 @@ if (rising_edge(CLK)) then
 			i_row_cnt<=0;
 			i_col_cnt<=0;
 			i_addr_cnt <= 0;
-			G_EN <= '0';
+			G_EN <= '0';			
 			--OP_DONE<='0';--reset the done signal
 			v_OP_DONE := '0';--reset the done signal
 			v_LOADING_DONE:='0';
@@ -162,7 +159,8 @@ if (rising_edge(CLK)) then
 			CONTROL_A_INPUT_OF_DSP <= '0';
 			i:=0;
 			j:=0;
-			P_SHFT <='0';
+			Read_SHFT <='0';
+			Write_SHFT <= '0';
 			WE <= '0';
 			--s_Bank_Sel <= '0';
 			OPCODE <= (others => '0');
@@ -179,7 +177,7 @@ if (rising_edge(CLK)) then
 				END IF;
 					-----------------------------------
 		when LOADING =>
-				s_fsm_generate_address <= true;
+				s_fsm_generate_address <= true;				
 				OPCODE <="000";	-- Set DSP output to A input, the Data passes through DSP so we do not want to perform any operation on the data since we are just saving it on block RAM. (P = A)			
 				if v_LOADING_DONE = '0' then					
 					v_LOADING_DONE := '0';
@@ -210,7 +208,7 @@ if (rising_edge(CLK)) then
 						end if;
 					end if;
 				else
-					if v_LOADING_DONE = '1' and cnt_delay_ready = (10 + COLUMN_TOTAL*COLUMN_TOTAL) then -- wait until gets to BRAM. 
+					if v_LOADING_DONE = '1' and cnt_delay_ready = (PIPELINE_DELAY + COLUMN_TOTAL*COLUMN_TOTAL) then -- wait until gets to BRAM. 
 						next_state <= LOAD_DONE;
 --					else
 --						next_state <= LOADING;
@@ -228,7 +226,8 @@ if (rising_edge(CLK)) then
 				--s_Bank_Sel <= '1';
 				i:=0;
 				j:=0;
-				WE <= '0';				
+				WE <= '0';
+				Write_SHFT <= '1';							
 				s_CSEL <= (others => '1');--Enble BRAM for Saving multiplication result.		
 				IF LOAD = '1' then					
 					next_state <= LOAD_DONE;	
@@ -242,11 +241,11 @@ if (rising_edge(CLK)) then
 							i_addr_cnt<=COLUMN_TOTAL-1;
 							i_row_cnt<=1;
 							i_col_cnt<=0;
-							P_SHFT <='1';
+							Read_SHFT <='1';							
 							OPCODE<="001";
 						else
 							next_state<=PGt;
-							P_SHFT <='1';
+							Read_SHFT <='1';							
 							i_addr_cnt<=COLUMN_TOTAL-1;
 							i_row_cnt<=0;
 							i_col_cnt<=1;
@@ -255,14 +254,14 @@ if (rising_edge(CLK)) then
 					else
 						if G='0' then
 							next_state<=PtG;
-							P_SHFT <='0';
+							Read_SHFT <='0';							
 							i_addr_cnt<=1;
 							i_row_cnt<=1;
 							i_col_cnt<=0;
 							OPCODE<="001";
 						else
 							next_state<=PtGt;
-							P_SHFT <='0';
+							Read_SHFT <='0';
 							i_addr_cnt<=1;
 							i_row_cnt<=0;
 							i_col_cnt<=1;
@@ -275,7 +274,7 @@ if (rising_edge(CLK)) then
 		when PG =>					
 					--s_Bank_Sel <= '1';
 					v_OPCODE :="011";
-					WE <='0';
+					WE <='0';					
 					if v_OP_DONE = '0' then
 						if (i_row_cnt=COLUMN_TOTAL-1) then				---G row
 							i_row_cnt<=0;
@@ -304,7 +303,7 @@ if (rising_edge(CLK)) then
 						else
 							i:=i+1;
 							if i = COLUMN_TOTAL-1 then
-								WE<='1';
+								WE<='1';								
 							end if;
 								v_OPCODE := "011";-- make parameterizable latter.
 						end if;
@@ -315,7 +314,7 @@ if (rising_edge(CLK)) then
 							v_OP_DONE :='0';						
 						end if;
 					else
-						if v_OP_DONE = '1' and cnt_delay_ready = (10 + COLUMN_TOTAL*COLUMN_TOTAL) then -- wait until the results are saved in BRAM.--then
+						if v_OP_DONE = '1' and cnt_delay_ready = (PIPELINE_DELAY + COLUMN_TOTAL*COLUMN_TOTAL) then -- wait until the results are saved in BRAM.--then
 							next_state<=DONE;
 							v_OPCODE := "111";
 						end if;
@@ -327,7 +326,7 @@ if (rising_edge(CLK)) then
 			when PGt=>
 					--s_Bank_Sel <= '1';
 					v_OPCODE :="011";
-					WE <='0';
+					WE <='0';					
 					if v_OP_DONE = '0' then
 						if (i_col_cnt=COLUMN_TOTAL-1) then				---G col
 							i_col_cnt<=0;
@@ -355,7 +354,7 @@ if (rising_edge(CLK)) then
 						else
 							i:=i+1;
 							if i = COLUMN_TOTAL-1 then
-								WE<='1';
+								WE<='1';								
 							end if;
 							v_OPCODE := "011";-- make parameterizable latter.					
 						end if;
@@ -366,7 +365,7 @@ if (rising_edge(CLK)) then
 							v_OP_DONE :='0';
 						end if;
 					else
-						if v_OP_DONE = '1' and cnt_delay_ready = (10 + COLUMN_TOTAL*COLUMN_TOTAL) then -- wait until the results are saved in BRAM.--then
+						if v_OP_DONE = '1' and cnt_delay_ready = (PIPELINE_DELAY + COLUMN_TOTAL*COLUMN_TOTAL) then -- wait until the results are saved in BRAM.--then
 							next_state<=DONE;
 							v_OPCODE := "111";
 						end if;
@@ -376,7 +375,7 @@ if (rising_edge(CLK)) then
 			when PtG=>
 					--s_Bank_Sel <= '1';
 					v_OPCODE :="011";
-					WE <='0';
+					WE <='0';					
 					if v_OP_DONE = '0' then
 						if (i_row_cnt=COLUMN_TOTAL-1) then				---G row
 							i_row_cnt<=0;
@@ -408,7 +407,7 @@ if (rising_edge(CLK)) then
 						else
 							i:=i+1;
 							if i = COLUMN_TOTAL-1 then
-								WE<='1';
+								WE<='1';								
 							end if;
 								v_OPCODE := "011";-- make parameterizable latter.
 						end if;
@@ -419,7 +418,7 @@ if (rising_edge(CLK)) then
 							v_OP_DONE :='0';
 						end if;
 					else
-						if v_OP_DONE = '1' and cnt_delay_ready = (10 + COLUMN_TOTAL*COLUMN_TOTAL) then -- wait until results are saved in BRAM.--then
+						if v_OP_DONE = '1' and cnt_delay_ready = (PIPELINE_DELAY + COLUMN_TOTAL*COLUMN_TOTAL) then -- wait until results are saved in BRAM.--then
 							next_state<=DONE;
 							v_OPCODE := "111";
 						end if;
@@ -430,7 +429,7 @@ if (rising_edge(CLK)) then
 			when PtGt =>
 					--s_Bank_Sel <= '1';
 					v_OPCODE :="011";
-					WE <='0';
+					WE <='0';					
 					if v_OP_DONE = '0' then
 						if (i_col_cnt=COLUMN_TOTAL-1) then---G col
 							if i /= COLUMN_TOTAL-1 then
@@ -463,7 +462,7 @@ if (rising_edge(CLK)) then
 						else
 							i:=i+1;
 							if i = COLUMN_TOTAL-1 then
-								WE<='1';
+								WE<='1';								
 							end if;
 							v_OPCODE := "011";-- make parameterizable latter.					
 						end if;
@@ -474,7 +473,7 @@ if (rising_edge(CLK)) then
 							v_OP_DONE :='0';
 						end if;
 					else
-						if v_OP_DONE = '1' and cnt_delay_ready = (10 + COLUMN_TOTAL*COLUMN_TOTAL) then -- wait until gets to BRAM.--then
+						if v_OP_DONE = '1' and cnt_delay_ready = (PIPELINE_DELAY + COLUMN_TOTAL*COLUMN_TOTAL) then -- wait until gets to BRAM.--then
 							next_state<=DONE;
 							v_OPCODE := "111";
 						end if;
@@ -489,7 +488,7 @@ if (rising_edge(CLK)) then
 			when DONE =>
 					G_EN <= '0';
 					WE<='0';
-					P_SHFT <= '0';
+					Read_SHFT <= '0';					
 					--OP_DONE<='0';
 					v_OP_DONE := '0';
 					v_UNLOAD_DONE := '0';	
@@ -501,7 +500,7 @@ if (rising_edge(CLK)) then
 					if UN_LOAD = '1' then
 					 next_state <= UNLOAD;
 					end if;
-			when others =>
+			when others =>				
 				s_fsm_generate_address <= true;
 				if v_UNLOAD_DONE = '0' then
 					CONTROL_A_INPUT_OF_DSP <= '1';
@@ -556,13 +555,13 @@ end process;
 ADDRESS_GENERATION: Process(s_fsm_generate_address, i_addr_cnt, s_P_ADDR, G, P)--(current_state, i_addr_cnt, s_P_ADDR, G, P)
 begin
 	if s_fsm_generate_address = true then--current_state = LOADING or current_state = UNLOAD then
-		fsm_ADDRB <= s_P_ADDR;
-		ADDRA <= s_P_ADDR;
+		Write_ADDR <= s_P_ADDR;
+		Read_ADDR <= s_P_ADDR;
 	else
-		fsm_ADDRB <= std_logic_vector(to_unsigned(i_addr_cnt,ADDR_WIDTH));
-		if P='1' and G='1' then
+		Write_ADDR <= std_logic_vector(to_unsigned(i_addr_cnt,ADDR_WIDTH));
+		if P='1'  then --if P='1' and G='1' then
 			if i_addr_cnt = 0 then		 -- When the Read address is 0 the Write address is also 0 (see table below).
-				ADDRA <= (others => '0');-- This line of Code Resets the Write address to 0. 
+				Read_ADDR <= (others => '0');-- This line of Code Resets the Write address to 0. 
 			else
 				-- When Performing PtGt the last Read Address and the last Write address of each sub-round do not allign so the result in each sub-round does
 				-- not save in the desired location of Memory. But we want the result to save in circulant format. To solve this problem
@@ -582,10 +581,10 @@ begin
 				--            | |  1  |  3 | |  2  |  3 |
 				--                           |  1  |  4 |
 							    
-			    ADDRA <= std_logic_vector(to_unsigned(COLUMN_TOTAL - i_addr_cnt, ADDR_WIDTH));--This line of code generates the Write address from the Read Address.
+			    Read_ADDR <= std_logic_vector(to_unsigned(COLUMN_TOTAL - i_addr_cnt, ADDR_WIDTH));--This line of code generates the Write address from the Read Address.
 			end if;
 		else
-			ADDRA <= std_logic_vector(to_unsigned(i_addr_cnt,ADDR_WIDTH));
+			Read_ADDR <= std_logic_vector(to_unsigned(i_addr_cnt,ADDR_WIDTH));
 		end if;
 	end if;
 end process;

@@ -30,6 +30,7 @@
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="ipcore_dir/coregen.log"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_LOG" xil_pn:name="isim.log"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
   </files>
 
@@ -38,13 +39,14 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1437666671" xil_pn:in_ck="7724470901154787035" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1437666671">
+    <transform xil_pn:end_ts="1438014015" xil_pn:in_ck="2692769557635583107" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1438014015">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="../SharedLibraries/MATRIX_MUL_IP_CORE_LIBRARY.vhd"/>
       <outfile xil_pn:name="../SharedLibraries/txt_util.vhd"/>
       <outfile xil_pn:name="BRAM_WRAPPER_V2.vhd"/>
       <outfile xil_pn:name="CONTROL_UNIT.vhd"/>
+      <outfile xil_pn:name="DSP_INPUT_C_WRAPPER.vhd"/>
       <outfile xil_pn:name="MEMARRAY_V3.vhd"/>
       <outfile xil_pn:name="STANDARD_RAM.vhd"/>
       <outfile xil_pn:name="TB_MEMARRAY_V5.vhd"/>
@@ -65,33 +67,34 @@
       <outfile xil_pn:name="ipcore_dir/DSP_INPUT_C.ngc"/>
       <outfile xil_pn:name="ipcore_dir/DSP_INPUT_C.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1437666671" xil_pn:in_ck="-8407291975714677968" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1437666671">
+    <transform xil_pn:end_ts="1438014015" xil_pn:in_ck="2692769557635583107" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1438014015">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="../SharedLibraries/MATRIX_MUL_IP_CORE_LIBRARY.vhd"/>
       <outfile xil_pn:name="../SharedLibraries/txt_util.vhd"/>
       <outfile xil_pn:name="BRAM_WRAPPER_V2.vhd"/>
       <outfile xil_pn:name="CONTROL_UNIT.vhd"/>
+      <outfile xil_pn:name="DSP_INPUT_C_WRAPPER.vhd"/>
       <outfile xil_pn:name="MEMARRAY_V3.vhd"/>
       <outfile xil_pn:name="STANDARD_RAM.vhd"/>
       <outfile xil_pn:name="TB_MEMARRAY_V5.vhd"/>
-      <outfile xil_pn:name="ipcore_dir/BRAM18x1k.vhd"/>
-      <outfile xil_pn:name="ipcore_dir/DSP_INPUT_C.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1437666681" xil_pn:in_ck="-2617742983682159037" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-1617031835642395376" xil_pn:start_ts="1437666671">
+    <transform xil_pn:end_ts="1438014025" xil_pn:in_ck="8282696354144762859" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-1617031835642395376" xil_pn:start_ts="1438014015">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="TB_MEMARRAY_V5_beh.prj"/>
       <outfile xil_pn:name="TB_MEMARRAY_V5_isim_beh.exe"/>
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
+      <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1437666681" xil_pn:in_ck="-8879731180996984212" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-7367195610989348147" xil_pn:start_ts="1437666681">
+    <transform xil_pn:end_ts="1438072390" xil_pn:in_ck="-8879731180996984212" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-7367195610989348147" xil_pn:start_ts="1438072389">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="TB_MEMARRAY_V5_isim_beh.wdb"/>
       <outfile xil_pn:name="isim.cmd"/>
+      <outfile xil_pn:name="isim.log"/>
     </transform>
     <transform xil_pn:end_ts="1437583562" xil_pn:in_ck="-8119521056230393672" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1437583562">
       <status xil_pn:value="SuccessfullyRun"/>
