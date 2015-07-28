@@ -22,6 +22,7 @@ signal v_BRAM_DATA : t_BRAM_DATA;
 -------------------------------GLOBAL SIGNALS----------------------------------------------
 
 signal g_cnt_delay_ready: integer:=0;
+--signal g_DSP_P_OUT: std_logic_vector(47 downto 0);
 
 --------------------------------END OF GLOBAL SIGNALS--------------------------------------
  

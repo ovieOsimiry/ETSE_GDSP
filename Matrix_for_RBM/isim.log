@@ -12,8 +12,8 @@ Time resolution is 1 ps
 # wave add /
 # run 10000 ns
 Simulator is doing circuit initialization process.
-at 0 ps: Note: COLS number: 3 (/tb_matrix_mul_ip_core_real/).
-at 0 ps: Note: ROWS number:3 (/tb_matrix_mul_ip_core_real/).
+at 0 ps: Note: COLS number: 4 (/tb_matrix_mul_ip_core_real/).
+at 0 ps: Note: ROWS number:4 (/tb_matrix_mul_ip_core_real/).
 at 0 ps, Instance /tb_matrix_mul_ip_core_real/uut/FIRST_DSP/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 at 0 ps, Instance /tb_matrix_mul_ip_core_real/uut/\block_a_dsp_gen(1)\/DSP/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 at 0 ps, Instance /tb_matrix_mul_ip_core_real/uut/\block_a_dsp_gen(2)\/DSP/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
@@ -92,139 +92,95 @@ at 95 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(0)\/MEMA/
 at 95 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 at 95 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 at 95 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 255 ns: Error: already at the end of file, nothing to read
-at 265 ns: Error: already at the end of file, nothing to read
-at 275 ns: Error: already at the end of file, nothing to read
-at 285 ns: Error: already at the end of file, nothing to read
-at 295 ns: Error: already at the end of file, nothing to read
-at 305 ns: Error: already at the end of file, nothing to read
-at 315 ns: Error: already at the end of file, nothing to read
-at 1195 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 1195 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 1235 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 1235 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 1275 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 1275 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 1315 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 1315 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 1815 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 1815 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 1815 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 1855 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 1855 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 1855 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 1895 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 1895 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 1895 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 1935 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 1935 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 1935 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 2095 ns: Error: already at the end of file, nothing to read
-at 2105 ns: Error: already at the end of file, nothing to read
-at 2105 ns: Error: Textio read:: called on empty string or line
-at 2115 ns: Error: already at the end of file, nothing to read
-at 2115 ns: Error: Textio read:: called on empty string or line
-at 2125 ns: Error: already at the end of file, nothing to read
-at 2125 ns: Error: Textio read:: called on empty string or line
-at 2135 ns: Error: already at the end of file, nothing to read
-at 2135 ns: Error: Textio read:: called on empty string or line
-at 2145 ns: Error: already at the end of file, nothing to read
-at 2145 ns: Error: Textio read:: called on empty string or line
-at 2155 ns: Error: already at the end of file, nothing to read
-at 2155 ns: Error: Textio read:: called on empty string or line
-at 2745 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 2745 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 2785 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 2785 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 2825 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 2825 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 2865 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 2865 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 3365 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 3365 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 3365 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 3405 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 3405 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 3405 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 3445 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 3445 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 3445 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 3485 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 3485 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 3485 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 3645 ns: Error: already at the end of file, nothing to read
-at 3655 ns: Error: already at the end of file, nothing to read
-at 3655 ns: Error: Textio read:: called on empty string or line
-at 3665 ns: Error: already at the end of file, nothing to read
-at 3665 ns: Error: Textio read:: called on empty string or line
-at 3675 ns: Error: already at the end of file, nothing to read
-at 3675 ns: Error: Textio read:: called on empty string or line
-at 3685 ns: Error: already at the end of file, nothing to read
-at 3685 ns: Error: Textio read:: called on empty string or line
-at 3695 ns: Error: already at the end of file, nothing to read
-at 3695 ns: Error: Textio read:: called on empty string or line
-at 3705 ns: Error: already at the end of file, nothing to read
-at 3705 ns: Error: Textio read:: called on empty string or line
-at 4295 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 4295 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 4335 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 4335 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 4375 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 4375 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 4415 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 4415 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 4915 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 4915 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 4915 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 4915 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 4955 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 4955 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 4995 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 4995 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 5035 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 5035 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 5035 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 5035 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 5195 ns: Error: already at the end of file, nothing to read
-at 5205 ns: Error: already at the end of file, nothing to read
-at 5205 ns: Error: Textio read:: called on empty string or line
-at 5215 ns: Error: already at the end of file, nothing to read
-at 5215 ns: Error: Textio read:: called on empty string or line
-at 5225 ns: Error: already at the end of file, nothing to read
-at 5225 ns: Error: Textio read:: called on empty string or line
-at 5235 ns: Error: already at the end of file, nothing to read
-at 5235 ns: Error: Textio read:: called on empty string or line
-at 5245 ns: Error: already at the end of file, nothing to read
-at 5245 ns: Error: Textio read:: called on empty string or line
-at 5255 ns: Error: already at the end of file, nothing to read
-at 5255 ns: Error: Textio read:: called on empty string or line
-at 5845 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 5845 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 5845 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 5885 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 5885 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 5885 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 5925 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 5925 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 5925 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 5965 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 5965 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 5965 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 6465 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 6465 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 6465 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 6465 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 6505 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 6505 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 6505 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 6505 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 6545 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 6545 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 6545 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 6585 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 6585 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 6585 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-at 6585 ns, Instance /tb_matrix_mul_ip_core_real/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+# run 10000 ns
+Simulator is doing circuit initialization process.
+at 0 ps: Note: COLS number: 4 (/tb_matrix_mul_ip_core_real/).
+at 0 ps: Note: ROWS number:4 (/tb_matrix_mul_ip_core_real/).
+at 0 ps, Instance /tb_matrix_mul_ip_core_real/uut/FIRST_DSP/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /tb_matrix_mul_ip_core_real/uut/\block_a_dsp_gen(1)\/DSP/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /tb_matrix_mul_ip_core_real/uut/\block_a_dsp_gen(2)\/DSP/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 0 ps, Instance /tb_matrix_mul_ip_core_real/uut/\block_a_dsp_gen(3)\/DSP/DSP/U0/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+Finished circuit initialization process.
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(0)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(1)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(2)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(3)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1): Note: Block Memory Generator CORE Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior. (/tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(3)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/).
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(3)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(3)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 5 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(3)\/MEMA/BMG_PORT/U0/native_mem_module/mem_module/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 15 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 15 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 15 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 15 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 25 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 25 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 25 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 25 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 35 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 35 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 35 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 35 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 45 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 45 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 45 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 45 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 55 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 55 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 55 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 55 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 65 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 65 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 65 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 65 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 75 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 75 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 75 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 75 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 85 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 85 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 85 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 85 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 95 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(0)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 95 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(1)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 95 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(2)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+at 95 ns(1), Instance /tb_matrix_mul_ip_core_real/uut/\block_a_mem_gen(3)\/MEMA/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 ISim P.20131013 (signature 0x7708f090)
 ----------------------------------------------------------------------
 WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
