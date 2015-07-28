@@ -16,7 +16,7 @@ use IEEE.NUMERIC_STD.ALL;
 entity MEMARRAY_V3 is
 	generic(
 		--First_Col_right : boolean := false;
-		COLUMN_TOTAL    : integer := 50;
+		COLUMN_TOTAL    : integer := 5;
 		OPCODE_WIDTH    : integer := 3;
 		ADDR_WIDTH      : integer := 10;
 		DATA_WIDTH      : integer := 18;
