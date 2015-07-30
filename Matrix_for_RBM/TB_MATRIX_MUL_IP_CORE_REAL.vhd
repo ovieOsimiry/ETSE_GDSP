@@ -75,9 +75,6 @@ ARCHITECTURE behavior OF TB_MATRIX_MUL_IP_CORE_REAL IS
 ---------------------------------------------------MEMARRY_V3 Signals--------------------------------------------   
 	
 
-   signal OE : std_logic := '0';
-   signal SSEN : std_logic := '0';
-   
    signal LOAD : std_logic := '1';
    signal P : std_logic := '0';
    signal G : std_logic := '0';
@@ -157,17 +154,12 @@ generic map(
           UN_LOAD => UN_LOAD,
           P => P,
           G => G,
-          --ADDRB => ADDRB,
-          --P_SHFT_IN	=> P_SHFT_IN,
-          --Ctrl_BRAM => Ctrl_BRAM,
           Bank_sel_in => Bank_sel_in,
-          OE => OE,
-          SSEN => SSEN,
           DIN => Mul_DIN,
           DOUT => DOUT,         
           G_ROW => f_gROW,
           G_COLUMN => f_gCOL,
-          G_EN => f_gOE,
+          G_O_EN => f_gOE,
           READY		=> READY,
           OP_DONE => OP_DONE,
           LOADING_DONE => LOADING_DONE,

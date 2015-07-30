@@ -13,10 +13,9 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 
-entity MEMARRAY_V3 is
-	generic(
-		--First_Col_right : boolean := false;
-		COLUMN_TOTAL    : integer := 5;
+entity MATRIX_MUL_IP_CORE is
+	generic(		
+		COLUMN_TOTAL    : integer := 200;
 		OPCODE_WIDTH    : integer := 3;
 		ADDR_WIDTH      : integer := 10;
 		DATA_WIDTH      : integer := 18;
@@ -29,68 +28,24 @@ entity MEMARRAY_V3 is
 		 P            : in  STD_LOGIC;
 		 G            : in  STD_LOGIC;		 
 		 Bank_sel_in : in STD_LOGIC;		
-		 OE           : in  STD_LOGIC;
-		 SSEN         : in  STD_LOGIC;  -- scratchpad shift enable
 		 DIN          : in  STD_LOGIC_VECTOR(DATA_WIDTH - 1 downto 0);
 		 DOUT         : out STD_LOGIC_VECTOR(DATA_WIDTH - 1 downto 0);		 
 		 G_ROW        : out std_logic_vector(ADDR_WIDTH - 1 downto 0);
 		 G_COLUMN     : out std_logic_vector(COLUMN_TOTAL - 1 downto 0);
-		 G_EN			: out STD_LOGIC;
+		 G_O_EN			: out STD_LOGIC;
 		 READY			: out std_logic;		 
 		 OP_DONE      : out std_logic;
 		 LOADING_DONE : out std_logic;
 		 UN_LOADING_DONE : out std_logic
 	);
-end MEMARRAY_V3;
+end MATRIX_MUL_IP_CORE;
 
-architecture Behavioral of MEMARRAY_V3 is
--------------------------------------------COMPONENTS-----------------------
-component SCRATCHPAD_REG
-generic ( DATA_WIDTH: integer:=18);
-    Port ( CLK : in  STD_LOGIC;
-           DSRC : in  STD_LOGIC;
-           DIN : in  STD_LOGIC_VECTOR (DATA_WIDTH-1 downto 0);
-           CIN : in  STD_LOGIC_VECTOR (DATA_WIDTH-1 downto 0);
-           DOUT : out  STD_LOGIC_VECTOR (DATA_WIDTH-1 downto 0));
-end component;
-----------------------------------------------------------------------------
-COMPONENT DSP_INPUT_C
-    PORT(
-         clk : IN  std_logic;
-         sel : IN  std_logic_vector(OPCODE_WIDTH-1 downto 0);
-         a : IN  std_logic_vector(DATA_WIDTH-1 downto 0);
-         b : IN  std_logic_vector(DATA_WIDTH-1 downto 0);
-         c : IN  std_logic_vector(DATA_WIDE_WIDTH-1 downto 0);
-         p : OUT  std_logic_vector(DATA_WIDE_WIDTH-1 downto 0)
-        );
-END COMPONENT;
---------------------------------------------------------------------------
-COMPONENT BRAM_WRAPPER_V2
-generic(		
-		COLUMN_NUMBER: integer:=0;
-		NUM_COLUMNS: integer:=COLUMN_TOTAL;
-      ADDR_WIDTH: integer:=ADDR_WIDTH;
-      DATA_WIDTH:integer:=DATA_WIDTH
-   );
-    PORT(
-         CLK : IN  std_logic;
-         P : in STD_LOGIC;
-    	 G : in STD_LOGIC;
-         Write_ADDR : IN  std_logic_vector(ADDR_WIDTH-1 downto 0);
-         DINA : IN  std_logic_vector(DATA_WIDTH-1 downto 0);
-         Read_ADDR : IN  std_logic_vector(ADDR_WIDTH-1 downto 0);
-         DOUTB : OUT  std_logic_vector(DATA_WIDTH-1 downto 0);
-         Read_SHFT : IN  std_logic;
-         Write_SHFT : in std_logic;
-         WEA : IN  std_logic;
-         OEB : IN  std_logic
-        );
-END COMPONENT;
----------------------------------------------------------------------------
+architecture Behavioral of MATRIX_MUL_IP_CORE is
+-------------------------------------------SIGNALS-----------------------
+
 type i_DATA_t is array (0 to COLUMN_TOTAL-1) of std_logic_vector(DATA_WIDTH-1 downto 0);
 signal i_MEM2ALU:i_DATA_t;				---- mem-to-alu signal
 --signal i_ALU2SPD:i_DATA_t;				---- alu to scratchpad signal
-signal i_SPDOUT:i_DATA_t;				---- scratchpad to mem and scratchpad to scratchpad(n+1) signal
 type i_DATA_wide is array (0 to COLUMN_TOTAL-1) of std_logic_vector(DATA_WIDE_WIDTH-1 downto 0);
 signal i_ALU2ALU: i_DATA_wide;		---- alu-to-alu signal
 
@@ -101,7 +56,6 @@ type pipelined_OPCODE_t is array (0 to DIN_DELAY-1) of  std_logic_vector(OPCODE_
 signal p_OPCODE: pipelined_OPCODE_t;
 signal i_OPCODE: std_logic_vector(OPCODE_WIDTH-1 downto 0);
 
-type pipelined_normalizer_t is array(0 to DIN_DELAY-1) of std_logic;
 
 
 
@@ -111,33 +65,31 @@ type pipelined_normalizer_t is array(0 to DIN_DELAY-1) of std_logic;
 --signal i_DIN: std_logic_vector(DATA_WIDTH-1 downto 0);
 
 type pipelined_B_t is array (0 to DELAY_DEPTH-1) of  std_logic_vector(0 to COLUMN_TOTAL-1);
-signal p_WEB,p_OEB: pipelined_B_t;
+signal p_WEB: pipelined_B_t;
 
 signal i_WEB: std_logic_vector(0 to COLUMN_TOTAL-1); 
 
-type pipelined_ADDR_t is array (0 to DELAY_DEPTH-1) of std_logic_vector(ADDR_WIDTH-1 downto 0);
+type pipelined_ADDR_t is array (0 to DELAY_DEPTH-1) of std_logic_vector(ADDR_WIDTH-2 downto 0);
 --type pipelined_ADDR_t is array (0 to DELAY_DEPTH-1) of std_logic_vector(ADDR_WIDTH-2 downto 0);
-signal p_ADDRA, p_ADDRB: pipelined_ADDR_t;
-signal i_ADDRA, i_ADDRB: std_logic_vector(ADDR_WIDTH-1 downto 0);
+signal p_Write_ADDR, p_ADDRB: pipelined_ADDR_t;
+signal i_P_Write_ADDR: std_logic_vector(ADDR_WIDTH-2 downto 0);
 signal s_fsm_CSEL : std_logic_vector(COLUMN_TOTAL-1 downto 0);
 --signal s_i_D_OUT : std_logic_vector(DATA_WIDTH-1 downto 0);
-signal s_fsm_Read_ADDR : std_logic_vector(ADDR_WIDTH-1 downto 0);
+signal s_fsm_Read_ADDR : std_logic_vector(ADDR_WIDTH-2 downto 0);
 --signal s_fsm_ADDRA : std_logic_vector(ADDR_WIDTH-2 downto 0);
 signal s_fsm_Read_SHFT : std_logic;
 signal s_fsm_OPCODE : std_logic_vector(OPCODE_WIDTH-1 downto 0);
 signal s_fsm_WE : std_logic;
-signal s_modified_fsm_Read_ADDR : std_logic_vector(9 downto 0);
+signal s_modified_fsm_Read_ADDR : std_logic_vector(ADDR_WIDTH-1 downto 0);
 --signal Bank_Sel : std_logic;
 signal s_modified_fsm_Write_ADDR : std_logic_vector(ADDR_WIDTH-1 downto 0);
 signal s_MUL_P_SHFT : std_logic;
-signal s_fsm_Write_ADDR : STD_LOGIC_VECTOR(ADDR_WIDTH - 1 downto 0);
+signal s_fsm_Write_ADDR : STD_LOGIC_VECTOR(ADDR_WIDTH - 2 downto 0);
 signal s_fsm_UN_LOAD : STD_LOGIC;
 signal s_fsm_CONTROL_A_INPUT_OF_DSP : std_logic;
 signal s_MUl_Din: std_logic_vector(DATA_WIDTH-1 downto 0);
 signal s_fsm_Write_SHFT : std_logic;
 
-
---signal G_EN : STD_LOGIC;
 
 begin
 
@@ -147,39 +99,40 @@ begin
 DELAY_GEN: process(CLK)
 begin
 if rising_edge(CLK) then
-	p_ADDRA(0)<=s_fsm_Read_ADDR;
-	p_ADDRB(0)<=s_fsm_Write_ADDR;
+	p_Write_ADDR(0)<=s_fsm_Write_ADDR;
+	--p_ADDRB(0)<=s_fsm_Read_ADDR;
 	for i in 0 to COLUMN_TOTAL-1 loop
 		p_WEB(0)(i)<=s_fsm_CSEL(i) and s_fsm_WE;
 	end loop;
 	for i in 1 to DELAY_DEPTH-1 loop
 		p_WEB(i)<=p_WEB(i-1);--The Write enable signal is pipelined for 2 + 7 cycles because the output of the DSP computation will have a total latency of 9 clk cycles. 2 for delayed deta input to DSP (A and B) 1 from scratchpad register and about 6 from DSP block.
-		p_ADDRA(i)<=p_ADDRA(i-1);--The Address for A port of the RAM is delayed for 2 + 7 clk cycles because the DSP takes about 6 clk cyles to finish its computation plus 1 clk delay from scratch pad and plus the data inputs which are delayed for 2 clk cyles.
+		p_Write_ADDR(i)<=p_Write_ADDR(i-1);--The Address for A port of the RAM is delayed for 2 + 7 clk cycles because the DSP takes about 6 clk cyles to finish its computation plus 1 clk delay from scratch pad and plus the data inputs which are delayed for 2 clk cyles.
 		p_ADDRB(i)<=p_ADDRB(i-1);
 	end loop;
-	i_ADDRA<=p_ADDRA(DELAY_DEPTH-1);
-	i_ADDRB<=p_ADDRA(DELAY_DEPTH-1);
+	i_P_Write_ADDR<=p_Write_ADDR(DELAY_DEPTH-1);
+	--i_ADDRB<=p_ADDRA(DELAY_DEPTH-1);
 	i_WEB<=p_WEB(DELAY_DEPTH-1);
 	
 	p_OPCODE(0)<= s_fsm_OPCODE;	
 	
-	--p_DIN(0)<=DIN; --s_i_D_OUT;--
+	
 	for i in 1 to DIN_DELAY-1 loop
-		-- The DIN signal is delayed for 2 clk cycles in order for it to arrive at the same time with the B signal coming from the BRAM which has a latency of 2 clk cycles
-		-- uncomment if not using 3 stage pipeline in GRAM
-		--p_DIN(i)<=p_DIN(i-1);
-		p_OPCODE(i)<=p_OPCODE(i-1);--The opcode is also delayed for 2 clk cycles because it must be sent at the same time with the A and B input of the DSP.
-		
+		p_OPCODE(i)<=p_OPCODE(i-1);--The opcode is also delayed for 2 clk cycles because it must be sent at the same time with the A and B input of the DSP.		
 	end loop;
-	--uncomment if using
-	--i_DIN<=p_DIN(DIN_DELAY-1);
-	i_OPCODE<=p_OPCODE(DIN_DELAY-1);	
+	i_OPCODE<=p_OPCODE(DIN_DELAY-1);
+	
+	--PLEASE NOTE: GRAM is delayed for 3 clk circles (2 clk circles for BRAM, 1 clk circle for FSM to settle down) to allow synchronization. This delay is implemented in GRAM itself (STANDARD_RAM.vhd)	
+	--However, In the real setup if the GRAM is not interfaced directly with the IP core e.g GRAM data is coming through a bus
+	--Then a pipeline should be created here in this process to delay GRAM data for 3 clk circles so that it will be in synchronization with
+	-- BRAM data. Also keep in mind that if this pipeline is implemented then it will affect the time it takes to load data into the IP core because both GRAM data and Data input
+	-- use thesame input to the DSP48 block so as a result, the signal flags 'LOADING_DONE' and 'READY' located in the CONTROL_UNIT.vhd will have to be adjusted to accommodate the delay introduced by the pipeline.
+	-- Adjusting these signals is easy. In "CONTROL_UNIT.vhd" There is a process called "FLAGS_and_Current_state_update", in this process you will notice that
+	-- a counter is used to trigger when the flags should be set, simply adjust the count value in the conditional statements accordingly, that should do the trick.
 end if;
 end process;
 ----------------------------------------------------------------
 FSM_UNIT: entity work.CONTROL_UNIT
-	generic map(
-		--First_Col_right => First_Col_right,
+	generic map(		
 		ADDR_WIDTH => ADDR_WIDTH,
 		DATA_WIDTH => DATA_WIDTH,
 		OPCODE_WIDTH => OPCODE_WIDTH,
@@ -201,7 +154,7 @@ FSM_UNIT: entity work.CONTROL_UNIT
 		 OPCODE       => s_fsm_OPCODE,
 		 G_ROW        => G_ROW,
 		 G_COLUMN     => G_COLUMN,
-		 G_EN		=> G_EN,
+		 G_EN		=> G_O_EN,
 		 OP_DONE      => OP_DONE,
 		 READY		=> READY,
 		 LOADING_DONE => LOADING_DONE,
@@ -211,9 +164,14 @@ FSM_UNIT: entity work.CONTROL_UNIT
 
 --------------------------------------------------------------
 
-s_modified_fsm_Write_ADDR <= Bank_sel_in & i_ADDRA(i_ADDRA'length-2 downto 0); --Bank_sel & i_ADDR(i_ADDR'length-2 downto 0);
+--s_modified_fsm_Write_ADDR <= Bank_sel_in & i_ADDRA(i_ADDRA'length-2 downto 0);
 
-s_modified_fsm_Read_ADDR <= (not(Bank_sel_in) & s_fsm_Write_ADDR(s_fsm_Write_ADDR'length-2 downto 0));
+s_modified_fsm_Write_ADDR <= Bank_sel_in & i_P_Write_ADDR;
+
+--s_modified_fsm_Read_ADDR <= (not(Bank_sel_in) & s_fsm_Write_ADDR(s_fsm_Write_ADDR'length-2 downto 0));
+
+
+s_modified_fsm_Read_ADDR <= not(Bank_sel_in) & s_fsm_Read_ADDR;
 
 s_MUl_Din <= DIN(DATA_WIDTH-1 downto 0) when s_fsm_CONTROL_A_INPUT_OF_DSP = '0' else (0 => '1', others => '0');--set to 1 when FSM is in control. (B*A=B) when A = 1.
 
@@ -239,7 +197,7 @@ for i in 0 to COLUMN_TOTAL-1 generate
 end generate;
 --------------------------------------------------------------
 FIRST_DSP:
- DSP_INPUT_C PORT MAP (
+entity work.DSP_INPUT_C PORT MAP (
           clk => CLK,
           sel => i_OPCODE,
           a => s_MUl_Din,--DIN(17 downto 0),--i_DIN,
@@ -251,7 +209,7 @@ FIRST_DSP:
 ---------------------------------------------------		  
 BLOCK_A_DSP_GEN:
 for i in 1 to COLUMN_TOTAL-1 generate
-DSP: DSP_INPUT_C PORT MAP (
+DSP:entity work.DSP_INPUT_C PORT MAP (
           clk => CLK,
           sel => i_OPCODE,
           a => s_MUl_Din,--DIN(17 downto 0),--i_DIN,
@@ -261,25 +219,6 @@ DSP: DSP_INPUT_C PORT MAP (
         );
 end generate;
 
-DOUT <= i_ALU2ALU(COLUMN_TOTAL-1)(DATA_WIDTH-1 downto 0);
-
---------------------------------------------------------------
---FIRST_SP: SCRATCHPAD_REG 
---	 Port map(  CLK=>CLK,
---					DSRC=>SSEN,
---					DIN=>i_ALU2ALU(0)(DATA_WIDTH-1 downto 0),
---					CIN=>i_SPDOUT(COLUMN_TOTAL-1),
---					DOUT=>i_SPDOUT(0));
-------------------------------------------s----------------------			
---SCRATCHPAD_GEN:
---for i in 1 to COLUMN_TOTAL-1 generate
---SP: SCRATCHPAD_REG 
---	 Port map(  CLK=>CLK,
---					DSRC=>SSEN,
---					DIN=>i_ALU2ALU(i)(DATA_WIDTH-1 downto 0),
---					CIN=>i_SPDOUT(i-1),
---					DOUT=>i_SPDOUT(i));
---end generate;
---DOUT<=i_ALU2ALU(COLUMN_TOTAL-1)(DATA_WIDTH-1 downto 0);	
+DOUT <= i_ALU2ALU(COLUMN_TOTAL-1)(DATA_WIDTH-1 downto 0);	
 end Behavioral;
 

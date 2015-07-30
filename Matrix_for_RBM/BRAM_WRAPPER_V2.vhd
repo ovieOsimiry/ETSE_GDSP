@@ -52,27 +52,9 @@ begin
 process (CLK)-- (CLK,P,G)
 variable addr_a_reg,addr_b_reg: integer range 0 to 2**ADDR_WIDTH;
 begin
-	if rising_edge(CLK) then --NOTE: when P = '1', SHFT = '0' else it is '1'.	
---		if P = '1' then	--if P = '1' AND G = '1' then			
---			if (unsigned(unsigned(ADDRA(ADDR_WIDTH-2 downto 0))+COLUMN_NUMBER)>NUM_COLUMNS-1) then
---					addr_a_reg:=to_integer(unsigned(unsigned(ADDRA(ADDR_WIDTH-2 downto 0))+COLUMN_NUMBER-NUM_COLUMNS)); 
---			else
---					addr_a_reg:=to_integer(unsigned(unsigned(ADDRA(ADDR_WIDTH-2 downto 0))+COLUMN_NUMBER)); 
---			end if;
---		else
---			if SHFT='0'  then 											--- ADDRESS SHIFT FOR CIRCULANT
---				addr_a_reg:=to_integer(unsigned(ADDRA(ADDR_WIDTH-2 downto 0))); 	-- upper bit - bank sel
---			else 
---				if (unsigned(unsigned(ADDRA(ADDR_WIDTH-2 downto 0))+COLUMN_NUMBER)>NUM_COLUMNS-1) then
---					addr_a_reg:=to_integer(unsigned(unsigned(ADDRA(ADDR_WIDTH-2 downto 0))+COLUMN_NUMBER-NUM_COLUMNS)); 
---				else
---					addr_a_reg:=to_integer(unsigned(unsigned(ADDRA(ADDR_WIDTH-2 downto 0))+COLUMN_NUMBER)); 
---				end if;
---			end if;
---		end if;
-		
-			if Write_SHFT ='0'  then 											--- ADDRESS SHIFT FOR CIRCULANT
-				addr_a_reg:=to_integer(unsigned(Write_ADDR(ADDR_WIDTH-2 downto 0))); 	-- upper bit - bank sel
+	if rising_edge(CLK) then 		
+			if Write_SHFT ='0'  then 											
+				addr_a_reg:=to_integer(unsigned(Write_ADDR(ADDR_WIDTH-2 downto 0))); 
 			else 
 				if (unsigned(unsigned(Write_ADDR(ADDR_WIDTH-2 downto 0))+COLUMN_NUMBER)>NUM_COLUMNS-1) then
 					addr_a_reg:=to_integer(unsigned(unsigned(Write_ADDR(ADDR_WIDTH-2 downto 0))+COLUMN_NUMBER-NUM_COLUMNS)); 

@@ -35,7 +35,7 @@ use STD.textio.all;
 use work.txt_util.all;
 use work.MATRIX_MUL_IP_CORE_LIBRARY.all;
  
-ENTITY TB_MEMARRAY_V5 IS
+ENTITY TB_MATRIX_MUL_IP_CORE IS
 generic(
 		COLUMN_TOTAL: integer:=4;
       ADDR_WIDTH: integer:=10;
@@ -44,9 +44,9 @@ generic(
 		OPCODE_WIDTH: integer:=3
    );
 
-END TB_MEMARRAY_V5;
+END TB_MATRIX_MUL_IP_CORE;
  
-ARCHITECTURE behavior OF TB_MEMARRAY_V5 IS    
+ARCHITECTURE behavior OF TB_MATRIX_MUL_IP_CORE IS    
 
 ---------------------------------------------------General Signals----------------------------------------------
 
@@ -134,7 +134,7 @@ begin
   	end if;
 end process;
 
-   uut: entity work.MEMARRAY_V3 
+   uut: entity work.MATRIX_MUL_IP_CORE 
 generic map(
 	COLUMN_TOTAL => COLUMN_TOTAL,
 	OPCODE_WIDTH => OPCODE_WIDTH,
@@ -149,17 +149,12 @@ generic map(
           UN_LOAD => UN_LOAD,
           P => P,
           G => G,
-          --ADDRB => ADDRB,
-          --P_SHFT_IN	=> P_SHFT_IN,
-          --Ctrl_BRAM => Ctrl_BRAM,
           Bank_sel_in => Bank_sel_in,
-          OE => OE,
-          SSEN => SSEN,
           DIN => Mul_DIN,
           DOUT => DOUT,         
           G_ROW => f_gROW,
           G_COLUMN => f_gCOL,
-          G_EN => f_gOE,
+          G_O_EN => f_gOE,
           READY		=> READY,
           OP_DONE => OP_DONE,
           LOADING_DONE => LOADING_DONE,

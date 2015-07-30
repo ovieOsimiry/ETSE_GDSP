@@ -36,8 +36,8 @@ entity CONTROL_UNIT_REAL is
 		 G            : in  STD_LOGIC;
 		 WE           : out std_logic;
 		 CSEL			:out std_logic_vector(COLUMN_TOTAL-1 downto 0);
-		 Read_ADDR		: out STD_LOGIC_VECTOR(ADDR_WIDTH - 1 downto 0);
-		 Write_ADDR		: out STD_LOGIC_VECTOR(ADDR_WIDTH - 1 downto 0);
+		 Read_ADDR		: out STD_LOGIC_VECTOR(ADDR_WIDTH - 2 downto 0);
+		 Write_ADDR		: out STD_LOGIC_VECTOR(ADDR_WIDTH - 2 downto 0);
 		 Read_SHFT       : out STD_LOGIC;
 		 Write_SHFT		: out std_logic;
 		 Normalize		: out std_logic;
@@ -57,15 +57,13 @@ architecture Behavioral of CONTROL_UNIT_REAL is
 constant PIPELINE_DELAY: integer:= 10;
 	
 signal i_addr_cnt,i_row_cnt,i_col_cnt: integer range 0 to COLUMN_TOTAL;
---signal i_OP_START: STD_LOGIC;
  signal s_CSEL: std_logic_vector(COLUMN_TOTAL-1 downto 0);
 
 type state_type is (START,LOADING,LOAD_DONE,PG,PtG,PGt,PtGt,DONE,UNLOAD);--,UNLOAD_DONE);
 signal current_state,next_state: state_type;
-signal s_P_ADDR : STD_LOGIC_VECTOR(ADDR_WIDTH - 1 downto 0);
+--signal s_P_ADDR : STD_LOGIC_VECTOR(ADDR_WIDTH - 2 downto 0);
 signal cnt_delay_ready: integer range 0 to (PIPELINE_DELAY + 1 + COLUMN_TOTAL*COLUMN_TOTAL);-- The counter should be able to count up to square of TOTAL_NUM_OF_COLUMNS + 1 +Pipeline delay
---signal s_LOADING_DONE: std_logic;
--- s_Bank_Sel : std_logic;
+
 
 --dubug sigals
 signal s_a, s_b: integer:=0;
@@ -76,7 +74,7 @@ begin
 
 
 
-process (CLK, RST)
+FLAGS_and_Current_state_update:process (CLK, RST)
 -- This Counter variable is used to create a delay for the appropriate time to set the READY signal.
 -- The READY signal is used to alert the user to know when the FSM has setteled in the START state and is ready to start receiving input data
 -- for storage in BRAM. The current value is set to 4 but it can be changed accordingly to allow enough time for the READY signal to trigger,
@@ -155,7 +153,7 @@ if (rising_edge(CLK)) then
 			--OP_DONE<='0';--reset the done signal
 			v_OP_DONE := '0';--reset the done signal
 			v_LOADING_DONE:='0';
-			v_UNLOAD_DONE := '0';
+			v_UNLOAD_DONE := '1';-- This is supposed to be set to '0' but it is ok because it is reset in the LOAD_DONE state. It was necessary to set it to '1' to prevent synthesis tool from optimizing it.
 			next_state<=current_state;
 			CONTROL_A_INPUT_OF_DSP <= '0';
 			i:=0;
@@ -163,13 +161,12 @@ if (rising_edge(CLK)) then
 			Read_SHFT <='0';
 			Write_SHFT <= '0';
 			WE <= '0';
-			--s_Bank_Sel <= '0';
 			OPCODE <= (others => '0');
-			s_P_ADDR <= (others => '1');
+			--s_P_ADDR <= (others => '1');
 
 			s_CSEL <= (others => '0'); --"001";
 
-			--s_LOADING_DONE <= '0';
+
 			
 				IF LOAD = '1' then
 					next_state<=LOADING;					
@@ -212,25 +209,21 @@ if (rising_edge(CLK)) then
 				else
 					if v_LOADING_DONE = '1' and cnt_delay_ready = (10 + COLUMN_TOTAL*COLUMN_TOTAL) then -- wait until gets to BRAM. 
 						next_state <= LOAD_DONE;
---					else
---						next_state <= LOADING;
 					end if;
 				end if;				
 				
-				s_P_ADDR <= std_logic_vector(to_unsigned(j, ADDR_WIDTH));
+				--s_P_ADDR <= std_logic_vector(to_unsigned(j, ADDR_WIDTH-1));
+				i_addr_cnt <= j;
 				s_CSEL <= v_CSEL;
 				WE <= v_WE;
---				s_a <= i;
---				s_b <= j;
-				--s_LOADING_DONE <= v_LOADING_DONE;
 				
 		when LOAD_DONE =>
-				--s_Bank_Sel <= '1';
 				i:=0;
 				j:=0;
 				WE <= '0';
 				Write_SHFT <= '1';
-				Normalize <= '0';				
+				Normalize <= '0';
+				v_UNLOAD_DONE := '0';				
 				s_CSEL <= (others => '1');--Enble BRAM for Saving multiplication result.		
 				IF LOAD = '1' then					
 					next_state <= LOAD_DONE;	
@@ -272,10 +265,7 @@ if (rising_edge(CLK)) then
 						end if;
 					end if;
 				end if;
-				s_a <= i;
-				s_b <= j;
-		when PG =>					
-					--s_Bank_Sel <= '1';
+		when PG =>
 					v_OPCODE :="011";
 					WE <='0';
 					Normalize <= '0';
@@ -325,11 +315,7 @@ if (rising_edge(CLK)) then
 						end if;
 					end if;
 					OPCODE<= v_OPCODE; --"111";
-					--OP_DONE <= v_OP_DONE;
-					s_a <= i;
-					s_b <= j;
 			when PGt=>
-					--s_Bank_Sel <= '1';
 					v_OPCODE :="011";
 					WE <='0';
 					Normalize <= '0';
@@ -378,7 +364,6 @@ if (rising_edge(CLK)) then
 						end if;
 					end if;
 					OPCODE<= v_OPCODE; --"111";
-					--OP_DONE <= v_OP_DONE;
 			when PtG=>
 					--s_Bank_Sel <= '1';
 					v_OPCODE :="011";
@@ -432,9 +417,7 @@ if (rising_edge(CLK)) then
 							v_OPCODE := "111";
 						end if;
 					end if;
-					OPCODE<= v_OPCODE; --"111";
-					--OP_DONE <= v_OP_DONE;
-			
+					OPCODE<= v_OPCODE; --"111";			
 			when PtGt =>
 					--s_Bank_Sel <= '1';
 					v_OPCODE :="011";
@@ -490,12 +473,6 @@ if (rising_edge(CLK)) then
 						end if;
 					end if;
 					OPCODE<= v_OPCODE; --"111";
-					--OP_DONE <= v_OP_DONE;
-					--i_addr_cnt <= v_i_addr_cnt;
-						
-					s_a <= i;
-					s_b <= j;
-			
 			when DONE =>
 					G_EN <= '0';
 					WE<='0';
@@ -503,12 +480,11 @@ if (rising_edge(CLK)) then
 					Normalize <= '0';
 					--OP_DONE<='0';
 					v_OP_DONE := '0';
-					v_UNLOAD_DONE := '0';	
+					--v_UNLOAD_DONE := '0';	
 					i:=0;
 					j:=0;
-					s_P_ADDR <= std_logic_vector(to_unsigned(j, ADDR_WIDTH));
-					s_a <= i;
-					s_b <= j;
+					--s_P_ADDR <= std_logic_vector(to_unsigned(j, ADDR_WIDTH-1));
+					i_addr_cnt <= j;
 					if UN_LOAD = '1' then
 					 next_state <= UNLOAD;
 					end if;
@@ -540,41 +516,27 @@ if (rising_edge(CLK)) then
 				else
 					CONTROL_A_INPUT_OF_DSP <= '0';
 					v_OP_DONE := '0';
+					v_OPCODE := "111";
+					v_UNLOAD_DONE := '1';
 				end if;
 				OPCODE<= v_OPCODE; --"111";
-				--OP_DONE <= v_OP_DONE;
-				s_P_ADDR <= std_logic_vector(to_unsigned(j-1, ADDR_WIDTH));
-				s_a <= i;
-				s_b <= j;
---			when others =>
---				G_EN <= '0';
---				WE<='0';
---				--P_SHFT <= '0';
---				OP_DONE<='0';
---				v_OP_DONE := '0';	
---				i:=0;
---				j:=0;
---				s_P_ADDR <= std_logic_vector(to_unsigned(j, ADDR_WIDTH));
---				s_a <= i;
---				s_b <= j;
---				if UN_LOAD = '1' then
---				 next_state <= UNLOAD;
---				end if;
+				--s_P_ADDR <= std_logic_vector(to_unsigned(j-1, ADDR_WIDTH-1));
+				i_addr_cnt <= j-1;
 											
 	end case;
 end if;
 end process;
 
-ADDRESS_GENERATION: Process(s_fsm_generate_address, i_addr_cnt, s_P_ADDR, G, P)--(current_state, i_addr_cnt, s_P_ADDR, G, P)
+ADDRESS_GENERATION: Process(LOAD, i_addr_cnt, P)--(current_state, i_addr_cnt, s_P_ADDR, G, P)
 begin
-	if s_fsm_generate_address = true then--current_state = LOADING or current_state = UNLOAD then
-		Write_ADDR <= s_P_ADDR;
-		Read_ADDR <= s_P_ADDR;
-	else
-		Write_ADDR <= std_logic_vector(to_unsigned(i_addr_cnt,ADDR_WIDTH));
-		if P='1'  then --if P='1' and G='1' then
+	--if s_fsm_generate_address = true then--current_state = LOADING or current_state = UNLOAD then
+		--Write_ADDR <= s_P_ADDR;
+		--Read_ADDR <= s_P_ADDR;
+	--else
+		Read_ADDR <= std_logic_vector(to_unsigned(i_addr_cnt,ADDR_WIDTH-1));
+		if P='1' and LOAD = '0' then --if P='1' and G='1' then
 			if i_addr_cnt = 0 then		 -- When the Read address is 0 the Write address is also 0 (see table below).
-				Read_ADDR <= (others => '0');-- This line of Code Resets the Write address to 0. 
+				Write_ADDR <= (others => '0');-- This line of Code Resets the Write address to 0. 
 			else
 				-- When Performing PtGt the last Read Address and the last Write address of each sub-round do not allign so the result in each sub-round does
 				-- not save in the desired location of Memory. But we want the result to save in circulant format. To solve this problem
@@ -594,23 +556,17 @@ begin
 				--            | |  1  |  3 | |  2  |  3 |
 				--                           |  1  |  4 |
 							    
-			    Read_ADDR <= std_logic_vector(to_unsigned(COLUMN_TOTAL - i_addr_cnt, ADDR_WIDTH));--This line of code generates the Write address from the Read Address.
+			    Write_ADDR <= std_logic_vector(to_unsigned(COLUMN_TOTAL - i_addr_cnt, ADDR_WIDTH-1));--This line of code generates the Write address from the Read Address.
 			end if;
 		else
-			Read_ADDR <= std_logic_vector(to_unsigned(i_addr_cnt,ADDR_WIDTH));
+			Write_ADDR <= std_logic_vector(to_unsigned(i_addr_cnt,ADDR_WIDTH-1));
 		end if;
-	end if;
+	--end if;
 end process;
 						
-				--ADDRA <= s_P_ADDR when current_state = LOADING else std_logic_vector(to_unsigned(i_addr_cnt,ADDR_WIDTH));
-				
-				
 				G_ROW<=std_logic_vector(to_unsigned(i_row_cnt,ADDR_WIDTH));
 				G_COLUMN<=std_logic_vector(to_unsigned(i_col_cnt,COLUMN_TOTAL));
 				CSEL <= s_CSEL;
-				--LOADING_DONE <= s_LOADING_DONE;
-				--D_OUT <= D_IN;
-				--Bank_Sel <= s_Bank_Sel;
 
 
 							
