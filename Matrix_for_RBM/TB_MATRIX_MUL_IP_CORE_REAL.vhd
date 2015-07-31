@@ -68,7 +68,7 @@ ARCHITECTURE behavior OF TB_MATRIX_MUL_IP_CORE_REAL IS
 
    shared variable sv_line: line;
    shared variable sv_Result_File_Open: boolean;
-   file Result_file_pointer: Text; 
+   
 	
 -------------------------------------------------End of General Signals------------------------------------------
 	
@@ -120,6 +120,102 @@ function Convert_Real_2_Std(real_number : real; Precision : real) return std_log
 		return std;
 end;
 signal DSP_P_OUT : real;
+
+
+procedure PrintResultToConsole is
+file  Result_file_pointer: Text;
+variable line_num: line;
+begin
+		file_open(Result_file_pointer,"../TestingFiles/Real_PG_Result.txt",READ_MODE);
+			while not endfile(Result_file_pointer) loop
+				Readline(Result_file_pointer,line_num);
+				--wait for clk_period;
+				Writeline(output,line_num);
+			end loop;
+			file_close(Result_file_pointer);
+end;
+
+procedure PrintResultInCSVFormat is
+variable line_num, line_num2: line;
+variable v_IsTheValueReadGood: boolean:=true;
+variable v_Value: string(1 to 10);
+file Result_file_pointer, Result_file_pointer2: Text; 
+variable line_num_cnt, j: integer:=0;
+variable c: character:= ' ';
+begin
+file_open(Result_file_pointer2,"../TestingFiles/Real_PG_Result_CSV.txt",WRITE_MODE);
+			file_open(Result_file_pointer,"../TestingFiles/Real_PG_Result.txt",READ_MODE);
+			line_num_cnt := 0;
+			
+			while not endfile(Result_file_pointer) loop
+				ReadLine(Result_file_pointer,line_num);
+				if line_num_cnt > 0 and line_num_cnt <= COLUMN_TOTAL then
+					--ReadLine(Result_file_pointer,line_num); --procedure read(l : inout line; value : out string; good : out boolean);				
+					while v_IsTheValueReadGood = true loop
+						--str_read_remove_spaces(line_num,v_Value,v_IsTheValueReadGood);
+						for i in v_Value'range loop
+							v_Value(i) := ' ';
+						end loop;
+						j := 1;
+						
+						while c = ' ' and v_IsTheValueReadGood = true loop-- This loop is to get rid of spaces in between before the main numbers
+							read(line_num, c, v_IsTheValueReadGood);
+						end loop;
+						
+						for i in v_Value'range loop
+							--read(line_num, c, v_IsTheValueReadGood);
+							if v_IsTheValueReadGood then
+								if c /= ' ' then
+									v_Value(j) := c;
+									j := j + 1;
+								end if;
+							end if;
+							read(line_num, c, v_IsTheValueReadGood);
+						end loop; 
+					if v_IsTheValueReadGood = true then
+						for i in 1 to string_valid_length(v_Value) loop
+							write(line_num2, v_Value(i));
+						end loop;
+						write(line_num2, ',');
+					end if;
+					end loop;
+					Writeline(Result_file_pointer2,line_num2);
+					v_IsTheValueReadGood := true;
+				end if;
+				line_num_cnt := line_num_cnt + 1;
+				if line_num_cnt = (COLUMN_TOTAL + 4) then
+					line_num_cnt := 1;
+				end if;
+			end loop;
+			file_close(Result_file_pointer2);
+			file_close(Result_file_pointer);
+
+--		file_open(Result_file_pointer2,"../TestingFiles/Real_PG_Result_CSV.txt",WRITE_MODE);
+--			file_open(Result_file_pointer,"../TestingFiles/Real_PG_Result.txt",READ_MODE);
+--			line_num_cnt := 0;
+--			
+--			while not endfile(Result_file_pointer) loop
+--				ReadLine(Result_file_pointer,line_num);
+--				if line_num_cnt > 0 and line_num_cnt <= COLUMN_TOTAL then
+--					--ReadLine(Result_file_pointer,line_num); --procedure read(l : inout line; value : out string; good : out boolean);				
+--					while v_IsTheValueReadGood = true loop
+--						read(line_num, v_Value,v_IsTheValueReadGood);
+--						if v_IsTheValueReadGood = true then
+--							write(line_num2, v_Value & "," );
+--						end if;
+--					end loop;
+--					Writeline(Result_file_pointer2,line_num2);
+--					v_IsTheValueReadGood := true;
+--				end if;
+--				--wait for clk_period;
+--				line_num_cnt := line_num_cnt + 1;
+--				if line_num_cnt = (COLUMN_TOTAL + 4) then
+--					line_num_cnt := 1;
+--				end if;
+--			end loop;
+--			file_close(Result_file_pointer2);
+--			file_close(Result_file_pointer);
+end;
 ------------------------------------------------------End of Functions--------------------------------------------
  
 BEGIN
@@ -193,8 +289,14 @@ CLK_process :process
 	
 
 CONTROL: process
+variable line_num, line_num2: line;
+variable v_IsTheValueReadGood: boolean:=true;
+variable v_Value: string(1 to 10);
+file Result_file_pointer, Result_file_pointer2: Text; 
+variable line_num_cnt: integer:=0;
+variable c : character:= ' ';
 --(cmd_G_READ_START,cmd_P_READ_START,cmd_Unload_BRAM_Content,cmd_PG,cmd_PGt,cmd_PtG,cmd_PtGt);
-variable v_delay_latency: integer;
+variable v_delay_latency, j: integer;
 begin
 
 
@@ -446,15 +548,64 @@ begin
 	wait until UN_LOADING_DONE = '1';
 ----------------------------------------------------------------- End of Comput Pt * G ------------------------------------------------------------------
 	
---	
---	--file_open(Result_file_pointer,"../TestingFiles/PG_Result.txt",WRITE_MODE);
---	sv_Result_File_Open := false;
---	Bank_sel_in <= '1'; -- Tell BRAM to Read from upper Bank. Note MSB of ADDR Port B is Banksel and it is inverted.
---	CMD <= cmd_Unload_BRAM_Content;
---	write(sv_line,"---------------" & " Data loaded into BRAM. " & str(v_delay_latency) & " clock cycles to load,");
---	wait until UN_LOADING_DONE = '1';	
-	
+wait for clk_period;-- wait for the all values to be written to file	
+			
+PrintResultToConsole; -- Procedure to print the result to console.
+PrintResultInCSVFormat; -- Procdure to Print the result in CSV format.
 
+----file_open(Result_file_pointer2,"../TestingFiles/Real_PG_Result_CSV.txt",WRITE_MODE);
+----			file_open(Result_file_pointer,"../TestingFiles/Real_PG_Result.txt",READ_MODE);
+----			line_num_cnt := 0;
+----			
+----			while not endfile(Result_file_pointer) loop
+----				ReadLine(Result_file_pointer,line_num);
+----				if line_num_cnt > 0 and line_num_cnt <= COLUMN_TOTAL then
+----					--ReadLine(Result_file_pointer,line_num); --procedure read(l : inout line; value : out string; good : out boolean);				
+----					while v_IsTheValueReadGood = true loop
+----						--str_read_remove_spaces(line_num,v_Value,v_IsTheValueReadGood);
+----						for i in v_Value'range loop
+----							v_Value(i) := ' ';
+----						end loop; 
+----
+----							while c = ' ' and v_IsTheValueReadGood = true loop -- This loop is to get rid of spaces in between before the main numbers
+----								read(line_num, c, v_IsTheValueReadGood);	
+----							end loop;
+----
+----							j := 1;
+----
+----							for i in v_Value'range loop
+----								--read(line_num, c, v_IsTheValueReadGood);
+----								if v_IsTheValueReadGood then
+----									if c /= ' ' then
+----										v_Value(j) := c;
+----										j:= j + 1;
+----									end if;
+----								end if;
+----								read(line_num, c, v_IsTheValueReadGood);
+----								--end_of_line_status := not_end_of_line;
+----							end loop; 
+---- 
+----					if v_IsTheValueReadGood = true then
+----						for i in 1 to string_valid_length(v_Value) loop
+----							write(line_num2, v_Value(i));
+----						end loop;
+----						write(line_num2, ',');
+----					end if;
+----					end loop;
+----					Writeline(Result_file_pointer2,line_num2);
+----					v_IsTheValueReadGood := true;
+----				end if;
+----				line_num_cnt := line_num_cnt + 1;
+----				if line_num_cnt = (COLUMN_TOTAL + 4) then
+----					line_num_cnt := 1;
+----				end if;
+----			end loop;
+----			file_close(Result_file_pointer2);
+----			file_close(Result_file_pointer);
+--
+--
+			
+		
 wait;
 
 end process;

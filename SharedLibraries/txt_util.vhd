@@ -1,7 +1,23 @@
+--  
+--  Disclaimer: Derived from txt_util.vhd on www.stefanvhdl.com
+--  
+--  Revision History:
+--  
+--  1.0 URL: http://www.stefanvhdl.com/vhdl/vhdl/txt_util.vhd
+--  
+--  1.1 Modified str_read() to prevent extra character (JFF)
+--  
+--  1.2 Added is_whitespace() and strip_whitespace() (JFF)
+--  
+--  1.3 Added first_string() and chomp() (JFF)
+--  
+--  1.4 Added hex string and integer string conversion (JFF)
+--  
+----------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 use std.textio.all;
-
 
 package txt_util is
 
@@ -36,8 +52,6 @@ package txt_util is
 
     -- convert std_logic_vector into a string in hex format
     function hstr(slv: std_logic_vector) return string;
-    	
-    function str(real: real; decimal_digits: integer) return string;
 
 
     -- functions to manipulate strings
@@ -54,6 +68,26 @@ package txt_util is
 
     -- convert a string to lower case
     function to_lower(s: string) return string;
+	 
+	 -- checks if whitespace (JFF)
+	 function is_whitespace(c: character) return boolean;
+	 
+	 -- remove leading whitespace (JFF)
+	 function strip_whitespace(s: string) return string;
+    
+	 -- return first nonwhitespace substring (JFF)
+	 function first_string(s: string) return string;
+	 
+	 --This function returns only the valid number of elements in the string. it ignores space and NULL.	
+	 function string_valid_length(s : string) return integer;
+    
+    -- finds the first non-whitespace substring in a string and (JFF)  
+	 -- returns both the substring and the original with the substring removed 
+	 procedure chomp(variable s: inout string; variable shead: out string);
+	 	
+	 --Thhis procedure removes spaces before and after a string.	 	
+	 procedure str_read_remove_spaces(variable line_v: inout line; string_in :out string; is_character: out boolean);
+    
 
    
     
@@ -63,8 +97,20 @@ package txt_util is
     -- converts a character into std_logic
     function to_std_logic(c: character) return std_logic; 
     
-    -- converts a string into std_logic_vector
+    -- converts a hex character into std_logic_vector (JFF)
+    function chr_to_slv(c: character) return std_logic_vector; 
+    
+    -- converts a character into int (JFF)
+    function chr_to_int(c: character) return integer; 
+    
+    -- converts a binary string into std_logic_vector
     function to_std_logic_vector(s: string) return std_logic_vector; 
+	 
+    -- converts a hex string into std_logic_vector (JFF)
+    function hstr_to_slv(s: string) return std_logic_vector;
+	 
+    -- converts a decimal string into an integer (JFF)
+    function str_to_int(s: string) return integer; 
 
 
   
@@ -316,16 +362,7 @@ package body txt_util is
          end case;
        end loop;
        return hex(1 to hexlen);
-   end hstr;
-   
- function str(real : real; decimal_digits : integer) return string is
- 	variable v_l     : line;
- 	variable v_value : string(1 to 10);
- begin
- 	write(v_l, real, Digits => decimal_digits);
- 	read(v_l, v_value);
- 	return v_value;
- end function;
+     end hstr;
 
 
 
@@ -451,6 +488,125 @@ package body txt_util is
      return lowercase;
 
    end to_lower;
+	
+	
+	-- checks if whitespace (JFF)
+	
+	function is_whitespace(c: character) return boolean is
+	
+	begin
+	
+		if (c = ' ') or (c = HT) then
+			return true;
+		else return false;
+		end if;
+		
+	end is_whitespace;
+	
+	
+	-- remove leading whitespace (JFF)
+	
+	function strip_whitespace(s: string) return string is
+	
+	variable stemp : string (s'range);
+	variable j, k : positive := 1;
+	
+	begin
+	
+	-- fill stemp with blanks
+	for i in s'range loop
+		stemp(i) := ' ';
+	end loop;
+	
+	-- find first non-whitespace in s
+	for i in s'range loop
+		if is_whitespace(s(i)) then
+			j := j + 1;
+		else exit;
+		end if;
+	end loop;
+	-- j points to first non-whitespace
+	
+	-- copy remainder of s into stemp
+	-- starting at 1
+	for i in j to s'length loop
+		stemp(k) := s(i);
+		k := k + 1;
+	end loop;	
+	
+	return stemp;	
+	
+	end strip_whitespace;
+
+
+	
+	-- return first non-whitespacesubstring (JFF)
+	
+	function first_string(s: string) return string is
+	
+	variable stemp, s2 : string (s'range);
+	
+	begin
+	
+	-- fill s2 with blanks
+	for i in s'range loop
+		s2(i) := ' ';
+	end loop;
+	
+	-- remove leading whitespace
+	stemp := strip_whitespace(s);
+	
+	-- copy until first whitespace
+	for i in stemp'range loop
+		if not is_whitespace(stemp(i)) then
+			s2(i) := stemp(i);
+		else exit;
+		end if;
+	end loop;
+	
+	return s2;
+
+	end first_string;
+	
+	
+	
+	-- removes first non-whitespace string from a string (JFF)
+
+	procedure chomp(variable s: inout string; variable shead: out string) is
+
+	variable stemp, stemp2 : string (s'range);
+	variable j, k : positive := 1;
+
+	begin
+	
+	-- fill stemp and stemp2 with blanks
+	for i in s'range loop
+		stemp(i) := ' '; stemp2(i) := ' ';
+	end loop;
+	
+	stemp := strip_whitespace(s);
+	
+	shead := first_string(stemp);
+
+	-- find first whitespace in stemp
+	for i in stemp'range loop
+		if not is_whitespace(stemp(i)) then
+			j := j + 1;
+		else exit;
+		end if;
+	end loop;
+	-- j points to first whitespace
+	
+	-- copy remainder of stemp into stemp2
+	-- starting at 1
+	for i in j to stemp'length loop
+		stemp2(k) := stemp(i);
+		k := k + 1;
+	end loop;
+	
+	s := stemp2;	
+			
+	end chomp;
 
 
 
@@ -488,7 +644,82 @@ function to_std_logic(c: character) return std_logic is
   end to_std_logic;
 
 
--- converts a string into std_logic_vector
+    -- converts a character into std_logic_vector (JFF)
+    function chr_to_slv(c: character) return std_logic_vector is
+    variable slv: std_logic_vector(3 downto 0);
+    begin
+      case c is
+        when '0' => 
+           slv := "0000";
+        when '1' => 
+           slv := "0001";
+        when '2' => 
+           slv := "0010";
+        when '3' => 
+           slv := "0011";
+        when '4' => 
+           slv := "0100";
+        when '5' => 
+           slv := "0101";
+        when '6' => 
+           slv := "0110";
+        when '7' => 
+           slv := "0111";
+        when '8' => 
+           slv := "1000";
+        when '9' => 
+           slv := "1001";
+        when 'A' | 'a' => 
+           slv := "1010";
+        when 'B' | 'b' => 
+           slv := "1011";
+        when 'C' | 'c' => 
+           slv := "1100";
+        when 'D' | 'd' => 
+           slv := "1101";
+        when 'E' | 'e' => 
+           slv := "1110";
+        when 'F' | 'f' => 
+           slv := "1111";
+        when others => null;
+    end case;
+   return slv;
+	 end chr_to_slv; 
+    
+
+    -- converts a character into int (JFF)
+    function chr_to_int(c: character) return integer is
+    variable x: integer;
+    begin
+      case c is
+        when '0' => 
+           x := 0;
+        when '1' => 
+           x := 1;
+        when '2' => 
+           x := 2;
+        when '3' => 
+           x := 3;
+        when '4' => 
+           x := 4;
+        when '5' => 
+           x := 5;
+        when '6' => 
+           x := 6;
+        when '7' => 
+           x := 7;
+        when '8' => 
+           x := 8;
+        when '9' => 
+           x := 9;
+        when others => null;
+    end case;
+   return x;
+	 end chr_to_int; 
+    
+
+
+-- converts a binary string into std_logic_vector
 
 function to_std_logic_vector(s: string) return std_logic_vector is 
   variable slv: std_logic_vector(s'high-s'low downto 0);
@@ -503,6 +734,48 @@ begin
 end to_std_logic_vector;                                       
                                        
                                        
+    -- converts a hex string into std_logic_vector (JFF)
+    function hstr_to_slv(s: string) return std_logic_vector is
+  variable slv: std_logic_vector(((s'length*4)-1) downto 0) := (others => '0');
+  variable k: integer;
+begin
+  for i in s'range loop
+    slv := slv((slv'length - 5) downto 0) & chr_to_slv(s(i)); 
+  end loop;
+  return slv;
+	 end hstr_to_slv;
+	 
+    -- converts a decimal string into an integer (JFF)
+    function str_to_int(s: string) return integer is
+  variable k: integer;
+begin
+   k := 0;
+  for i in s'range loop
+     k := (k*10) + chr_to_int(s(i));
+  end loop;
+  return k;
+end str_to_int;
+
+
+
+function string_valid_length(s : string) return integer is
+	--variable c: character:='s';
+	variable count: integer:=0;
+begin
+	
+	if s(1) /= ' ' then
+		for i in s'range loop
+		 	if	s(count+1) /= ' '	then		
+				count := count + 1;
+			end if;
+		end loop;
+	end if;
+	
+	return count;
+end;
+	 
+	 
+
                                        
                                        
                                        
@@ -532,14 +805,75 @@ procedure str_read(file in_file: TEXT;
      -- read all characters of the line, up to the length  
      -- of the results string
      for i in res_string'range loop
-        read(l, c, is_string);
-        res_string(i) := c;
-        if not is_string then -- found end of line
-           exit;
-        end if;   
+
+-- JFF - new
+--
+    read(l, c, is_string);
+    if is_string then res_string(i) := c;
+    else exit;
+    end if;
+
+-- JFF - was duplicating the last char if no 
+-- space at the end of the line
+-- 
+--        read(l, c, is_string);
+--        res_string(i) := c;
+--        if not is_string then -- found end of line
+--           exit;
+--        end if;
+
+   
      end loop; 
                      
 end str_read;
+
+procedure str_read_remove_spaces(variable line_v: inout line; string_in :out string; end_of_line_status: out boolean) is
+variable c:character:=' ';
+variable not_end_of_line: boolean;
+variable j: integer;
+
+begin
+	
+--	for i in string_in'range loop
+--         string_in(i) := ' ';
+--   end loop;  
+--	 
+--for i in string_in'range loop
+--
+--  read(line_v, c, is_string);
+--  status := is_string;
+--    if is_string then 
+--      if c /= ' ' then
+--    	string_in(i) := c;
+--	  end if;
+--    end if;
+--   
+--  end loop;
+for i in string_in'range loop
+	string_in(i) := ' ';
+end loop; 
+
+while c = ' ' and not_end_of_line = true loop -- This loop is to get rid of spaces in between before the main numbers
+	read(line_v, c, not_end_of_line);	
+end loop;
+
+j := 1;
+
+for i in string_in'range loop
+	--read(line_num, c, v_IsTheValueReadGood);
+	if not_end_of_line then
+		if c /= ' ' then
+			string_in(j) := c;
+			j:= j + 1;
+		end if;
+	end if;
+	read(line_v, c, not_end_of_line);
+	--end_of_line_status := not_end_of_line;
+end loop; 
+  
+ end_of_line_status := not_end_of_line;
+              
+end str_read_remove_spaces;
 
 
 -- print string to a file
@@ -591,6 +925,3 @@ end str_write;
 
 
 end txt_util;
-
-
-

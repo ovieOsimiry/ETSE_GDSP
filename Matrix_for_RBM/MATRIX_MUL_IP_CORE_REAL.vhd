@@ -15,8 +15,7 @@ use work.MATRIX_MUL_IP_CORE_LIBRARY.all;
 
 
 entity MATRIX_MUL_IP_CORE_REAL is
-	generic(
-		--First_Col_right : boolean := false;
+	generic(		
 		COLUMN_TOTAL    : integer := 50;
 		OPCODE_WIDTH    : integer := 3;
 		ADDR_WIDTH      : integer := 10;

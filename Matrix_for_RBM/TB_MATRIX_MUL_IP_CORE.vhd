@@ -113,6 +113,58 @@ ARCHITECTURE behavior OF TB_MATRIX_MUL_IP_CORE IS
 	   
 ----------------------------------------------------End of GRAM Signals ------------------------------------------
 
+---------------------------------------------------------Procedures-----------------------------------------------
+procedure PrintResultToConsole is
+file  Result_file_pointer: Text;
+variable line_num: line;
+begin
+				file_open(Result_file_pointer,"../TestingFiles/PG_Result.txt",READ_MODE);
+			while not endfile(Result_file_pointer) loop
+				Readline(Result_file_pointer,line_num);
+				--wait for clk_period;
+				Writeline(output,line_num);
+			end loop;
+			file_close(Result_file_pointer);
+end;
+
+procedure PrintResultInCSVFormat is
+variable line_num, line_num2: line;
+variable v_IsTheValueReadGood: boolean:=true;
+variable v_Value: string(1 to 10);
+file Result_file_pointer, Result_file_pointer2: Text; 
+variable line_num_cnt: integer:=0;
+begin
+
+file_open(Result_file_pointer2,"../TestingFiles/PG_Result_CSV.txt",WRITE_MODE);
+			file_open(Result_file_pointer,"../TestingFiles/PG_Result.txt",READ_MODE);
+			line_num_cnt := 0;
+			
+			while not endfile(Result_file_pointer) loop
+				ReadLine(Result_file_pointer,line_num);
+				if line_num_cnt > 0 and line_num_cnt <= COLUMN_TOTAL then
+					--ReadLine(Result_file_pointer,line_num); --procedure read(l : inout line; value : out string; good : out boolean);				
+					while v_IsTheValueReadGood = true loop
+						str_read_remove_spaces(line_num,v_Value,v_IsTheValueReadGood);
+					if v_IsTheValueReadGood = true then
+						for i in 1 to string_valid_length(v_Value) loop
+							write(line_num2, v_Value(i));
+						end loop;
+						write(line_num2, ',');
+					end if;
+					end loop;
+					Writeline(Result_file_pointer2,line_num2);
+					v_IsTheValueReadGood := true;
+				end if;
+				line_num_cnt := line_num_cnt + 1;
+				if line_num_cnt = (COLUMN_TOTAL + 4) then
+					line_num_cnt := 1;
+				end if;
+			end loop;
+			file_close(Result_file_pointer2);
+			file_close(Result_file_pointer);
+end;
+------------------------------------------------------End of Procedures-------------------------------------------
+
 type t_BRAM_DATA is array (0 to COLUMN_TOTAL-1) of std_logic_vector(DATA_WIDTH-1 downto 0);
 signal BRAM_DATA : t_BRAM_DATA;
 
@@ -188,6 +240,13 @@ CLK_process :process
 	
 
 CONTROL: process
+variable line_num, line_num2: line;
+variable v_IsTheValueReadGood: boolean:=true;
+variable v_Value: string(1 to 10);
+file Result_file_pointer, Result_file_pointer2: Text; 
+variable line_num_cnt: integer:=0;
+variable c:         character;
+variable is_string: boolean;
 --(cmd_G_READ_START,cmd_P_READ_START,cmd_Unload_BRAM_Content,cmd_PG,cmd_PGt,cmd_PtG,cmd_PtGt);
 variable v_delay_latency: integer;
 begin	
@@ -438,15 +497,14 @@ begin
 	Bank_sel_in <= '1'; -- Tell BRAM to Read from upper Bank. Note MSB of ADDR Port B is Banksel and it is inverted.	
 	write(sv_line,"---------------" & " result of [PG]t * Gt from upper bank of BRAM. " & str(v_delay_latency) & " clock cycles to finish multiplication, ");
 	wait until UN_LOADING_DONE = '1';
------------------------------------------------------------------ End of Comput Pt * G ------------------------------------------------------------------
+----------------------------------------------------------------- End of Comput Pt * Gt ------------------------------------------------------------------
 	
---	
---	--file_open(Result_file_pointer,"../TestingFiles/PG_Result.txt",WRITE_MODE);
---	sv_Result_File_Open := false;
---	Bank_sel_in <= '1'; -- Tell BRAM to Read from upper Bank. Note MSB of ADDR Port B is Banksel and it is inverted.
---	CMD <= cmd_Unload_BRAM_Content;
---	write(sv_line,"---------------" & " Data loaded into BRAM. " & str(v_delay_latency) & " clock cycles to load,");
---	wait until UN_LOADING_DONE = '1';	
+wait for clk_period; -- wait for the all values to be written to file
+
+PrintResultToConsole; -- Procedure to print the result to console. Read from Result file then print to console.
+PrintResultInCSVFormat; -- Procedure to print the result to a file in CSV format.
+
+
 	
 
 wait;
