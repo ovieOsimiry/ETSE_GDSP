@@ -1,3 +1,0 @@
-vhdl work "Normalizer.vhd"
-vhdl work "../MulAdder/AdderSubMul.vhd"
-vhdl work "tb_DSPNormalizer.vhd"

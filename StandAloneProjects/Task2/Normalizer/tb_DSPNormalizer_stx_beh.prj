@@ -1,4 +1,0 @@
-vhdl isim_temp "Normalizer.vhd"
-vhdl isim_temp "../../../SharedLibraries/txt_util.vhd"
-vhdl isim_temp "../../../IPCores/MulAdder/AdderSubMul.vhd"
-vhdl isim_temp "tb_DSPNormalizer.vhd"

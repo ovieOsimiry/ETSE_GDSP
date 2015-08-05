@@ -1,1 +1,0 @@
-xst -intstyle ise -ifn "C:/FPGA/Internship Jobs/Codes/ETSE_GDSP/StandAloneProjects/Task2/Normalizer/tb_DSPNormalizer.xst" -ofn "C:/FPGA/Internship Jobs/Codes/ETSE_GDSP/StandAloneProjects/Task2/Normalizer/tb_DSPNormalizer.syr" 
