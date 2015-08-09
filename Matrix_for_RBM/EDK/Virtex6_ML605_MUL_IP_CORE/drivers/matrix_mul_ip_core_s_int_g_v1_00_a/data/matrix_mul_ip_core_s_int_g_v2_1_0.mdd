@@ -1,0 +1,15 @@
+##############################################################################
+## Filename:          C:\FPGA\AXI4\Virtex6_ML605_MUL_IP_CORE/drivers/matrix_mul_ip_core_s_int_g_v1_00_a/data/matrix_mul_ip_core_s_int_g_v2_1_0.mdd
+## Description:       Microprocessor Driver Definition
+## Date:              Wed Aug 05 15:25:43 2015 (by Create and Import Peripheral Wizard)
+##############################################################################
+
+OPTION psf_version = 2.1.0;
+
+BEGIN DRIVER matrix_mul_ip_core_s_int_g
+
+  OPTION supported_peripherals = (matrix_mul_ip_core_s_int_g);
+  OPTION depends = (common_v1_00_a);
+  OPTION copyfiles = all;
+
+END DRIVER
