@@ -45,7 +45,7 @@
 # PART OF THIS FILE AT ALL TIMES.
 
 
-set device xc7vx485tffg1157-2
+set device xc6vlx240tff1156-1
 set projName BRAM18x1k
 set design BRAM18x1k
 set projDir [file dirname [info script]]

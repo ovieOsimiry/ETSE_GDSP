@@ -2,6 +2,7 @@
 DSP_INPUT_C.asy
 DSP_INPUT_C.gise
 DSP_INPUT_C.ngc
+DSP_INPUT_C.sym
 DSP_INPUT_C.vhd
 DSP_INPUT_C.vho
 DSP_INPUT_C.xco

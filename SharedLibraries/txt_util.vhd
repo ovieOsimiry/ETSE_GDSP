@@ -86,7 +86,7 @@ package txt_util is
 	 procedure chomp(variable s: inout string; variable shead: out string);
 	 	
 	 --Thhis procedure removes spaces before and after a string.	 	
-	 procedure str_read_remove_spaces(variable line_v: inout line; string_in :out string; is_character: out boolean);
+	 procedure str_read_remove_spaces(variable line_v: inout line; string_in :out string; end_of_line_status: out boolean);
     
 
    

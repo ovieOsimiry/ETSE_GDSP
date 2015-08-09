@@ -117,7 +117,7 @@ END COMPONENT;
       c_sel_width => 3,
       c_test_core => 0,
       c_verbosity => 0,
-      c_xdevicefamily => "virtex7"
+      c_xdevicefamily => "virtex6"
     );
 -- synthesis translate_on
 BEGIN

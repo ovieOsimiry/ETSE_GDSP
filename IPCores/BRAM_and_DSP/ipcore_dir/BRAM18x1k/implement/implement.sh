@@ -3,9 +3,9 @@
  
  
 
+
+
  
-
-
 
 #!/bin/sh
 
@@ -31,7 +31,7 @@ cp ../example_design/BRAM18x1k_exdes.ucf results/
 cd results
 
 echo 'Running ngdbuild'
-ngdbuild -p xc7vx485t-ffg1157-2 BRAM18x1k_exdes
+ngdbuild -p xc6vlx240t-ff1156-1 BRAM18x1k_exdes
 
 echo 'Running map'
 map BRAM18x1k_exdes -o mapped.ncd -pr i
@@ -43,7 +43,7 @@ echo 'Running trce'
 trce -e 10 routed.ncd mapped.pcf -o routed
 
 echo 'Running design through bitgen'
-bitgen -w routed -g UnconstrainedPins:Allow
+bitgen -w routed
 
 echo 'Running netgen to create gate level VHDL model'
 netgen -ofmt vhdl -sim -tm BRAM18x1k_exdes -pcf mapped.pcf -w routed.ncd routed.vhd

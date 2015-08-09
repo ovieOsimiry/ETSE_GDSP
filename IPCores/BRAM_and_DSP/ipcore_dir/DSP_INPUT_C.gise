@@ -23,7 +23,6 @@
 
   <files xmlns="http://www.xilinx.com/XMLSchema">
     <file xil_pn:fileType="FILE_ASY" xil_pn:name="DSP_INPUT_C.asy" xil_pn:origination="imported"/>
-    <file xil_pn:fileType="FILE_SYMBOL" xil_pn:name="DSP_INPUT_C.sym" xil_pn:origination="imported"/>
     <file xil_pn:fileType="FILE_VHO" xil_pn:name="DSP_INPUT_C.vho" xil_pn:origination="imported"/>
   </files>
 

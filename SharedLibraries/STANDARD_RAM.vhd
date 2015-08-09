@@ -29,7 +29,7 @@ type ram is array (0 to COLUMN_TOTAL-1) of column;
 signal datamem: ram;
 signal i_DOUT,ii_DOUT:std_logic_vector (DATA_WIDTH-1 downto 0); 
 begin
-process (CLK)
+process (CLK,DIN,COL,ROW)
 begin
 if rising_edge(CLK) then
 	if (WE='1') then
