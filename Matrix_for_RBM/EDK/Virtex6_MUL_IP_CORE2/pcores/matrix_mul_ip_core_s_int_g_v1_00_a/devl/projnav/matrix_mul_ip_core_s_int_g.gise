@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<generated_project xmlns="http://www.xilinx.com/XMLSchema" xmlns:xil_pn="http://www.xilinx.com/XMLSchema">
+
+  <!--                                                          -->
+
+  <!--             For tool use only. Do not edit.              -->
+
+  <!--                                                          -->
+
+  <!-- ProjectNavigator created generated project file.         -->
+
+  <!-- For use in tracking generated file and other information -->
+
+  <!-- allowing preservation of process status.                 -->
+
+  <!--                                                          -->
+
+  <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved. -->
+
+  <version xmlns="http://www.xilinx.com/XMLSchema">11.1</version>
+
+  <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="matrix_mul_ip_core_s_int_g.xise"/>
+
+  <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:fileType="FILE_VEO" xil_pn:name="../../hdl/ipcores/BRAM18x1k.veo" xil_pn:origination="imported"/>
+    <file xil_pn:fileType="FILE_VEO" xil_pn:name="../../hdl/ipcores/DSP_INPUT_C.veo" xil_pn:origination="imported"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="../../hdl/ipcores/coregen.log"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="matrix_mul_ip_core_s_int_g.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="matrix_mul_ip_core_s_int_g.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="matrix_mul_ip_core_s_int_g.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="matrix_mul_ip_core_s_int_g.ngr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="matrix_mul_ip_core_s_int_g.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="matrix_mul_ip_core_s_int_g.stx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="matrix_mul_ip_core_s_int_g.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="matrix_mul_ip_core_s_int_g.xst"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="matrix_mul_ip_core_s_int_g_envsettings.html"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="matrix_mul_ip_core_s_int_g_summary.html"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="matrix_mul_ip_core_s_int_g_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
+  </files>
+
+  <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1439540264" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1439540264">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1439540264" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="7992412175909936266" xil_pn:start_ts="1439540264">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1439541088" xil_pn:in_ck="-2997023463822239991" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="-1628985794268473065" xil_pn:start_ts="1439540546">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="../../hdl/ipcores/BRAM18x1k.ngc"/>
+      <outfile xil_pn:name="../../hdl/ipcores/BRAM18x1k.v"/>
+      <outfile xil_pn:name="../../hdl/ipcores/DSP_INPUT_C.ngc"/>
+      <outfile xil_pn:name="../../hdl/ipcores/DSP_INPUT_C.v"/>
+    </transform>
+    <transform xil_pn:end_ts="1439540264" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1439540264">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1439540264" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="-8146030414028255686" xil_pn:start_ts="1439540264">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1439540264" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="15701343915878886" xil_pn:start_ts="1439540264">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1439540264" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="-5517555780391720351" xil_pn:start_ts="1439540264">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1439541221" xil_pn:in_ck="4301808393640795566" xil_pn:name="TRANEXT_xstsynthesize_virtex6" xil_pn:prop_ck="2318578007051476653" xil_pn:start_ts="1439541188">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
+      <outfile xil_pn:name="matrix_mul_ip_core_s_int_g.lso"/>
+      <outfile xil_pn:name="matrix_mul_ip_core_s_int_g.ngc"/>
+      <outfile xil_pn:name="matrix_mul_ip_core_s_int_g.ngr"/>
+      <outfile xil_pn:name="matrix_mul_ip_core_s_int_g.prj"/>
+      <outfile xil_pn:name="matrix_mul_ip_core_s_int_g.stx"/>
+      <outfile xil_pn:name="matrix_mul_ip_core_s_int_g.syr"/>
+      <outfile xil_pn:name="matrix_mul_ip_core_s_int_g.xst"/>
+      <outfile xil_pn:name="matrix_mul_ip_core_s_int_g_xst.xrpt"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+      <outfile xil_pn:name="xst"/>
+    </transform>
+  </transforms>
+
+</generated_project>

@@ -1,0 +1,232 @@
+Release 14.7 ngdbuild P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Command Line: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\ngdbuild.exe -p
+xc6vlx240tff1156-1 -nt timestamp -bm system.bmm
+C:/FPGA/Internship_Jobs/Codes/Virtex6_MUL_IP_CORE2/implementation/system.ngc -uc
+system.ucf system.ngd
+
+Reading NGO file
+"C:/FPGA/Internship_Jobs/Codes/Virtex6_MUL_IP_CORE2/implementation/system.ngc"
+...
+Loading design module
+"C:/FPGA/Internship_Jobs/Codes/Virtex6_MUL_IP_CORE2/implementation/system_rs232_
+uart_1_wrapper.ngc"...
+Loading design module
+"C:/FPGA/Internship_Jobs/Codes/Virtex6_MUL_IP_CORE2/implementation/system_proc_s
+ys_reset_0_wrapper.ngc"...
+Loading design module
+"C:/FPGA/Internship_Jobs/Codes/Virtex6_MUL_IP_CORE2/implementation/system_clock_
+generator_0_wrapper.ngc"...
+Loading design module
+"C:/FPGA/Internship_Jobs/Codes/Virtex6_MUL_IP_CORE2/implementation/system_microb
+laze_0_ilmb_wrapper.ngc"...
+Loading design module
+"C:/FPGA/Internship_Jobs/Codes/Virtex6_MUL_IP_CORE2/implementation/system_microb
+laze_0_dlmb_wrapper.ngc"...
+Loading design module
+"C:/FPGA/Internship_Jobs/Codes/Virtex6_MUL_IP_CORE2/implementation/system_axi4li
+te_0_wrapper.ngc"...
+Loading design module
+"C:/FPGA/Internship_Jobs/Codes/Virtex6_MUL_IP_CORE2/implementation/system_axi4_0
+_wrapper.ngc"...
+Loading design module
+"C:/FPGA/Internship_Jobs/Codes/Virtex6_MUL_IP_CORE2/implementation/system_microb
+laze_0_wrapper.ngc"...
+Loading design module
+"C:/FPGA/Internship_Jobs/Codes/Virtex6_MUL_IP_CORE2/implementation/system_microb
+laze_0_i_bram_ctrl_wrapper.ngc"...
+Loading design module
+"C:/FPGA/Internship_Jobs/Codes/Virtex6_MUL_IP_CORE2/implementation/system_microb
+laze_0_d_bram_ctrl_wrapper.ngc"...
+Loading design module
+"C:/FPGA/Internship_Jobs/Codes/Virtex6_MUL_IP_CORE2/implementation/system_debug_
+module_wrapper.ngc"...
+Loading design module
+"C:/FPGA/Internship_Jobs/Codes/Virtex6_MUL_IP_CORE2/implementation/system_linear
+_flash_wrapper.ngc"...
+Loading design module
+"C:/FPGA/Internship_Jobs/Codes/Virtex6_MUL_IP_CORE2/implementation/system_leds_p
+ositions_wrapper.ngc"...
+Loading design module
+"C:/FPGA/Internship_Jobs/Codes/Virtex6_MUL_IP_CORE2/implementation/system_leds_8
+bits_wrapper.ngc"...
+Loading design module
+"C:/FPGA/Internship_Jobs/Codes/Virtex6_MUL_IP_CORE2/implementation/system_matrix
+_mul_ip_core_s_int_g_0_wrapper.ngc"...
+Loading design module
+"C:/FPGA/Internship_Jobs/Codes/Virtex6_MUL_IP_CORE2/implementation/system_ddr3_s
+dram_wrapper.ngc"...
+Loading design module
+"C:/FPGA/Internship_Jobs/Codes/Virtex6_MUL_IP_CORE2/implementation/system_microb
+laze_0_bram_block_wrapper.ngc"...
+Loading design module
+"C:/FPGA/Internship_Jobs/Codes/Virtex6_MUL_IP_CORE2/implementation/system_linear
+_flash_invertor_wrapper.ngc"...
+Applying constraints in
+"C:/FPGA/Internship_Jobs/Codes/Virtex6_MUL_IP_CORE2/implementation/system_microb
+laze_0_ilmb_wrapper.ncf" to module "microblaze_0_ilmb"...
+Checking Constraint Associations...
+Applying constraints in
+"C:/FPGA/Internship_Jobs/Codes/Virtex6_MUL_IP_CORE2/implementation/system_microb
+laze_0_dlmb_wrapper.ncf" to module "microblaze_0_dlmb"...
+Checking Constraint Associations...
+Applying constraints in
+"C:/FPGA/Internship_Jobs/Codes/Virtex6_MUL_IP_CORE2/implementation/system_axi4li
+te_0_wrapper.ncf" to module "axi4lite_0"...
+Checking Constraint Associations...
+Applying constraints in
+"C:/FPGA/Internship_Jobs/Codes/Virtex6_MUL_IP_CORE2/implementation/system_axi4_0
+_wrapper.ncf" to module "axi4_0"...
+Checking Constraint Associations...
+Applying constraints in
+"C:/FPGA/Internship_Jobs/Codes/Virtex6_MUL_IP_CORE2/implementation/system_microb
+laze_0_wrapper.ncf" to module "microblaze_0"...
+Checking Constraint Associations...
+Applying constraints in
+"C:/FPGA/Internship_Jobs/Codes/Virtex6_MUL_IP_CORE2/implementation/system_ddr3_s
+dram_wrapper.ncf" to module "DDR3_SDRAM"...
+Checking Constraint Associations...
+Gathering constraint information from source properties...
+Done.
+INFO:NgdBuild:889 - Pad net 'DDR3_SDRAM/ddr_parity' is not connected to an
+   external port in this design.  A new port 'ddr_parity' has been added and is
+   connected to this signal.
+
+Annotating constraints to design from ucf file "system.ucf" ...
+Resolving constraint associations...
+Checking Constraint Associations...
+WARNING:ConstraintSystem:135 - Constraint <INST
+   /system/EXPANDED/system/axi4_0/axi4_0\/mi_converter_bank\/gen_conv_slot[0].cl
+   ock_conv_inst\/s_axi_aresetn_resync<2>_inv1_INV_0 TNM =
+   FFS:axi4_0_reset_resync>: No instances of type FFS were found under block
+   "axi4_0/axi4_0/mi_converter_bank/gen_conv_slot[0].clock_conv_inst/s_axi_arese
+   tn_resync<2>_inv1_INV_0" (type=INV).
+
+WARNING:ConstraintSystem:135 - Constraint <INST
+   /system/EXPANDED/system/axi4_0/axi4_0\/mi_converter_bank\/gen_conv_slot[0].cl
+   ock_conv_inst\/m_axi_aresetn_resync<2>_inv1_INV_0 TNM =
+   FFS:axi4_0_reset_resync>: No instances of type FFS were found under block
+   "axi4_0/axi4_0/mi_converter_bank/gen_conv_slot[0].clock_conv_inst/m_axi_arese
+   tn_resync<2>_inv1_INV_0" (type=INV).
+
+WARNING:ConstraintSystem:135 - Constraint <INST
+   /system/EXPANDED/system/axi4_0/axi4_0\/si_converter_bank\/gen_conv_slot[0].cl
+   ock_conv_inst\/interconnect_aresetn_resync<2>_inv1_INV_0 TNM =
+   FFS:axi4_0_reset_resync>: No instances of type FFS were found under block
+   "axi4_0/axi4_0/si_converter_bank/gen_conv_slot[0].clock_conv_inst/interconnec
+   t_aresetn_resync<2>_inv1_INV_0" (type=INV).
+
+WARNING:ConstraintSystem:135 - Constraint <INST
+   /system/EXPANDED/system/axi4lite_0/axi4lite_0\/si_converter_bank\/gen_conv_sl
+   ot[0].clock_conv_inst\/interconnect_aresetn_resync<2>_inv1_INV_0 TNM =
+   FFS:axi4lite_0_reset_resync>: No instances of type FFS were found under block
+   "axi4lite_0/axi4lite_0/si_converter_bank/gen_conv_slot[0].clock_conv_inst/int
+   erconnect_aresetn_resync<2>_inv1_INV_0" (type=INV).
+
+WARNING:ConstraintSystem:58 - Constraint <TIMEGRP axi4lite_0_reset_source = FFS
+   PADS CPUS;>: CPUS "*" does not match any design objects.
+
+WARNING:ConstraintSystem:58 - Constraint <TIMEGRP axi4_0_reset_source = FFS PADS
+   CPUS;>: CPUS "*" does not match any design objects.
+
+WARNING:ConstraintSystem:194 - The TNM 'axi4_0_reset_resync', does not directly
+   or indirectly drive any flip-flops, latches and/or RAMs and is not actively
+   used by any referencing constraint.
+
+WARNING:ConstraintSystem:194 - The TNM 'axi4_0_reset_resync', does not directly
+   or indirectly drive any flip-flops, latches and/or RAMs and is not actively
+   used by any referencing constraint.
+
+WARNING:ConstraintSystem:194 - The TNM 'axi4_0_reset_resync', does not directly
+   or indirectly drive any flip-flops, latches and/or RAMs and is not actively
+   used by any referencing constraint.
+
+WARNING:ConstraintSystem:194 - The TNM 'axi4lite_0_reset_resync', does not
+   directly or indirectly drive any flip-flops, latches and/or RAMs and is not
+   actively used by any referencing constraint.
+
+INFO:ConstraintSystem:178 - TNM 'sys_clk_pin', used in period specification
+   'TS_sys_clk_pin', was traced into MMCM_ADV instance
+   clock_generator_0/MMCM0_INST/MMCM_ADV_inst. The following new TNM groups and
+   period specifications were generated at the MMCM_ADV output(s): 
+   CLKOUT3: <TIMESPEC TS_clk_400_0000MHzMMCM0_nobuf_varphase = PERIOD
+   "clk_400_0000MHzMMCM0_nobuf_varphase" TS_sys_clk_pin * 2 HIGH 50%>
+
+INFO:ConstraintSystem:178 - TNM 'sys_clk_pin', used in period specification
+   'TS_sys_clk_pin', was traced into MMCM_ADV instance
+   clock_generator_0/MMCM0_INST/MMCM_ADV_inst. The following new TNM groups and
+   period specifications were generated at the MMCM_ADV output(s): 
+   CLKOUT1: <TIMESPEC TS_clock_generator_0_clock_generator_0_SIG_MMCM0_CLKOUT1 =
+   PERIOD "clock_generator_0_clock_generator_0_SIG_MMCM0_CLKOUT1" TS_sys_clk_pin
+   HIGH 50%>
+
+INFO:ConstraintSystem:178 - TNM 'sys_clk_pin', used in period specification
+   'TS_sys_clk_pin', was traced into MMCM_ADV instance
+   clock_generator_0/MMCM0_INST/MMCM_ADV_inst. The following new TNM groups and
+   period specifications were generated at the MMCM_ADV output(s): 
+   CLKOUT0: <TIMESPEC TS_clock_generator_0_clock_generator_0_SIG_MMCM0_CLKOUT0 =
+   PERIOD "clock_generator_0_clock_generator_0_SIG_MMCM0_CLKOUT0" TS_sys_clk_pin
+   * 0.5 HIGH 50%>
+
+INFO:ConstraintSystem:178 - TNM 'sys_clk_pin', used in period specification
+   'TS_sys_clk_pin', was traced into MMCM_ADV instance
+   clock_generator_0/MMCM0_INST/MMCM_ADV_inst. The following new TNM groups and
+   period specifications were generated at the MMCM_ADV output(s): 
+   CLKOUT2: <TIMESPEC TS_clock_generator_0_clock_generator_0_SIG_MMCM0_CLKOUT2 =
+   PERIOD "clock_generator_0_clock_generator_0_SIG_MMCM0_CLKOUT2" TS_sys_clk_pin
+   * 2 HIGH 50%>
+
+Done...
+
+Processing BMM file "system.bmm" ...
+
+Checking expanded design ...
+WARNING:NgdBuild:443 - SFF primitive
+   'microblaze_0/microblaze_0/MicroBlaze_Core_I/Performance.Decode_I/Using_FPGA.
+   Gen_Bits[27].MEM_EX_Result_Inst' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'Linear_Flash/Linear_Flash/EMC_CTRL_I/ADDR_COUNTER_MUX_I/ADDRESS_STORE_GEN[31
+   ].ADDRESS_REG' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'Linear_Flash/Linear_Flash/EMC_CTRL_I/ADDR_COUNTER_MUX_I/ADDRESS_STORE_GEN[30
+   ].ADDRESS_REG' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'Linear_Flash/Linear_Flash/EMC_CTRL_I/MEM_STEER_I/RDDATA_PATH_MUX_GEN.ASYNC_A
+   DDR_CNT_GEN.RDDATA_EN_GEN_ASYNC[3].RDDATA_EN_REG_ASYNC' has unconnected
+   output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'Linear_Flash/Linear_Flash/EMC_CTRL_I/MEM_STEER_I/ASYNC_MEM_RDACK_GEN.AALIGN_
+   PIPE_GEN[1].AALIGN_PIPE' has unconnected output pin
+WARNING:NgdBuild:443 - SFF primitive
+   'Linear_Flash/Linear_Flash/EMC_CTRL_I/MEM_STATE_MACHINE_I/READ_COMPLETE_PIPE_
+   GEN[6].READ_COMPLETE_PIPE' has unconnected output pin
+WARNING:NgdBuild:452 - logical net 'N28' has no driver
+WARNING:NgdBuild:452 - logical net 'N29' has no driver
+WARNING:NgdBuild:452 - logical net 'N30' has no driver
+WARNING:NgdBuild:452 - logical net 'N31' has no driver
+WARNING:NgdBuild:452 - logical net 'N32' has no driver
+WARNING:NgdBuild:452 - logical net 'N33' has no driver
+WARNING:NgdBuild:452 - logical net 'N34' has no driver
+WARNING:NgdBuild:452 - logical net 'N35' has no driver
+WARNING:NgdBuild:452 - logical net 'N36' has no driver
+WARNING:NgdBuild:452 - logical net 'N37' has no driver
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:  26
+
+Total memory usage is 311100 kilobytes
+
+Writing NGD file "system.ngd" ...
+Total REAL time to NGDBUILD completion: 1 min  44 sec
+Total CPU time to NGDBUILD completion:  1 min  42 sec
+
+Writing NGDBUILD log file "system.bld"...

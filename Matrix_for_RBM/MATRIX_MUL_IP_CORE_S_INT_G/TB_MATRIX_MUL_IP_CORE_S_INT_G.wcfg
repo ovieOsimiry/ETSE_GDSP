@@ -3,7 +3,7 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="C:/FPGA/Internship Jobs/Codes/ETSE_GDSP/Matrix_for_RBM/MATRIX_MUL_IP_CORE_S_INT_G/TB_MATRIX_MUL_IP_CORE_S_INT_G_isim_beh.wdb" id="1" type="auto">
+      <db_ref path="C:/FPGA/Internship_Jobs/Codes/ETSE_GDSP/Matrix_for_RBM/MATRIX_MUL_IP_CORE_S_INT_G/TB_MATRIX_MUL_IP_CORE_S_INT_G_isim_beh.wdb" id="1" type="auto">
          <top_modules>
             <top_module name="bip_dsp48_macro_pkg_v2_1" />
             <top_module name="bip_usecase_utils_pkg_v2_0" />
@@ -23,7 +23,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="26" />
+   <WVObjectSize size="28" />
    <wvobject fp_name="/tb_matrix_mul_ip_core_s_int_g/clk" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -76,6 +76,18 @@
    <wvobject fp_name="/tb_matrix_mul_ip_core_s_int_g/ready" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">ready</obj_property>
       <obj_property name="ObjectShortName">ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_matrix_mul_ip_core_s_int_g/uut/GRAM/row" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">row[9:0]</obj_property>
+      <obj_property name="ObjectShortName">row[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_matrix_mul_ip_core_s_int_g/uut/GRAM/col" type="array" db_ref_id="1">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">col[3:0]</obj_property>
+      <obj_property name="ObjectShortName">col[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="label">col[3:0]</obj_property>
    </wvobject>
    <wvobject fp_name="group365" type="group">
       <obj_property name="label">MEM_OUTPUTS</obj_property>
@@ -624,9 +636,11 @@
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/tb_matrix_mul_ip_core_s_int_g/uut/GRAM/col" type="array" db_ref_id="1">
+         <obj_property name="DisplayName">label</obj_property>
          <obj_property name="ElementShortName">col[3:0]</obj_property>
          <obj_property name="ObjectShortName">col[3:0]</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="label">col[3:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/tb_matrix_mul_ip_core_s_int_g/uut/GRAM/din" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">din[17:0]</obj_property>
