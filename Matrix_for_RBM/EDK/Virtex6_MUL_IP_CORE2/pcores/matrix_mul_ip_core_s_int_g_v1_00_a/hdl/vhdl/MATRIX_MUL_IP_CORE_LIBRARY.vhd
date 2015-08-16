@@ -17,8 +17,12 @@ CONSTANT OPCODE_WIDTH	: integer:=3;
 ---------------------------------------CONSTANT SIGNALS-----------------------------------------------
 
 -------------------------------These are use in CONTROL_UNIT_S_G.vhd and TB_MATRIX_MUL_IP_CORE-----------------------------------
+
+constant IDLE_CMD: std_logic_vector(1 downto 0):="00";
 constant LOAD_P_CMD: std_logic_vector(1 downto 0):="01";
-constant LOAD_G_CMD: std_logic_vector(1 downto 0):="00";
+constant LOAD_G_CMD: std_logic_vector(1 downto 0):="10";
+constant PG_CMD: std_logic_vector(1 downto 0):="11";
+
 -------------------------------------END OF CONSTANT SIGNALS------------------------------------------
  
 -------------------------------CUSTOM TYPES------------------------------------------------

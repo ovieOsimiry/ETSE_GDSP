@@ -1,18 +1,14 @@
-# ##############################################################################
-# 
-# BFM simulation system
-# 
-# Automatically created by Create and Import Peripheral Wizard
-# 
-# Thu Aug 13 21:51:30 2015
-# 
-# ##############################################################################
 
+# ##############################################################################
+# BFM simulation system
+# Automatically created by Create and Import Peripheral Wizard
+# Thu Aug 13 21:51:30 2015
+# ##############################################################################
  PARAMETER VERSION = 2.1.0
 
 
- PORT sys_reset = sys_reset, DIR = IN, SIGIS = RST
- PORT sys_clk = sys_clk, DIR = IN, SIGIS = CLK, CLK_FREQ = 100000000
+ PORT sys_reset = sys_reset, DIR = I, SIGIS = RST
+ PORT sys_clk = sys_clk, DIR = I, SIGIS = CLK, CLK_FREQ = 100000000
 
 
 BEGIN cdn_axi4_lite_master_bfm_wrap

@@ -155,11 +155,12 @@ end;
 
 type t_BRAM_DATA is array (0 to COLUMN_TOTAL-1) of std_logic_vector(DATA_WIDTH-1 downto 0);
 signal BRAM_DATA : t_BRAM_DATA;
-signal AXI_Bus2IP_WrCE : std_logic;
-signal AXI_Bus2IP_RdCE : std_logic;
+signal AXI_Bus2IP_WrCE : std_logic:='0';
+signal AXI_Bus2IP_RdCE : std_logic:='0';
 signal AXI_IP2Bus_RdAck : std_logic;
 signal AXI_IP2Bus_WrAck : std_logic;
 signal write_request : boolean:=false;
+signal read_debug_count : integer:=0;
 
  
 BEGIN
@@ -197,35 +198,37 @@ generic map(
           UN_LOADING_DONE => UN_LOADING_DONE
         );
 		  
-AXI_write_enable_process: process(CLK, AXI_IP2Bus_WrAck,write_request) is
-	 variable AXI_busy_counter :integer range 0 to 100:=0;
-	 variable seed1, seed2: positive;               -- seed values for random generator
-    variable rand: real;   -- random real-number value in range 0 to 1.0  
-    variable range_of_rand : real := 10.0;    -- the range of random values created will be 0 to +1000.
-    variable rand_num: integer;
-	begin
-	 if write_request = true then
-		if rising_edge(CLK) then
-			AXI_busy_counter := AXI_busy_counter + 1;
-		end if;
-		
-		uniform(seed1, seed2, rand);   -- generate random number
-    	--rand_num := integer(rand*range_of_rand);  -- rescale to 0..1000, convert integer part 
-		
-		if AXI_busy_counter mod (integer(rand*range_of_rand) + 1)= 0 then
-			if AXI_IP2Bus_WrAck = '1' then
-			 	AXI_Bus2IP_WrCE <= '0';
-			else
-				AXI_Bus2IP_WrCE <= '1';
-			end if;
-		else
-			if AXI_IP2Bus_WrAck = '1' then
-			 	AXI_Bus2IP_WrCE <= '0';
-			end if;
-		end if;
-	end if;
-		
-	end process;
+--AXI_write_enable_process: process(CLK, AXI_IP2Bus_WrAck,write_request) is
+--	 variable AXI_busy_counter :integer range 0 to 100:=0;
+--	 variable seed1, seed2: positive;               -- seed values for random generator
+--    variable rand: real;   -- random real-number value in range 0 to 1.0  
+--    variable range_of_rand : real := 10.0;    -- the range of random values created will be 0 to +1000.
+--    variable rand_num: integer;
+--	begin
+--	if write_request = true then
+--		if rising_edge(CLK) then
+--			AXI_busy_counter := AXI_busy_counter + 1;
+--		end if;
+--		
+--		uniform(seed1, seed2, rand);   -- generate random number
+--    	--rand_num := integer(rand*range_of_rand);  -- rescale to 0..1000, convert integer part 
+--		
+--		if AXI_busy_counter mod (integer(rand*range_of_rand) + 1)= 0 then
+--			if AXI_IP2Bus_WrAck = '1' then
+--			 	AXI_Bus2IP_WrCE <= '0';
+--			else
+--				AXI_Bus2IP_WrCE <= '1';
+--			end if;
+--		else
+--			if AXI_IP2Bus_WrAck = '1' then
+--			 	AXI_Bus2IP_WrCE <= '0';
+--			end if;
+--		end if;
+--	else
+--		AXI_Bus2IP_WrCE <= '0';
+--	end if;
+--		
+--	end process;
  
     -- Clock process definitions
 CLK_process :process
@@ -441,7 +444,7 @@ begin
 wait for clk_period; -- wait for the all values to be written to file
 
 PrintResultToConsole; -- Procedure to print the result to console. Read from Result file then print to console.
-PrintResultInCSVFormat; -- Procedure to print the result to a file in CSV format.
+--PrintResultInCSVFormat; -- Procedure to print the result to a file in CSV format.
 
 
 	
@@ -460,6 +463,7 @@ variable v_line_array: t_line_array;
 variable x: integer:=0;
 variable I_MAX,J_MAX :integer:=0;
 variable i:integer:=0;
+variable cnt: integer range 0 to 16:=0;
 begin	
 	
 	case cmd is
@@ -478,7 +482,8 @@ begin
 					
 					rst <= '0';
 					---wait for clk_period*2;--					
-					wait for clk_period*2; --wait until READY = '1';-- wait unitl MEMARRAY_V3 sends ready signal.					
+					wait until READY = '1';
+					wait for clk_period*7;				
 					for i in 1 to COLUMN_TOTAL loop
 						for j in 1 to COLUMN_TOTAL loop
 							readline (file_pointer,line_num);  --Read the whole line from the file
@@ -489,9 +494,16 @@ begin
 --							wait until AXI_IP2Bus_WrAck='1';
 --							write_request <= false;
 --							wait for CLK_period;
-							wait until AXI_Bus2IP_WrCE = '1';
-							DIN <= std_logic_vector(to_signed(x,DATA_WIDTH));											
+							--wait until AXI_Bus2IP_WrCE = '1';
+							--write_request <= true;
+							AXI_Bus2IP_WrCE <= '1';
+							DIN <= std_logic_vector(to_signed(x,DATA_WIDTH));
+							--wait for clk_period;
 							wait until AXI_IP2Bus_WrAck='1';
+							wait for clk_period;							
+							AXI_Bus2IP_WrCE <= '0';
+							wait for clk_period;
+							--write_request <= false;
 						end loop;
 					end loop;
 					file_close(file_pointer);  --after reading all the lines close the file.		
@@ -525,11 +537,18 @@ begin
 							readline (file_pointer,line_num);  --Read the whole line from the file
 							READ (line_num,x);
 							--report "The value of P" & integer'image(i) & integer'image(j) &" = " & integer'image(x);
-							wait until AXI_Bus2IP_WrCE = '1';
-							DIN <= std_logic_vector(to_signed(x,DATA_WIDTH));											
+--							wait until AXI_Bus2IP_WrCE = '1';
+--							DIN <= std_logic_vector(to_signed(x,DATA_WIDTH));											
+--							wait until AXI_IP2Bus_WrAck='1';
+--							
+--							wait for CLK_period;
+							AXI_Bus2IP_WrCE <= '1';
+							DIN <= std_logic_vector(to_signed(x,DATA_WIDTH));
+							--wait for clk_period;
 							wait until AXI_IP2Bus_WrAck='1';
-							
-							wait for CLK_period;
+							wait for clk_period;							
+							AXI_Bus2IP_WrCE <= '0';
+							wait for clk_period;
 						end loop;
 					end loop;
 					write_request <= false;
@@ -540,7 +559,7 @@ begin
 		
 		when cmd_Unload_BRAM_Content =>
 		-----------------------------------------Begining of UNLOAD BRAM-------------------------------------------------
-			LOAD <= "11";--'0';
+			LOAD <= IDLE_CMD;--"11";--'0';
 			UN_LOAD <= '1'; -- Tell FSM to go to unloading state.
 			--Bank_sel_in <= '1'; -- Tell BRAM to read data from upper bank. Note that this bit is the MSB of ADDRB and it is inverted For Address B. making it 1 means it is 0 for address B
 			wait for clk_period*3;
@@ -551,33 +570,75 @@ begin
 			--write(line_num,"#############" & MSG & "#############");--write(line_num,"############# These are the values loaded into BRAM ##############");
 			--writeline(output, sv_line);
 			if sv_Result_File_Open = false then
-				file_open(Result_file_pointer,"../../TestingFiles/MATRIX_MUL_IP_CORE_S_INT_G.txt", WRITE_MODE);
+				file_open(Result_file_pointer,"../../HDL/vhdl/MATRIX_MUL_IP_CORE_S_INT_G.txt", WRITE_MODE);
 			else
-				file_open(Result_file_pointer,"../../TestingFiles/MATRIX_MUL_IP_CORE_S_INT_G.txt", APPEND_MODE);
+				file_open(Result_file_pointer,"../../HDL/vhdl/MATRIX_MUL_IP_CORE_S_INT_G.txt", APPEND_MODE);
 			end if;			
 			write(line_num,"---------------BEGINNING OF SECTION (See end of Section for details)---------------");
 --			writeline(output, line_num);
 			writeline(Result_file_pointer,line_num);			
-			while UN_LOADING_DONE = '0' loop	-- Read out the values stored in BRAM and display on simulator waveform viewer. The values are read out in exactly the way they were saved.
-				
-				BRAM_DATA(i) <= r_dout; --dout;
-				wait for CLK_period;
-				i := i + 1;
-				if i = COLUMN_TOTAL then
-					for k in 0 to COLUMN_TOTAL-1 loop
-						if k = 0 then
-							write(line_num,str(to_integer(unsigned(BRAM_DATA(COLUMN_TOTAL-1-k)))),LEFT,10);
-							--write(v_line_array(k),str(to_integer(unsigned(BRAM_DATA(COLUMN_TOTAL-1-k)))),RIGHT,10);
-						else						
-							write(line_num, str(to_integer(unsigned(BRAM_DATA(COLUMN_TOTAL-1-k)))),LEFT,10);
-							--write(v_line_array(k),str(to_integer(unsigned(BRAM_DATA(COLUMN_TOTAL-1-k)))),RIGHT,10);
-						end if;
+--			while UN_LOADING_DONE = '0' loop	-- Read out the values stored in BRAM and display on simulator waveform viewer. The values are read out in exactly the way they were saved.
+--				
+--				BRAM_DATA(i) <= dout; --r_dout
+--				wait for CLK_period;
+--				i := i + 1;
+--				if i = COLUMN_TOTAL then
+--					for k in 0 to COLUMN_TOTAL-1 loop
+--						if k = 0 then
+--							write(line_num,str(to_integer(unsigned(BRAM_DATA(COLUMN_TOTAL-1-k)))),LEFT,10);
+--							--write(v_line_array(k),str(to_integer(unsigned(BRAM_DATA(COLUMN_TOTAL-1-k)))),RIGHT,10);
+--						else						
+--							write(line_num, str(to_integer(unsigned(BRAM_DATA(COLUMN_TOTAL-1-k)))),LEFT,10);
+--							--write(v_line_array(k),str(to_integer(unsigned(BRAM_DATA(COLUMN_TOTAL-1-k)))),RIGHT,10);
+--						end if;
+--					end loop;
+--					--writeline(output, line_num);
+--					writeline(Result_file_pointer,line_num);					
+--					i:=0;
+--				end if;
+--			end loop;
+			
+					for j in 0 to COLUMN_TOTAL+3 loop
+						for i in 0 to COLUMN_TOTAL-1 loop
+							if i = 3 and j < 4 then
+								AXI_Bus2IP_RdCE <= '1';
+								read_debug_count <= read_debug_count + 1;						
+								--wait for clk_period;
+								wait until AXI_IP2Bus_RdAck='1';
+	--							BRAM_DATA(i) <= dout; --r_dout
+								--wait for clk_period;							
+								AXI_Bus2IP_WrCE <= '0';
+								wait for clk_period;
+							end if;
+							
+								if j > 2 and j <= 6 then								
+									if not(i = 0 and j = 2) then
+										BRAM_DATA(cnt) <= dout;
+									end if;
+									if cnt = COLUMN_TOTAL-1 then
+										cnt := 0;
+										for k in 0 to COLUMN_TOTAL-1 loop
+											if k = 0 then
+												write(line_num,str(to_integer(unsigned(BRAM_DATA(COLUMN_TOTAL-1-k)))),LEFT,10);
+												--write(v_line_array(k),str(to_integer(unsigned(BRAM_DATA(COLUMN_TOTAL-1-k)))),RIGHT,10);
+											else						
+												write(line_num, str(to_integer(unsigned(BRAM_DATA(COLUMN_TOTAL-1-k)))),LEFT,10);
+												--write(v_line_array(k),str(to_integer(unsigned(BRAM_DATA(COLUMN_TOTAL-1-k)))),RIGHT,10);
+											end if;
+										end loop;
+										writeline(Result_file_pointer,line_num);
+									end if;
+									cnt := cnt + 1;
+								else
+							end if;
+						
+						--wait for clk_period;
+
+						end loop;
 					end loop;
-					--writeline(output, line_num);
-					writeline(Result_file_pointer,line_num);					
-					i:=0;
-				end if;
-			end loop;			
+			
+							
+						
 			
 			write(sv_line, str(g_cnt_delay_ready) & " clock cycles to unload" & "---------------");
 			--writeline(output, sv_line);

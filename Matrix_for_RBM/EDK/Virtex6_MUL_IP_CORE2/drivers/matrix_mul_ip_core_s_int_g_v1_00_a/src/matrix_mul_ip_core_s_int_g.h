@@ -21,6 +21,8 @@
  * User Logic Slave Space Offsets
  * -- SLV_REG0 : user logic slave module register 0
  * -- SLV_REG1 : user logic slave module register 1
+ * -- SLV_REG2 : user logic slave module register 2
+ * -- SLV_REG3 : user logic slave module register 3
  */
 #define matrix_mul_ip_core_s_int_g_USER_SLV_SPACE_OFFSET (0x00000000)
 #define matrix_mul_ip_core_s_int_g_SLV_REG0_OFFSET (matrix_mul_ip_core_s_int_g_USER_SLV_SPACE_OFFSET + 0x00000000)
@@ -141,11 +143,19 @@
  	Xil_Out32((BaseAddress) + (matrix_mul_ip_core_s_int_g_SLV_REG0_OFFSET) + (RegOffset), (Xuint32)(Value))
 #define matrix_mul_ip_core_s_int_g_mWriteSlaveReg1(BaseAddress, RegOffset, Value) \
  	Xil_Out32((BaseAddress) + (matrix_mul_ip_core_s_int_g_SLV_REG1_OFFSET) + (RegOffset), (Xuint32)(Value))
+#define MATRIX_MUL_IP_CORE_S_INT_G_mWriteSlaveReg2(BaseAddress, RegOffset, Value) \
+ 	Xil_Out32((BaseAddress) + (MATRIX_MUL_IP_CORE_S_INT_G_SLV_REG2_OFFSET) + (RegOffset), (Xuint32)(Value))
+#define MATRIX_MUL_IP_CORE_S_INT_G_mWriteSlaveReg3(BaseAddress, RegOffset, Value) \
+ 	Xil_Out32((BaseAddress) + (MATRIX_MUL_IP_CORE_S_INT_G_SLV_REG3_OFFSET) + (RegOffset), (Xuint32)(Value))
 
 #define matrix_mul_ip_core_s_int_g_mReadSlaveReg0(BaseAddress, RegOffset) \
  	Xil_In32((BaseAddress) + (matrix_mul_ip_core_s_int_g_SLV_REG0_OFFSET) + (RegOffset))
 #define matrix_mul_ip_core_s_int_g_mReadSlaveReg1(BaseAddress, RegOffset) \
  	Xil_In32((BaseAddress) + (matrix_mul_ip_core_s_int_g_SLV_REG1_OFFSET) + (RegOffset))
+#define MATRIX_MUL_IP_CORE_S_INT_G_mReadSlaveReg2(BaseAddress, RegOffset) \
+ 	Xil_In32((BaseAddress) + (MATRIX_MUL_IP_CORE_S_INT_G_SLV_REG2_OFFSET) + (RegOffset))
+#define MATRIX_MUL_IP_CORE_S_INT_G_mReadSlaveReg3(BaseAddress, RegOffset) \
+ 	Xil_In32((BaseAddress) + (MATRIX_MUL_IP_CORE_S_INT_G_SLV_REG3_OFFSET) + (RegOffset))
 
 /**
  *
@@ -182,48 +192,48 @@
  *
  */
 
-//#define READY_Pos			2 //18
-#define READY_Msk			1//(1U << READY_Pos)//(1UL << READ_Pos)
+//#define READY_Pos			0 //18
+#define READY_Msk			0x00000001//(1U << READY_Pos)//(1UL << READ_Pos)
 
-#define OP_DONE_Pos			1 //19
-#define OP_DONE_Msk			(1U << OP_DONE_Pos) //(1UL << OP_DONE_Pos)
+//#define OP_DONE_Pos			2 //19
+#define OP_DONE_Msk			0x00000002//(1U << OP_DONE_Pos) //(1UL << OP_DONE_Pos)
 
-#define LOADING_DONE_Pos	2 //20
-#define LOADING_DONE_Msk	(1U << LOADING_DONE_Pos)		//(1UL << LOADING_DONE_Pos)
+//#define LOADING_DONE_Pos	2 //20
+#define LOADING_DONE_Msk	0x00000004//(1U << LOADING_DONE_Pos)		//(1UL << LOADING_DONE_Pos)
 
-#define UN_LOADING_DONE_Pos	3 //21
-#define UN_LOADING_DONE_Msk	(1U << UN_LOADING_DONE_Pos) //(1UL << UN_LOADING_DONE_Pos)
+//#define UN_LOADING_DONE_Pos	3 //21
+#define UN_LOADING_DONE_Msk	0x00000008//(1U << UN_LOADING_DONE_Pos) //(1UL << UN_LOADING_DONE_Pos)
 
 
 
 typedef struct
 {
-		unsigned int READY: 1; //slv_reg1(18)
-		unsigned int OP_DONE : 1; //slv_reg1(19)
-		unsigned int LOADING_DONE : 1;//slv_reg1(20)
-		unsigned int UN_LOADING_DONE : 1;// slv_reg1(21)
+		unsigned int READY: 1; //slv_reg1(0)
+		unsigned int OP_DONE : 1; //slv_reg1(1)
+		unsigned int LOADING_DONE : 1;//slv_reg1(2)
+		unsigned int UN_LOADING_DONE : 1;// slv_reg1(4)
 
 }mul_ip_core_status_flags_t;
 
 
 
 //#define RST_Pos				18 //slv_reg00()
-#define RST_Msk				1//(1U << RST_Pos)//(1UL << READ_Pos)
+#define RST_Msk				0x00000001//(1U << RST_Pos)//(1UL << READ_Pos)
 
 #define LOAD_PG_Pos			1 //slv_reg0(2 downto 1)
-#define LOAD_PG_Msk			(3U << LOAD_PG_Pos) //(1UL << OP_DONE_Pos)
+#define LOAD_PG_Msk			(3U << LOAD_PG_Pos)//0x00000006//
 
 #define UNLOAD_Pos			3 //slv_reg0(3)
-#define UNLOAD_Msk			(1U << UNLOAD_Pos)		//(1UL << LOADING_DONE_Pos)
+#define UNLOAD_Msk			(1U << UNLOAD_Pos)//0x00000008//
 
 #define P_Pos				4 // slv_reg0(4)
-#define P_Msk				(1U << P_Pos) //(1UL << UN_LOADING_DONE_Pos)
+#define P_Msk				(1U << P_Pos) //0x00000010//
 
 #define G_Pos				5 // slv_reg0(5)
-#define G_Msk				(1U << G_Pos) //(1UL << UN_LOADING_DONE_Pos)
+#define G_Msk				(1U << G_Pos) //0x00000020//
 
 #define Bank_sel_in_Pos		6 //slv_reg0(6)
-#define Bank_sel_in_Msk		(1U << Bank_sel_in_Pos) //(1UL << UN_LOADING_DONE_Pos)
+#define Bank_sel_in_Msk		(1U << Bank_sel_in_Pos) //0x00000040//
 
 #define LOAD_P				1	//0b01
 #define LOAD_G				0	//0b00

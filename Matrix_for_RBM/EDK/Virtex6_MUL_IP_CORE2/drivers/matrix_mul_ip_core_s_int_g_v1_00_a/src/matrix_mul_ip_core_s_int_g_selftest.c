@@ -89,13 +89,20 @@ XStatus MATRIX_MUL_IP_CORE_SelfTest(void * baseaddr_p)
   configValue1 = ReadMulIpCoreConfigFlags();
   xil_printf("IP Core Config1:\n\r");
   xil_printf("RST = %d, Bank = %d, LOAD_PG = %d, UNLOAD = %d, P = %d, G = %d\n\n\r",configValue1.RST,configValue1.Bank_sel_in,configValue1.LOAD_PG,configValue1.UNLOAD,configValue1.P,configValue1.G);
-  delay(3);
+  statusValue1 = ReadMulIpCoreStatusFlags();
+  xil_printf("IP Core Status:\n\r");
+  xil_printf("READY = %d, LOADING_DONE = %d, OPDONE = %d, UN_LOADING_DONE = %d\n\n\r",statusValue1.READY,statusValue1.LOADING_DONE,statusValue1.OP_DONE,statusValue1.UN_LOADING_DONE);
+
+  delay(10);
   mul_ip_write_handle.RST = 0;
   WriteMulIPCoreStatus(mul_ip_write_handle);
   configValue2 = ReadMulIpCoreConfigFlags();
 
-  xil_printf("IP Core Config2:\n\r");
+   xil_printf("IP Core Config2:\n\r");
    xil_printf("RST = %d, Bank = %d, LOAD_PG = %d, UNLOAD = %d, P = %d, G = %d\n\n\r",configValue2.RST,configValue2.Bank_sel_in,configValue2.LOAD_PG,configValue2.UNLOAD,configValue2.P,configValue2.G);
+   statusValue2 = ReadMulIpCoreStatusFlags();
+   xil_printf("IP Core Status1:\n\r");
+   xil_printf("READY = %d, LOADING_DONE = %d, OPDONE = %d, UN_LOADING_DONE = %d\n\n\r",statusValue2.READY,statusValue2.LOADING_DONE,statusValue2.OP_DONE,statusValue2.UN_LOADING_DONE);
 
 
     while (statusValue1.READY == 0)
@@ -111,6 +118,7 @@ XStatus MATRIX_MUL_IP_CORE_SelfTest(void * baseaddr_p)
     for (i=1;i<17;i++)
     {
     	matrix_mul_ip_core_s_int_g_mWriteReg(_baseAddress,matrix_mul_ip_core_s_int_g_SLV_REG2_OFFSET, i);
+    	delay(4);
     }
 
     //xil_printf("Finished writing data to GRAM\n\n\r");
@@ -133,8 +141,8 @@ XStatus MATRIX_MUL_IP_CORE_SelfTest(void * baseaddr_p)
       	  mul_ip_write_handle.UNLOAD = 1;
         WriteMulIPCoreStatus(mul_ip_write_handle);
         configValue1 = ReadMulIpCoreConfigFlags();
-        xil_printf("IP Core Config1:\n\r");
-        xil_printf("RST = %d, Bank = %d, LOAD_PG = %d, UNLOAD = %d, P = %d, G = %d\n\n\r",configValue1.RST,configValue1.Bank_sel_in,configValue1.LOAD_PG,configValue1.UNLOAD,configValue1.P,configValue1.G);
+//        xil_printf("IP Core Config1:\n\r");
+//        xil_printf("RST = %d, Bank = %d, LOAD_PG = %d, UNLOAD = %d, P = %d, G = %d\n\n\r",configValue1.RST,configValue1.Bank_sel_in,configValue1.LOAD_PG,configValue1.UNLOAD,configValue1.P,configValue1.G);
 
         while (statusValue1.READY == 0)
         {

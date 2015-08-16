@@ -15,7 +15,7 @@ UserCmd2:
 UserCmd2Type: 0
 GenSimTB: 1
 SdkExportBmmBit: 1
-SdkExportDir: 
+SdkExportDir: SDK/SDK_Export
 InsertNoPads: 0
 WarnForEAArch: 1
 HdlLang: VERILOG

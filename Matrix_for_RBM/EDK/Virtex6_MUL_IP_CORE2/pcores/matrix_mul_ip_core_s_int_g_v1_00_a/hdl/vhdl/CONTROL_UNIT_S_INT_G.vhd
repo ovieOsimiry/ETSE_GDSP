@@ -69,15 +69,19 @@ type state_type is (START,LOAD_G,LOAD_P,LOAD_DONE,PG,PtG,PGt,PtGt,DONE,UNLOAD);-
 signal current_state,next_state: state_type;
 --signal s_P_ADDR : STD_LOGIC_VECTOR(ADDR_WIDTH - 2 downto 0);
 signal cnt_delay_ready: integer range 0 to (PIPELINE_DELAY + 1 + COLUMN_TOTAL*COLUMN_TOTAL);-- The counter should be able to count up to square of TOTAL_NUM_OF_COLUMNS + 1 +Pipeline delay
+--signal write_ack_count: integer range 0 to (COLUMN_TOTAL * COLUMN_TOTAL);
 signal s_G_WE, s_WE: std_logic;
 
 --dubug sigals
 signal s_a, s_b: integer:=0;
-signal count : boolean:=false;
+--signal count : boolean:=false;
 signal s_READY : std_logic;
 signal s_AXI_IP2Bus_RdAck : std_logic;
-signal s_LOADING_DONE : std_logic;
+signal s_LOADING_DONE,s_v_LOADING_DONE : std_logic;
 signal s_UN_LOADING_DONE : std_logic;
+signal s_Wr_Ack : std_logic;
+signal s_flag_WrData_Complete : boolean;
+--signal s_AXI_IP2Bus_WrAck : std_logic;
 --signal s_fsm_generate_address : boolean:=true;
 
 begin
@@ -96,6 +100,8 @@ FLAGS_and_Current_state_update:process (CLK, RST)
 -- and user to Respond. Typically this value could be set to 3 instead of 4 to give the user 1 clock cycle to react. But for simulation
 -- Purpose the value 4 is ok. 
 	variable v_cnt_delay_ready: integer range 0 to ((PIPELINE_DELAY + 1)  + COLUMN_TOTAL*COLUMN_TOTAL);
+	variable write_ack_count: integer range 0 to (COLUMN_TOTAL * COLUMN_TOTAL);
+	variable count : boolean:=false;
 begin
 if rising_edge(CLK) then
 		if(RST='1') then
@@ -103,76 +109,153 @@ if rising_edge(CLK) then
 			AXI_IP2Bus_RdAck <= AXI_Bus2IP_RdCE;
 			AXI_IP2Bus_WrAck <= AXI_Bus2IP_WrCE;
 			v_cnt_delay_ready := 0;
+			write_ack_count := 0;
 			s_READY <= '0';
 			s_LOADING_DONE <= '0';
 			s_UN_LOADING_DONE <= '0';
-			OP_DONE <= '0';			
+			OP_DONE <= '0';
+			s_flag_WrData_Complete <= false;		
 		else
 			current_state <= next_state;   --state change.
 			if current_state = LOAD_G then
-				if count = true or s_READY = '0' then
-					v_cnt_delay_ready := v_cnt_delay_ready + 1;
+				
+				if write_ack_count >= COLUMN_TOTAL*COLUMN_TOTAL then--or s_READY = '0' then --if (s_G_WE or s_WE)= '1' or s_READY = '0' then--
+					if v_cnt_delay_ready < PIPELINE_DELAY+1 then
+						v_cnt_delay_ready := v_cnt_delay_ready + 1;						
+					else
+						s_LOADING_DONE <= '1';
+					end if;				
 				end if;	
+				
 				AXI_IP2Bus_RdAck <= AXI_Bus2IP_RdCE;
-				if v_cnt_delay_ready >= 2 then
+				
+				--if v_cnt_delay_ready >= 8 then
 					s_READY <= '1';					
-				end if;
+				--end if;
 				
-				if v_cnt_delay_ready = (PIPELINE_DELAY + 1 + COLUMN_TOTAL*COLUMN_TOTAL) then
-					s_LOADING_DONE <= '1';
-				end if;
-				
-				if s_LOADING_DONE = '1' then
-					AXI_IP2Bus_WrAck <= AXI_Bus2IP_WrCE;
+				if AXI_Bus2IP_WrCE = '1' then
+					AXI_IP2Bus_WrAck <= '1';
+					write_ack_count := write_ack_count + 1;
+					count := true;
+					if write_ack_count >= COLUMN_TOTAL*COLUMN_TOTAL then
+						s_flag_WrData_Complete <= true;
+					else
+						s_flag_WrData_Complete <= false;
+					end if;					
 				else
-					AXI_IP2Bus_WrAck <= s_G_WE or s_WE;
+					AXI_IP2Bus_WrAck <= '0';
+					count := false;
 				end if;
+
 			elsif current_state = LOAD_P then
-				if count = true or s_READY = '0' then
-					v_cnt_delay_ready := v_cnt_delay_ready + 1;
-				end if;
--- Note if DIN input to DSP block is delayed from GRAM (3 stage Pipeline) instead of using the 2 stage Pipeline in MEMARRY then this value should be 1 otherwise set it to 4.				
-				if v_cnt_delay_ready >= 4 then
-					s_READY <= '1';
-				end if;
-				AXI_IP2Bus_RdAck <= AXI_Bus2IP_RdCE;
-				if v_cnt_delay_ready = (PIPELINE_DELAY + 1 + COLUMN_TOTAL*COLUMN_TOTAL) then
-					s_LOADING_DONE <= '1';
-				end if;
+--				if count = true or s_READY = '0' then
+--					v_cnt_delay_ready := v_cnt_delay_ready + 1;
+--				end if;
+---- Note if DIN input to DSP block is delayed from GRAM (3 stage Pipeline) instead of using the 2 stage Pipeline in MEMARRY then this value should be 1 otherwise set it to 4.				
+--				if v_cnt_delay_ready >= 4 then
+--					s_READY <= '1';
+--				end if;
+--				AXI_IP2Bus_RdAck <= AXI_Bus2IP_RdCE;
+--				if v_cnt_delay_ready = (PIPELINE_DELAY + 1 + COLUMN_TOTAL*COLUMN_TOTAL) then
+--					s_LOADING_DONE <= '1';
+--				end if;
+--				
+--				if s_LOADING_DONE = '1' then
+--					AXI_IP2Bus_WrAck <= AXI_Bus2IP_WrCE;
+--				else
+--					AXI_IP2Bus_WrAck <= s_G_WE or s_WE;--s_Wr_Ack or s_G_WE or s_WE;
+--				end if;
+
+				if write_ack_count >= COLUMN_TOTAL*COLUMN_TOTAL then--or s_READY = '0' then --if (s_G_WE or s_WE)= '1' or s_READY = '0' then--
+					if v_cnt_delay_ready < PIPELINE_DELAY+1 then
+						v_cnt_delay_ready := v_cnt_delay_ready + 1;						
+					else
+						s_LOADING_DONE <= '1';
+					end if;				
+				end if;	
 				
-				if s_LOADING_DONE = '1' then
-					AXI_IP2Bus_WrAck <= AXI_Bus2IP_WrCE;
+				AXI_IP2Bus_RdAck <= AXI_Bus2IP_RdCE;
+				
+				--if v_cnt_delay_ready >= 8 then
+					s_READY <= '1';					
+				--end if;
+				
+				if AXI_Bus2IP_WrCE = '1' then
+					AXI_IP2Bus_WrAck <= '1';
+					write_ack_count := write_ack_count + 1;
+					count := true;
+					if write_ack_count >= COLUMN_TOTAL*COLUMN_TOTAL then
+						s_flag_WrData_Complete <= true;
+					else
+						s_flag_WrData_Complete <= false;
+					end if;					
 				else
-					AXI_IP2Bus_WrAck <= s_G_WE or s_WE;
+					AXI_IP2Bus_WrAck <= '0';
+					count := false;
 				end if;
 				
 			elsif current_state = UNLOAD then
-				if count = true then
-					v_cnt_delay_ready := v_cnt_delay_ready + 1;
-				end if;
-				if v_cnt_delay_ready >= PIPELINE_DELAY then
-					s_READY <= '1';
-				end if;
+--				if count = true then
+--					v_cnt_delay_ready := v_cnt_delay_ready + 1;
+--				end if;
+--				if v_cnt_delay_ready >= PIPELINE_DELAY then
+--					s_READY <= '1';
+--				end if;
+--				
+--				AXI_IP2Bus_WrAck <= AXI_Bus2IP_WrCE;
+--				
+--				if v_cnt_delay_ready >= (PIPELINE_DELAY + COLUMN_TOTAL*COLUMN_TOTAL) then
+--					s_UN_LOADING_DONE <= '1';
+--				end if;
+--				
+--				if s_UN_LOADING_DONE = '1' then
+--					AXI_IP2Bus_RdAck <= AXI_Bus2IP_RdCE;
+--				else
+--					AXI_IP2Bus_RdAck <= s_AXI_IP2Bus_RdAck;
+--				end if;
+				if write_ack_count >= COLUMN_TOTAL*COLUMN_TOTAL then--or s_READY = '0' then --if (s_G_WE or s_WE)= '1' or s_READY = '0' then--
+					if v_cnt_delay_ready < PIPELINE_DELAY+4 then
+						v_cnt_delay_ready := v_cnt_delay_ready + 1;						
+					else
+						s_UN_LOADING_DONE <= '1';
+					end if;	
+				else
+					if v_cnt_delay_ready <= 3 then
+						v_cnt_delay_ready := v_cnt_delay_ready + 1;
+					end if;			
+				end if;	
 				
 				AXI_IP2Bus_WrAck <= AXI_Bus2IP_WrCE;
 				
-				if v_cnt_delay_ready >= (PIPELINE_DELAY + COLUMN_TOTAL*COLUMN_TOTAL) then
-					s_UN_LOADING_DONE <= '1';
-				end if;
+				--if v_cnt_delay_ready >= 8 then
+					s_READY <= '1';					
+				--end if;
 				
-				if s_UN_LOADING_DONE = '1' then
-					AXI_IP2Bus_RdAck <= AXI_Bus2IP_RdCE;
+				if AXI_Bus2IP_RdCE = '1' then
+					AXI_IP2Bus_RdAck <= '1';
+					write_ack_count := write_ack_count + 1;
+					count := true;
+					if write_ack_count >= COLUMN_TOTAL*COLUMN_TOTAL then
+						s_flag_WrData_Complete <= true;
+					else
+						s_flag_WrData_Complete <= false;
+					end if;					
 				else
-					AXI_IP2Bus_RdAck <= s_AXI_IP2Bus_RdAck;
+					AXI_IP2Bus_RdAck <= '0';
+					count := false;
 				end if;
 			elsif current_state = PG or current_state = PGt or current_state = PtG or current_state = PtGt then
 				v_cnt_delay_ready := v_cnt_delay_ready + 1;
 				if v_cnt_delay_ready >= (PIPELINE_DELAY + COLUMN_TOTAL*COLUMN_TOTAL) then
 					OP_DONE <= '1';
 				end if;
+				write_ack_count := 0;
+				s_flag_WrData_Complete <= false;
 				AXI_IP2Bus_RdAck <= AXI_Bus2IP_RdCE;
 				AXI_IP2Bus_WrAck <= AXI_Bus2IP_WrCE;		
 			else
+				write_ack_count := 0;
+				s_flag_WrData_Complete <= false;
 				AXI_IP2Bus_RdAck <= AXI_Bus2IP_RdCE;
 				AXI_IP2Bus_WrAck <= AXI_Bus2IP_WrCE;
 				s_READY <= '0';
@@ -187,11 +270,11 @@ cnt_delay_ready <= v_cnt_delay_ready;
 g_cnt_delay_ready <= v_cnt_delay_ready;--write to global variable
 end process;
 -----------------------------------------------------------
-process(CLK)
+process(CLK,s_flag_WrData_Complete)
 variable i,j,v_load_count: integer range 0 to COLUMN_TOTAL;
 variable v_CSEL : std_logic_vector(COLUMN_TOTAL-1 downto 0);
 variable v_OPCODE: std_logic_vector(OPCODE_WIDTH-1 downto 0);
-variable v_WE: std_logic;
+variable v_WE,v_WrAck: std_logic;
 variable v_LOADING_DONE, v_OP_DONE, v_UNLOAD_DONE: std_logic:='0';
 variable v_i_addr_cnt: integer range 0 to COLUMN_TOTAL;
 variable proceed : boolean:=false;
@@ -204,40 +287,41 @@ if (rising_edge(CLK)) then
 			i_row_cnt<=0;
 			i_col_cnt<=0;
 			i_addr_cnt <= 1;
-		 	count <= true;
+		 	--count <= true;
 			--AXI_IP2Bus_RdAck <= '1';
 			G_EN <= '0';
 			s_G_WE <= '0';
+			s_WE <= '0';
+			s_Wr_Ack <= '0';
 			s_AXI_IP2Bus_RdAck <= '0';			
 			--OP_DONE<='0';--reset the done signal
 			v_OP_DONE := '0';--reset the done signal
 			v_LOADING_DONE:='0';
 			proceed := false;
 			v_UNLOAD_DONE := '1';-- This is supposed to be set to '0' but it is ok because it is reset in the LOAD_DONE state. It was necessary to set it to '1' to prevent synthesis tool from optimizing it.
-			next_state<=current_state;
 			CONTROL_A_INPUT_OF_DSP <= "00";--'0';
 			i:=0;
 			j:=0;
 			Read_SHFT <='0';
-			Write_SHFT <= '0';
-			s_WE <= '0';
+			Write_SHFT <= '0';			
 			OPCODE <= (others => '0');
-
-			s_CSEL <= (others => '0'); 			
-				IF LOAD_PG = LOAD_G_CMD then
-					next_state<=LOAD_G;
-				ELSIF LOAD_PG = LOAD_P_CMD then
-					next_state <= LOAD_P;				
-				ELSE
-					next_state<=LOAD_DONE;
-				END IF;
+			s_CSEL <= (others => '0'); 
+			next_state<=LOAD_DONE; --next_state<=current_state;		
+--				IF LOAD_PG = LOAD_G_CMD then
+--					next_state<=LOAD_G;
+--				ELSIF LOAD_PG = LOAD_P_CMD then
+--					next_state <= LOAD_P;				
+--				ELSE
+--					next_state<=LOAD_DONE;
+--				END IF;
 					-----------------------------------
 		when LOAD_G =>
 			--AXI_IP2Bus_RdAck <= '1';
-			if v_LOADING_DONE = '0' then
+			if s_flag_WrData_Complete = false then--if v_LOADING_DONE = '0' then				
+				v_WrAck := '0';
 				if AXI_Bus2IP_WrCE = '1' then -- If AXI bus is signalling a write command then execute this. enable GRAM write enable.
 					v_WE := '1';
-					count <= true;
+					--count <= true;
 						if i = COLUMN_TOTAL then--if i_row_cnt = COLUMN_TOTAL-1 then
 							
 							if i = COLUMN_TOTAL and j = COLUMN_TOTAL-1 then--if i_row_cnt = COLUMN_TOTAL-1 and i_col_cnt = COLUMN_TOTAL-1 then
@@ -254,14 +338,18 @@ if (rising_edge(CLK)) then
 						end if;
 				else
 					v_WE := '0';
-					count <= false;
+					--count <= false;
 				end if;			
 			else				
-				if v_LOADING_DONE = '1' and cnt_delay_ready = (PIPELINE_DELAY + COLUMN_TOTAL*COLUMN_TOTAL) then -- wait until data gets to GRAM. 
-					proceed := true;
-					count <= false;																	
+--				if v_LOADING_DONE = '1' and cnt_delay_ready = (PIPELINE_DELAY + COLUMN_TOTAL*COLUMN_TOTAL) then -- wait until data gets to GRAM. 
+--					proceed := true;					--count <= false;																	
+--				end if;
+
+				if  cnt_delay_ready = (PIPELINE_DELAY + 1) then -- wait until data gets to GRAM. 
+					proceed := true;					--count <= false;																	
 				end if;
 				
+				v_WrAck := '1';
 				if proceed = true then
 					if LOAD_PG = LOAD_G_CMD then
 						next_state <= LOAD_G;--remain here untilt signal changes from load_g to load_p or something else.
@@ -272,16 +360,21 @@ if (rising_edge(CLK)) then
 				v_WE := '0';
 			end if;
 			s_G_WE <= v_WE;
+			s_Wr_Ack <= v_WrAck;
 			i_row_cnt <= i-1;
 			i_col_cnt <= j;
+			s_v_LOADING_DONE <= v_LOADING_DONE;
+			s_a <= i;
+			s_b <= j;		
 		when LOAD_P =>
 				--AXI_IP2Bus_RdAck <= '1';
 				OPCODE <="000";	-- Set DSP output to A input, the Data passes through DSP so we do not want to perform any operation on the data since we are just saving it on block RAM. (P = A)			
-				if v_LOADING_DONE = '0' then					
+				if s_flag_WrData_Complete = false then --if v_LOADING_DONE = '0' then					
 					v_LOADING_DONE := '0';
+					v_WrAck := '0';
 					if AXI_Bus2IP_WrCE = '1' then -- If AXI bus is signalling a write command then execute this. enable GRAM write enable.
 						v_WE := '1';
-						count <= true;					
+						--count <= true;					
 						if i = COLUMN_TOTAL then -- check if we have finished a mini-round of data loading (for a 3by3 matrix this will be when i=3)
 							
 							if i = COLUMN_TOTAL and j = COLUMN_TOTAL-1 then -- if loading is complete set LOADING_DONE signal.
@@ -308,17 +401,19 @@ if (rising_edge(CLK)) then
 							end if;
 						end if;
 					else
-						count <= false;
+						--count <= false;
 						v_WE := '0';
 					end if;
 				else
 					
-					if v_LOADING_DONE = '1' and cnt_delay_ready = (PIPELINE_DELAY + COLUMN_TOTAL*COLUMN_TOTAL) then -- wait until gets to BRAM. 
-						next_state <= LOAD_DONE;
-						count <= false;
-						proceed := true;
+--					if v_LOADING_DONE = '1' and cnt_delay_ready = (PIPELINE_DELAY + COLUMN_TOTAL*COLUMN_TOTAL) then -- wait until gets to BRAM. 
+--						--count <= false;
+--						proceed := true;
+--					end if;
+					if  cnt_delay_ready = (PIPELINE_DELAY + 1) then -- wait until data gets to GRAM. 
+						proceed := true;					--count <= false;																	
 					end if;
-					
+					v_WrAck := '1';
 					if proceed = true then
 						if LOAD_PG = LOAD_P_CMD then
 							next_state <= LOAD_P;--remain here untilt signal changes from load_g to load_p or something else.
@@ -330,12 +425,13 @@ if (rising_edge(CLK)) then
 				end if;
 				i_addr_cnt <= j;
 				s_CSEL <= v_CSEL;
-				s_WE <= v_WE;				
+				s_WE <= v_WE;
+				s_Wr_Ack <= v_WrAck;								
 		when LOAD_DONE =>
 				--AXI_IP2Bus_RdAck <= '1';
 				i:=0;
 				j:=0;
-				count <= true;
+				--count <= true;
 				s_WE <= '0';
 				Write_SHFT <= '0';
 				v_UNLOAD_DONE := '0';
@@ -346,48 +442,51 @@ if (rising_edge(CLK)) then
 					next_state <= LOAD_G;
 				elsif LOAD_PG = LOAD_P_CMD then					
 					next_state <= LOAD_P;
-				else
-					Write_SHFT <= '1';
+				elsif LOAD_PG = IDLE_CMD then
 					if UN_LOAD = '1' then
-						next_state <= UNLOAD;	
+						next_state <= UNLOAD;
 					else
+						next_state <= LOAD_DONE;
+					end if;
+				else
+					Write_SHFT <= '1';					
 						G_EN <= '1'; -- Enable GRAM
 						CONTROL_A_INPUT_OF_DSP <= "11";
-							if (P='0') then
-									if G='0' then
-										next_state<=PG;
-										i_addr_cnt<=COLUMN_TOTAL-1;
-										i_row_cnt<=1;
-										i_col_cnt<=0;
-										Read_SHFT <='1';							
-										OPCODE<="001";
-									else
-										next_state<=PGt;
-										Read_SHFT <='1';							
-										i_addr_cnt<=COLUMN_TOTAL-1;
-										i_row_cnt<=0;
-										i_col_cnt<=1;
-										OPCODE<="001";
-									end if;
-								else
-									if G='0' then
-										next_state<=PtG;
-										Read_SHFT <='0';							
-										i_addr_cnt<=1;
-										i_row_cnt<=1;
-										i_col_cnt<=0;
-										OPCODE<="001";
-									else
-										next_state<=PtGt;
-										Read_SHFT <='0';
-										i_addr_cnt<=1;
-										i_row_cnt<=0;
-										i_col_cnt<=1;
-										OPCODE<="001";
-									end if;
-								end if;
+						v_UNLOAD_DONE := '0';
+						if (P='0') then
+							if G='0' then
+								next_state<=PG;
+								i_addr_cnt<=COLUMN_TOTAL-1;
+								i_row_cnt<=1;
+								i_col_cnt<=0;
+								Read_SHFT <='1';							
+								OPCODE<="001";
+							else
+								next_state<=PGt;
+								Read_SHFT <='1';							
+								i_addr_cnt<=COLUMN_TOTAL-1;
+								i_row_cnt<=0;
+								i_col_cnt<=1;
+								OPCODE<="001";
+							end if;
+						else
+							if G='0' then
+								next_state<=PtG;
+								Read_SHFT <='0';							
+								i_addr_cnt<=1;
+								i_row_cnt<=1;
+								i_col_cnt<=0;
+								OPCODE<="001";
+							else
+								next_state<=PtGt;
+								Read_SHFT <='0';
+								i_addr_cnt<=1;
+								i_row_cnt<=0;
+								i_col_cnt<=1;
+								OPCODE<="001";
 							end if;
 						end if;
+					end if;
 		when PG =>
 					v_OPCODE :="011";
 					s_WE <='0';					
@@ -591,22 +690,22 @@ if (rising_edge(CLK)) then
 					s_WE<='0';
 					Read_SHFT <= '0';					
 					--OP_DONE<='0';
-					v_OP_DONE := '0';
-					v_UNLOAD_DONE := '0';	
+--					v_OP_DONE := '0';
+--					v_UNLOAD_DONE := '0';	
 					i:=0;
 					j:=0;
-					--AXI_IP2Bus_RdAck <= '1';
-					--s_P_ADDR <= std_logic_vector(to_unsigned(j, ADDR_WIDTH-1));
-					if UN_LOAD = '1' then
-					 next_state <= UNLOAD;
-					 --count <= true;
+					if LOAD_PG = PG_CMD then
+						next_state <= DONE;
+					else
+						next_state <= LOAD_DONE;
 					end if;
+
 			when others =>				
 				--s_fsm_generate_address <= true;
-				if v_UNLOAD_DONE = '0' then
+				if s_flag_WrData_Complete = false then--if v_UNLOAD_DONE = '0' then
 					CONTROL_A_INPUT_OF_DSP <= "01";--'1';
 					if AXI_Bus2IP_RdCE = '1' then
-						count <= true;
+						--count <= true;
 						if j > COLUMN_TOTAL then -- J = 0 initially.
 							v_UNLOAD_DONE := '1';
 							v_OP_DONE := '1';
@@ -629,7 +728,7 @@ if (rising_edge(CLK)) then
 						end if;
 						s_AXI_IP2Bus_RdAck <= '1';
 					else
-						count <= false;
+						--count <= false;
 						s_AXI_IP2Bus_RdAck <= '0';
 					end if;					
 				else
@@ -637,10 +736,14 @@ if (rising_edge(CLK)) then
 					v_OP_DONE := '0';
 					v_OPCODE := "111";
 					v_UNLOAD_DONE := '1';
-					count <= false;
+					--count <= false;
+					if UN_LOAD = '1' then
+						next_state <= UNLOAD;
+					else
+						next_state <= LOAD_DONE;
+					end if;
 				end if;
 				OPCODE<= v_OPCODE;
-				--s_P_ADDR <= std_logic_vector(to_unsigned(j-1, ADDR_WIDTH-1));
 				i_addr_cnt <= j-1;											
 	end case;
 end if;

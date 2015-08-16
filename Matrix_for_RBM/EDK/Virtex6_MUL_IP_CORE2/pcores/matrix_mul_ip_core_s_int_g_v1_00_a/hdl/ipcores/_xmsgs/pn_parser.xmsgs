@@ -8,5 +8,8 @@
 <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/FPGA/Internship_Jobs/Codes/ETSE_GDSP/Matrix_for_RBM/EDK/Virtex6_MUL_IP_CORE2/pcores/matrix_mul_ip_core_s_int_g_v1_00_a/hdl/ipcores/DSP_INPUT_C.v&quot; into library work</arg>
+</msg>
+
 </messages>
 

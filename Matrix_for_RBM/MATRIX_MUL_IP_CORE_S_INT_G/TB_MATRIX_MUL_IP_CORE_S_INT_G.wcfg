@@ -647,6 +647,14 @@
          <obj_property name="ObjectShortName">din[17:0]</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
+      <wvobject fp_name="/matrix_mul_ip_core_library/g_cnt_delay_ready" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">g_cnt_delay_ready</obj_property>
+         <obj_property name="ObjectShortName">g_cnt_delay_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_matrix_mul_ip_core_s_int_g/uut/FSM_UNIT/loading_done" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">loading_done</obj_property>
+         <obj_property name="ObjectShortName">loading_done</obj_property>
+      </wvobject>
       <wvobject fp_name="/tb_matrix_mul_ip_core_s_int_g/uut/GRAM/dout" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">dout[17:0]</obj_property>
          <obj_property name="ObjectShortName">dout[17:0]</obj_property>

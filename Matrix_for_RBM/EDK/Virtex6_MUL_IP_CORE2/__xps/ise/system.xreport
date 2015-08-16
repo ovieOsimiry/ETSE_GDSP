@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-08-14T10:15:20</DateModified>
+  <DateModified>2015-08-16T11:24:24</DateModified>
   <ModuleName>system</ModuleName>
-  <SummaryTimeStamp>2015-08-14T10:15:18</SummaryTimeStamp>
-  <SavedFilePath>C:/FPGA/Internship_Jobs/Codes/Virtex6_MUL_IP_CORE2/__xps/ise/system.xreport</SavedFilePath>
+  <SummaryTimeStamp>2015-08-16T11:24:24</SummaryTimeStamp>
+  <SavedFilePath>C:/FPGA/Internship_Jobs/Codes/ETSE_GDSP/Matrix_for_RBM/EDK/Virtex6_MUL_IP_CORE2/__xps/ise/system.xreport</SavedFilePath>
   <FilterFile>filter.filter</FilterFile>
-  <SavedFilterFilePath>C:/FPGA/Internship_Jobs/Codes/Virtex6_MUL_IP_CORE2/__xps/ise</SavedFilterFilePath>
+  <SavedFilterFilePath>C:/FPGA/Internship_Jobs/Codes/ETSE_GDSP/Matrix_for_RBM/EDK/Virtex6_MUL_IP_CORE2/__xps/ise</SavedFilterFilePath>
   <DateInitialized>2015-08-13T20:50:49</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
