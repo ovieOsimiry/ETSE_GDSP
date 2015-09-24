@@ -84,7 +84,7 @@ ARCHITECTURE behavior OF TB_MATRIX_MUL_IP_CORE_S_REAL IS
  	--Outputs
    signal DOUT : std_logic_vector(DATA_WIDTH-1 downto 0);
    signal f_gROW : std_logic_vector(ADDR_WIDTH-1 downto 0);
-   signal f_gCOL : std_logic_vector(COLUMN_TOTAL-1 downto 0);
+   signal f_gCOL : std_logic_vector(ADDR_WIDTH-1 downto 0);
    signal READY : std_logic;
    signal OP_DONE : std_logic;
    signal LOADING_DONE : std_logic;   
@@ -96,13 +96,13 @@ ARCHITECTURE behavior OF TB_MATRIX_MUL_IP_CORE_S_REAL IS
 --------------------------------------------------------GRAM Signals--------------------------------------------- 
 
    signal gROW : STD_LOGIC_VECTOR (ADDR_WIDTH-1 downto 0);
-   signal gCOL : STD_LOGIC_VECTOR (COLUMN_TOTAL-1 downto 0);
+   signal gCOL : STD_LOGIC_VECTOR (ADDR_WIDTH-1 downto 0);
    signal gDIN : STD_LOGIC_VECTOR (DATA_WIDTH-1 downto 0);
    signal gDOUT : STD_LOGIC_VECTOR (DATA_WIDTH-1 downto 0);
    signal gWE : STD_LOGIC;
    signal f_gOE : STD_LOGIC;
    
-	signal MUL_GCOL : std_logic_vector(COLUMN_TOTAL-1 downto 0);
+	signal MUL_GCOL : std_logic_vector(ADDR_WIDTH-1 downto 0);
 	signal MUL_GROW : std_logic_vector(ADDR_WIDTH-1 downto 0);	
 	signal Bank_sel_in : STD_LOGIC:='0';
 	   
@@ -641,7 +641,7 @@ begin
 										readline (file_pointer,line_num);  --Read the whole line from the file										
 										READ (line_num,v_r); --READ (line_num,x);
 										--report "The value of G" & integer'image(i) & integer'image(j) &" = " & integer'image(x);
-												GCOL<=std_logic_vector(to_unsigned(i-1,COLUMN_TOTAL));
+												GCOL<=std_logic_vector(to_unsigned(i-1,ADDR_WIDTH));
 												GROW<=std_logic_vector(to_signed(j-1,ADDR_WIDTH));
 												GDIN <= Convert_Real_2_Std(v_r,2.0**FRACTION_WIDTH);--std_logic_vector(to_signed(x,DATA_WIDTH));
 												wait for CLK_period;																					

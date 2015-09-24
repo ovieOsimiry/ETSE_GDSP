@@ -91,7 +91,7 @@ signal s_MUl_Din: std_logic_vector(DATA_WIDTH-1 downto 0);
 signal s_fsm_Write_SHFT : std_logic;
 
 signal s_G_ROW        : std_logic_vector(ADDR_WIDTH - 1 downto 0);
-signal s_G_COLUMN     : std_logic_vector(COLUMN_TOTAL - 1 downto 0);
+signal s_G_COLUMN     : std_logic_vector(ADDR_WIDTH - 1 downto 0);
 signal s_G_O_EN		:	STD_LOGIC;
 signal s_G_WE : std_logic;
 signal s_GRAM_DOUT : std_logic_vector(DATA_WIDTH-1 DOWNTO 0);

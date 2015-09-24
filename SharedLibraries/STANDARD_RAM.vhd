@@ -14,7 +14,7 @@ generic(
    );
     Port ( CLK : in  STD_LOGIC;
            ROW : in  STD_LOGIC_VECTOR (ADDR_WIDTH-1 downto 0);
-           COL : in  STD_LOGIC_VECTOR (COLUMN_TOTAL-1 downto 0);
+           COL : in  STD_LOGIC_VECTOR  (ADDR_WIDTH-1 downto 0);--(COLUMN_TOTAL-1 downto 0);
            DIN : in  STD_LOGIC_VECTOR (DATA_WIDTH-1 downto 0);
            DOUT : out  STD_LOGIC_VECTOR (DATA_WIDTH-1 downto 0);
            WE : in  STD_LOGIC;
@@ -29,7 +29,7 @@ type ram is array (0 to COLUMN_TOTAL-1) of column;
 signal datamem: ram;
 signal i_DOUT,ii_DOUT:std_logic_vector (DATA_WIDTH-1 downto 0); 
 begin
-process (CLK,DIN,COL,ROW)
+process(CLK)-- (CLK,DIN,COL,ROW)
 begin
 if rising_edge(CLK) then
 	if (WE='1') then

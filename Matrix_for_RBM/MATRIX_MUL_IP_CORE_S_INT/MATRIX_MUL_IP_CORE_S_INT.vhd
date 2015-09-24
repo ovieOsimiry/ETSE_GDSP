@@ -31,7 +31,7 @@ entity MATRIX_MUL_IP_CORE_S_INT is
 		 DIN          : in  STD_LOGIC_VECTOR(DATA_WIDTH - 1 downto 0);
 		 DOUT         : out STD_LOGIC_VECTOR(DATA_WIDTH - 1 downto 0);		 
 		 G_ROW        : out std_logic_vector(ADDR_WIDTH - 1 downto 0);
-		 G_COLUMN     : out std_logic_vector(COLUMN_TOTAL - 1 downto 0);
+		 G_COLUMN     : out std_logic_vector(ADDR_WIDTH - 1 downto 0);
 		 G_O_EN			: out STD_LOGIC;
 		 READY			: out std_logic;		 
 		 OP_DONE      : out std_logic;

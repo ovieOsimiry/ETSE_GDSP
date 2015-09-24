@@ -43,7 +43,7 @@ entity CONTROL_UNIT_S_INT_G is
 		 Write_SHFT		: out std_logic;		 
 		 OPCODE       : out STD_LOGIC_VECTOR(OPCODE_WIDTH - 1 downto 0);
 		 G_ROW        : out STD_LOGIC_VECTOR(ADDR_WIDTH - 1 downto 0);
-		 G_COLUMN     : out STD_LOGIC_VECTOR(COLUMN_TOTAL - 1 downto 0);
+		 G_COLUMN     : out STD_LOGIC_VECTOR(ADDR_WIDTH - 1 downto 0);
 		 G_WE		: out std_logic;
 		 G_EN		: out STD_LOGIC;
 		 READY		  : out std_logic;	
@@ -62,7 +62,8 @@ signal i_addr_cnt,i_row_cnt,i_col_cnt: integer range 0 to COLUMN_TOTAL;
  signal s_CSEL: std_logic_vector(COLUMN_TOTAL-1 downto 0);
 
 type state_type is (START,LOAD_G,LOAD_P,LOAD_DONE,PG,PtG,PGt,PtGt,DONE,UNLOAD);--,UNLOAD_DONE);
-signal current_state,next_state: state_type;
+--signal current_state,next_state: state_type;
+signal state: state_type;
 --signal s_P_ADDR : STD_LOGIC_VECTOR(ADDR_WIDTH - 2 downto 0);
 signal cnt_delay_ready: integer range 0 to (PIPELINE_DELAY + 1 + COLUMN_TOTAL*COLUMN_TOTAL);-- The counter should be able to count up to square of TOTAL_NUM_OF_COLUMNS + 1 +Pipeline delay
 
@@ -76,7 +77,7 @@ begin
 
 
 
-FLAGS_and_Current_state_update:process (CLK, RST)
+FLAGS_and_Current_state_update:process (CLK)
 -- This Counter variable is used to create a delay for the appropriate time to set the READY signal.
 -- The READY signal is used to alert the user to know when the FSM has setteled in the START state and is ready to start receiving input data
 -- for storage in BRAM. The current value is set to 4 but it can be changed accordingly to allow enough time for the READY signal to trigger,
@@ -86,15 +87,15 @@ FLAGS_and_Current_state_update:process (CLK, RST)
 begin
 if rising_edge(CLK) then
 		if(RST='1') then
-			current_state<=START;
+			--state<=START;
 			v_cnt_delay_ready := 0;
 			READY <= '0';
 			LOADING_DONE <= '0';
 			UN_LOADING_DONE <= '0';
 			OP_DONE <= '0';			
 		else
-			current_state <= next_state;   --state change.
-			if current_state = LOAD_G then
+--			current_state <= next_state;   --state change.
+			if state = LOAD_G then
 				v_cnt_delay_ready := v_cnt_delay_ready + 1;
 				if v_cnt_delay_ready >= 2 then
 					READY <= '1';
@@ -103,7 +104,7 @@ if rising_edge(CLK) then
 				if v_cnt_delay_ready = (PIPELINE_DELAY + 1 + COLUMN_TOTAL*COLUMN_TOTAL) then
 					LOADING_DONE <= '1';
 				end if;
-			elsif current_state = LOAD_P then
+			elsif state = LOAD_P then
 				v_cnt_delay_ready := v_cnt_delay_ready + 1;
 -- Note if DIN input to DSP block is delayed from GRAM (3 stage Pipeline) instead of using the 2 stage Pipeline in MEMARRY then this value should be 1 otherwise set it to 4.				
 				if v_cnt_delay_ready >= 4 then
@@ -114,7 +115,7 @@ if rising_edge(CLK) then
 					LOADING_DONE <= '1';
 				end if;
 				
-			elsif current_state = UNLOAD then
+			elsif state = UNLOAD then
 				v_cnt_delay_ready := v_cnt_delay_ready + 1;
 				if v_cnt_delay_ready >= PIPELINE_DELAY then
 					READY <= '1';
@@ -123,7 +124,7 @@ if rising_edge(CLK) then
 				if v_cnt_delay_ready >= (PIPELINE_DELAY + COLUMN_TOTAL*COLUMN_TOTAL) then
 					UN_LOADING_DONE <= '1';
 				end if;
-			elsif current_state = PG or current_state = PGt or current_state = PtG or current_state = PtGt then
+			elsif state = PG or state = PGt or state = PtG or state = PtGt then
 				v_cnt_delay_ready := v_cnt_delay_ready + 1;
 				if v_cnt_delay_ready >= (PIPELINE_DELAY + COLUMN_TOTAL*COLUMN_TOTAL) then
 					OP_DONE <= '1';
@@ -152,9 +153,9 @@ variable proceed : boolean:=false;
 
 begin
 if (rising_edge(CLK)) then
-	case current_state is
 	
-	when START =>
+if rst = '1' then
+			state<=START;
 			i_row_cnt<=0;
 			i_col_cnt<=0;
 			i_addr_cnt <= 1;
@@ -165,7 +166,7 @@ if (rising_edge(CLK)) then
 			v_LOADING_DONE:='0';
 			proceed := false;
 			v_UNLOAD_DONE := '1';-- This is supposed to be set to '0' but it is ok because it is reset in the LOAD_DONE state. It was necessary to set it to '1' to prevent synthesis tool from optimizing it.
-			next_state<=current_state;
+			--next_state<=current_state;
 			CONTROL_A_INPUT_OF_DSP <= "00";--'0';
 			i:=0;
 			j:=0;
@@ -173,14 +174,18 @@ if (rising_edge(CLK)) then
 			Write_SHFT <= '0';
 			WE <= '0';
 			OPCODE <= (others => '0');
-
-			s_CSEL <= (others => '0'); 			
+			s_CSEL <= (others => '0'); 	
+else	
+	case state is
+	
+	when START =>
+			
 				IF LOAD_PG = LOAD_G_CMD then
-					next_state<=LOAD_G;
+					state<=LOAD_G;
 				ELSIF LOAD_PG = LOAD_P_CMD then
-					next_state <= LOAD_P;				
+					state <= LOAD_P;				
 				ELSE
-					next_state<=LOAD_DONE;
+					state<=LOAD_DONE;
 				END IF;
 					-----------------------------------
 		when LOAD_G =>
@@ -209,9 +214,9 @@ if (rising_edge(CLK)) then
 				
 				if proceed = true then
 					if LOAD_PG = LOAD_G_CMD then
-						next_state <= LOAD_G;--remain here untilt signal changes from load_g to load_p or something else.
+						state <= LOAD_G;--remain here untilt signal changes from load_g to load_p or something else.
 					else
-						next_state <= LOAD_DONE;
+						state <= LOAD_DONE;
 					end if;	
 				end if;				
 				v_WE := '0';
@@ -252,15 +257,15 @@ if (rising_edge(CLK)) then
 					end if;
 				else
 					if v_LOADING_DONE = '1' and cnt_delay_ready = (PIPELINE_DELAY + COLUMN_TOTAL*COLUMN_TOTAL) then -- wait until gets to BRAM. 
-						next_state <= LOAD_DONE;
+						state <= LOAD_DONE;
 						proceed := true;
 					end if;
 					
 					if proceed = true then
 						if LOAD_PG = LOAD_G_CMD then
-							next_state <= LOAD_G;--remain here untilt signal changes from load_g to load_p or something else.
+							state <= LOAD_G;--remain here untilt signal changes from load_g to load_p or something else.
 						else
-							next_state <= LOAD_DONE;
+							state <= LOAD_DONE;
 						end if;	
 					end if;	
 					
@@ -278,26 +283,26 @@ if (rising_edge(CLK)) then
 				proceed := false;							
 				s_CSEL <= (others => '1');--Enble BRAM for Saving multiplication result.		
 				IF LOAD_PG = LOAD_G_CMD then
-					next_state <= LOAD_G;
+					state <= LOAD_G;
 				elsif LOAD_PG = LOAD_P_CMD then					
-					next_state <= LOAD_P;
+					state <= LOAD_P;
 				else
 					Write_SHFT <= '1';
 					if UN_LOAD = '1' then
-						next_state <= UNLOAD;	
+						state <= UNLOAD;	
 					else
 						G_EN <= '1'; -- Enable GRAM
 						CONTROL_A_INPUT_OF_DSP <= "11";
 							if (P='0') then
 									if G='0' then
-										next_state<=PG;
+										state<=PG;
 										i_addr_cnt<=COLUMN_TOTAL-1;
 										i_row_cnt<=1;
 										i_col_cnt<=0;
 										Read_SHFT <='1';							
 										OPCODE<="001";
 									else
-										next_state<=PGt;
+										state<=PGt;
 										Read_SHFT <='1';							
 										i_addr_cnt<=COLUMN_TOTAL-1;
 										i_row_cnt<=0;
@@ -306,14 +311,14 @@ if (rising_edge(CLK)) then
 									end if;
 								else
 									if G='0' then
-										next_state<=PtG;
+										state<=PtG;
 										Read_SHFT <='0';							
 										i_addr_cnt<=1;
 										i_row_cnt<=1;
 										i_col_cnt<=0;
 										OPCODE<="001";
 									else
-										next_state<=PtGt;
+										state<=PtGt;
 										Read_SHFT <='0';
 										i_addr_cnt<=1;
 										i_row_cnt<=0;
@@ -366,7 +371,7 @@ if (rising_edge(CLK)) then
 						end if;
 					else
 						if v_OP_DONE = '1' and cnt_delay_ready = (PIPELINE_DELAY + COLUMN_TOTAL*COLUMN_TOTAL) then -- wait until the results are saved in BRAM.--then
-							next_state<=DONE;
+							state<=DONE;
 							v_OPCODE := "111";
 						end if;
 					end if;
@@ -413,7 +418,7 @@ if (rising_edge(CLK)) then
 						end if;
 					else
 						if v_OP_DONE = '1' and cnt_delay_ready = (PIPELINE_DELAY + COLUMN_TOTAL*COLUMN_TOTAL) then -- wait until the results are saved in BRAM.--then
-							next_state<=DONE;
+							state<=DONE;
 							v_OPCODE := "111";
 						end if;
 					end if;
@@ -464,7 +469,7 @@ if (rising_edge(CLK)) then
 						end if;
 					else
 						if v_OP_DONE = '1' and cnt_delay_ready = (PIPELINE_DELAY + COLUMN_TOTAL*COLUMN_TOTAL) then -- wait until results are saved in BRAM.--then
-							next_state<=DONE;
+							state<=DONE;
 							v_OPCODE := "111";
 						end if;
 					end if;
@@ -516,7 +521,7 @@ if (rising_edge(CLK)) then
 						end if;
 					else
 						if v_OP_DONE = '1' and cnt_delay_ready = (PIPELINE_DELAY + COLUMN_TOTAL*COLUMN_TOTAL) then -- wait until gets to BRAM.--then
-							next_state<=DONE;
+							state<=DONE;
 							v_OPCODE := "111";
 						end if;
 					end if;
@@ -532,7 +537,7 @@ if (rising_edge(CLK)) then
 					j:=0;
 					--s_P_ADDR <= std_logic_vector(to_unsigned(j, ADDR_WIDTH-1));
 					if UN_LOAD = '1' then
-					 next_state <= UNLOAD;
+					 state <= UNLOAD;
 					end if;
 			when others =>				
 				--s_fsm_generate_address <= true;
@@ -568,6 +573,7 @@ if (rising_edge(CLK)) then
 				--s_P_ADDR <= std_logic_vector(to_unsigned(j-1, ADDR_WIDTH-1));
 				i_addr_cnt <= j-1;											
 	end case;
+end if;
 end if;
 end process;
 
@@ -613,7 +619,7 @@ end process;
 				
 				
 				G_ROW<=std_logic_vector(to_unsigned(i_row_cnt,ADDR_WIDTH));
-				G_COLUMN<=std_logic_vector(to_unsigned(i_col_cnt,COLUMN_TOTAL));
+				G_COLUMN<=std_logic_vector(to_unsigned(i_col_cnt,ADDR_WIDTH));
 				CSEL <= s_CSEL;
 
 
